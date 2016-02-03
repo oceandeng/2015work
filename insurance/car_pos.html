@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>车旺</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="styles/main.css">
+
+<style>
+	#container{
+		height: 100%;
+	}
+</style>
+
+<script>
+	var gConfig = {
+		imgPath: location.origin + '/'
+	}
+</script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qRn44eyeVuP1EGWn5ovWnGgs"></script>
+
+</head>
+<body>
+
+<article>
+	<section id="addrBox" class="addr-box">
+        <div class="map-top">
+            <div class="row">
+                <div class="span6">
+                    <div class="car-info">
+                    <div class="line-o">
+                        <div class="car-id">冀K28321</div>
+                    </div>
+                    <div class="line-t">
+                        <div class="status online"><span class="dot"></span>在线</div>
+                        <!-- <div class="addr g666">内蒙古自治区呼伦贝尔市莫力达瓦达
+斡尔族自治旗 杜拉尔鄂温克民族乡 </div> -->
+                    </div>
+                </div>
+                </div>
+                <div class="last-update span4">
+                    <p>最后更新</p>
+                    <p>2016.01.04</p>
+                    <p>11:20:05</p>
+                </div>
+                <div class="refresh-box span2">
+                    <div id="refreshBtn" class="refresh"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+	<!--   定义地图显示容器   -->
+	<section id="container"></section>
+
+</article>
+
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+
+<script src="scripts/customtools.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/validate.js"></script>
+<script src="scripts/dialog.js"></script>
+
+<script src="scripts/main.js"></script>
+
+<script src="scripts/custom_overlay.js"></script>
+
+<script>
+
+$(function(){
+    $('#container').css({
+        height: sH
+    });
+});
+
+$(window).load(function(){
+
+// -- 获取url经纬度
+	var jing = oTools.getQuery('jing') || 116.31007;
+	var wei = oTools.getQuery('wei') || 40.050574;
+// -- 直接加载地图
+    // 百度地图API功能
+    var map = new BMap.Map("container");                // 创建Map实例
+    // map.addControl(new BMap.MapTypeControl());          //添加地图类型控件
+    map.setCurrentCity("北京");                         // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true);                    //开启鼠标滚轮缩放
+
+    refreshMap(map, jing, wei, '内蒙古自治区呼伦贝尔市莫力达瓦达斡尔族自治旗杜拉尔鄂温克民族乡');
+
+//添加控件
+    var bottom_right_navigation = new BMap.NavigationControl({
+        anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+        offset: new BMap.Size(10, 60)
+    });  //右下角，添加默认缩放平移控件
+    map.addControl(bottom_right_navigation);
+
+    // 添加定位控件
+    var geolocationControl = new BMap.GeolocationControl({
+        anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+        offset: new BMap.Size(10, 20)
+    });
+    geolocationControl.addEventListener("locationSuccess", function(e){
+        // 定位成功事件
+        var address = '';
+        address += e.addressComponent.province;
+        address += e.addressComponent.city;
+        address += e.addressComponent.district;
+        address += e.addressComponent.street;
+        address += e.addressComponent.streetNumber;
+    });
+    geolocationControl.addEventListener("locationError",function(e){
+    // 定位失败事件
+        alert(e.message);
+    });
+    map.addControl(geolocationControl);
+
+    document.addEventListener('mousemove', function(e){e.preventDefault()}, false);
+
+    // 重新定位
+    $('#refreshBtn').on(oTools.clickEvent, function(){
+        map.clearOverlays();
+
+jing = 116.528121;
+wei = 39.786414;
+
+refreshMap(map, jing, wei, '内蒙古自治区呼伦贝尔');
+
+
+        // $.ajax({
+        //     url: '',
+        //     type: 'POST',
+        //     dataType: 'json',
+        //     data: {},
+        //     beforeSend: function(){
+        //         load.start();
+        //     },
+        //     success: function(res){
+        //         load&&load.close();
+
+        //         if(res.success){
+        //             jing = res.jing;
+        //             wei = res.wei;
+
+        //             refreshMap(map, jing, wei);
+        //         }else{
+        //             oTools.alertmess(res.msg);
+        //         }
+        //     },
+        //     error: function(e){
+        //         load&&load.close();
+        //         alert(e)
+        //     }
+        // });
+
+    });
+
+// 重新绘制地图marker
+    function refreshMap(map, jing, wei, addrStr){
+        map.centerAndZoom(new BMap.Point(jing, wei), 18);
+        //创建自定义图标
+        var pt = new BMap.Point(jing, wei);
+        var myIcon = new BMap.Icon("images/mark.png", new BMap.Size(30, 40));
+        var marker = new BMap.Marker(pt,{icon:myIcon});         // 创建标注
+        map.addOverlay(marker);                                 // 将标注添加到地图中
+        map.panTo(pt);
+
+        // 车辆信息数据
+        var carInfo = {
+            'pos': addrStr
+        };
+
+        var myCompOverlay = new ComplexCustomOverlay(pt, carInfo);
+        map.addOverlay(myCompOverlay);
+
+    }
+
+});
+
+</script>
+</body>
+</html>

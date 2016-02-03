@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>借款明细</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- build:css(.tmp) styles/borrowreturn.css -->
+    <link rel="stylesheet" href="styles/borrowreturn.css">
+    <!-- endbuild -->
+    <script>
+        var gConfig = {
+            imgPath: location.origin + '/'
+        }
+    </script>
+  </head>
+  <body>
+
+<!-- container S -->
+    <div class="container">
+		<div class="l-a-two">
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">资金需求</h2>
+				</div>
+				<div class="col-7">
+					<div id="rNum" class="r-num r-con"><span>2100.00</span> 元</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">还款日</h2>
+				</div>
+				<div class="col-7">
+					<div id="rDate" class="r-date r-con"><span>201501008</span> 元</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">借款利率</h2>
+				</div>
+				<div class="col-7">
+					<div id="rRare" class="r-rate r-con"><span>8% （年化）</span> 元</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">服务费率</h2>
+				</div>
+				<div class="col-7">
+					<div id="sRate" class="s-rate r-con"><span>13.6% （年化）</span> 元</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">还款方式</h2>
+				</div>
+				<div class="col-7">
+					<div id="rWay" class="r-way r-con"><span>还本付息</span></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="borrow-info">
+			<h2>借款说明</h2>
+			<ul>
+				<li>1、单个车主授信额度不得小于10,000元，且大于50,000元。</li>
+				<li>2、授信额度有效期为自授信之日起半年内有效。</li>
+				<li>3、当前借款总额不得超过最高授信额度。</li>
+				<li>4、还款日每月提供两个供借款人选择：8日，22日，单笔借款期限最长不得超过90天</li>
+			</ul>
+		</div>
+
+		<div class="return-btn">去还款</div>
+    </div>
+<!-- container E -->
+
+    <!-- build:js scripts/zepto.min.js -->
+    <script src="scripts/libs/zepto.js"></script>
+    <script src="scripts/libs/ajax.js"></script>
+    <script src="scripts/libs/event.js"></script>
+    <script src="scripts/libs/touch.js"></script>
+    <script src="scripts/libs/fx.js"></script>
+    <script src="scripts/libs/fx_methods.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/borrowreturn.js -->
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/iscroll.js"></script>
+    <script src="scripts/customtool.js"></script>
+    <script src="scripts/borrowreturn.js"></script>
+    <!-- endbuild -->
+
+  </body>
+</html>

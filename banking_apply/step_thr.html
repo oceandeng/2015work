@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>申请材料</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- build:css(.tmp) styles/apply.css -->
+    <link rel="stylesheet" href="styles/apply.css">
+    <!-- endbuild -->
+
+    <script>
+    	var gConfig = {
+    		imgPath: location.origin + '/'
+    	}
+    </script>
+  </head>
+  <body>
+        
+    <div class="container">
+
+       	<div class="l-a-one">
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">亲属姓名</h2>
+				</div>
+				<div class="col-7">
+					<input type="text" id="dearName" class="dear-name" placeholder="请填写您的亲属姓名">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">手机号码</h2>
+				</div>
+				<div class="col-7">
+					<input type="number" id="phoneNum" class="phone-num" placeholder="请填写手机号码">
+				</div>
+			</div>
+       	</div>
+
+       	<div class="l-a-two">
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">车辆行驶证</h2>
+				</div>
+				<div class="col-7">
+					<!-- 已上传图片 -->
+<!-- 					<div id="carId" class="car-id">
+						<div class="upload-img-box">
+							<img class="upload-img" src="images/default-img.png" alt="">
+							<img class="del-img-btn" src="images/delete.png" alt="">
+						</div>
+					</div> -->
+
+					<!-- 未上传图片 -->
+					<div id="carId" class="car-id">点击上传车辆行驶证照片</div>
+
+				</div>
+			</div>
+			<!-- 显示车辆行驶证附件  start   -->
+			<div name="vehicleDriving" class="other-photo" id="vehicleDriving">
+				<!-- 已上传图片 -->
+				<div class="upload-img-box">
+					<div class="upload-img">
+						<img src="images/apply-main-img.jpg" alt="">
+					</div>
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div>
+				<!-- 已上传图片 -->
+				<div class="upload-img-box">
+					<div class="upload-img">
+						<img src="images/default-img.png" alt="">
+					</div>
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div>
+				
+				<!-- 添加图片按钮 -->
+				<div id="addImg" class="add-img">
+					<input type="file" id="file1Input" class="upload-img-input" name="files"
+			                                   style="z-index: 200; opacity: 0; filter: alpha(opacity = 0); -ms-filter:"
+			                            ;alpha(opacity=0) ";"  accept="image/*" single="" multiple
+			                            accept="image/*" />
+			        <div id="file1" class="upload-btn">
+						<img src="images/add-icon.png" alt=""/>
+					</div>
+				</div>
+			</div>	
+			<!-- 显示车辆行驶证附件  end -->
+
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">购车发票</h2>
+				</div>
+				<div class="col-7">
+
+					<!-- 未上传图片 -->
+					<div id="carBill" class="car-bill">点击上传购车发票</div>
+				</div>
+			</div>
+			<!-- 购车发票  start   -->
+			<div name="vehicleDriving" class="other-photo">
+				<!-- 已上传图片 -->
+				<div class="upload-img-box">
+					<img class="upload-img" src="images/default-img.png" alt="">
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div>
+				<!-- 已上传图片 -->
+				<div class="upload-img-box">
+					<img class="upload-img" src="images/default-img.png" alt="">
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div>
+
+				<!-- 添加图片按钮 -->
+				<div id="addImg" class="add-img">
+					<input type="file" id="file2Input" class="upload-img-input" name="files"
+			                                   style="z-index: 200; opacity: 0; filter: alpha(opacity = 0); -ms-filter:"
+			                            ;alpha(opacity=0) ";"  accept="image/*" single="" multiple
+			                            accept="image/*" />
+			        <div id="file2" class="upload-btn">
+						<img src="images/add-icon.png" alt=""/>
+					</div>
+				</div>
+			</div>	
+			<!-- 购车发票  end -->
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">其他材料</h2>
+				</div>
+				<div class="col-7">
+					<div id="other" class="other">其他材料有助于提升贷款额度</div>
+				</div>
+			</div>
+			<!-- 购车发票  start   -->
+			<div name="vehicleDriving" class="other-photo">
+				<!-- 已上传图片 -->
+				<div class="upload-img-box">
+					<img class="upload-img" src="images/default-img.png" alt="">
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div>
+				<!-- 已上传图片 -->
+				<div class="upload-img-box">
+					<img class="upload-img" src="images/default-img.png" alt="">
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div>
+
+				<!-- 添加图片按钮 -->
+				<div id="addImg" class="add-img">
+					<input type="file" id="file3Input" class="upload-img-input" name="files"
+			                                   style="z-index: 200; opacity: 0; filter: alpha(opacity = 0); -ms-filter:"
+			                            ;alpha(opacity=0) ";"  accept="image/*" single="" multiple
+			                            accept="image/*" />
+			        <div id="file3" class="upload-btn">
+						<img src="images/add-icon.png" alt=""/>
+					</div>
+				</div>
+			</div>
+			<!-- 购车发票  end -->
+			<!-- <div id="otherPhoto" class="other-photo"> -->
+				<!-- 已上传图片 -->
+<!-- 				<div class="upload-img-box">
+					<img class="upload-img" src="images/default-img.png" alt="">
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div> -->
+				<!-- 已上传图片 -->
+<!-- 				<div class="upload-img-box">
+					<img class="upload-img" src="images/default-img.png" alt="">
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div> -->
+				<!-- 已上传图片 -->
+<!-- 				<div class="upload-img-box">
+					<img class="upload-img" src="images/default-img.png" alt="">
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div> -->
+				<!-- 已上传图片 -->
+<!-- 				<div class="upload-img-box">
+					<img class="upload-img" src="images/default-img.png" alt="">
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div> -->
+				<!-- 已上传图片 -->
+<!-- 				<div class="upload-img-box">
+					<img class="upload-img" src="images/default-img.png" alt="">
+					<img class="del-img-btn" src="images/delete.png" alt="">
+				</div> -->
+
+				<!-- 添加图片按钮 -->
+<!-- 				<div id="addImg" class="add-img">
+					<input type="file" id="uploadImg" class="upload-img-input" accept="image/*"/>
+					<div id="uploadBtn" class="upload-btn">
+						<img src="images/add-icon.png" alt="" />
+					</div>
+				</div>
+			</div> -->
+       	</div>
+
+		<div id="submit" class="submit botton gray">立即提交</div>
+		<div class="protocol">点击确认提交，意味着您同意<span id="protocol">《借款与担保协议》</span></div>
+
+    </div>
+
+<!-- >> 《借款与担保协议》 弹层 S -->
+<div class="wrapper" style="display:none">
+    <div id="wrapper">
+      <div id="scroller">
+          <div class="rule-con">
+            <h2>借款咨询与服务协议</h2>
+            <div class="rule-detail">
+				<div class="rule-row">
+					<div class="r-t">协议编号：</div>
+					<div class="r-c">标签内容标签内容标签内容标签内容标签内容标签内容标签内容标签内容标签内容标签内容标签内容</div>
+				</div>
+            	<div class="rule-row">
+					<div class="r-t">甲方(借款人)：</div>
+					<div class="r-c">标签内容</div>
+				</div>
+				<div class="rule-row">
+					<div class="r-t">身份证号码：</div>
+					<div class="r-c">标签内容</div>
+				</div>
+				<div class="rule-row">
+					<div class="r-t">乙方：</div>
+					<div class="r-c">北京中交兴路车联网科技有限公司</div>
+				</div>
+				<div class="rule-row">
+					<div class="r-t">地址：</div>
+					<div class="r-c">北京经济技术开发区景园北街2号BDA国际企业大道56幢</div>
+				</div>
+				
+				<h4>鉴于：</h4>
+				<ol>
+					<li>甲方有借款需求。</li>
+					<li>乙方为甲方提供借款信息咨询并在甲方借款过程中协助其办理各项手续；乙方为甲方推荐出借人、促成交易、提供还款提醒管理等服务。</li>
+					<li>甲方同意有偿接受乙方的服务并与乙方达成如下一致意见。</li>
+				</ol>
+				
+				<h4>第一条	释义：</h4>
+				<ol>
+					<li>咨询服务费：指乙方为甲方提供借款信息咨询并在甲方借款过程中协助其办理各项手续，同时乙方为甲方提供出借人推荐、促成交易和还款提醒等服务，在甲方成功获得借款后而由甲方向乙方支付的报酬。</li>
+					<li>授信额度：指乙方根据甲方的资信及经济情况，授予其在一定期限内的最高借款额度。</li>
+					<li>出借人：指向甲方提供资金的投资人。</li>
+					<li>还款日：每月8日或22日为还款日。</li>
+					<li>逾期：指甲方晚于还款日还款即构成逾期，逾期还款日自还款日次日起算。</li>
+				</ol>
+
+				<h4>第二条	授信和还款方式</h4>
+				<ol>
+					<li>授信额度自额度确立之日起半年内有效；若有效期届满，乙方有权要求甲方提供补充材料重新评估。</li>
+					<li>授信额度在有效期内可循环使用，甲方借款余额不得超出授信额度。</li>
+					<li>甲方可委托乙方合作的支付机构在还款日前从指定还款账户划扣还款，也可自行通过转账至乙方指定的银行账户还款。乙方指定还款银行账户如下：
+						<div>开户行：<span>开户行内容</span></div>
+						<div>账号：<span>账号内容</span></div>
+					</li>
+				</ol>
+
+				<h4>第三条	甲方的权利与义务：</h4>
+				<ol>
+					<li>甲方应根据乙方要求，真实、完整、准确地提供个人信息，并承担因虚假信息给乙方或其他关联方造成的全部损失。</li>
+					<li>甲方同意并授权乙方向征信机构查询、采集其个人信息，甲方了解征信机构采集此等信息可能导致征信机构了解其个人资产和负债状况、消费和支出类型和个人消费行为习惯等个人隐私信息。</li>
+					<li>如甲方接到出借人或其代理人发出的债权转让通知，应自收到通知之日起向债权受让人履行还款义务。</li>
+					<li>甲方申请借款的纸质或者电子记录（包括但不限于邮件、手机短信等）和关联的资金流水记录，均构成借款事实的有效组成部分，甲方应妥善保管，并不得篡改。</li>
+					<li>甲方应按照本协议的规定向乙方支付咨询服务费。</li>
+					<li>甲方同意，其在履行本协议和借款协议中存在违约情形时，乙方可将甲方及其不良信息予以公开披露或向征信机构提供。</li>
+					<li>因资金划扣和支付等纠错需要，甲方有义务配合乙方操作。</li>
+					<li>甲方应在偿付全部借款本息及违约金后，变更车辆隶属关系，并立即通知乙方。</li>
+					<li>甲方有义务配合乙方借款前征信和借款后还款的业务管理工作。</li>
+				</ol>
+
+				<h4>第四条	乙方的权利与义务：</h4>
+				<ol>
+					<li>乙方须为甲方提供借款方案和信息咨询服务，并在甲方申请借款和还款服务过程中协助其办理各项手续。</li>
+					<li>乙方应根据对甲方的信用审核情况，决定是否将甲方的全部或部分借款需求向出借人推荐并协助达成交易。</li>
+					<li>乙方经出借人授权有权对甲方进行信用认证、信用审核并根据甲方信用状况决定是否继续向甲方发放借款和/或撤销不符合条件的借款。</li>
+					<li>乙方经出借人授权按借款协议约定向甲方发出付款指令。</li>
+					<li>乙方依据本协议向甲方收取咨询服务费。</li>
+					<li>在甲方还款后，乙方应确保及时、足额将应付本息支付到出借人账户。</li>
+					<li>乙方应为甲方提供的资料和信息保密，但甲方违反本协议及还款约定的情形除外。在乙方与其合作方约定保密义务的前提下，为甲方借款之目的，乙方有权与合作方共同使用甲方提供的信息。</li>
+					<li>甲方同意，乙方可将甲方的违约信息予以公开披露。如甲方存在涉嫌欺诈等犯罪行为，乙方有权向相关国家机关报案，以追究其刑事责任。</li>
+					<li>甲方理解并接受，乙方促成交易过程中可能将其信息提供给多个出借人，而获取甲方信息的出借人可能拒绝出借。</li>
+					<li>发生如下情形时，乙方经出借人授权，有权要求甲方提前一次性支付余下的所有本金、利息和逾期违约金：
+						<div>1)	甲方擅自改变借款用途，如将资金用于投资，或赌博、吸毒等非法行为。</div>
+						<div>2)	甲方提供虚假资料或者隐瞒重要事实。</div>
+						<div>3)	其它乙方认为影响甲方及时足额还款的情形。</div>
+					</li>
+					<li>乙方应妥善保管甲方在借款交易过程中签署的文件。</li>
+				</ol>
+
+				<h4>第五条	咨询服务费及支付方式：</h4>
+				<ol>
+					<li>甲方应向乙方支付咨询服务费，咨询服务费金额以借款协议中约定额度为准。</li>
+					<li>咨询服务费由甲方委托出借人从借款协议约定出借资金中代为支付。该咨询服务费是甲方借款本金的有效组成部分。出借人可根据前述委托指示与乙方合作的支付结算服务方从出借资金中将咨询服务费扣除，直接付给乙方。</li>
+					<li>如甲方违反本协议和还款约定被要求提前还款或甲方主动提出提前还款时，乙方不退回咨询服务费。</li>
+				</ol>
+
+				<h4>第六条	甲方指定账户变更：</h4>
+				<ol>
+					<li>甲方须确保其指定的收款/还款账户为甲方名下合法有效的银行账户。如甲方需要变更指定账户，须至少在变更前5个工作日向乙方提交书面申请及乙方要求的其他证明文件, 未经乙方审核甲方不得更换指定账户。</li>
+					<li>在还款过程中，甲方有义务配合乙方为保证还款而进行的，包括但不限于账户验证、账户变更、身份验证等事项，因甲方不配合而造成的未能正常还款的违约责任由甲方承担。</li>
+				</ol>
+
+				<h4>第七条	违约责任：</h4>
+				<ol>
+					<li>任何一方违反本协议的约定，致使本协议的全部或部分不能履行，均应承担违约责任，并赔偿另一方因此遭受的损失；如各方均违约，根据实际情况各自承担相应的责任。</li>
+					<li>因甲方未按本协议和还款约定及时还款而导致乙方发生的合理支出（包括但不限于催收费用、调查费、诉讼费、仲裁费、律师费、执行费、差旅费及其他合理支出）均由甲方承担。</li>
+				</ol>
+
+				<h4>第八条	变更通知：</h4>
+				<ol>
+					<li>本协议签订之日起至借款全部清偿之日止，甲方有义务在下列信息变更三日内提供更新后的信息给乙方：
+						<div>1)	甲方姓名、身份证件号码、家庭住址、手机号码、电子邮箱；</div>
+						<div>2)	乙方认为甲方应履行其他通知义务的信息。</div>
+					</li>
+					<li>因甲方不提供或未及时、准确、真实提供上述变更信息而导致乙方产生的损失，包括但不限于调查费、诉讼费、仲裁费、律师费、执行费、差旅费及其他合理支出均由甲方承担。</li>
+				</ol>
+
+				<h4>第九条	法律适用与管辖：</h4>
+				<ol>
+					<li>本协议适用中国法律。</li>
+					<li>协议各方一致同意，如因履行本协议发生的争议，任何一方均可将争议提交协议签订地法院诉讼解决。</li>
+				</ol>
+
+				<h4>第十条	其他：</h4>
+				<ol>
+					<li>本协议自甲乙双方签章之日起生效。</li>
+					<li>本协议及其附件的任何修改、补充均须以书面形式作出，补充协议与本协议具有同等法律效力。</li>
+					<li>本协议的传真件、原件扫描件与本协议原件具有同等法律效力。</li>
+					<li>本协议部分条款无效或不能履行，不影响其他条款的效力与履行。</li>
+					<li>本协议一式两份，甲乙双方各执一份，具有同等法律效力。</li>
+				</ol>
+				<p>（以下无正文）</p>
+
+				<div class="sign">
+					<div class="s-l">
+						甲方（签字）：
+						<!-- <img src="http://img5.imgtn.bdimg.com/it/u=1044648530,2307239913&fm=21&gp=0.jpg" alt=""> -->
+					</div>
+					<div class="s-r">
+						日期：201<span>6</span> 年 <span>12</span> 月 <span>12</span> 日
+					</div>
+				</div>
+
+				<div class="sign">
+					<div class="s-l">
+						乙方（签章）：
+						<!-- <img src="http://img5.imgtn.bdimg.com/it/u=1044648530,2307239913&fm=21&gp=0.jpg" alt=""> -->
+					</div>
+					<div class="s-r">
+						日期：201<span>6</span> 年 <span>12</span> 月 <span>12</span> 日
+					</div>
+				</div>
+				
+				<p>签订地点：北京市</p>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+</div>
+<!-- >> 《借款与担保协议》 弹层 E -->
+
+    <!-- build:js scripts/zepto.min.js -->
+    <script src="scripts/libs/zepto.js"></script>
+    <script src="scripts/libs/ajax.js"></script>
+    <script src="scripts/libs/event.js"></script>
+    <script src="scripts/libs/touch.js"></script>
+    <script src="scripts/libs/fx.js"></script>
+    <script src="scripts/libs/fx_methods.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/apply.js -->
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/iscroll.js"></script>
+    <script src="scripts/customtool.js"></script>
+    <script src="scripts/apply.js"></script>
+    <!-- endbuild -->
+
+  </body>
+</html>

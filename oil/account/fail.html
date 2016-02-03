@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>支付结果</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/account/account.css">
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+	
+	<section class="pay-result">
+		<div class="pay-status">
+			<div class="pay-fail">支付失败！</div>
+		</div>
+		<div class="pay-tips">
+			<p>可能是以下情况导致：</p>
+			<ul>
+				<li>1、网络连接问题出错</li>
+				<li>2、您的余额不足以完成本次支付</li>
+			</ul>
+			<p>您还可以：</p>
+			<ul>
+				<li>1.使用账户余额进行支付。</li>
+				<li>2.登录车旺平台www.95155.com使用网银支付。</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="pay-btn">
+		<div id="doneBtn" class="done-btn">完成</div>
+		<div class="continue-button" data-href="">再次尝试支付</div>
+	</section>
+
+</article>
+
+<footer></footer>
+
+<script src="../scripts/zepto/zepto.js"></script>
+<script src="../scripts/zepto/ajax.js"></script>
+<script src="../scripts/zepto/event.js"></script>
+<script src="../scripts/zepto/touch.js"></script>
+<script src="../scripts/zepto/fx.js"></script>
+<script src="../scripts/zepto/fx_methods.js"></script>
+
+<script src="../scripts/customtools.js"></script>
+<script src="../scripts/plugin/eventutil.js"></script>
+<script src="../scripts/loading.js"></script>
+<script src="../scripts/validate.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/plugin/dialog.js"></script>
+<script src="../scripts/plugin/upload.zepto.js"></script>
+<script src="../scripts/plugin/drag_del.js"></script>
+<script src="../scripts/plugin/iscroll-probe.js"></script>
+<script src="../scripts/plugin/city_selector.js"></script>
+
+<script src="../scripts/account/account.js"></script>
+
+<script>
+	(function($){
+
+// -- 完成点击事件
+	$('#doneBtn').on(oTools.clickEvent, function(){
+		
+	});
+
+	})(Zepto);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+@import "reset", "mixin";
+
+$color: #ff3c00;
+
+/*reset css*/
+@include reset-eric();
+
+body{
+	font-family: 'Microsoft YaHei';
+	font-size: 20px;
+	color: #333;
+	line-height: 30px;
+}
+
+.header{
+	border-bottom: 5px solid #ee4d28;
+	background: #020204;
+	width: 100%;
+	overflow: hidden;
+	
+	#rule{
+		color: #fff;
+		position: absolute;
+		width: 200px;
+		height: 60px;
+		background: $color;
+		@include line-height();
+		text-align: center;
+		top: 100px;
+		left: 50%;
+		margin: 0 0 0 -100px;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+	img{
+		float: left;
+	}
+}
+
+.container{
+	width: 1000px;
+	margin: 0 auto;
+
+	.p-one,.p-two,.p-thr,.p-fou,.p-fiv{
+		margin: 50px 0 0 0;
+		color: #666;
+
+		h2{
+			@include line-height(20px);
+			font-size: 20px;
+			border-left: 5px solid $color;
+			padding-left: 20px;
+			font-weight: bold;
+			color: #333;
+		}
+		p.tips{
+			padding: 30px 0;
+		}
+		ul{
+			margin: 0 0 30px 0;
+		}
+		h3{
+			font-size: 24px;
+			color: $color;
+			padding: 3px 0;
+			text-align: center;
+			font-weight: normal !important;
+		}
+		.orange{
+			color: $color;
+		}
+	}
+	.p-two,.p-thr{
+		ul{
+			margin-top: 30px;
+		}
+
+	}
+	.p-fou{
+		.first{
+			padding-top: 30px;
+		}
+		p{
+			padding: 15px 0;
+		}
+	}
+	.p-fiv{
+		.fiv-box{
+			@include clearfix();
+			margin-top: 30px;
+
+			.QR-code{
+				width: 240px;
+				float: left;
+				text-align: left;
+		
+				h3{
+					font-size: 14px;
+					font-weight: bold;
+					margin: 0 0 10px 0;
+					color: #333;
+					text-align: left;
+				}
+				p{
+					font-size: 14px;
+					line-height: 20px;
+					margin: 10px 0 0 0;
+					color: #333;
+
+					span{
+						color: #f00;
+					}
+				}
+			}
+			.two{
+				p{
+					width: 180px;
+					text-align: center;
+				}
+			}
+			
+		}
+		ul{
+			margin: 30px 0 30px 0;
+		}
+	}
+	.p-six{
+		text-align: center;
+		padding: 0 0 40px 0;
+		h3{
+			margin: 0 0 20px 0;
+		}
+	}
+	.register{
+		margin: 60px 0 0 0;
+		h2{
+			color: $color;
+			text-align: center;
+			font-size: 26px;
+		}
+		.reg-box{
+			margin: 30px 0 50px 0;
+			@include clearfix();
+	
+			.shadow{
+				border: 1px solid #ccc;
+				box-shadow: 1px 1px 3px #ccc;
+			}
+			.QR-code{
+				float: left;
+				width: 290px;
+				height: 300px;
+				text-align: center;
+				padding: 20px 0 0 0;
+
+				h3{
+					font-size: 18px;
+					font-weight: bold;
+					margin: 0 0 20px 0;
+
+					span{
+						color: #ff0000;
+					}
+				}
+				p{
+					font-size: 14px;
+					color: $color;
+					line-height: 20px;
+					margin: 10px 0 0 0;
+				}
+			}
+			.form-box{
+				float:right;
+				width: 680px;
+				padding: 20px 0 0 0;
+				height: 300px;
+				text-align: center;
+				
+				dl{
+					margin: 20px 0;
+					@include clearfix();
+					
+					dt{
+						width: 30%;
+						float: left;
+						text-align:right;
+						@include line-height();
+						font-size: 18px;
+					}
+					dd{
+						width:66%;
+						float: right;
+						text-align: left;
+						@include line-height();
+
+						input{
+							width: 70%;
+							padding: 0 10px;
+							@include line-height(30px);
+							border: 1px solid #ccc;
+						}
+					}
+				}
+				.submit{
+					input{
+						width: 300px;
+						border: none;
+						background: $color;
+						@include line-height(40px);
+						color: #fff;
+						font-size: 20px;
+						font-family: 'Microsoft YaHei';
+						cursor: pointer;
+						border-radius: 5px;
+					}
+				}
+			}
+		}
+	}
+}

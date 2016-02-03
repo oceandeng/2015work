@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>用户中心</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+<style>
+	#container{
+		height: 100%;
+	}
+</style>
+
+<script>
+	var gConfig = {
+		imgPath: location.origin + '/'
+	}
+</script>
+
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=ICTBZ-EVMR4-IBLUX-XAU7D-PVQT6-GKB5A"></script>
+
+</head>
+<body>
+
+<!--   定义地图显示容器   -->
+<section id="container"></section>
+
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+
+<script src="scripts/customtools.js"></script>
+<script src="scripts/dialog.js"></script>
+
+<script src="scripts/main.js"></script>
+
+<script>
+
+window.onload = function(){
+
+//直接加载地图
+
+    //初始化地图函数  自定义函数名init
+    function init() {
+        //定义map变量 调用 qq.maps.Map() 构造函数   获取地图显示容器
+         var map = new qq.maps.Map(document.getElementById("container"), {
+            center: new qq.maps.LatLng(39.916527,116.397128),      // 地图的中心地理坐标。
+            zoom:8                                                 // 地图的中心地理坐标。
+        });
+    }
+
+    //调用初始化函数地图
+    init();
+
+}
+
+</script>
+
+</body>
+</html>

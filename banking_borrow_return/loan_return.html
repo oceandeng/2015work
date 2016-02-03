@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>还款</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- build:css(.tmp) styles/borrowreturn.css -->
+    <link rel="stylesheet" href="styles/borrowreturn.css">
+    <!-- endbuild -->
+    <script>
+        var gConfig = {
+            imgPath: location.origin + '/'
+        }
+    </script>
+  </head>
+  <body>
+
+<!-- container S -->
+    <div class="container">
+		<div class="bank-info">建设银行（尾号4332）</div>
+		<div class="return-money">
+			<div class="m-tit">还款金额</div>
+			<div class="m-input">
+				<input type="number" id="mNum" class="m-num" value="2100.00" placeholder="请输入还款金额" />
+			</div>
+		</div>
+		<div id="confirm" class="confirm">确认还款</div>
+    </div>
+<!-- container E -->
+
+    <!-- build:js scripts/zepto.min.js -->
+    <script src="scripts/libs/zepto.js"></script>
+    <script src="scripts/libs/ajax.js"></script>
+    <script src="scripts/libs/event.js"></script>
+    <script src="scripts/libs/touch.js"></script>
+    <script src="scripts/libs/fx.js"></script>
+    <script src="scripts/libs/fx_methods.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/borrowreturn.js -->
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/iscroll.js"></script>
+    <script src="scripts/customtool.js"></script>
+    <script src="scripts/borrowreturn.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

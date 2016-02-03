@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>申请车位锁</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+<script src="../scripts/json/ctfo_area_data.json"></script>
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+	<section class="list-box row">
+		<div class="list-row">
+			<div class="l-l span4"><span>手机号</span></div>
+			<div class="l-r span8"><span><input id="mobile" type="tel" value="" placeholder="请输入"></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>姓名</span></div>
+			<div class="l-r span8"><span><input id="username" type="text" value="" placeholder="请填写车位所属人姓名"></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>身份证号</span></div>
+			<div class="l-r span8"><span><input id="userid" type="num" value="" placeholder="请填写车位所属人身份证号"/></span></div>
+		</div>
+	</section>
+
+	<h2 class="tit-gray g999">预留车位地址</h2>
+	<section class="list-box row mar0">
+		<div class="list-row">
+			<div class="l-l span4"><span>所在地区</span></div>
+			<div class="l-r span8"><span id="adrSel" class="h-arrow"><b class="g999" data-val="">请选择</b></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>详细地址</span></div>
+			<div class="l-r span8"><span><input id="detialadr" type="text" /></span></div>
+		</div>
+	</section>
+
+	<section class="agree">
+		<div class="row" id="agreeBtn">
+			<div id="agreeSel" class="l-l span1 ac">
+				<img id="agreeImg" class="sel-icon" src="../images/sel-square.png" alt="">
+				<input type="checkbox" checked="checked" class="pos-hidden"/>
+			</div>
+			<div class="l-r span11">同意 <span class="green">《停哪儿车位锁申请协议》</span></div>
+		</div>
+	</section>
+
+	<section class="button-box">
+		<div id="saveBtn" class="button">提交申请</div>
+	</section>
+</article>
+
+<footer></footer>
+
+<!-- 地址选择弹层 S -->
+<div class="wrapper" style="display:none">
+	<div id="wrapBox" class="wrap-box">
+		<div class="scroll-tit row">
+			<div class="province">省</div>
+			<div class="market">市</div>
+			<div class="area">区/县</div>
+		</div>
+		<div class="scroll-box">
+			<div id="wrapperOne">
+				<div id="scrollerOne">
+					<ul id="firCity" class="fri-city"></ul>
+				</div>
+			</div>
+			<div id="wrapperTwo">
+				<div id="scrollerTwo">
+					<ul id="secCity" class="sec-city"></ul>
+				</div>
+			</div>
+			<div id="wrapperThr">
+				<div id="scrollerThr">
+					<ul id="thrCity" class="thr-city"></ul>
+				</div>
+			</div>
+		</div>
+		<div class="city-btn">
+			<div id="cancel" class="cancel"><span>取消</span></div>
+			<div id="enter" class="enter" data-dialog-submit="true">确定</div>
+		</div>
+	</div>
+</div>
+<!-- 地址选择弹层 E -->
+
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/custom.min.js -->
+<script src="scripts/customtools.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/validate.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/plugin/dialog.js"></script>
+<script src="scripts/plugin/iscroll-probe.js"></script>
+<script src="scripts/plugin/city_selector.js"></script>
+<!-- endbuild -->
+
+<script>
+(function($){
+	// -- 选择地区 三级联动
+	$('#adrSel').on(oTools.clickEvent, function(){
+		var $adrSel = $('#adrSel');
+
+		var dialog = Dialog({
+			'id': 'wrapBox',
+			'type': 'popup',
+			'top': 0,
+			'width':'100%',
+			'height': '100%',
+			'animation':'animated bounceInRight',
+			'outAnimation': 'bounceOutRight',
+        	'closeButton': false,
+			'contentStyle': {},
+			'onReady': function(){
+				// -- 弹出回调
+				var scrollCon = {
+					scrollbars: true,
+					mouseWheel: true,
+					click: true,
+					interactiveScrollbars: true,
+					shrinkScrollbars: 'scale',
+					fadeScrollbars: true,
+					bounce: false
+				};
+
+				var myScrollOne = new IScroll('#wrapperOne', scrollCon);
+				var myScrollTwo = new IScroll('#wrapperTwo', scrollCon);
+				var myScrollThr = new IScroll('#wrapperThr', scrollCon);
+
+				$('.scroll-box').find('ul').css({
+					minHeight:  sH - 40
+				});
+
+				// document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+				var citySelector = new CitySelector({
+					initVal: $adrSel.find('b').attr('data-val'),
+					firCity: $('#firCity'),
+					secCity: $('#secCity'),
+					thrCity: $('#thrCity'),
+					myScrollOne: myScrollOne,
+					myScrollTwo: myScrollTwo,
+					myScrollThr: myScrollThr,
+					cityObj: postCodeJson
+				});
+
+				$('#cancel').on(oTools.clickEvent, function(){
+					dialog.close();
+				});
+			},
+			'onSubmit': function(){
+				// -- 确定回调
+				var $ele = $(this.config_elem);
+				var html = '';
+				var val = '';
+
+				$ele.find('#firCity').find('li').each(function(k, v){
+					var $_this = $(this);
+
+					if($_this.hasClass('ac')){
+						html += $_this.html() + ' ';
+						val += $_this.html() + ' ';
+					};
+				});
+				$ele.find('#secCity').find('li').each(function(k, v){
+					var $_this = $(this);
+
+					if($_this.hasClass('ac')){
+						if(html.indexOf($_this.html()) < 0){
+							html += $_this.html() + ' ';
+						};
+						val += $_this.html() + ' ';
+					};
+				});
+				$ele.find('#thrCity').find('li').each(function(k, v){
+					var $_this = $(this);
+
+					if($_this.hasClass('ac')){
+						html += $_this.html();
+						val += $_this.html();
+					};
+				});
+				if(html != ''){
+					$adrSel.find('b').html(html);
+					$adrSel.find('b').attr('data-val', val);
+					$adrSel.find('b').removeClass();
+				}else{
+					$adrSel.find('b').html('请选择');
+					$adrSel.find('b').attr('data-val', '');
+					$adrSel.find('b').addClass('g999');
+				};
+			},
+			'onClose': function() {
+				// -- 关闭回调
+				// alert('close popup');
+			}
+		});
+
+	});
+
+	// -- 提交AJAX
+	$('#saveBtn').on(oTools.clickEvent, function(){
+		var mobile = $('#mobile').val(),
+			username = $('#username').val(),
+			userid = $('#userid').val(),
+			adrsel = $('#adrSel').find('b').data('val'),
+			detialadr = $('#detialadr').val();
+
+// 验证手机号
+		if (isNull(mobile)) {
+            oTools.alertmess("请输入手机号码");
+            return false;
+        }
+        if (!checkMobile(mobile)) {
+            oTools.alertmess("请输入正确手机号码");
+            return false;
+        }
+
+// 验证姓名
+		if (isNull(username)) {
+            oTools.alertmess("请输入姓名");
+            return false;
+        }
+        if(username.length > 20){
+        	oTools.alertmess("姓名长度超过20个字符");
+            return false;
+        }
+
+// 验证身份证
+		if (isNull(userid)) {
+            oTools.alertmess("请输入身份证号");
+            return false;
+        }
+        if (!isIdCard(userid)) {
+            oTools.alertmess("请输入正确身份证号");
+            return false;
+        }
+
+// 验证是否同意
+		if(!$aCheck.attr('checked')){
+			oTools.alertmess("请同意《停哪儿车位锁申请协议》");
+            return false;
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: '',
+			dataType: 'json',
+			data: {
+				mobile: mobile,
+				username: username,
+				userid: userid,
+				adrsel: adrsel,
+				detialadr: detialadr
+			},
+			beforeSend: function(){
+				load.start();
+			},
+			success: function(res){
+
+				if(res.success){
+					tipsDialog({
+						mess: '恭喜，车位锁已申请成功，审核通过我们将在1-3个工作上门为您安装',
+						btnTxt: 'OK,知道了',
+						fn: function(){
+							location.href = 'http://www.baidu.com'	//点击确定后跳转链接
+						}
+					});
+				}else{
+					oTools.alertmess(res.msg);
+				}
+			},
+			complete: function(){
+				load && load.close();
+			},
+			error: function(){
+				load && load.close();
+			}
+		});
+	});
+
+
+	$('#agreeBtn').on(oTools.clickEvent, function(){
+		var $aSel = $('#agreeSel'),
+			$aImg = $('#agreeImg'),
+			$aCheck = $('#agreeSel').find('input[type="checkbox"]');
+
+		if($aSel.hasClass('ac')){
+			$aSel.removeClass('ac');
+			$aImg.attr('src', gConfig.imgPath + 'images/nosel-square.png');
+			$aCheck.removeAttr('checked');
+		}else{
+			$aSel.addClass('ac');
+			$aImg.attr('src', gConfig.imgPath + 'images/sel-square.png');
+			$aCheck.attr('checked', 'checked');
+		}
+
+		console.log($aCheck.attr('checked'));
+	});
+
+})(Zepto);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>帮朋友拆红包</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<header>
+	<div class="hf-tit">选择一位好友帮他拆红包吧</div>
+	<div class="hf-chance">你仅有一次机会哦！</div>
+</header>
+
+<article class="container">
+	<section id="firendList">
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		<div class="firend-list">
+			<div class="row">
+				<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+				<div class="f-name span6">好友昵称</div>
+				<div class="f-btn span4" data-fid="1"><img src="images/h-red.png" alt=""></div>
+			</div>
+		</div>
+		
+	</section>
+	
+</article>
+
+<section class="body-bg"><img src="images/bg.jpg" alt=""></section>
+<footer></footer>
+
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/custom.min.js"></script>
+<script src="scripts/main.js"></script>
+
+<script>
+	$('#firendList').on(oTools.clickEvent, '.f-btn', function(){
+		var $this = $(this);
+		var _id = $this.attr('data-fid');
+
+		location.href = 'friend_packet.html?fid=' + _id;
+	});
+	
+</script>
+
+</body>
+</html>

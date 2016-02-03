@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>登录页</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- build:css(.tmp) styles/borrowreturn.css -->
+    <link rel="stylesheet" href="styles/borrowreturn.css">
+    <!-- endbuild -->
+    <script>
+        var gConfig = {
+            imgPath: location.origin + '/'
+        }
+    </script>
+  </head>
+  <body>
+<!-- header S -->
+    <div class="login-top-img">
+    	<img src="images/login-top-img.png" alt="">
+    </div>
+<!-- header E -->
+
+<!-- container S -->
+    <div class="container">
+		<div class="login-box">
+	    	<div class="user-type">
+	      		<div class="u-tit">选择用户类型</div>
+	    		<div class="u-radio">
+                    <div class="radio-type driver-r">
+                        <div class="radio-box">
+                            <input type="radio" name="usertype" id="driver" checked="checked" value="车主"/>
+                            <div class="sel-box"></div>
+                        </div>
+                        <div class="raido-label">
+                            <label for="driver">车主</label>
+                        </div>
+                    </div>
+                    <div class="radio-type company-r">
+                        <div class="radio-box">
+                            <input type="radio" name="usertype" id="company" value="企业"/>
+                            <div class="sel-box"></div>
+                        </div>
+                        <div class="raido-label">
+                            <label for="company">企业</label>
+                        </div>
+                    </div>
+                </div>
+	    	</div>
+
+	    	<div class="phone-box">
+	    		<input type="tel" id="phone" class="phone" placeholder="请输入手机号">
+	    		<div class="verify-code-box">
+	    			<input type="number" id="verifyCode" class="verify-code" placeholder="短信验证码">
+	    			<div id="again" class="again">点击获取</div>
+	    		</div>
+	    	</div>
+
+	    	<div id="login" class="login">登录</div>
+		</div>
+    </div>
+<!-- container E -->
+
+    <!-- build:js scripts/zepto.min.js -->
+    <script src="scripts/libs/zepto.js"></script>
+    <script src="scripts/libs/ajax.js"></script>
+    <script src="scripts/libs/event.js"></script>
+    <script src="scripts/libs/touch.js"></script>
+    <script src="scripts/libs/fx.js"></script>
+    <script src="scripts/libs/fx_methods.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/borrowreturn.js -->
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/iscroll.js"></script>
+    <script src="scripts/customtool.js"></script>
+    <script src="scripts/borrowreturn.js"></script>
+    <!-- endbuild -->
+
+    <script>
+        // 单选框测试代码
+        $('#login').on(oTools.clickEvent, function(){
+            var a = $('.radio-type').find('input:checked').val();
+            console.log(a);
+        })
+    </script>
+
+  </body>
+</html>

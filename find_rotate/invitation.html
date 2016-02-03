@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<title>大卡</title>
+<!-- build:css(.tmp) styles/main.min.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+</head>
+<body>
+	<section class="container invitation-body">
+		<div class="invi-img-box"><img src="images/invitation-img.png" alt=""></div>
+		<div class="invi-form-box">
+			<input type="tel" placeholder="输入您要邀请的好友手机号"  id="mobile" class="mobile-input" />
+			<p class="tips">每成功邀请1位好友注册大卡，即可获得50福分</p>
+			<div id="sendInvi" class="button">发送邀请</div>
+		</div>
+	</section>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/main.min.js -->
+<script src="scripts/otools.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/scrollword.zepto.js"></script>
+<script src="scripts/scroll.zepto.js"></script>
+<script src="scripts/share.zepto.js"></script>
+<!-- endbuild -->
+<script>
+	$(function(){
+	    var $i = $('.invitation-body');
+	    var wH = $(window).height();
+	    var iH = $i.height();
+
+	    if(iH < wH){
+	        $i.css({
+	            height: wH
+	        })
+	    }
+	});
+
+	$(function(){
+		$('#sendInvi').on(oTools.clickEvent, function(){
+			var mobile = $('#mobile').val();
+
+			$.ajax({
+				type: 'POST',
+				url: '',
+				data: {
+					"mobile": mobile
+				},
+				beforeSend: function(){
+
+				},
+				success: function(data){
+					console.log(data);
+				},
+				error: function(){
+
+				},
+				complete: function(){
+
+				}
+			})
+		});
+	})
+</script>
+</body>
+</html>

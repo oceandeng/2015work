@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>大卡公测版</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<style>
+	html,body,div,img{margin: 0;padding: 0;}
+	article{overflow: hidden; position:relative; z-index: 0;}
+	img{max-width: 100%; float:left;}
+	footer{overflow: hidden}
+	.download{overflow: hidden;position:fixed; bottom: 30px; width: 90%; padding: 0 5%;z-index: 1 }
+	@keyframes arrowUp {0% {bottom: 10px;opacity: 1}100% {bottom: 14px;opacity: .6}}
+	@-webkit-keyframes arrowUp {0% {bottom: 10px;opacity: 1}100% {bottom: 14px;opacity: .6}}
+	.arrowup {position: fixed;bottom: 0px;left: 50%;z-index: 2;width: 30px;height: 17px;margin-left: -15px;border-radius: 35px;-webkit-border-radius: 35px;-webkit-animation: arrowUp 1.5s infinite;animation: arrowUp 1.5s infinite;text-align: center}
+	.arrowup img {width: 30px;height: 17px;padding-top: 9px}
+</style>
+</head>
+<body>
+<header></header>
+
+<article>
+	<img src="images/info/info_01.jpg" alt="">
+	<img src="images/info/info_02.jpg" alt="">
+	<img src="images/info/info_03.jpg" alt="">
+	<img src="images/info/info_04.jpg" alt="">
+	<img src="images/info/info_05.jpg" alt="">
+	<img src="images/info/info_06.jpg" alt="">
+	<img src="images/info/info_07.jpg" alt="">
+</article>
+
+<footer>
+	<div class="download" data-href=""><img src="images/info/download.jpg" alt=""></div>
+</footer>
+<div class="arrowup"><img src="images/info/arrow.png"></div>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+
+<script>
+	// 页面data-href跳转事件
+	$(function(){
+		var dataHrefEle = $("*[data-href]");
+		dataHrefEle.each(function(k, v){
+			var $_this = $(this);
+			$_this.on('tap', function(){
+				location.href = $_this.attr('data-href');
+			});
+		});
+	});
+
+	function isWeixin(){
+		var ua = navigator.userAgent.toLowerCase();
+		return (ua.match(/MicroMessenger/i)=="micromessenger");
+	}
+	function isIOS(){
+		var ua = navigator.userAgent.toLowerCase();
+		return /(iPhone|iPad|iPod|iOS)/i.test(ua);
+	}
+
+	$(document).ready(function(){
+		if (isWeixin()){
+			$(".download").attr("data-href","http://a.app.qq.com/o/simple.jsp?pkgname=com.ctfo.pltpsuper");
+		}else if(isIOS()){
+			$(".download").attr("data-href","https://itunes.apple.com/cn/app/che-wang-si-ji-ban/id917562471?mt=8");
+		} else {
+			$(".download").attr("data-href","http://file.sinoiov.com/file/app_carriers.apk");
+			//$("#app_sj").attr("href","http://a.app.qq.com/o/simple.jsp?pkgname=com.ctfo.pltpsuper");
+		}
+	});
+</script>
+
+</body>
+</html>

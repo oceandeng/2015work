@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>拆红包 赢话费</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="styles/main.css">
+
+<script>
+	var gConfig = {
+		imgPath: location.origin + '/',
+		prizeURL: 'http://192.168.8.72/interface/award.php'
+	}
+</script>
+
+</head>
+<body>
+<header>
+	<section class="good-news-box pAbs a8">
+        <div class="good-news">
+            <h3 class="good-tit">今日中奖</h3>
+            <ul id="goodList">
+                <li>【10：11】111喜中100元话费大奖喜中100元话费大奖喜中100元话费大奖</li>
+                <li>【10：11】222喜中100元话费大奖</li>
+                <li>【10：11】333喜中100元话费大奖</li>
+                <li>【10：11】444喜中100元话费大奖</li>
+                <li>【10：11】555喜中100元话费大奖</li>
+            </ul>
+        </div>
+    </section>
+    <!-- <div class="rule-btn" data-href="/rule.html">活动规则</div> -->
+</header>
+
+<article class="container">
+	<img src="images/other-banner.jpg" alt="">
+	<section class="f-u-line">
+		<div class="row">
+			<div class="f-head span2"><img src="images/default-header.png" alt=""></div>
+			<div class="f-tips o-tips span10">拆红包 赢话费 赶快来参加</div>
+		</div>
+	</section>
+    <section class="red-packet mt20">
+        <div class="packet">
+            <!-- 拆开过 不触发任何事件    S -->
+            <div class="flipper">
+                <div class="pack-btn front"><img src="images/m-p-c.png" alt=""></div>
+                <div class="award-face back"><img src="images/m-p-30.png" alt=""></div>
+            </div>
+            <!-- 拆开过 不触发任何事件    E -->
+        </div>
+        <div class="packet">
+            <!-- 未拆开 S -->
+            <div class="flipper">
+                <div class="pack-btn front"><img src="images/m-p-c.png" alt=""></div>
+                <div class="award-face back"><img src="images/m-p-i.png" alt=""></div>
+            </div>
+            <!-- 未拆开 E -->
+        </div>
+        <div class="packet">
+            <div class="flipper">
+                <div class="pack-btn front"><img src="images/m-p-c.png" alt=""></div>
+                <div class="award-face back"><img src="images/m-p-50.png" alt=""></div>
+            </div>
+        </div>
+        <div class="packet">
+            <div class="flipper">
+                <div class="pack-btn front"><img src="images/m-p-c.png" alt=""></div>
+                <div class="award-face back"><img src="images/m-p-n.png" alt=""></div>
+            </div>
+        </div>
+        <div class="packet">
+            <div class="flipper">
+                <div class="pack-btn front"><img src="images/m-p-c.png" alt=""></div>
+                <div class="award-face back"><img src="images/m-p-100.png" alt=""></div>
+            </div>
+        </div>
+        <div class="packet">
+            <div class="flipper">
+                <div class="pack-btn front"><img src="images/m-p-c.png" alt=""></div>
+                <div class="award-face back"><img src="images/m-p-t.png" alt=""></div>
+            </div>
+        </div>
+    </section>
+	<section class="bottom-btn">
+		<div class="download">我也要拆红包</div>
+	</section>
+	<section class="o-tips">
+		<p>*以上操作为体验游戏并非真实中奖。</p>
+		<p>想要中奖请点击下方按钮下载并登录大卡参与活动。</p>
+	</section>
+
+</article>
+
+<section class="body-bg"><img src="images/bg.jpg" alt=""></section>
+<footer></footer>
+
+
+<!-- 弹层 S -->
+<section class="popup" style="display: none">
+    <!-- 中奖弹层 -->
+    <section id="prizePopup" class="prize-popup">
+    	<div class="congra">
+			<img src="images/congratulation.png" alt="">
+		</div>
+		<div class="packet-box">
+			<img src="images/red-bg.png" alt="">
+			<div id="prizeType" class="prize-type">
+				<img src="images/t-100.png" alt="">
+			</div>
+		</div>
+    </section>
+
+    <!-- 中奖弹层 -->
+    <section id="noPrizePopup" class="no-prize-popup">
+		<div class="packet-box">
+			<img src="images/red-bg.png" alt="">
+			<div class="tips">
+				<p>就差一点点运气</p>
+				<p>这次没有中奖</p>
+				<p>快去邀请好友帮你拆红包吧！</p>
+			</div>
+		</div>
+    </section>
+</section>
+<!-- 弹层 E -->
+
+
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+
+<script src="scripts/scrollword.zepto.js"></script>
+<script src="scripts/customtool.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/main.js"></script>
+
+
+<script>
+	$(window).on('load', function(){
+		var $flipper = $('.flipper');
+		var bH = $flipper.find('.back').height();
+		
+		$flipper.find('.front').css({
+			'height': bH,
+			'text-align': 'center'
+		});
+
+	// -- 卡片翻牌
+		var prizeTit = '',  		// -- 标题文字
+			btnTxt = '',			// -- 弹层按钮
+			rotateing = false;		// -- 是否在翻牌中
+
+		$flipper.on(oTools.clickEvent, function(){
+			if(rotateing) return;
+
+			var $this = $(this);
+			var prized = $this.data('prized');
+
+	// >> 完成AJAX
+			if(!prized){
+		        $.ajax({
+		            type: 'POST',
+		            url: gConfig.prizeURL,
+		            dataType: 'jsonp',
+		            jsonp: 'callback',
+		            timeout: 6e3,
+		            // async: false,
+		            data: {},
+		            beforeSend: function(){
+						load.start();
+						rotateing = true;
+		            },
+		            success: function(res){
+console.log(res);
+						load.close();
+
+						if (res.getover) {	// 当天抢光
+							tipsDialog({
+								'mess': '今天的1000个红包已经抢光了<br>明天6点再来抢吧！',
+								'btnTxt': '我知道了',
+								'close': true
+							});
+							rotateing = false;
+							return;
+						};
+
+						if (res.lastday) { // 最后一天抢光
+							tipsDialog({
+								'mess': '今天的1000个红包已经抢光了<br>下次活动敬请期待！',
+								'btnTxt': '我知道了',
+								'close': true
+							});
+							rotateing = false;
+							return;
+						};
+
+						if (res.slow) {
+							oTools.alertmess('下手太慢，被人抢先了');
+							rotateing = false;
+							return;
+						};
+
+						var tit = '';
+						var img = new Image();
+						var imgNum = new Image();
+
+		                if (res.success) {  // 中奖
+
+                            switch(res.prizetype){
+                                case 1:
+                                	img.src = gConfig.imgPath + 'images/m-p-100.png';
+                                    imgNum.src = gConfig.imgPath + 'images/t-100.png';
+                                    break;
+                                case 2:
+                                	img.src = gConfig.imgPath + 'images/m-p-50.png';
+                                    imgNum.src = gConfig.imgPath + 'images/t-50.png';
+                                    break;
+                                case 3:
+                                	img.src = gConfig.imgPath + 'images/m-p-30.png';
+                                    imgNum.src = gConfig.imgPath + 'images/t-30.png';
+                                    break;
+                            }
+                            btnTxt = '领取奖品';
+
+                            imgNum.onload = function(){
+								$('#prizeType').find('img').attr('src', imgNum.src);
+                            }
+
+							oTools.transitionEnd($this.find('.back'), function(){
+								awardDialog({
+									'btnTxt': btnTxt,
+									'prizetype': res.prizetype,
+									'close': true,
+									'fn': function(){
+										shutBtn({
+											'_this': $this,
+                                            'open': true
+										});
+									}
+								});
+								rotateing = false;
+							});
+
+                        } else { // 没中奖
+                            if(res.prizetype == 4){
+                                img.src = gConfig.imgPath + 'images/m-p-t.png';
+                            }
+                            btnTxt = '继续努力';
+
+                            oTools.transitionEnd($this.find('.back'), function(){
+								noAwardDialog({
+									'btnTxt': btnTxt,
+									'prizetype': res.prizetype,
+									'fn': function(){
+										shutBtn({
+											'_this': $this,
+                                            'open': true
+										});
+									}
+								});
+								rotateing = false;
+							});
+                        }
+
+						$('#opened').text('邀请好友帮你拆红包');
+
+		                // -- 翻开
+						$this.data('prize-tit', tit);
+
+						img.onload = function(){
+							toogleRotate({
+								'_this': $this,
+								'img': img,
+								'prizetype': res.prizetype
+							});
+						}
+		            },
+		            error: function(XMLHttpRequest, textStatus, errorThrown) {
+						load.close();
+						rotateing = false;
+		            }
+		        });
+			}
+		});
+	});
+</script>
+
+
+</body>
+</html>

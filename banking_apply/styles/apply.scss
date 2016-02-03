@@ -1,0 +1,677 @@
+@import "normalize", "mixin";
+@import "response";
+
+$b-color: #f54b41;
+$black: #333;
+$gray: #999;
+$orange: #f0624f;
+$f-color: #19273f;
+
+html, body{
+  min-height: 100%;
+  background: #efeff6;
+}
+
+body {
+  background: #efeff6;
+  font-family: "Microsoft Yahei";
+  color: #333;
+}
+
+a{
+  text-decoration: none;
+  color: $b-color;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+input{
+  padding: 0;
+}
+
+img{
+  max-width: 100%;
+}
+
+.gray{
+	background: #d7d7d7 !important;
+	color: #fff !important;
+}
+
+.orange{
+	color: $orange !important;
+}
+
+.marb20{
+	margin-top: 20px !important;
+	margin-bottom: 30px !important;
+}
+
+.verif-dis{
+	border-color: #d7d7d7 !important;
+	color: #d7d7d7 !important;
+}
+
+// 
+.borrow-info{
+	padding: 0 20px;
+
+	h2{
+		font-size: 14px;
+		font-weight: normal;
+		color: $black;
+	}
+	ul{
+		list-style-type: none;
+		padding: 0;
+
+		li{
+			font-size: 14px;
+			color: #666;
+			padding: 0 0 0 15px;
+			background: url(../images/list-icon.png) no-repeat left 5px;
+			background-size: 6px 6px;
+		}
+	}
+}
+
+// 登录页
+.login-box{
+	padding: 10px 15px;
+
+	.user-type{
+	  @include clearfix();
+	  margin: 0 0 10px 0;
+
+	  .u-tit{
+	    width: 50%;
+	    float: left;
+	  }
+	  .u-radio{
+	    width: 50%;
+	    float: right;
+	  }
+	}
+
+	.phone-box{
+	  .phone{
+	    width: 100%;
+	    @include line-height(50px);
+	    background: #fff;
+	    border: none;
+	    border-radius: 5px;
+	    margin: 0 0 15px 0;
+	    text-align: left;
+	    text-indent: 15px;
+	  }
+	  .verify-code-box{
+	    @include line-height(50px);
+	    @include clearfix();
+	    margin: 0 0 15px 0;
+
+	    .verify-code{
+	      width: 55%;
+	      float: left;
+	      @include line-height(50px);
+	      border: none;
+	      border-radius: 5px;
+	      text-align: left;
+	      text-indent: 15px;
+	    }
+	    .again{
+	      width: 35%;
+	      float: right;
+	      @include line-height(46px);
+	      border: 2px solid $orange;
+	      border-radius: 5px;
+	      background: #fff;
+
+	      color: $orange;
+	    }
+	  }
+	}
+	.login{
+	  @include line-height(50px);
+	  background: $orange;
+	  color: #fff;
+	  border-radius: 5px;
+	}
+}
+
+.container{
+	padding: 0 0 30px 0;
+	
+	.main-img{
+		position: relative;
+		overflow: hidden;
+
+		.apply-main-box{
+			position: absolute;
+			top: 20%;
+			@include clearfix();
+
+			.apply-info-box{
+				width: 50%;
+				float: left;
+				text-align: center;
+
+				img{
+					width: 60%;
+				}
+				h3{
+					color: #fff9df;
+					font-size: 16px;
+					margin: 5px 0 0 0;
+				}
+				p{
+					color: #7c0d00;
+					font-size: 14px;
+					margin: 10px 0;
+				}
+
+				.apply-con{
+					opacity: 0;
+				}
+			}
+		}
+	}
+}
+
+.container{
+	.tips{
+		margin: 20px 10px;
+		background: url(../images/warn.png) no-repeat 5px 3px;
+		background-size: 15px 15px;
+		padding: 0 0 0 30px;
+		font-size: 14px;
+		color: $gray;
+	}
+
+  .l-a-one{
+    margin: 20px 0 0 0;
+
+    h2.tit{
+      margin: 0;
+      padding: 0 10px;
+      font-size: 16px;
+      font-weight: normal;
+      color: $f-color;
+    }
+
+	input{
+		width: 95%;
+		color: $f-color;
+		padding: 0 5% 0 0;
+		border: none;
+		@include line-height(40px);
+		text-align: right;
+	}
+  }
+  .l-a-two{
+    margin: 20px 0 0 0;
+    color: $f-color;
+    
+    h2.tit{
+      margin: 0;
+      padding: 0 10px;
+      font-size: 16px;
+      font-weight: normal;
+    }
+    span{
+      color: $f-color !important;
+    }
+	input{
+		width: 95%;
+		color: $f-color;
+		padding: 0 5% 0 0;
+		border: none;
+		@include line-height(40px);
+		text-align: right;
+	}
+	.car-id,.car-bill,.other{
+		color: $gray;
+		text-align: right;
+		padding: 0 20px 0 0;
+		margin: 0 10px 0 0;
+		background: url(../images/arrow-right.png) no-repeat right center;
+		background-size: 8px 14px;
+		position: relative;
+
+		.upload-img-box{
+			position: absolute;
+			height: 50px;
+			top: -5px;
+			right: 10px;
+
+			.upload-img{
+				width: 50px;
+				height: 50px;
+				padding: 0 25px 0 0;
+				overflow: hidden;
+			}
+
+			.del-img-btn{
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				margin-top: -10px;
+			}
+		}
+	}
+	
+
+	.other-photo{
+		padding: 10px 20px;
+		background: #fff;
+		overflow: hidden;
+
+		.add-img{
+			width: 50px;
+			height: 50px;
+			float: left;
+		}
+
+		.upload-img-box{
+			width: 33.33333333%;
+			height: 50px;
+			float: left;
+			position: relative;
+			margin: 3px 0;
+
+			.upload-img{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				overflow: hidden;
+			}
+			.del-img-btn{
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				left: 60px;
+				top: 50%;
+				margin-top: -10px;
+			}
+		}
+	}
+  }
+  .l-a-thr{
+    margin: 20px 0 0 0;
+
+	h2.tit{
+      margin: 0;
+      padding: 0 10px;
+      font-size: 16px;
+      font-weight: normal;
+    }
+    span{
+      color: $f-color !important;
+    }
+	input{
+		width: 95%;
+		color: $f-color;
+		padding: 0 5% 0 0;
+		border: none;
+		@include line-height(40px);
+		text-align: right;
+	}    
+  }
+  .next-btn{
+  	width: 90%;
+  	margin: 30px auto 10px auto;
+  	border: 2px solid $orange;
+  	background: #fff;
+  	@include line-height();
+  	border-radius: 5px;
+  	color: $orange;
+  }
+  .botton{
+  		width: 90%;
+  		margin: 0 auto;
+		@include line-height(50px);
+		background: $orange;
+		color: #fff;
+		border-radius: 5px;
+  }
+  .submit{
+  	margin: 30px auto;
+  }
+  .protocol{
+  	font-size: 12px;
+  	color: $gray;
+  	text-align: center;
+
+  	span{
+  		color: $orange;
+  	}
+  }
+}
+
+#wrapper {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	margin: 10px;
+
+	.rule-con{
+		padding: 0 10px 20px 0;
+
+		h2{
+			color: #333;
+			font-size: 18px;
+			text-align: center;
+		}
+		p{
+			padding: 5px 0;
+			text-indent: 2em;
+		}
+		.notes{
+			span{
+				display: block;
+				color: #666;
+			}
+			color: #2390ff;
+		}
+		.rule-detail{
+			padding: 20px 0 0 0;
+			font-size: 14px;
+			.rule-row{
+				@include clearfix();
+
+				.r-t{
+					width: 35%;
+					float: left;
+					padding: 5px 0;
+					text-align: right;
+				}
+				.r-c{
+					width: 63%;
+					float: right;
+					padding: 5px 1%;
+					border-bottom: 1px solid #666;
+				}
+			}
+			h4{
+				font-weight: bold;
+				margin: 20px 0 10px 0;
+			}
+			ol{
+				margin: 0;
+				padding: 0 0 0 30px;
+				li{
+					div{
+						margin: 5px 0;
+						span{
+							border-bottom: 1px solid #666;
+							padding: 0 10px;
+						}
+					}
+				}
+			}
+			p.tips{
+				margin: 10px 0;
+				text-align: right;
+			}
+			.sign{
+				@include clearfix();
+
+				.s-l{
+					width: 40%;
+					float: left;
+					text-align: center;
+					min-height: 80px;
+				}
+				.s-r{
+					width: 60%;
+					float: right;
+					span{
+						padding: 1px 0;
+						border-bottom: 1px solid #666;
+					}
+				}
+			}
+		}
+	}
+}
+
+.upload-img-input{
+	position: absolute;
+	left: -5000px;
+}
+
+@media screen and (max-width: 320px){
+
+	.container{
+
+	  .l-a-one{
+	    font-size: 14px;
+
+	    h2.tit{
+	      font-size: 14px;
+	    }
+
+	    input{
+	    	@include line-height(30px);
+			text-align: right;
+	    }
+
+	  }
+	  .l-a-two{
+	    font-size: 14px;
+	    
+	    h2.tit{
+	      font-size: 14px;
+	    }
+
+		.car-id,.car-bill,.other{
+			.upload-img-box{
+				.upload-img{
+					width: 40px;
+					height: 40px;
+				}
+				.del-img-btn{
+					width: 20px;
+					height: 20px;
+					position: absolute;
+					left: 45px;
+					top: 50%;
+					margin-top: -15px;
+				}
+			}
+		}
+
+	    .other-photo{
+			padding: 10px;
+
+			.add-img{
+				width: 50px;
+				height: 50px;
+			}
+
+			.upload-img-box{
+
+				.upload-img{
+					width: 40px;
+					height: 40px;
+					position: absolute;
+				}
+				.del-img-btn{
+					width: 20px;
+					height: 20px;
+					position: absolute;
+					left: 50px;
+					top: 50%;
+					margin-top: -15px;
+				}
+			}
+
+		}
+		input{
+	    	@include line-height(30px);
+			text-align: right;
+	    }
+	  }
+	  .l-a-thr{
+	    font-size: 14px;
+
+		h2.tit{
+	    	font-size: 14px;
+	    }
+		input{
+	    	@include line-height(30px);
+			text-align: right;
+	    }
+	  }
+	  
+	  
+	  
+	}
+}
+
+#wrapper {
+
+	.rule-con{
+
+		h2{
+
+		}
+		p{
+			font-size: 14px;
+		}
+	}
+}
+
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+
+Copyright (c) 2015 Daniel Eden
+*/
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY {
+  animation-duration: .75s;
+}
+
+@keyframes flip {
+  0% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+    animation-timing-function: ease-out;
+  }
+
+  40% {
+    transform: perspective(400px) translate3d(0, 0, 80px) rotate3d(0, 1, 0, -190deg);
+    animation-timing-function: ease-out;
+  }
+
+  50% {
+    transform: perspective(400px) translate3d(0, 0, 80px) rotate3d(0, 1, 0, -170deg);
+    animation-timing-function: ease-in;
+  }
+
+  80% {
+    transform: perspective(400px) scale3d(.95, .95, .95);
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    transform: perspective(400px);
+    animation-timing-function: ease-in;
+  }
+}
+
+.animated.flip {
+  backface-visibility: visible;
+  animation-name: flip;
+}
+
+@keyframes bounceInUp {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInUp {
+  animation-name: bounceInUp;
+}
+
+@keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+}

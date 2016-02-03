@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Intel2015安全司机TOP100评选</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article class="container">
+	<section class="info-box">
+		<div class="mobile input-line row">
+			<div class="span12">
+				<input type="tel" id="mobile" value="" maxlength="11" />
+			</div>
+		</div>
+		<div class="valicode input-line row">
+			<div class="span8">
+				<input type="tel" id="valicode" value="" placeholder="请输入验证码" />
+			</div>
+			<div class="span4">
+				<div id="valiBtn" class="vali-btn">发送验证码</div>
+			</div>
+		</div>
+		<div class="username input-line row">
+			<div class="span12">
+				<input type="text" id="username" value="" placeholder="请输入您的真实姓名" maxlength="10"/>
+			</div>
+		</div>
+		<div class="sex input-line row">
+			<div class="span6">您的性别是：</div>
+			<div id="radioBox" class="radio-box span6">
+				<div class="sir">
+					<input type="radio" name="sex" value="0" id="sir" />
+					<label for="sir">先生</label>
+				</div>
+				<div class="woman">
+					<input type="radio" name="sex" value="1" id="woman"/>
+					<label for="woman">女士</label>
+				</div>
+			</div>
+		</div>
+		<div class="car-num input-line row">
+			<div class="span12">
+				<input type="text" id="carNum" value="" placeholder="请输入您的车牌号" maxlength="7"/>
+			</div>
+		</div>
+		<div class="car-type input-line row">
+			<div class="span12">
+				<input type="text" id="carType" value="" placeholder="请输入您的车辆品牌型号" maxlength="30"/>
+			</div>
+		</div>
+		<div class="car-team input-line row">
+			<div class="span12">
+				<input type="text" id="carTeam" value="" placeholder="请输入您的车牌号" maxlength="30"/>
+			</div>
+		</div>
+		<div class="dri-info row">
+			<div class="span12">
+				<textarea id="driInfo"  maxlength="50">一句话描述自己</textarea>
+				<div class="word-num"><span id="wNum">0</span>/<span>50</span></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="upload-img">
+		<h2>请上传以下资料进行认证：</h2>
+		<div class="upload-box">
+			<div class="user-photo upload-img-box">
+				<input type="file" id="userPhoto" class="upload-img" name="userphoto" accept="image/*">
+				<img class="add-btn" src="../images/add-icon.jpg" alt="">
+			</div>
+			<div class="dirvi upload-img-box">
+				<input type="file" id="dirvi" class="upload-img" name="dirvi" accept="image/*">
+				<img class="add-btn" src="../images/add-icon.jpg" alt="">
+			</div>
+			<div class="cardID upload-img-box">
+				<input type="file" id="cardIDf" class="upload-img" name="dirvi" accept="image/*">
+				<img class="add-btn" src="../images/add-icon.jpg" alt="">
+			</div>
+			<div class="cardID upload-img-box">
+				<input type="file" id="cardIDb" class="upload-img" name="dirvi" accept="image/*">
+				<img class="add-btn" src="../images/add-icon.jpg" alt="">
+			</div>
+		</div>
+	</section>
+
+	<section class="btn-box">
+		<div id="submitBtn" class="submit-btn button">提交报名</div>
+	</section>
+
+</article>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/custom.min.js -->
+<script src="scripts/customtool.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/upload.zepto.js"></script>
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+
+<script>
+// -- 验证码
+	var valiswitch = false,
+		seconds = 0,
+		timer = null;
+
+	$('#valiBtn').on(oTools.clickEvent, function(){
+		if(valiswitch) return;
+		
+		var $_this = $(this),
+			txt = $_this.text();
+
+		timer = setInterval(function(){
+			valiswitch = true;
+			seconds ++;
+			$_this.text(txt + '(' + seconds + ')');
+			$_this.addClass('disable');
+
+			if(seconds == 10){
+				$_this.text(txt);
+				$_this.removeClass('disable');
+				seconds = 0;
+				valiswitch = false;
+				clearInterval(timer);
+			}
+		}, 1000);
+
+		$.ajax({
+			type: 'POST',
+			url: '',
+			dataType: 'json',
+			data: {},
+			beforeSend: function(){
+				load.start();
+			},
+			success: function(res){
+				
+			},
+			complete: function(){
+				load && load.close();
+			},
+			error: function(){
+				load && load.close();
+			}
+		});
+	});
+
+// -- 图片上传调用
+	(function($){
+		$(function(){
+			$('.add-btn').parent().on(oTools.clickEvent, 'img', function(){
+				$(this).siblings('input[type="file"]').click();
+			});
+
+			uploadImgFn('#userPhoto', 'http://192.168.13.50/demo.php');
+			uploadImgFn('#dirvi', 'http://192.168.13.50/demo.php');
+			uploadImgFn('#cardIDf', 'http://192.168.13.50/demo.php');
+			uploadImgFn('#cardIDb', 'http://192.168.13.50/demo.php');
+
+		});
+
+		function uploadImgFn(ele, ajaxurl){
+			$(ele).uploadimg({
+				url: ajaxurl,
+				success: function(res, ele){
+					$(ele).siblings('.add-btn').hide();
+					$(ele).siblings('img').remove();
+
+					var img = new Image();
+					img.onload = function(){
+						$(ele).parent().append(this).css({
+							'width': '50px',
+							'height': '50px',
+							'float': 'right',
+							'marginTop': '5px'
+						});
+					}
+					// img.src = res.url;
+					img.src = 'http://192.168.13.50:9000/images/make_card/zsy.jpg';
+				},
+			});
+		}
+	})(Zepto);
+
+
+// -- AJAX 提交
+	$('#submitBtn').on(oTools.clickEvent, function(){
+		var mobileVal = $('#mobile').val(),
+			valicodeVal = $('#valicode').val(),
+			usernameVal = $('#username').val(),
+			carNumVal = $('#carNum').val();
+  
+		if(isNull(mobileVal)){
+			oTools.alertmess('请输入手机号');
+			return;
+		}else if(checkMobile(mobileVal)){
+			oTools.alertmess('请输入正确的手机号');
+			return;
+		}
+
+		if(checkuser(usernameVal)){
+			oTools.alertmess('请输入您的真实姓名');
+			return;
+		}
+
+		if(isNull(carNumVal)){
+			oTools.alertmess('请输入车牌号');
+			return;
+		}else if(checkCarNum(mobileVal)){
+			oTools.alertmess('请输入正确的车牌号');
+			return;
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: '',
+			dataType: 'json',
+			data: {
+				mobileVal: mobileVal,
+				valicodeVal: valicodeVal,
+				usernameVal: usernameVal,
+				carNumVal: carNumVal
+			},
+			beforeSend: function(){
+				load.start();
+			},
+			success: function(res){
+				
+			},
+			complete: function(){
+				load && load.close();
+			},
+			error: function(){
+				load && load.close();
+			}
+		});		
+	});
+</script>
+
+</body>
+</html>

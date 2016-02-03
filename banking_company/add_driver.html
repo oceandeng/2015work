@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>新增车主</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- build:css(.tmp) styles/company.css -->
+    <link rel="stylesheet" href="styles/company.css">
+    <!-- endbuild -->
+
+    <script>
+        var gConfig = {
+            imgPath: location.origin + '/'
+        }
+    </script>
+  </head>
+  <body>
+
+<!-- container S -->
+    <div class="container">
+		<div class="l-a-one">
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">车牌号</h2>
+				</div>
+				<div class="col-7">
+					<input type="text" id="dearName" class="dear-name" placeholder="示例：京A88888">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">车主</h2>
+				</div>
+				<div class="col-7">
+					<input type="number" id="phoneNum" class="phone-num" placeholder="请输入姓名">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<h2 class="tit">手机号</h2>
+				</div>
+				<div class="col-7">
+					<input type="number" id="phoneNum" class="phone-num" placeholder="请输入手机号">
+				</div>
+			</div>
+       	</div>
+
+		<div id="submit" class="botton submit">立即提交</div>
+
+    </div>
+<!-- container E -->
+
+    <!-- build:js scripts/zepto.min.js -->
+    <script src="scripts/libs/zepto.js"></script>
+    <script src="scripts/libs/ajax.js"></script>
+    <script src="scripts/libs/event.js"></script>
+    <script src="scripts/libs/touch.js"></script>
+    <script src="scripts/libs/fx.js"></script>
+    <script src="scripts/libs/fx_methods.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/company.min.js -->
+    <script src="scripts/customtool.js"></script>
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/iscroll.js"></script>
+    <script src="scripts/company.js"></script>
+    <!-- endbuild -->
+
+  </body>
+</html>

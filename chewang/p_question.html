@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>车旺卡车公社</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+<script>
+var gConfig = {
+	imgPath: location.origin + '/'
+}
+</script>
+
+</head>
+<body>
+
+<header>
+	<section class="top-bar">
+		<div class="row">
+			<div class="logo span6"><img src="images/logo.png" alt=""></div>
+			<div class="contact span6">
+				<span>24小时服务热线</span>
+				<span class="bold">400-096-6666</span>
+			</div>    
+		</div>
+	</section>
+</header>
+
+<article>
+	<section id="cQc" class="content que-list c-question">
+		<div class="list-nh-row">
+			<h3 class="q-tit">1.为什么车载终端GPRS无法上线？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>SIM卡没有开通GPRS功能；SIM卡欠费；车辆停留位置GSM信号不好；车载终端内ID、APN、PORT、IP、TCP/UDP等参数设置不正确；监控中心没有正确配置该车载终端的参数；SIM卡损坏；GSM天线安装位置不好；GSM天线损坏；终端的电源是否有足够的工作电压；车载终端硬件损坏。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="list-nh-row">
+			<h3 class="q-tit">2.GPS定位为什么会产生漂移？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>偶尔的GPS定位漂移，属于正常现象，这是因为：GPS信号从卫星向地面传输的过程中，会受到大气电离层、地面建筑物、森林、水面等因素的影响，导致GPS9接受器计算出现偏差，所以会出现漂移。尤其是车辆静止时，更容易出现飘移。频繁出现GPS定位漂移，属于不正常现象，一般是由于GPS天线性能不好或安装位置不好，车载终端电路板电气性能不好等原因所至。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">3.为什么先安装设备，平台注册数据在后，设备GPRS上线会慢？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>如果先安装设备，平台注册数据在后，会导致设备上线慢。先安装设备，设备登录不上服务器，重复登录机制：间隔16秒→间隔5分钟→间隔25分钟→间隔60分钟，依次循环；在配置GPRS参数后，可让设备断电重新上电重启，或发送短信“PSOFAR218RESET”至设备重启，可加快上线时间。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">4.为什么车载终端GPS定位很慢或无法定位？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>车辆可能位于地库、隧道等GPS信号无法到达的地方；GPS天线安装位置不好，可能受到金属物品的遮盖；GPS天线损坏；车载终端硬件损坏。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+	<section id="pQc" class="content que-list p-question">
+		<div class="list-nh-row">
+			<h3 class="q-tit">1、平台登录页面打不开、卡慢的情况？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>检查客户端网络是否良好，所属区域网络运营商的路由知否绕行，跟踪到运营平台ip的越点。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="list-nh-row">
+			<h3 class="q-tit">2、无法修改车辆数据？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>一般为账号权限不够，请联系平台管理员。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">3、监控页面看不到车？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>检查设备GPS天线是否正常，是否是上传正常经纬度。平台是否有该车的静态数据。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">4、平台部分页面不能显示？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>检查登录的浏览器是否是ie9、10、谷歌浏览器。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">5、地图没有出现？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>浏览器版本没有满足条件（推荐ie9、10、谷歌浏览器）；网络慢，请检查网络情况。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">6、下发指示超时？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>因信息或网络原因，命令没有发出，请重发。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">7、密码忘记，登录失败？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）第一次登录系统后请重置密码；</p>
+						<p> 2）忘记密码请重新向提供帐号、密码的单位索取，需提供证件信息。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">8、轨迹回放没有数据？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）时间设置不对；</p>
+						<p>2）时间范围内车辆没有定位数据；</p>
+						<p>3）中心服务器工作不正常，联系400电话申告。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">9、区域查车无车辆？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）区域过小，或无车辆；</p>
+						<p>2）区域过大，查询慢。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">10、车辆未上线？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）车载终端设备SIM卡欠费；</p>
+						<p>2）车载终端设备故障或断电；</p>
+						<p>3）无GPRS移动信号，终端无法进行通讯；</p>
+						<p>4）后台服务器故障或公用网络不正常。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">11、车辆未定位？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）车辆被建筑物遮挡；</p>
+						<p>2）车载终端设备卫星天线被遮挡；</p>
+						<p>3）车载终端设备故障或天线坏；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">12、下发命令收不到？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）车辆处于GPRS盲区（终端不在线）；</p>
+						<p>2）网络信道阻塞，一段时间后再发送；</p>
+						<p>3）系统服务问题，联系400电话申告；</p>
+						<p>4）终端不支持的功能指令。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">8、轨迹回放没有数据？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）时间设置不对；</p>
+						<p>2）时间范围内车辆没有定位数据；</p>
+						<p>3）中心服务器工作不正常，联系400电话申告。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">13、下发了拍照命令收不到图片？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）车载终端不具备拍照功能或未装摄像头；</p>
+						<p>2）由于网络原因命令丢失，请重发命令；</p>
+						<p>3）车载终端上传图片定位时间不对（一般发生在车辆静止时）；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">14、电子地图画面显示为空白？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>地图放大倍数过大，周围无比对图形，请缩小一定比例进行查看；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">15、设置了监听电话号码，但车辆报警后监听的电话没有接通？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）车载GPS设备中安装的SIM卡没有开通语音，所以此项功能未启动；</p>
+						<p>2）监听号码可以设置多个，车机发生报警时先拨打第一个，依次类推，直至接通为止；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">16、用车台设备打电话或通短信，为什么不能打？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）车载终端安装的SIM卡需开通语音功能和短信功能；</p>
+						<p>2）如果开通了语音功能，请通话功能的权限控制，呼入/呼出等；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">17、下发了锁车命令，为什么没有锁车？</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）车载终端设备没有安装锁车继电器；</p>
+						<p>2）该功能因安全原因没有设置，需要有权限帐号单独设置；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">18、监控及点名操作后，在信息栏中看不到车辆信息?</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）检查IE浏览器的版本号，推荐使用IE8.0版本浏览器；</p>
+						<p>2）终端上报GPS定位信息错误，请移动至空旷无屏蔽物体地段；</p>
+						<p>3）终端未上线，无法对车辆进行下发指令操作；</p>
+						<p>4）提供车牌号码和SIM卡号，交由运营工程师检查原因。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">19、车辆不在公路上跑？?</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）地图需要更新，地图更新数据和实际的道路最少有半年的时间差；.0版本浏览器；</p>
+						<p>2）车辆定位信息偏移导致没有在公路上跑；</p>
+						<p>3）地图数据偏移，需要更新地图或纠偏地图；</p>
+						<p>4）车辆定位数据和地图有偏差，缩小地图比例尺进行查看。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">20、车台出现断路报警？?</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>这是正常的，不是故障。您所管理的车台主机若不是接常电，受控于仪表盘开关时，将出现断路报警，告之主机断电.0版本浏览器；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">21、车辆没有超速，但显示超速？?</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>定位出现漂移现象。.0版本浏览器；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">22、报警及超速设置管理问题？?</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）由用户进行管理，运营商不负责此项工作；.0版本浏览器；</p>
+						<p>2）设备出厂时均没有对车台进行超速设置，请用户及时根据有关法规进行设置；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">23、拍照黑屏或出现花屏？?</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>数据上传失败，或摄像头出现故障，或车载终端故障。.0版本浏览器；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">24、软件操作不了？?</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）超过2小时登录后不进行软件操作，IE浏览器默认断开，需重新登录操作；.0版本浏览器；</p>
+						<p>2）浏览器原因（推荐ie9、10、谷歌浏览器）；</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">25、增加了车辆，但电子地图上没有显示车辆信息??</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>1）检查车辆安装的车机型号是否是平台所支持的品牌和型号；</p>
+						<p>2）SIM卡未正常注册到平台上，联系400电话解决；</p>
+						<p>3）左侧为实时刷新，地图上刷新等待最多15分钟即可出现。</p>
+						<p>4）提供车牌号码和SIM卡号，交由运营工程师检查原因。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<h3 class="q-tit">26、司机上车，没有身份识别卡，就是那个大卡槽，那个老报警提示插卡，这个可以去掉吗？??</h3>
+			<div class="q-answer">
+				<div class="row">
+					<div class="span2 l-l">答：</div>
+					<div class="span10 l-r">
+						<p>在运管局招标过程中，此批设备并没有配备IC卡读卡器，所以不能插入IC卡，如经常提示插卡报警，请提供车载终端ID号，请联系终端生产厂家（中斗科技）解决。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+</article>
+
+<footer>
+	<section class="bottom-nav">
+		<div class="row">
+			<div id="cQ" class="span6 ac">平台常见问题</div>
+			<div id="pQ" class="span6">终端常见问题</div>
+		</div>
+	</section>
+</footer>
+
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+
+<script src="scripts/customtools.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>

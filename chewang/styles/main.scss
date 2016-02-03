@@ -1,0 +1,627 @@
+@import "normalize";
+@import "mixin";
+@import "variable";
+@import "response";
+@import "animate";
+
+body {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $g333;
+  font-size: 14px;
+  background: #efeff6;
+}
+
+img{
+	max-width: 100%;
+}
+.l-20{
+	line-height: 20px;
+}
+.f-16{
+	font-size: 16px;
+}
+.g666{
+	color: $g666 !important;
+}
+.g999{
+	color: $g999 !important;
+}
+.red{
+	color: #fe2222 !important;
+}
+.green{
+	color: #32b16c !important;
+}
+.blue{
+	color: $f-color !important;
+}
+.bold{
+	font-weight: bold;
+}
+.mt0{
+	margin: 0 !important;
+}
+.bt0{
+	border-top: none !important;
+}
+.bb1{
+	border-bottom: 1px solid $b-color !important;
+}
+.p0{
+	padding: 0 !important;
+}
+.pl10{
+	padding: 0 0 0 10px !important;
+}
+.pl20{
+	padding: 0 0 0 20px !important;
+}
+.t-l{
+	text-align: left !important;
+}
+.l60{
+	height: 60px !important;
+	line-height: 60px !important;
+}
+.bold{
+	font-weight: bold;
+}
+.container{
+	width: 100%;
+}
+.content{
+	padding: 0 10px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input[type="number"]{-moz-appearance:textfield;}
+.marT0{
+	margin-top: 0 !important;
+}
+article{
+	@include clearfix();
+}
+header{
+	.top-bar{
+		@include line-height();
+		background: #fff;
+		border-bottom: 1px solid $b-color;
+
+		.logo{
+			text-align: left;
+			img{
+				width: 150px;
+				height: 23px;
+				margin: 12px 0 0 10px;
+			}
+		}
+		.contact{
+			margin: 5px 0 0 0;
+			span{
+				display: block;
+				@include line-height(20px);
+				text-align: right;
+				padding: 0 10px 0 0;
+				color: $f-color;
+			}
+		}
+	}
+	.tit{
+		@include line-height();
+		@include border-bottom();
+	}
+}
+
+.list-box{
+	margin: 20px 0 0 0;
+	border-top: 1px solid $b-color;
+	border-bottom: 1px solid $b-color;
+	background: #fff;
+
+	.list-row{
+		@include line-height();
+		font-size: 16px;
+
+		.l-l{
+			span{
+				display: block;
+				margin: 0 0 0 10px;
+				border-bottom: 1px solid $b-color;
+				text-align: left;
+				color: $g333;
+			}
+		}
+		.l-r{
+			span{
+				display: block;
+				border-bottom: 1px solid $b-color;
+				padding: 0 10px 0 0;
+				text-align: right;
+				color: $g666;
+			}
+			.h-arrow{
+				padding: 0 10px 0 0;
+				
+				b{
+					display: block;
+					@include line-height();
+					text-align: right;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/arrow.png) no-repeat right center;
+					background-size: 10px 17px;
+				}
+			}
+			.d-arrow{
+				padding: 0 10px 0 0;
+				
+				b{
+					display: block;
+					@include line-height();
+					text-align: right;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/d-arrow.png) no-repeat right center;
+					background-size: 17px 10px;
+				}
+			}
+			input{
+				width: 100%;
+				@include line-height(28px);
+				margin: 10px 0;
+				padding: 0;
+				border: none;
+				text-align: right;
+				color: $g666;
+			}
+		}
+
+		&:last-child{
+			.l-l{
+				span{
+					border-bottom: none;
+				}
+			}
+			.l-r{
+				span{
+					border-bottom: none;
+				}
+			}	
+		}
+	}
+	.list-np-row{
+		@include line-height();
+		font-size: 16px;
+		@include clearfix();
+
+		.l-l{
+			border-bottom: 1px solid $b-color;
+			
+			span{
+				display: block;
+				margin: 0 0 0 10px;
+				text-align: left;
+				color: $g333;
+			}
+		}
+		.l-r{
+			border-bottom: 1px solid $b-color;
+			span{
+				display: block;
+				padding: 0 10px 0 0;
+				text-align: right;
+				color: $g666;
+			}
+			span.selected{
+				padding: 0 40px 0 0;
+				background: url(../images/selected.png) no-repeat 95% center;
+				background-size: 20px 20px;
+			}
+			.h-arrow{
+				padding: 0 10px 0 0;
+
+				b{
+					display: block;
+					@include line-height(60px);
+					text-align: right;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/arrow.png) no-repeat right center;
+					background-size: 10px 17px;
+				}
+			}
+			input{
+				width: 100%;
+				@include line-height(28px);
+				margin: 10px 0;
+				padding: 0;
+				border: none;
+				text-align: right;
+				color: $g666;
+			}
+		}
+
+		&:last-child{
+			.l-l{
+				border-bottom: none;
+			}
+			.l-r{
+				border-bottom: none;
+			}	
+		}
+	}
+	.list-nh-row{
+		@include clearfix();
+		border-bottom: 1px solid $b-color;
+		padding: 10px 0;
+		position: relative;
+
+		.r-arrow{
+			background: url(../images/arrow.png) no-repeat right center;
+			background-size: 10px 17px;
+		}
+		.l-row{
+			margin: 5px 10px;
+			@include clearfix();
+
+			h4{
+				margin: 0;
+				font-weight: normal;
+			}
+			p{
+				margin: 0;
+			}
+		}
+		.c-row{
+			height: 42px !important;
+			padding: 10px 10px 10px 0 !important;
+
+			h4{
+				margin: 0;
+			}
+			p{
+				margin: 0;
+			}
+			i{
+				font-style: normal;
+			}
+		}
+		.l-l{
+			span{
+				display: block;
+				margin: 0 0 0 10px;
+				border-bottom: 1px solid $b-color;
+				text-align: left;
+				color: $g333;
+			}
+		}
+		.l-r{
+			span{
+				display: block;
+				border-bottom: 1px solid $b-color;
+				padding: 0 10px 0 0;
+				text-align: right;
+				color: $g666;
+			}
+			.h-arrow{
+				padding: 0 10px 0 0;
+				
+				b{
+					display: block;
+					text-align: right;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/arrow.png) no-repeat right center;
+					background-size: 10px 17px;
+				}
+			}
+			.d-arrow{
+				padding: 0 10px 0 0;
+				
+				b{
+					display: block;
+					@include line-height();
+					text-align: right;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/d-arrow.png) no-repeat right center;
+					background-size: 17px 10px;
+				}
+			}
+
+			p{
+				margin: 0;
+			}
+		}
+		.c-name{
+			font-size: 20px;
+			font-weight: bold;
+			color: $f-color;
+			padding: 0 0 0 10px;
+		}
+		.con-detail{
+			p{
+				line-height: 20px;
+				text-align: left;
+				margin: 0 0 0 10px;
+				color: $f-color;
+				a{
+					text-decoration: none;
+					color: #00479d;
+				}
+				i{
+					display: inline;
+					background: url(../images/c-icon.png) no-repeat left center;
+					background-size: 14px 18px;
+					margin: 0 0 0 10px;
+					padding: 0 0 0 20px;
+				}
+			}
+		}
+
+		.position-link{
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 20px;
+			right: 10px;
+			padding: 0 10px 0 0;
+			background: url(../images/arrow.png) no-repeat right center;
+			background-size: 10px 17px;
+
+			a{
+				text-decoration: none;
+				color: #999;
+			}
+		}
+
+		&:last-child{
+			border-bottom: none;
+			.l-l{
+				span{
+					border-bottom: none;
+				}
+			}
+			.l-r{
+				span{
+					border-bottom: none;
+				}
+			}	
+		}
+	}
+}
+
+
+.list-box{
+	span{
+		display: block;
+		@include clearfix();
+		@include line-height();
+	}
+	.m-icon{
+		img{
+			width: 20px !important;
+			margin: 10px 0 0 10px;
+			float: left;
+		}
+	}
+	.e-icon{
+		img{
+			width: 30px !important;
+			margin: 13px 0 0 5px;
+			float: left;
+		}
+	}
+	.l-icon{
+		img{
+			width: 25px !important;
+			margin: 8px 0 0 10px;
+			float: left;
+		}
+	}
+	.u-icon{
+		img{
+			width: 30px !important;
+			margin: 10px 0 0 5px;
+			float: left;
+		}
+	}
+	.e-c{
+		input{
+			text-align: left !important;
+		}
+	}
+	.identifying{
+		padding: 5px 0 0 0;
+		height: 40px;
+		text-align: left;
+	}
+}
+
+.p-info{
+	@include clearfix();
+	padding: 0 10px 60px 10px;
+	background: #fff;
+	display: none;
+	h1{
+		color: $f-color;
+		font-size: 20px;
+	}
+	p{
+		color: $f-color;
+	}
+
+	.table{
+		border-collapse:collapse;
+		max-width: 100%;
+		td{
+			border: 1px solid $b-color;
+			p{
+				margin: 5px 0;
+				padding: 0 10px;
+			}
+			ul{
+				list-style-type: disc;
+				padding-left: 30px;
+			}
+		}
+	}
+}
+
+.c-question, .p-question{
+	padding: 0 0 60px 0 !important;
+	.list-nh-row{
+		.q-tit{
+			padding: 20px 40px 20px 20px;
+			margin: 0;
+			@include border-bottom();
+			background: url(../images/arr-d.png) no-repeat 95% center;
+			background-size: 18px 11px;
+			background-color: #fff;
+		}
+		.q-answer{
+			display: none;
+			background: #efefef;
+			padding: 0 20px;
+
+			.l-l{
+				padding: 10px 0 0 0;
+			}
+			.l-r{
+				p{
+					text-align: left;
+					margin: 10px 0;
+				}
+			}
+		}
+	}
+}
+
+.d-header{
+	height: 60px !important;
+	img{
+		width: 60px;
+		height: 60px;
+	}
+}
+.d-name{
+	height: 60px !important;
+	line-height: 60px !important;
+}
+
+.button-box{
+	margin: 10px 0 0 0;
+	@include clearfix();
+
+	.button{
+		@include button($color: $m-color);
+		margin: 10px;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 18px;
+	}
+	.out-button{
+		@include line-height(50px);
+		background: none;
+		border: 2px solid #ff2f2f;
+		margin: 10px;
+		border-radius: 3px;
+		color: #ff2f2f;
+		font-size: 18px;
+	}
+}
+.pos-btn{
+	display: block;
+	background: $m-color;
+	height: 100px;
+	@include clearfix();
+
+	span{
+		margin: 30px 0 0 0 !important;
+		color: #fff !important;
+		padding: 0 !important;
+		line-height: 20px !important;
+		text-align: center !important;
+	}
+}
+.car-detail{
+	.list-box{
+		background: none;
+		border: none;
+	}
+
+	.list-nh-row{
+		background: #fff;
+		border: none !important;
+		margin-bottom: 15px;
+	}
+}
+.control{
+	span{
+		margin: 0 !important;
+	}
+	input, select{
+		border: none !important;
+		width: 90%;
+	}
+	select{
+		-webkit-appearance: none;
+		background-color: none;
+		background: url(../images/arrow-b.png) no-repeat 95% center;
+		background-size: 12px 7px;
+	}
+}
+.more-btn{
+	margin: 20px 0 10px 0;
+	color: $m-color;
+	font-size: 16px;
+	text-align: center;
+}
+.loading{
+	@include clearfix();
+	width: 120px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 32px;
+
+	img{
+		float: left;
+		margin: 0 10px 0 0;
+	}
+}
+
+footer{
+	.bottom-nav{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		@include line-height();
+		@include border-top();
+		color: $g999;
+		background: #fff;
+
+		.ac{
+			border-top: 3px solid #00479d;
+			@include line-height(47px);
+			color: $f-color;
+		}
+	}
+}
+
+.addr-box{
+	position: fixed;
+	bottom: 0;
+	width: 90%;
+	background: #fff;
+	padding: 15px 5%;
+}
+
+// 4s
+@media screen and (max-width: 320px){
+
+	
+
+}

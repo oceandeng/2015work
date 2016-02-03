@@ -1,0 +1,165 @@
+@import "normalize";
+@import "mixin";
+@import "variable";
+@import "response";
+
+
+body {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #f8f8f8;
+  color: $g333;
+  @include clearfix();
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.mb5{
+	margin-bottom: 5px !important;
+}
+
+.mt20{
+	margin-top: 20px !important;
+}
+
+.mt30{
+	margin-top: 30px !important;
+}
+
+.mt50{
+	margin-top: 50px !important;
+}
+
+img{
+	max-width: 100%;
+}
+
+.container{
+	padding: 10px;
+}
+
+.m-icon{
+	width: 40%;
+	margin: 30px auto;
+}
+
+.m-con{
+	@include clearfix();
+	p{
+		text-indent: 2em;
+	}
+	.n-i{
+		text-indent: 0em;
+	}
+	.no-t{
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		li{
+			padding: 10px 0;
+			li{
+				list-style-type: disc;
+				padding: 5px 0;
+			}
+		}
+	}
+	ul{
+		margin: 0;
+		padding-left: 20px;
+		li{
+			padding: 5px 0;
+		}
+	}
+	.tips{
+		margin: 10px 0;
+	}
+	h1{
+		font-size: 20px;
+		font-weight: 700;
+		text-align: center;
+		margin: 20px 0;
+	}
+	h2{
+		font-size: 16px;
+		font-weight: 700;
+	}
+	.gray-tit{
+		a{
+			color: $g999;
+			font-size: 14px;
+		}
+	}
+	.q-tit{
+		color: $m-color;
+	}
+}
+
+
+.list-box{
+	margin: 20px 0 0 0;
+	border-top: 1px solid $b-color;
+	border-bottom: 1px solid $b-color;
+	background: #fff;
+
+	.list-row{
+		@include line-height();
+		font-size: 16px;
+
+		.l-l{
+			span{
+				display: block;
+				margin: 0 0 0 10px;
+				border-bottom: 1px solid $b-color;
+				text-align: left;
+				color: $g333;
+			}
+		}
+		.l-r{
+			span{
+				display: block;
+				border-bottom: 1px solid $b-color;
+				padding: 0 10px 0 0;
+				text-align: right;
+				color: $g666;
+			}
+			.h-arrow{
+				padding: 0 10px 0 0;
+				
+				b{
+					display: block;
+					@include line-height();
+					text-align: right;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/arrow.png) no-repeat right center;
+					background-size: 10px 17px;
+				}
+			}
+			input{
+				width: 100%;
+				@include line-height(28px);
+				margin: 10px 0;
+				padding: 0;
+				border: none;
+				text-align: right;
+				color: $g666;
+			}
+		}
+
+		&:last-child{
+			.l-l{
+				span{
+					border-bottom: none;
+				}
+			}
+			.l-r{
+				span{
+					border-bottom: none;
+				}
+			}	
+		}
+	}
+}
+
+@media screen and (max-width: 320px){
+
+}

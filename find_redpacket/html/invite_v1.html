@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>邀请好友</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="styles/main.css">
+
+<script>
+	var gConfig = {
+		imgPath: location.origin + '/',
+		prizeURL: 'http://192.168.8.72/interface/award.php'
+	}
+</script>
+
+</head>
+<body>
+<header>
+	<div class="invite-tips">邀请您的货运同行好友们一起帮忙拆红包吧！</div>
+</header>
+
+<article class="container">
+
+	<!-- 上传通讯录 S -->
+	<div id="uploadList" class="upload-list" data-href="">上传通讯录，邀请更方便</div>
+	<!-- 上传通讯录 E -->
+
+	<section id="inviteList">
+
+		<div class="invite-list">
+			<div class="row">
+				<div class="span4">
+					<div class="i-name">好友昵称</div>
+				</div>
+				<div class="span6">
+					<div class="i-num">
+						13800138000
+					</div>
+				</div>
+				<div class="span2 send-btn-box">
+					<div class="send-btn" data-href="sms:13800138000">发送<br/>邀请</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</section>
+
+</article>
+
+<section class="body-bg"><img src="images/bg.jpg" alt=""></section>
+<footer>
+	<div id="addMobile" class="send-invite">邀请新好友</div>
+</footer>
+
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/custom.min.js"></script>
+<script src="scripts/main.js"></script>
+
+<script>
+	$(function(){
+// -- 填手机号邀请
+		$('#addMobile').on(oTools.clickEvent, function(){
+			inviteDialog(exchange, '发送邀请');
+		});
+
+		function exchange(popup){
+		        var mobile = $("#inviteNum").val();
+		        if (mobile == '') {
+		            oTools.alertmess("请输入手机号码");
+		            return false;
+		        }
+		        var regu = /^[1][0-9]{10}$/;
+		        var re = new RegExp(regu);
+
+		        if (!re.test(mobile)) {
+		            oTools.alertmess("请输入正确手机号码");
+		            return false;
+		        }
+
+		        var submitData = {
+		            mobile: mobile,
+		        };
+
+				$.ajax({
+		            type: 'POST',
+		            url: 'http://192.168.8.72/interface/success.php?ac=activityuser',
+		            dataType: 'json',
+		            timeout: 6e3,
+		            async: false,
+		            data: {},
+		            beforeSend: function(){
+						load.start();
+		            },
+		            success: function(res){
+						load.close();
+						if (res.success == true) {
+			                oTools.alertmess("提交成功，谢谢您的参与");
+
+			            var html = '<div class="invite-list"><div class="row">';
+							html += '<div class="span4">';
+							html += '<div class="i-name">' + res.username + '</div></div>';
+							html += '<div class="span6"><div class="i-num">' + res.mobile + '</div></div>';
+							html += '<div class="span2 send-btn-box">';
+							html += '<div class="send-btn" data-href="sms:' + res.mobile + '">发送<br/>邀请</div></div></div>';
+							// html += '<div class="send-btn" onclick="alert(\'a\')">发送<br/>邀请</div></div></div>';
+
+				            $('#inviteList').append(html);
+
+			                return true;
+			            } else {
+			            	oTools.alertmess(res.msg);
+			            	return false;
+			            }
+		            },
+		            error: function(XMLHttpRequest, textStatus, errorThrown) {
+						load.close();
+		            	return false;
+		            }
+		        });
+		}
+
+		$('#inviteList').on(oTools.clickEvent, '.send-btn', function(){
+			var $_this = $(this);
+
+			
+		});
+	});
+
+</script>
+
+</body>
+</html>

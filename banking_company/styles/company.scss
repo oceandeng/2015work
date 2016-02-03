@@ -1,0 +1,769 @@
+@import "normalize", "mixin";
+@import "response";
+
+$b-color: #f54b41;
+$black: #333;
+$gray: #999;
+$orange: #f0624f;
+$f-color: #19273f;
+
+html, body{
+  min-height: 100%;
+  background: #efeff6;
+}
+
+body {
+  background: #efeff6;
+  font-family: "Microsoft Yahei";
+  color: #333;
+}
+
+a{
+  text-decoration: none;
+  color: $b-color;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+input{
+  padding: 0;
+}
+
+img{
+  max-width: 100%;
+}
+
+.gray{
+	background: #d7d7d7 !important;
+	color: #fff !important;
+}
+
+.orange{
+	color: $orange !important;
+}
+
+.marb20{
+	margin-top: 20px !important;
+	margin-bottom: 30px !important;
+}
+
+.botton{
+	width: 90%;
+	margin: 0 auto;
+	@include line-height(50px);
+	background: $orange;
+	color: #fff;
+	border-radius: 5px;
+}
+
+.botton-w{
+	width: 90%;
+	margin: 0 auto;
+	@include line-height(50px);
+	background: #fff;
+	color: $orange;
+	border: 2px solid $orange;
+	border-radius: 5px;
+	font-size: 20px;
+}
+
+.submit{
+	margin: 30px auto;
+}
+
+.gray{
+	background: #d7d7d7 !important;
+	color: #fff !important;
+}
+
+.orange{
+	color: $orange !important;
+}
+
+header{
+  padding: 15px 20px;
+  text-align: right;
+
+  .detail{
+    color: $b-color;
+  }
+}
+
+.container{
+	padding: 0 0 30px 0;
+  .quota-box{
+    padding: 0 0 160px 0;
+    width: 100%;
+    position: absolute;
+  }
+// 信用首页
+  .quota-info{
+    $f-color: #79869d;
+    overflow: hidden;
+
+    width: 80%;
+    margin: 0px auto 20px auto;
+    // background: #fff;
+    // border: 2px solid $b-color;
+    border-radius: 50%;
+    text-align: center;
+    background: none;
+    border: none;
+
+    h2{
+      color: $f-color;
+      font-size: 18px;
+      margin: 0;
+    }
+    .num{
+      font-size: 30px;
+      padding: 10px 0;
+    }
+    .top-quota{
+      font-size: 16px;
+      color: $f-color;
+		width: 70%;
+		margin: 0 auto;
+    }
+    .valid{
+      font-size: 14px;
+      color: $f-color;
+		width: 70%;
+		margin: 0 auto;
+    }
+    p{
+      line-height: 40px;
+      color: $f-color;
+    }
+  }
+}
+.return-list{
+	text-align: center;
+    font-size: 14px;
+    color: $f-color;
+
+    span[data-href]{
+      color: $orange;
+    }
+}
+// 车辆授信管理
+.container{
+	.car-manage-tit{
+		$line-h: 40px;
+		color: $gray;
+		position: fixed;
+		top: 0;
+		width: 100%;
+
+		.car-id,.quota,.car-driver,.advice{
+			span{
+				padding: 0 0 0 10px;
+			}
+		}
+		.car-id,.quota{
+			width: 25%;
+			float: left;
+			@include line-height($line-h);
+			text-align: left;
+		}
+		.car-driver{
+			width: 16.66666666%;
+			float: left;
+			@include line-height($line-h);
+			text-align: left;
+		}
+		.advice{
+			width: 33.33333333%;
+			float: left;
+			@include line-height($line-h);
+			text-align: left;
+		}
+	}
+
+	.car-manage-body{
+		padding: 60px 0 30px 0;
+		$line-h: 40px;
+		color: $gray;
+
+		.car-id-con,.quota-con,.car-driver-con,.advice-con{
+			span{
+				padding: 0 0 0 10px;
+				color: $f-color;
+			}
+		}
+		.car-id-con,.quota-con,.advice-con{
+			width: 25%;
+			float: left;
+			@include line-height($line-h);
+			text-align: left;
+		}
+		.car-driver-con{
+			width: 16.66666666%;
+			float: left;
+			@include line-height($line-h);
+			text-align: left;
+			overflow: hidden;
+			text-overflow:ellipsis; 
+			white-space:nowrap; 
+			span{
+				padding: 0;
+			}
+		}
+		.edit-btn{
+			width: 8.33333333%;
+			float: left;
+			@include line-height($line-h);
+			text-align: left;
+			img{
+				width:20px;
+				height: 20px;
+				margin: 10px 0 0 0;
+			}
+		}
+	}
+}
+
+// 新增车主
+.container{
+  .l-a-one{
+    margin: 20px 0 0 0;
+
+    h2.tit{
+      margin: 0;
+      padding: 0 10px;
+      font-size: 16px;
+      font-weight: normal;
+      color: $f-color;
+    }
+
+	input{
+		width: 95%;
+		text-align: right;
+		color: $f-color;
+		padding: 0 5% 0 0;
+		border: none;
+	}
+  }
+
+}
+
+// 车辆借款管理
+.container{
+	.borrow-manage-tit{
+		$line-h: 40px;
+		color: $gray;
+		position: fixed;
+		top: 0;
+		width: 100%;
+
+		.car-id,.quota,.no-repay{
+			width: 33.33333333%;
+			float: left;
+			@include line-height($line-h);
+			text-align: left;
+			span{
+				padding: 0 0 0 10px;
+			}
+		}
+	}
+	.borrow-manage-body{
+		padding: 60px 0 0 0;
+		$line-h: 40px;
+		color: $gray;
+
+		.car-id-con,.quota-con,.no-repay-con{
+			width: 33.33333333%;
+			float: left;
+			@include line-height($line-h);
+			text-align: left;
+			span{
+				padding: 0 0 0 10px;
+				color: $f-color;
+			}
+		}
+	}
+}
+
+// 车辆借款申请列表
+.container{
+	.borrow-list{
+		@include clearfix();
+		margin: 20px 0 0 0;
+
+		.borrow-row{
+			padding: 10px 0;
+			background: #fff;
+			border-bottom: 1px solid #f2f2f2;
+
+			.protocol-box{
+				@include clearfix();
+				margin: 0 0 10px 0;
+
+				.protocol-num{
+					float: left;
+					color: $f-color;
+					@include line-height(30px);
+				}
+				.protocol-sign{
+					float: right;
+					margin: 0 10px 0 0;
+					padding: 5px 10px;
+					border: 1px solid $orange;
+					color: $orange;
+					border-radius: 5px;
+					font-size: 14px;
+					@include line-height(20px);
+				}
+				.protocol-signed{
+					float: right;
+					margin: 0 10px 0 0;
+					padding: 5px 10px;
+					color: #55b81e;
+					font-size: 14px;
+					@include line-height(20px);
+				}
+				span{
+					padding: 0 10px;
+				}
+			}
+			.protocol-con{
+				@include clearfix();
+
+				.car-id,.driver-name,.money{
+					width: 33.33333333%;
+					float: left;
+
+					span{
+						padding: 0 0 0 10px;
+						color: #778396;
+					}
+				}
+			}
+		}
+
+	}
+	.no-more{
+		padding: 20px 0;
+		text-align: center;
+		background: #fff;
+	}
+}
+
+// 签署协议
+.container{
+	.signed-protocol{
+		padding: 20px 0;
+		background: #fff;
+		font-size: 16px;
+		color: $f-color;
+
+		.signed-row{
+			@include clearfix();
+			@include line-height(40px);
+
+			.col-3{
+				width: 30%;
+				float: left;
+				text-align: right;
+			}
+			.col-7{
+				width: 70%;
+				float: right;
+				text-align: left;
+			}
+		}
+	}
+
+	.assure-info{
+		padding: 0 20px;
+		margin: 10px 0 50px 0;
+
+		h2{
+			font-size: 14px;
+			color: #969eac;
+		}
+		ul{
+			list-style-type: none;
+			padding: 0;
+
+			li{
+				color: #969eac;
+				font-size: 12px;
+			}
+		}
+	}
+
+	.agree{
+		.agree-info{
+			font-size: 12px;
+			text-align: center;
+			margin: 20px 0 0 0;
+			color: $gray;
+
+			span{
+				color: $orange;
+			}
+		}
+	}
+}
+
+footer{
+	.cur-car{
+		$f-color: #79869d;
+		position: fixed;
+		bottom: 40px;
+		width: 100%;
+		z-index: 2;
+
+		h2{
+			margin: 0 0 10px 10px;
+			padding: 0 0 0 36px;
+			font-size: 16px;
+			color: $f-color;
+			font-weight: normal;
+			background: url(../images/cur-car-icon.png) no-repeat left center;
+			background-size: 26px 20px;
+		}
+
+		.cur-detail{
+			@include clearfix();
+			background: #fff;
+
+			.col-3-3{
+				width: 33.33333333%;
+				float: left;
+				text-align: center;
+
+				h3{
+					font-size: 16px;
+					margin: 10px 0 0 0;
+				}
+				p{
+					font-size: 14px;
+					color: $f-color;
+				}
+			}
+		}
+	}
+
+  .f-btn{
+    @include clearfix();
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+	z-index: 2;
+
+    .borrow,.return{
+      width: 50%;
+      @include line-height(40px);
+      background: $b-color;
+      text-align: center;
+
+      div{
+        color: #fff;
+        display: block;
+        width: auto;
+        height: 100%;
+      }
+    }
+    .borrow{
+      float: left;
+      div{
+        border-right: 1px solid #ba3827;
+      }
+    }
+    .return{
+      float: right;
+    }
+  }
+  .no-audit{
+    .borrow,.return{
+      background: #d7d7d7;
+    }
+
+    .borrow{
+      div{
+        border-color: #bcbcbc;
+      }
+    }
+  }
+
+	.car-manage-add{
+		@include line-height(60px);
+		border-top: 1px solid #e8e8e8;
+		position: fixed;
+		bottom: 0;
+		text-align: center;
+		width: 100%;
+		background: #fff;
+
+		h2{
+			width:60px;
+			margin: 0 auto;
+			padding: 0 0 0 20px;
+			font-size: 20px;
+			color: $orange;
+			background: url(../images/add-btn-icon.png) no-repeat left center;
+			background-size: 20px 20px;
+		}
+	}
+}
+
+#wrapper, #wrapper1 {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 90%;
+	overflow: hidden;
+	margin: 10px 5%;
+
+	.rule-con{
+		padding: 0 10px 20px 0;
+
+		h2{
+			color: #333;
+			font-size: 18px;
+			text-align: center;
+		}
+		p{
+			padding: 5px 0;
+			text-indent: 2em;
+		}
+		.notes{
+			span{
+				display: block;
+				color: #666;
+			}
+			color: #2390ff;
+		}
+	    .rule-detail{
+	      padding: 20px 0 0 0;
+	      font-size: 14px;
+	      .rule-row{
+	        @include clearfix();
+
+	        .r-t{
+	          width: 35%;
+	          float: left;
+	          padding: 5px 0;
+	          text-align: right;
+	        }
+	        .r-c{
+	          width: 63%;
+	          float: right;
+	          padding: 5px 1%;
+	          border-bottom: 1px solid #666;
+	        }
+	      }
+	      h4{
+	        font-weight: bold;
+	        margin: 20px 0 10px 0;
+	      }
+	      ol{
+	        margin: 0;
+	        padding: 0 0 0 30px;
+	        li{
+	          div{
+	            margin: 5px 0;
+	            span{
+	              border-bottom: 1px solid #666;
+	              padding: 0 10px;
+	            }
+	          }
+	          table{
+	            margin: 10px 0;
+	            border-collapse: collapse;
+	            text-align: center;
+	            td{
+	              border: 1px solid #666;
+	              padding: 5px 0;
+	              i{
+	                font-style: normal;
+	                padding: 0 0 1px 0;
+	                border-bottom: 1px solid #666;
+	              }
+	            }
+	          }
+	        }
+	      }
+	      p.tips{
+	        margin: 10px 0;
+	        text-align: right;
+	      }
+	      p{
+	        text-indent: 0;
+	        span{
+	          border-bottom: 1px solid #666;
+	          padding: 0 10px;
+	        }
+	      }
+	      .sign{
+	        @include clearfix();
+
+	        .s-l{
+	          width: 40%;
+	          float: left;
+	          text-align: center;
+	          min-height: 80px;
+	        }
+	        .s-r{
+	          width: 60%;
+	          float: right;
+	          span{
+	            padding: 1px 0;
+	            border-bottom: 1px solid #666;
+	          }
+	        }
+	      }
+	    }    
+	}
+}
+
+// iphone 4s
+@media screen and (max-width: 320px){
+  .login-top-img{
+    margin: 0 0 40px 0;
+  }  
+  .container{
+  	.borrow-manage-body{
+  		padding: 50px 0 0 0;
+  	}
+	.car-manage-tit,.car-manage-body,.borrow-manage-tit,.borrow-manage-body{
+		font-size: 14px;
+	}
+	.car-manage-body{
+		padding: 50px 0 60px 0;
+	}
+
+    .quota-info{
+      width: 70%;
+      margin: 0px auto 40px auto;
+      h2{
+        font-size: 18px;
+      }
+      .num{
+        font-family: "Helvetica";
+        font-size: 32px;
+        font-weight: bold;
+        color: $f-color;
+      }
+      .top-quota{
+        font-size: 16px;
+      }
+      .valid{
+        font-size: 14px;
+      }
+    }
+  }
+footer{
+	.cur-car{
+		$f-color: #79869d;
+		.cur-detail{
+			.col-3-3{
+				p{
+					margin: 5px 0;
+				}
+			}
+		}
+	}
+
+}
+
+#wrapper {
+
+	.rule-con{
+
+		h2{
+
+		}
+		p{
+			font-size: 14px;
+		}
+	}
+}
+
+}
+
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+
+Copyright (c) 2015 Daniel Eden
+*/
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY {
+  animation-duration: .75s;
+}
+
+@keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}

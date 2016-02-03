@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>车旺</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+</head>
+<body>
+
+<article>
+	<h1 class="login-tit">您的手机号是？</h1>
+	<section class="top-tips">为方便您使用车旺服务，请验证手机</section>
+	<section class="container mt40">
+		<div class="log-b">
+			<div class="log-row row">
+				<div class="span8">
+					<div class="mobile-row">
+						<input type="tel" id="mobileNum" class="" value="" placeholder="手机号">
+					</div>
+				</div>
+				<div class="span4">
+					<div id="idenBtn" class="identify-btn" data-switch="true">验证</div>
+				</div>
+			</div>
+			<div class="log-row row">
+				<div class="span12">
+					<div class="iden-row">
+						<input type="num" id="idenNum" value="" placeholder="验证码">
+					</div>
+				</div>
+			</div>
+
+			<div class="sub-btn">
+				<div id="subBtn" class="button gray" data-switch="false">开始</div>
+			</div>
+		</div>
+
+	</section>
+
+</article>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/custom.min.js -->
+<script src="scripts/customtools.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/validate.js"></script>
+<script src="scripts/dialog.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+
+<script>
+	$(function(){
+		var $subBtn = $('#subBtn');
+		var second = 0;
+		var end = 60;
+		var timer = null;
+
+		// 输入框为空时 开始按钮为灰色不可点
+		$('#mobileNum').on('keyup', keyupEvent);
+		$('#idenNum').on('keyup', keyupEvent);
+
+		// 点击验证 获取验证码
+		$('#idenBtn').on(oTools.clickEvent, function(){
+			var $_this = $(this);
+			if(!$_this.data('switch')){return false};
+
+			var mobileNum = $('#mobileNum').val();
+
+			// 手机号验证
+			if(isNull(mobileNum)){
+				oTools.toptips('请填写手机号!');
+				return false;
+			}
+			if(!checkMobile(mobileNum)){
+				oTools.toptips('请填写正确的手机号！');
+				return false;
+			}
+
+			// 验证码倒计时
+			$_this.data('switch', false).addClass('gray').html(second + 's');
+			timer = setInterval(function(){
+				second ++;
+				$_this.html(second + 's');
+
+				if(second == end){
+					second = 0;
+					$_this.data('switch', true).removeClass('gray').html('验证');
+					clearInterval(timer);
+				}
+			}, 1000);
+
+			// 发送验证码ajax调用
+			$.ajax({
+				url: '',
+				type: 'POST',
+				dataType: 'json',
+				data: {},
+				beforeSend: function(){
+					load.start();
+				},
+				success: function(res){
+					load && load.close();
+
+					if(res.success){
+						// 成功回调
+
+						oTools.toptips(res.msg, 'rgba(255, 145, 0, .8)');
+					}else{
+						// 失败提示
+						oTools.toptips(res.msg);
+					}
+				},
+				error: function(){
+					load && load.close();
+				}
+			});
+
+		});
+
+		$('#subBtn').on(oTools.clickEvent, function(){
+			var $_this = $(this);
+			if(!$_this.data('switch')){return false};
+
+			var mobileNum = $('#mobileNum').val();
+			var idenNum = $('#idenNum').val();
+
+			// 手机号验证
+			if(isNull(mobileNum)){
+				oTools.toptips('请填写手机号!');
+				return false;
+			}
+			if(!checkMobile(mobileNum)){
+				oTools.toptips('请填写正确的手机号！');
+				return false;
+			}
+			// 验证码不为空验证
+			if(isNull(idenNum)){
+				oTools.toptips('请填写验证码！');
+				return false;
+			}
+
+			// 开始ajax调用
+			$.ajax({
+				url: '',
+				type: 'POST',
+				dataType: 'json',
+				data: {
+					mobile: mobileNum,
+					identify: idenNum
+				},
+				beforeSend: function(){
+					load.start();
+				},
+				success: function(res){
+					load && load.close();
+
+					if(res.success){
+						// 成功回调
+
+
+					}else{
+						// 失败提示
+						oTools.toptips(res.msg);
+					}
+				},
+				error: function(){
+					load && load.close();
+				}
+			});
+		});
+
+		function keyupEvent() {
+			var idenNum = $('#idenNum').val(),
+				mobileNum = $('#mobileNum').val();
+
+			if(!isNull(mobileNum) && !isNull(idenNum)){
+				$subBtn.data('switch', true).removeClass('gray');
+			}else{
+				$subBtn.data('switch', false).addClass('gray');
+			}
+		}
+
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,836 @@
+@import "normalize", "mixin";
+@import "response";
+
+$b-color: #f54b41;
+$gray: #999;
+$orange: #f0624f;
+$f-color: #19273f;
+
+html, body{
+  min-height: 100%;
+  background: #efeff6;
+}
+
+body {
+  background: #efeff6;
+  font-family: "Microsoft Yahei";
+  color: #333;
+}
+
+a{
+  text-decoration: none;
+  color: $b-color;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+input{
+  padding: 0;
+}
+
+img{
+  max-width: 100%;
+}
+
+.font12{
+  font-size: 12px;
+}
+
+header{
+  padding: 15px 20px;
+  text-align: right;
+
+  .detail{
+    color: $b-color;
+  }
+  .no-audit{
+    color: $gray;
+  }
+}
+
+.mart20{
+  margin-top: 20px;
+}
+
+.mart30{
+  margin-top: 30px;
+}
+
+.login-top-img{
+  margin: 0 0 60px 0;
+}
+
+.container{
+  padding: 0 0 30px 0;
+  .quota-box{
+    padding: 0 0 70px 0;
+    width: 100%;
+    position: absolute;
+  }
+
+// 登录页
+  .login-box{
+    padding: 0 15px 20px 15px;
+
+    .user-type{
+      @include clearfix();
+      margin: 0 0 10px 0;
+
+      .u-tit{
+        width: 50%;
+        float: left;
+      }
+      .u-radio{
+        width: 50%;
+        float: right;
+        display:-webkit-box;
+
+        .radio-type{
+          -webkit-box-flex:1;
+          overflow: hidden;
+
+          .radio-box,.raido-label{
+            @include line-height(20px);
+            text-align: left;
+            overflow: hidden;
+            height: 20px;
+
+            .sel-box{
+              width: 20px;
+              height: 20px;
+            }
+            input{
+              position: absolute;
+              left: -20px;
+            }
+          }
+          .radio-box{
+            width: 20px;
+            float: left;
+            margin: 0 5px 0 0;
+          }
+        }
+      }
+    }
+
+    .phone-box{
+      .phone{
+        width: 100%;
+        @include line-height(50px);
+        background: #fff;
+        border: none;
+        border-radius: 5px;
+        margin: 0 0 15px 0;
+        text-align: left;
+        text-indent: 15px;
+      }
+      .verify-code-box{
+        @include line-height(50px);
+        @include clearfix();
+        margin: 0 0 15px 0;
+
+        .verify-code{
+          width: 55%;
+          float: left;
+          @include line-height(50px);
+          border: none;
+          border-radius: 5px;
+          text-align: left;
+          text-indent: 15px;
+        }
+        .again{
+          width: 35%;
+          float: right;
+          @include line-height(46px);
+          border: 2px solid $orange;
+          border-radius: 5px;
+          background: #fff;
+
+          color: $orange;
+        }
+      }
+    }
+    .login{
+      @include line-height(50px);
+      background: $orange;
+      color: #fff;
+      border-radius: 5px;
+    }
+  }
+
+// 信用首页
+  .quota-info{
+    $f-color: #79869d;
+
+    width: 70%;
+    margin: 30px auto 60px auto;
+    // background: #fff;
+    // border: 2px solid $b-color;
+    // border-radius: 50%;
+    text-align: center;
+    background: none;
+    border: none;
+    overflow: hidden;
+
+    h2{
+      color: $f-color;
+      font-size: 18px;
+      margin: 0;
+    }
+    .num{
+      font-size: 30px;
+      padding: 10px 0;
+    }
+    .top-quota{
+      font-size: 16px;
+      color: $f-color;
+    }
+    .valid{
+      font-size: 14px;
+      color: $f-color;
+    }
+    p{
+      line-height: 40px;
+      color: $f-color;
+    }
+    .fail-reason{
+      width: 60%;
+      margin: 0 auto;
+      font-size: 14px;
+      line-height: 20px;
+      color: $orange;
+    }
+  }
+  .no-audit{
+    border: 2px solid #d7d7d7;
+    border-radius: 50%;
+  }
+  .return-list{
+    text-align: center;
+  }
+
+// 还款
+  .bank-info{
+    padding: 30px 15px 10px 15px;
+    font-size: 12px;
+    color: #68686d;
+  }
+  .return-money{
+    @include line-height(60px);
+    @include clearfix();
+    background: #fff;
+    .m-tit{
+      width: 30%;
+      float: left;
+      color: $f-color;
+    }
+    .m-input{
+      width: 66%;
+      float: right;
+      padding: 0 4% 0 0;
+
+      .m-num{
+        width: 100%;
+        border: none;
+        color: $gray;
+        @include line-height(60px);
+        text-align: right;
+      }
+    }
+  }
+  .confirm, .return-btn{
+    margin: 50px 20px 0 20px;
+    border: 2px solid $orange;
+    border-radius: 5px;
+    @include line-height(50px);
+    text-align: center;
+    background: #fff;
+    color: $orange;
+    font-size: 18px;
+  }
+}
+
+// 申请借款
+.container{
+  .l-a-one{
+    margin: 20px 0 0 0;
+
+    h2.tit{
+      margin: 0;
+      padding: 0 10px;
+      font-size: 16px;
+      font-weight: normal;
+      color: $f-color;
+    }
+
+    .money-box{
+      padding: 0 20px;
+      .money{
+        width: 100%;
+        border: none;
+        @include line-height(30px);
+        text-align: right;
+      }
+    }
+    .date{
+      padding: 0 20px;
+      text-align: right;
+      color: $gray;
+    }
+  }
+  .l-a-two{
+    margin: 20px 0 0 0;
+    color: $f-color;
+    
+    h2.tit{
+      margin: 0;
+      padding: 0 10px;
+      font-size: 16px;
+      font-weight: normal;
+    }
+    span{
+      color: $f-color !important;
+    }
+  }
+  .l-a-confirm{
+    width: 90%;
+    @include line-height();
+    border: 2px solid $orange;
+    border-radius: 5px;
+    background: #fff;
+    margin: 30px 5% 20px 5%;
+    color: $orange;
+    font-size: 18px;
+  }
+  .protocol{
+    text-align: center;
+    font-size: 14px;
+    color: $gray;
+    padding: 10px 0;
+
+    span{
+      color: $orange;
+    }
+  }
+  .borrow-info{
+    font-size: 12px;
+    color: $gray;
+    padding: 0 10px;
+
+    h2{
+      font-size: 12px;
+      margin: 20px 0 10px 0;
+    }
+    ul{
+      list-style-type: none;
+      padding: 0;
+      li{
+        padding: 2px 0;
+      }
+    }
+  }
+
+}
+
+// 还款列表
+.container{
+  .return-list{
+    font-size: 14px;
+    color: $f-color;
+    span[data-href]{
+      color: $orange;
+    }
+
+    .r-l-body{
+      .month-day,.year,.r-money,.r-state{
+        padding: 0 0 0 15px;
+      }
+      .month-day{
+        font-size: 20px;
+        line-height: 20px;
+      }
+      .year{
+        font-size: 10px;
+        line-height: 20px;
+      }
+      .r-state{
+        @include clearfix();
+        margin: 0 10px 0 0;
+        background: url(../images/arrow-right.png) no-repeat right center;
+        background-size: 10px 17px;
+
+        .r-s-word{
+          float: left;
+        }
+        .unpay{
+          color: $gray;
+        }
+        .returned{
+          width: 47px;
+          height: 20px;
+          margin: 10px 0 0 3px;
+          float: left;
+        }
+        .overdue{
+          width: 33px;
+          height: 20px;
+          margin: 10px 0 0 3px;
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+// 交易明细
+.detail-con{
+  padding: 20px 0;
+
+  .detail-list{
+    @include clearfix();
+    border-bottom: 1px solid #f2f2f2;
+    background: #fff;
+    height: 60px;
+    padding: 10px 0;
+
+    .d-icon{
+      width: 20%;
+      float: left;
+      @include line-height(80px);
+      text-align: center;
+
+      img{
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .d-tit{
+      width: 30%;
+      float: left;
+
+      h2{
+        margin: 5px 0 8px 0;
+        font-size: 20px;
+        font-weight: normal;
+        color: $f-color;
+        padding: 0 0 0 10px;
+      }
+      .date{
+        color: $gray;
+        padding: 0 0 0 10px;
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+    .d-num{
+      width: 50%;
+      float: left;
+
+      .money{
+        font-size: 20px;
+        text-align: right;
+        padding: 0 20px 0 0;
+        margin: 5px 0 8px 0;
+      }
+      .leave-money{
+        font-size: 14px;
+        color: $gray;
+        text-align: right;
+        padding: 0 20px 0 0;
+      }
+    }
+  }
+}
+
+// 错误页面
+.container{
+  .error-info{
+    text-align: center;
+    padding: 30px 0 0 0;
+
+    img{
+      width: 40%;
+    }
+    p{
+      margin: 30px 0 0 0;
+      color: $orange;
+    }
+  }
+}
+
+footer{
+  .f-btn{
+    @include clearfix();
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+
+    .borrow,.return{
+      width: 50%;
+      @include line-height(60px);
+      background: $b-color;
+      text-align: center;
+
+      div{
+        color: #fff;
+        display: block;
+        width: auto;
+        height: 100%;
+      }
+    }
+    .borrow{
+      float: left;
+      div{
+        border-right: 1px solid #ba3827;
+      }
+    }
+    .return{
+      float: right;
+    }
+  }
+  .no-audit{
+    .borrow,.return{
+      background: #d7d7d7;
+    }
+
+    .borrow{
+      div{
+        border-color: #bcbcbc;
+      }
+    }
+  }
+}
+
+#wrapper, #wrapper1 {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  margin: 10px;
+
+  .rule-con{
+    padding: 0 10px 20px 0;
+
+    h2{
+      color: #333;
+      font-size: 18px;
+      text-align: center;
+    }
+    p{
+      padding: 5px 0;
+      text-indent: 2em;
+    }
+    .notes{
+      span{
+        display: block;
+        color: #666;
+      }
+      color: #2390ff;
+    }
+    .rule-detail{
+      padding: 20px 0 0 0;
+      font-size: 14px;
+      .rule-row{
+        @include clearfix();
+
+        .r-t{
+          width: 35%;
+          float: left;
+          padding: 5px 0;
+          text-align: right;
+        }
+        .r-c{
+          width: 63%;
+          float: right;
+          padding: 5px 1%;
+          border-bottom: 1px solid #666;
+        }
+      }
+      h4{
+        font-weight: bold;
+        margin: 20px 0 10px 0;
+      }
+      ol{
+        margin: 0;
+        padding: 0 0 0 30px;
+        li{
+          div{
+            margin: 5px 0;
+            span{
+              border-bottom: 1px solid #666;
+              padding: 0 10px;
+            }
+          }
+          table{
+            margin: 10px 0;
+            border-collapse: collapse;
+            text-align: center;
+            td{
+              border: 1px solid #666;
+              padding: 5px 0;
+              i{
+                font-style: normal;
+                padding: 0 0 1px 0;
+                border-bottom: 1px solid #666;
+              }
+            }
+          }
+        }
+      }
+      p.tips{
+        margin: 10px 0;
+        text-align: right;
+      }
+      p{
+        text-indent: 0;
+        span{
+          border-bottom: 1px solid #666;
+          padding: 0 10px;
+        }
+      }
+      .sign{
+        @include clearfix();
+
+        .s-l{
+          width: 40%;
+          float: left;
+          text-align: center;
+          min-height: 80px;
+        }
+        .s-r{
+          width: 60%;
+          float: right;
+          span{
+            padding: 1px 0;
+            border-bottom: 1px solid #666;
+          }
+        }
+      }
+    }    
+  }
+}
+
+.date-select{
+  $l-height: 40px;
+  margin: 0 10px 0 0;
+  padding: 0 20px 0 0;
+  background: url(../images/arrow-right.png) no-repeat right center;
+  background-size: 10px 17px;
+  position: relative;
+  @include line-height($l-height);
+
+  .placeholder{
+    position: absolute;
+    right: 20px;
+    @include line-height($l-height);
+    color: $orange;
+  }
+  input{
+    width: 100%;
+    position: absolute;
+    right: 20px;
+    color: $orange;
+    @include line-height($l-height);
+    background: none;
+  }
+}
+
+@media screen and(max-width: 400px){
+  .f12{
+    font-size: 14px !important;
+  }
+}
+// iphone 4s
+@media screen and (max-width: 320px){
+  .f12{
+    font-size: 12px !important;
+  }
+  .login-top-img{
+    margin: 0 0 40px 0;
+  }
+  .container{
+    .bank-info{
+      padding: 30px 20px 10px 10px;
+    }
+    .quota-info{
+      width: 60%;
+      margin: 30px auto 80px auto;
+      h2{
+        font-size: 18px;
+      }
+      .num{
+        font-family: "Helvetica";
+        font-size: 32px;
+        font-weight: bold;
+        color: $f-color;
+      }
+      .top-quota{
+        font-size: 16px;
+      }
+      .valid{
+        font-size: 14px;
+      }
+    }
+  }
+
+  // 交易明细
+  .detail-con{
+    .detail-list{
+      .d-icon{
+        img{
+          width: 55px;
+          height: 55px;
+          margin: 3px 0 0 0;
+        }
+      }
+    }
+  }
+
+// 还款列表
+  .container{
+    .return-list{
+      font-size: 12px;
+
+      .r-l-body{
+        .month-day,.year,.r-money,.r-state{
+          padding: 0 0 0 10px;
+        }
+        .month-day{
+          font-size: 16px;
+          line-height: 16px;
+        }
+        .r-state{
+          background-size: 8px 14px;
+
+          .r-s-word{
+            float: left;
+          }
+          .returned{
+            width: 40px;
+            height: 17px;
+            margin: 6px 0 0 3px;
+            float: left;
+          }
+          .overdue{
+            width: 28px;
+            height: 17px;
+            margin: 6px 0 0 3px;
+            float: left;
+          }
+        }
+      }
+    }
+  }
+  // 错误页面
+  .container{
+    .error-info{
+      padding: 0px 0 0 0;
+      p{
+        margin: 10px 0 0 0;
+        font-size: 14px;
+      }
+    }
+  }
+
+  footer{
+    .f-btn{
+      .borrow,.return{
+        @include line-height(50px);
+      }
+    }
+  }
+  #wrapper {
+    .rule-con{
+      p{
+        font-size: 14px;
+      }
+    }
+  }
+  .date-select{
+    $l-height: 30px;
+    @include line-height($l-height);
+
+    .placeholder{
+      @include line-height($l-height);
+    }
+    input{
+      @include line-height($l-height);
+    }
+  }
+
+}
+
+@media screen and (min-width: 500px){
+  .container{
+    .return-list{
+      padding: 60px 0 0 0;
+    }
+  }
+}
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+
+Copyright (c) 2015 Daniel Eden
+*/
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY {
+  animation-duration: .75s;
+}
+@keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+}

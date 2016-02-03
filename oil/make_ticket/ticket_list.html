@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>发票信息</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/make_ticket/make_ticket.css">
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+	<section id="ticketWrapper">
+		<section id="scroller">
+			<section class="common-list ac" data-id="">
+				<div class="common-row dragdel row">
+					<div class="common-sel span2">
+						<img src="../images/selected.png" alt="">
+					</div>
+					<div class="common-detail span8">
+						<p>普通发票</p>
+						<p class="g999">北京全顺达物流有限公司</p>
+					</div>
+					<div class="common-edit span2">
+						<img src="../images/edit-icon.png" alt="">
+					</div>
+				</div>
+				<div class="del-btn">删除</div>
+			</section>
+
+			<section class="common-list" data-id="">
+				<div class="common-row dragdel row">
+					<div class="common-sel span2">
+						<img src="../images/noselect.png" alt="">
+					</div>
+					<div class="common-detail span8">
+						<p>增值税发票</p>
+						<p>河北泰运恒昌供应链有限公司</p>
+					</div>
+					<div class="common-edit span2">
+						<img src="../images/edit-icon.png" alt="">
+					</div>
+				</div>
+				<div class="del-btn">删除</div>
+			</section>
+		</section>
+	</section>
+
+</article>
+
+<footer>
+	<section class="new-ticket" data-href="add_ticket.html">
+		<p class="w145">新增发票信息</p>
+	</section>
+</footer>
+
+<script src="../scripts/zepto/zepto.js"></script>
+<script src="../scripts/zepto/ajax.js"></script>
+<script src="../scripts/zepto/event.js"></script>
+<script src="../scripts/zepto/touch.js"></script>
+<script src="../scripts/zepto/fx.js"></script>
+<script src="../scripts/zepto/fx_methods.js"></script>
+
+<script src="../scripts/customtools.js"></script>
+<script src="../scripts/plugin/eventutil.js"></script>
+<script src="../scripts/loading.js"></script>
+<script src="../scripts/validate.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/plugin/dialog.js"></script>
+<script src="../scripts/plugin/upload.zepto.js"></script>
+<script src="../scripts/plugin/drag_del.js"></script>
+<script src="../scripts/plugin/iscroll-probe.js"></script>
+<script src="../scripts/plugin/city_selector.js"></script>
+
+<script src="../scripts/make_ticket/make_ticket.js"></script>
+
+<script>
+	(function(){
+		$(function(){
+			$('.common-list').on(oTools.clickEvent, function(){
+				var $_this = $(this),
+					$aImg = $_this.find('.common-sel').find('img'),
+					addId = $_this.attr('data-id');
+
+				// if($_this.hasClass('ac'))
+
+				$_this.addClass('ac');
+				$_this.siblings().removeClass('ac');
+
+				$aImg.attr('src', gConfig.imgPath + '/images/selected.png');
+				$_this.siblings().find('.common-sel').find('img').attr('src', gConfig.imgPath + '/images/noselect.png');
+
+				window.location.href = 'add_ticket.html?addId=' + addId;
+
+			});
+
+			$('.del-btn').on(oTools.clickEvent, function(){
+				var $_this = $(this);
+
+				// $.ajax({
+				// 	type: 'POST',
+				// 	url: '',
+				// 	dataType: 'json',
+				// 	beforeSend: function(){
+				// 		load.start();
+				// 	},
+				// 	success: function(){
+
+				// 	},
+				// 	complete: function(){
+				// 		load && load.close();
+				// 	},
+				// 	error: function(){
+				// 		load && load.close();
+				// 	}
+				// });
+
+				$_this.parents('.common-list').remove();
+
+				e.stopPropagation();
+			});
+
+			$('.common-edit').on(oTools.clickEvent, function(e){
+				var $_this = $(this),
+					addId = $_this.parents('.common-list').attr('data-id');
+
+				e.stopPropagation();
+
+				window.location.href = 'add_ticket.html?addId=' + addId;
+
+			});
+		});
+	})(Zepto);
+
+	(function($){
+// -- 左移删除
+		var dragDel = new DragDel();
+		dragDel.enable();
+
+		var myScroll = new IScroll('#ticketWrapper', { mouseWheel: true, click: true });
+
+	})(Zepto);
+</script>
+
+
+</body>
+</html>

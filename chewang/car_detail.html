@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>车辆信息</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+<script>
+	var gConfig = {
+		imgPath: location.origin + '/'
+	}
+</script>
+
+</head>
+<body>
+
+<article class="car-detail">
+	<section class="list-box mt0">
+		<div class="list-nh-row row">
+			<div class="l-l span3">
+				<div class="con-detail">
+					<p class="g999">车牌号码：</p>	
+					<p class="g999">运营状态：</p>
+					<p class="g999">车辆状态：</p>
+				</div>
+			</div>
+			<div class="l-r span9">
+				<div class="con-detail">
+					<p class="bold">冀C15966  黄色</p>
+					<p>运营</p>
+					<p>行驶</p>
+				</div>
+			</div>
+			<div class="position-link">
+				<a href="car_map.html?jing=116.31007&wei=40.050574">查看<br>位置</a>
+			</div>
+		</div>
+		<div class="list-nh-row row">
+			<div class="l-l span3">
+				<div class="con-detail">
+					<p class="g999">车牌号码：</p>	
+					<p class="g999">运营状态：</p>
+					<p class="g999">车辆状态：</p>
+				</div>
+			</div>
+			<div class="l-r span9">
+				<div class="con-detail">
+					<p class="bold">冀C15966  黄色</p>
+					<p>运营</p>
+					<p>行驶</p>
+				</div>
+			</div>
+			<div class="position-link">
+				<a href="car_map.html?jing=116.31007&wei=40.050574">查看<br>位置</a>
+			</div>
+		</div>
+		<div class="list-nh-row row">
+			<div class="l-l span3">
+				<div class="con-detail">
+					<p class="g999">车牌号码：</p>	
+					<p class="g999">运营状态：</p>
+					<p class="g999">车辆状态：</p>
+				</div>
+			</div>
+			<div class="l-r span9">
+				<div class="con-detail">
+					<p class="bold">冀C15966  黄色</p>
+					<p>运营</p>
+					<p>行驶</p>
+				</div>
+			</div>
+			<div class="position-link">
+				<a href="car_map.html?jing=116.31007&wei=40.050574">查看<br>位置</a>
+			</div>
+		</div>
+		<div class="list-nh-row row">
+			<div class="l-l span3">
+				<div class="con-detail">
+					<p class="g999">车牌号码：</p>	
+					<p class="g999">运营状态：</p>
+					<p class="g999">车辆状态：</p>
+				</div>
+			</div>
+			<div class="l-r span9">
+				<div class="con-detail">
+					<p class="bold">冀C15966  黄色</p>
+					<p>运营</p>
+					<p>行驶</p>
+				</div>
+			</div>
+			<div class="position-link">
+				<a href="car_map.html?jing=116.31007&wei=40.050574">查看<br>位置</a>
+			</div>
+		</div>
+		<div class="list-nh-row row">
+			<div class="l-l span3">
+				<div class="con-detail">
+					<p class="g999">车牌号码：</p>	
+					<p class="g999">运营状态：</p>
+					<p class="g999">车辆状态：</p>
+				</div>
+			</div>
+			<div class="l-r span9">
+				<div class="con-detail">
+					<p class="bold">冀C15966  黄色</p>
+					<p>运营</p>
+					<p>行驶</p>
+				</div>
+			</div>
+			<div class="position-link">
+				<a href="car_map.html?jing=116.31007&wei=40.050574">查看<br>位置</a>
+			</div>
+		</div>
+		
+	</section>
+
+	<section id="moreBtn" class="more-btn">加载更多</section>
+	
+	<section id="jiazaiing" class="more-btn loading">
+		<img src="images/loading.gif" alt="">
+		正在加载...
+	</section>
+</article>
+
+<footer></footer>
+
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+
+<script src="scripts/customtools.js"></script>
+<script src="scripts/dialog.js"></script>
+
+<script src="scripts/main.js"></script>
+
+<script>
+	$(function(){
+
+//*******************************ajax分页
+		var timer = null;
+		$(window).scroll(function(){
+			if(!timer){
+				timer = setTimeout(function(){
+					var srollPos = $(window).scrollTop(), 	//滚动条距离顶部的高度
+						windowHeight = $(window).height(), 	//窗口的高度
+						dbHiht = $('body').height(); 		//整个页面文件的高度
+
+					if((windowHeight + srollPos) >= dbHiht /* && num != maxnum*/){
+
+console.log('aaaaa');
+
+						var page = 0;
+						var total_page = 0;
+						
+						if(total_page >= p) {
+							// ajax函数
+							GetAjaxData();
+						}
+					};
+					timer = null;
+				}, 500);
+			};
+		});
+
+		function GetAjaxData(){
+			//console.log(total_page +'----'+ p);
+			$.ajax({
+				type : 'GET',
+				url  : '',
+				data : {},
+				beforeSend : function(){
+					load.start();
+				},
+				success : function(res){
+					load && load.close();
+
+					
+				},
+				complete: function(){
+					load && load.close();
+				},
+				error: function(){
+					load && load.close();
+					oTools.alertmess('请检查您的网络！');
+				}
+			});
+		}
+
+	});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>歌咏赛</title>
+<!-- build:css({singcontest,.tmp}) styles/img.css -->
+<link rel="stylesheet" href="styles/img.css" type="text/css">
+<!-- endbuild -->
+<script>
+  var gConfig = {
+    // path: location.origin + '/act/demo/'
+    path: location.origin + '/',
+    chewangdownload: '',
+    songdownload: ''
+  }
+</script>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="images/che-icon.png" alt="">
+    <img src="images/song-icon.png" alt="">
+  </div>
+</header>
+<div class="container">
+  <div class="sec">
+    <section class="page1">
+      <div class="body-bg">
+        <img id="img" src="images/index-p-one-bg.jpg" alt="">
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+	var winW = document.documentElement.clientWidth,
+		s = document.documentElement.clientHeight,
+		pImgO = document.querySelector('#img');
+
+    var image = new Image();
+    image.onload = function(){
+        if(winW < 360 && s <= 533){
+            pImgO.src = image.src;
+        }
+    };
+    image.src = gConfig.path + 'images/index-p-one-sbg.jpg';
+</script>
+</body>
+</html>

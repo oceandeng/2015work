@@ -1,0 +1,60 @@
+@import "normalize";
+@import "mixin", "response";
+	
+body{
+	background: #efeff6;
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+}
+
+img{
+	max-width: 100%;
+}
+
+				
+.b{
+	border: 1px solid #dadada;
+}
+
+.chat-container{
+	padding: 30px 20px;
+
+	.mess-row{
+		margin: 0 0 20px 0;
+
+		.header{
+			img{
+				border-radius: 50%;
+				width: 50px;
+				height: 50px;
+			}
+		}
+		.word{
+			position: relative;
+			padding: 0 0 0 15px;
+		}
+		.yellow{
+			background: #febc09;
+			border-radius: 10px;
+			border: 1px solid #e6a800;
+			padding: 15px 10px;
+			line-height: 20px;
+			display: inline-block;
+		}
+		.white{
+			background: #f9f9f9;
+			border-radius: 10px;
+			border: 1px solid #dadada;
+			padding: 15px 10px;
+			line-height: 20px;
+			display: inline-block;
+		}
+		.arrow{
+			position: absolute;
+			top: 16px;
+			left: 6px;
+			width: 10px;
+			height: 18px;
+		}
+	}
+}

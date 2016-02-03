@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>车主易贷</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- build:css(.tmp) styles/apply.css -->
+    <link rel="stylesheet" href="styles/apply.css">
+    <!-- endbuild -->
+
+    <script>
+        var gConfig = {
+            imgPath: location.origin + '/'
+        }
+    </script>
+  </head>
+  <body>
+        
+    <div class="container">
+        <div class="main-img">
+            <img src="images/apply-main-img.jpg" alt="">
+
+            <div class="apply-main-box">
+                <div class="apply-info-box">
+                    <img class="a-m-ani animated flip" src="images/simple.png" alt="">
+                    <div class="apply-con animated">
+                        <h3>简便</h3>
+                        <p>无抵押  纯信用<br>办理手续简单</p>
+                    </div>
+                </div>
+                <div class="apply-info-box">
+                    <img class="a-m-ani animated flip" src="images/fast.png" alt="">
+                    <div class="apply-con animated">
+                        <h3>快捷</h3>
+                        <p>授信快  当天申请<br>最快当天放款</p>
+                    </div>
+                </div>
+                <div class="apply-info-box">
+                    <img class="a-m-ani animated flip" src="images/flexible.png" alt="">
+                    <div class="apply-con animated">
+                        <h3>灵活</h3>
+                        <p>随借随还<br>期限金额灵活</p>
+                    </div>
+                </div>
+                <div class="apply-info-box">
+                    <img class="a-m-ani animated flip" src="images/save-money.png" alt="">
+                    <div class="apply-con animated">
+                        <h3>省钱</h3>
+                        <p>按日计息<br>月息低至7厘</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="borrow-info">
+            <h2>借款资格要求</h2>
+            <ul>
+                <li>借款人为具备道路运输营运许可的卡车司机。</li>
+                <li>卡车需装有定位设备，且在全国道路货运车辆公共监管与服务平台上在线。</li>
+            </ul>
+        </div>
+
+        <div class="login-box">
+            <div class="phone-box">
+                <input type="tel" id="phone" class="phone" placeholder="请输入手机号">
+                <div class="verify-code-box">
+                    <input type="number" id="verifyCode" class="verify-code" placeholder="短信验证码">
+                    <div id="again" class="again verif-dis">点击获取</div>
+                </div>
+            </div>
+
+            <div id="login" class="login gray">立即申请，前10位可免服务费</div>
+        </div>
+        
+    </div>
+
+    <!-- build:js scripts/zepto.min.js -->
+    <script src="scripts/libs/zepto.js"></script>
+    <script src="scripts/libs/ajax.js"></script>
+    <script src="scripts/libs/event.js"></script>
+    <script src="scripts/libs/touch.js"></script>
+    <script src="scripts/libs/fx.js"></script>
+    <script src="scripts/libs/fx_methods.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/apply.js -->
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/iscroll.js"></script>
+    <script src="scripts/customtool.js"></script>
+    <script src="scripts/apply.js"></script>
+    <!-- endbuild -->
+
+    <script>
+
+        $('#login').on('tap', function(){
+            oTools.alertmess('我被点击了~~~', 2000);
+        });
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<meta name="full-screen" content="yes">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="0" http-equiv="expires">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>粽粽有奖</title>
+  <!-- build:css({main,.tmp}) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css" type="text/css">
+  <!-- endbuild -->
+
+</head>
+<body>
+
+<header class="headerline">
+  <img id="c-logo" src="images/c-logo.jpg" alt="">
+  <img id="s-logo" src="images/s-logo.jpg" alt="">
+</header>
+<section class="container">
+  <div class="content-c">
+ 	<div class="z-c-top">
+ 		<img src="images/z-t-n.png" alt="">
+ 	</div>
+	<div class="z-c-con">
+ 		<h2>粽子被抢光了</h2>
+    <h3>下载APP不错过每个红包</h3>
+		<div class="download" id="download" data-href="">下载车旺APP</div>
+ 	</div>
+ 	<div class="z-c-bom">
+ 		<img src="images/z-b.png" alt="">
+ 	</div>
+  </div>
+  <div class="z-bg">
+    <img src="images/s-bg.jpg" alt="">
+  </div>
+</section>
+
+<footer>
+
+</footer>
+
+<!-- build:js({main,.tmp}) scripts/zepto.min.js -->
+<script type="text/javascript" src="scripts/zepto.min.js"></script>
+<!-- endbuild -->
+<!-- build:js({main,.tmp}) scripts/customtool.js -->
+<script type="text/javascript" src="scripts/customtool.js"></script>
+<!-- endbuild -->
+<!-- build:js({main,.tmp}) scripts/download.js -->
+<script type="text/javascript" src="scripts/download.js"></script>
+<!-- endbuild -->
+<script>
+  $(document).ready(function(){
+    var screenW = $(window).width(),
+        screenH = $(window).height();
+        bodyH = $('body').height(),
+        hLine = $('.headerline').height(),
+        conH = $('.container').height();
+
+    if(bodyH < screenH){
+      $('.z-bg').css({
+        position: 'fixed',
+        bottom: 0
+      });      
+    }
+  });	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>歌咏赛</title>
+<!-- build:css({singcontest,.tmp}) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css" type="text/css">
+<!-- endbuild -->
+<script>
+  var gConfig = {
+    // path: location.origin + '/act/demo/'
+    path: location.origin + '/'
+  }
+</script>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="images/che-icon.png" alt="">
+    <img src="images/song-icon.png" alt="">
+  </div>
+</header>
+<div class="container">
+  <div class="sec">
+    <section class="page1">
+      <div class="body-bg">
+        <img src="images/index-p-one-bg.jpg" alt="">
+      </div>
+    </section>
+    <section class="page2">
+      <div class="body-bg">
+        <img src="images/index-p-two-bg.jpg" alt="">
+      </div>
+      <div class="l-t">
+        <p>寻找中国“卡车人”好声音</p>
+        <p>让千万“卡哥、卡嫂”亮嗓唱出心声！</p>
+      </div>
+      <div class="r-b">
+        <p>比赛冠军将获得<img src="images/num.png" alt="">万代言费，</p>
+        <p>并有机会代表“卡车人”登上</p>
+        <p class="yellow">2016央视春晚舞台</p>
+      </div>
+    </section>
+    <section class="page3">
+      <div class="body-bg">
+        <img src="images/index-p-thr-bg.jpg" alt="">
+      </div>
+      <div class="content">
+        <h2>比赛分为：初赛+总决赛</h2>
+        <p>初赛：如下3种方式均可参加初赛</p>
+        <ul>
+          <li>①.参赛选手通过“车旺杯——哥·勇·赛”赛事APP录唱并上传参赛作品；</li>
+          <li>②.全国36个城市举办的歌赛“路演卡车KTV”活动现场演唱。</li>
+          <li>总决赛：将在初赛中评选出全国12强登上总决赛舞台进行最后的PK，由大众评委及专业评委评选出冠、亚、季军。</li>
+        </ul>
+      </div>
+    </section>
+    <section class="page4">
+      <div class="body-bg">
+        <img src="images/index-p-fou-bg.jpg" alt="" />
+      </div>
+      <div class="p4-con">
+        <div class="tit-img">
+          <img src="images/index-tit.png" alt="">
+        </div>
+        <p class="tips">长按二维码关注车旺微信</p>
+        <div class="QRcode">
+          <img src="images/QRcode-img.jpg" alt="">
+        </div>
+        <p class="tips f12">“车旺”微信报名即送500元大礼包，<br/>
+前200名再送100M流量</p>
+        <div id="download" class="download btn" data-href="">
+          下载“车旺”手机客户端
+        </div>
+        <div id="share" class="share btn">
+          分享到朋友圈
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<em class="arrow-left">
+  <img src="images/arrow-left.png" />
+</em>
+<em class="arrow-right">
+  <img src="images/arrow-right.png" />
+</em>
+<!-- 首页蒙层 -->
+</div>
+<!--上下滚动 end-->
+
+<!-- build:js({singcontest,.tmp}) scripts/index.min.js -->
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/customtool.js"></script>
+<script src="scripts/pagesBox.js"></script>
+<script src="scripts/popup.zepto.js"></script>
+<script src="scripts/download.js"></script>
+<script src="scripts/index.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

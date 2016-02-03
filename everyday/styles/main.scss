@@ -1,0 +1,123 @@
+@import "normalize", "mixin";
+
+body{
+	font-family: "Microsoft YaHei";
+	background: #ffaa15;
+	font-size: 18px;
+}
+
+#main-img{
+	position: relative;
+	z-index: 1;
+
+	img{
+		max-width: 100%;
+	}	
+}
+
+#top-rule{
+	position: absolute;
+	right: 5%;
+	top: -15px;
+	width: 30px;
+	height: 30px;
+	padding: 20px 15px 10px 15px;
+	text-align: center;
+	border-radius: 50%;
+	background: #ffd815;
+	color: #333;
+	z-index: 9;
+	font-size: 12px;
+    -webkit-animation: tbtn .2s linear;
+    -o-animation: tbtn .2s linear;
+    animation: tbtn .2s linear
+}
+
+@-webkit-keyframes tbtn {
+	@include cusanimate();
+}
+
+@keyframes tbtn {
+	@include cusanimate();
+}
+
+#btn-box{
+	position: relative;
+	padding: 0 20px 20px 20px;
+	margin: -30px 0 0 0;
+	z-index: 3;
+
+	.go,.share{
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		margin: 0 0 30px 0;
+		border-radius: 3px;
+	}
+
+	.go{
+		color: #ef841b;
+		border: 3px solid #rrr;
+		background: #fff;
+	}
+
+	.share{
+		border: 3px solid #fff;
+		color: #fff;
+	}
+}
+
+#wrapper {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: rgba(255, 170, 20, .95);
+	overflow: hidden;
+	visibility: hidden;
+	
+	#rule-con{
+		padding: 20px;
+
+		h2{
+			text-align: center;
+			font-size:20px;
+			margin: 20px 0;
+		}
+		p{
+			font-size: 14px;
+		}
+	}
+	.tips{
+		font-size: 10px;
+		text-align: center;
+		color: #9e7003;
+		padding: 0 0 20px 0;
+	}
+	#close{
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 50px;
+		height:50px;
+
+		img{
+			max-width: 100%;
+		}
+	}
+
+}
+
+// iphone 4
+@media screen and (max-width: 321px) and (max-height: 480px){
+	#btn-box{
+		padding: 0 20px 20px 20px;
+		.go,.share{
+			height: 40px;
+			line-height: 40px;
+			margin: 0 0 20px 0;
+		}
+	}
+}

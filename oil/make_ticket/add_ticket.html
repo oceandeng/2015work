@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>新增发票信息</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/make_ticket/make_ticket.css">
+<!-- build:css(.tmp) styles/make_ticket/make_ticket.css -->
+<link rel="stylesheet" href="styles/make_ticket/make_ticket.css">
+<!-- endbuild -->
+
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+    <section class="select-ticket choose_tic">
+		<div class="row f16">
+			<div class="span12" data-href="">选择发票类型</div>
+			<div class="tab-tit row">
+				<div class="button1 tab-label ac">普通发票</div>
+				<div class="button2 tab-label">增值税发票</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="ticket-tab-con">
+		<section class="tab-detail">
+			<section class="mobile">
+				<div class="mobile-row row">
+					<div class="l-l span4">发票抬头</div>
+					<div class="l-r span8"><input type="text"  class="mobile-text" placeholder="请填写发票抬头"></div>
+				</div>
+			</section>
+
+			<section class="button-box">
+				<div class="button">保存并使用</div>
+			</section>
+		</section>
+
+		<section class="tab-detail" style="display:none;">
+			<section class="mobile m0 bb">
+				<div class="mobile-row row">
+					<div class="l-l span4">发票抬头</div>
+					<div class="l-r span8"><input type="text" class="mobile-text" placeholder="请填写发票抬头"></div>
+				</div>
+			</section>
+
+			<section class="mobile m0 bb">
+				<div class="mobile-row row">
+					<div class="l-l span4">联系电话</div>
+					<div class="l-r span8"><input type="text" class="mobile-text" placeholder="请填写联系电话"></div>
+				</div>
+			</section>
+
+			<section class="car-edit bb">
+				<div class="car-photo">
+					<div class="row">
+						<div class="l-l span4">单位营业执照</div>
+						<div class="l-r span8">
+							<input type="file" id="uploadImgUnit" class="upload-img" name="uploadimgunit" accept="image/*">
+							<img id="addBtnUnit" class="add-btn" src="../images/add-icon.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="car-edit bb">
+				<div class="car-photo">
+					<div class="row">
+						<div class="l-l span5">一般纳税人资格证</div>
+						<div class="l-r span7">
+							<input type="file" id="uploadImgTax" class="upload-img" name="uploadimgtax" accept="image/*">
+							<img id="addBtn" class="add-btn" src="../images/add-icon.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="car-edit bb">
+				<div class="car-photo">
+					<div class="row">
+						<div class="l-l span4">税务登记证</div>
+						<div class="l-r span8">
+							<input type="file" id="uploadImgReg" class="upload-img" name="uploadimgreg" accept="image/*">
+							<img id="addBtn" class="add-btn" src="../images/add-icon.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="car-edit">
+				<div class="car-photo">
+					<div class="row">
+						<div class="l-l span4">银行开户许可证</div>
+						<div class="l-r span8">
+							<input type="file" id="uploadImgBank" class="upload-img" name="uploadimgbank" accept="image/*">
+							<img id="addBtn" class="add-btn" src="../images/add-icon.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="button-box">
+				<div class="button">保存并使用</div>
+			</section>
+		</section>
+	</section>
+</article>
+
+<footer></footer>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="../scripts/zepto/zepto.js"></script>
+<script src="../scripts/zepto/ajax.js"></script>
+<script src="../scripts/zepto/event.js"></script>
+<script src="../scripts/zepto/touch.js"></script>
+<script src="../scripts/zepto/fx.js"></script>
+<script src="../scripts/zepto/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/custom.min.js -->
+<script src="../scripts/customtools.js"></script>
+<script src="../scripts/plugin/eventutil.js"></script>
+<script src="../scripts/loading.js"></script>
+<script src="../scripts/validate.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/plugin/dialog.js"></script>
+<script src="../scripts/plugin/upload.zepto.js"></script>
+<script src="../scripts/plugin/drag_del.js"></script>
+<script src="../scripts/plugin/iscroll-probe.js"></script>
+<script src="../scripts/plugin/city_selector.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/make_ticket/make_ticket.min.js -->
+<script src="../scripts/make_ticket/make_ticket.js"></script>
+<!-- endbuild -->
+
+<script>
+// -- 图片上传调用
+	(function($){
+		$(function(){
+			$('.add-btn').parent().on(oTools.clickEvent, 'img', function(){
+				$(this).siblings('input[type="file"]').click();
+			});
+
+			uploadImgFn('#uploadImgUnit', 'http://192.168.13.50/demo.php');
+			uploadImgFn('#uploadImgTax', 'http://192.168.13.50/demo.php');
+			uploadImgFn('#uploadImgReg', 'http://192.168.13.50/demo.php');
+			uploadImgFn('#uploadImgBank', 'http://192.168.13.50/demo.php');
+
+		});
+
+		function uploadImgFn(ele, ajaxurl){
+			$(ele).uploadimg({
+				url: ajaxurl,
+				success: function(res, ele){
+					$(ele).siblings('.add-btn').hide();
+					$(ele).siblings('img').remove();
+
+					var img = new Image();
+					img.onload = function(){
+						$(ele).parent().append(this).css({
+							'width': '50px', 
+							'height': '50px',
+							'float': 'right',
+							'marginTop': '5px'
+						});
+					}
+					// img.src = res.url;
+					img.src = 'http://192.168.13.50:9000/images/make_card/zsy.jpg';
+				},
+			});
+		}
+	})(Zepto);
+</script>
+
+</body>
+</html>

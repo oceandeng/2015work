@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>信用账户</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- build:css(.tmp) styles/borrowreturn.css -->
+    <link rel="stylesheet" href="styles/borrowreturn.css">
+    <!-- endbuild -->
+
+    <script>
+        var gConfig = {
+            imgPath: location.origin + '/',
+            fullQuota: '42000.30',
+            endQuota: '32000.00'
+        }
+    </script>
+  </head>
+  <body>
+<!-- header S -->
+    <header>
+        <div class="detail" data-href="http://www.baidu.com">明细</div>
+    </header>
+<!-- header E -->
+
+<!-- container S -->
+    <div class="container">
+
+		<div id="quotaCan">
+
+			<div class="quota-box">
+				<div class="quota-info">
+	                <div class="quota-con">
+	                    <h2>可用额度</h2>
+	                    <div id="scoreNum" class="num"></div>
+	                    <div class="top-quota">总额度 25,000.00</div>
+	                    <div class="valid">授信额度有效期至2016授信额度有效期至2016-02-22</div>
+	                </div>
+	            </div>
+	            <div class="return-list">
+	                <span data-href="">还款列表&gt;</span>
+	            </div>
+			</div>
+		</div>
+
+    </div>
+<!-- container E -->
+
+<!-- footer S -->
+    <footer>
+        <div class="f-btn">
+            <div class="borrow">
+                <div data-href="">去借款</div>
+            </div>
+            <div  class="return">
+                <div data-href="">去还款</div>
+            </div>
+        </div>
+    </footer>
+<!-- footer E -->
+
+    <!-- build:js scripts/zepto.min.js -->
+    <script src="scripts/libs/zepto.js"></script>
+    <script src="scripts/libs/ajax.js"></script>
+    <script src="scripts/libs/event.js"></script>
+    <script src="scripts/libs/touch.js"></script>
+    <script src="scripts/libs/fx.js"></script>
+    <script src="scripts/libs/fx_methods.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/borrowreturn.js -->
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/iscroll.js"></script>
+    <script src="scripts/customtool.js"></script>
+    <script src="scripts/borrowreturn.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/circliful.zepto.js -->
+    <script src="scripts/circliful.zepto.js"></script>
+	<!-- endbuild -->
+  </body>
+</html>

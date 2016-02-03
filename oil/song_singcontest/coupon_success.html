@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>歌咏赛</title>
+<!-- build:css({singcontest,.tmp}) styles/coupon.css -->
+<link rel="stylesheet" href="styles/coupon.css" type="text/css">
+<!-- endbuild -->
+<script>
+  var gConfig = {
+    // path: location.origin + '/act/demo/'
+    path: location.origin + '/',
+    ajaxUrl: '{:U("Home/Index/index")}'
+  }
+</script>
+</head>
+<body>
+<article class="container">
+	<div class="form-bg">
+		<img src="images/coupon-success-bg.jpg" alt="" />
+	</div>
+	<div class="content sub-page">
+		<div id="open" class="open botton" data-href="#">打开“车旺”查用</div>
+		<div id="show" class="show botton" data-href="#">炫耀一下</div>
+	</div>
+</article>
+
+<script>
+	function query(elem){
+		return document.querySelectorAll(elem);
+	}
+
+	var elem = query("div");
+
+	for(var i = 0; i < elem.length; i++){
+		var dataHref = elem[i].getAttribute('data-href');
+
+		if(dataHref != null){
+			elem[i].addEventListener('click', function(){
+				location.href = dataHref;
+			}, false);
+		}
+	}
+</script>
+</body>
+</html>

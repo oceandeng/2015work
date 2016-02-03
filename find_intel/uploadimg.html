@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片上传</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<style>
+img{max-width: 100%}
+.container{padding: 0 5%; margin: 60px 0 0 0}
+.img{position:absolute; left: -5000px}
+.btn{margin: 0 5%; height: 40px; line-height: 40px; background: #333; color: #fff; text-align: center;}
+.preview{margin:50px 0 0 0; padding: 20px 0; overflow: hidden;}
+.item{width: 90px; height: 90px; margin:10px; float: left;position: relative}
+.item-img{width: 100%; height: 100%; overflow: hidden}
+.progress{height: 5px; background: rgb(100, 160, 20); position: absolute; bottom: 0px; z-index: 6;}
+.shade{width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); position: absolute; z-index: 3}
+.remove{width: 30px; height: 30px; background: rgb(200, 25, 25); position: absolute; right: -15px; top: -15px; border-radius: 50%; z-index: 9}
+</style>
+
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/',
+        ajaxURL: 'http://192.168.8.72/base64/file.php'
+    }
+</script>
+
+</head>
+<body>
+
+	<div class="container">
+		<input type="file" id="upload" class="img" accept="image/*"/>
+		<div id="btn" class="btn">选择图片</div>
+
+		<div id="preview" class="preview"></div>
+	</div>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/upload.js -->
+<script src="scripts/upload/tool.js"></script>
+<script src="scripts/upload/jpeg.encoder.basic.js"></script>
+<script src="scripts/upload/jpegmeta.js"></script>
+<script src='scripts/upload/image-compress.js'></script>
+<script src='scripts/upload/main.js'></script>
+<!-- endbuild -->
+
+</body>
+</html>

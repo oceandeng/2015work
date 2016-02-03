@@ -1,0 +1,52 @@
+@import "mixin", "normalize";
+
+html {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent
+}
+
+img{
+	max-width: 100%;
+}
+
+header{
+	position: absolute;
+	z-index: 9;
+
+    .logo{
+		width: 100%;
+		margin: 10px 0 0 20px;
+
+		img{
+			width: 36px;
+			margin: 0 10px 0 0;
+		}
+	}	
+}
+.container {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+	.sec {
+	    height: 100%;
+	    -webkit-backface-visibility: hidden;
+
+	    section {
+
+		    img{
+		    	float: left;
+		    }
+		}
+	}
+}

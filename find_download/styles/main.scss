@@ -1,0 +1,42 @@
+@import "normalize";
+
+body {
+  background: #19273f;
+  margin: 0;
+  padding: 0;
+}
+
+img{
+	max-width: 100%;
+}
+
+.container{
+	overflow: hidden;
+	img{
+		float: left;
+	}
+}
+
+.download-bar{
+	position: fixed;
+	width: 96%;
+	padding: 0 2%;
+	bottom: 5px;
+
+	.d-btn{
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		background: #ffcc00;
+		border-radius: 5px;
+
+		img{
+			width: 80px;
+			height: 19px;
+			margin: 15px 0 0 0;
+		}
+	}
+	.d-btn:hover{
+		background: #ffa600;
+	}
+}

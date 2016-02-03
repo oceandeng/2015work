@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的红包</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="styles/main.css">
+
+<script>
+	var gConfig = {
+		imgPath: location.origin
+	}
+</script>
+
+</head>
+<body>
+<header>
+	<section class="good-news-box">
+        <div class="good-news">
+            <h3 class="good-tit">今日中奖</h3>
+            <ul id="goodList">
+                <li>【10：11】111喜中100元话费大奖喜中100元话费大奖喜中100元话费大奖</li>
+                <li>【10：11】222喜中100元话费大奖</li>
+                <li>【10：11】333喜中100元话费大奖</li>
+                <li>【10：11】444喜中100元话费大奖</li>
+                <li>【10：11】555喜中100元话费大奖</li>
+            </ul>
+        </div>
+    </section>
+    <div class="rule-btn" data-href="/rule.html">活动规则</div>
+</header>
+
+<article class="container">
+	<section class="f-u-line">
+		<div class="row">
+			<div class="f-head span2"><img src="images/default-header.jpg" alt=""></div>
+			<div class="f-tips span10">您可以拆开其中一个红包</div>
+		</div>
+	</section>
+
+	<section class="red-packet">
+		<div class="packet">
+			<div class="flipper">
+				<div class="pack-btn front">拆开看看</div>
+				<div class="award-face back"><img src="images/test/red.png" alt=""><p></p></div>
+			</div>
+		</div>
+		<div class="packet">
+			<div class="flipper">
+				<div class="pack-btn front">拆开看看</div>
+				<div class="award-face back"><img src="images/test/red.png" alt=""><p></p></div>
+			</div>
+		</div>
+		<div class="packet">
+			<div class="flipper">
+				<div class="pack-btn front">拆开看看</div>
+				<div class="award-face back"><img src="images/test/red.png" alt=""><p></p></div>
+			</div>
+		</div>
+		<div class="packet">
+			<div class="flipper">
+				<div class="pack-btn front">拆开看看</div>
+				<div class="award-face back"><img src="images/test/red.png" alt=""><p></p></div>
+			</div>
+		</div>
+		<div class="packet">
+			<div class="flipper">
+				<div class="pack-btn front">拆开看看</div>
+				<div class="award-face back"><img src="images/test/red.png" alt=""><p></p></div>
+			</div>
+		</div>
+		<div class="packet">
+			<div class="flipper">
+				<div class="pack-btn front">拆开看看</div>
+				<div class="award-face back"><img src="images/test/red.png" alt=""><p></p></div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="invite-btn">
+		<div class="button">邀请朋友们帮你拆红包</div>
+	</section>
+
+</article>
+
+<footer></footer>
+
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/custom.min.js"></script>
+<script src="scripts/main.js"></script>
+
+<script>
+	$(window).on('load', function(){
+		var $flipper = $('.flipper');
+		var bH = $flipper.find('.back').height();
+		
+		$flipper.find('.front').css({
+			'height': bH,
+			'background': '#fff',
+			'text-align': 'center'
+		});
+
+	// -- 卡片翻牌
+		var prizeTit = '',  		// -- 中奖标题文字
+			rotateing = false,		// -- 是否在翻牌中
+			blankingTime = 1000;	// -- 自动关闭间隔时间
+
+		$flipper.on(oTools.clickEvent, function(){
+			if(rotateing) return;
+
+			var $this = $(this);
+			var prized = $this.data('prized');
+
+	// >> 完成AJAX
+			if(!prized){
+		        $.ajax({
+		            type: 'POST',
+		            url: 'http://192.168.8.72/interface/award.php',
+		            dataType: 'jsonp',
+		            jsonp: 'callback',
+		            timeout: 6e3,
+		            // async: false,
+		            data: {},
+		            beforeSend: function(){
+						load.start();
+						rotateing = true;
+		            },
+		            success: function(res){
+	console.log(res);
+						load.close();
+
+						var tit = '';
+
+		                if (res.success) { 	// 中奖
+		                	switch(res.prizetype){
+		                		case 1:
+			                		tit = '一等奖';
+			                		break;
+			                	case 2:
+			                		tit = '二等奖';
+			                		break;
+			                	case 3:
+			                		tit = '三等奖';
+			                		break;
+		                	}
+							// -- 翻开
+
+							$this.data('prize-tit', tit);
+
+							toogleRotate($this, tit);
+
+							oTools.transitionEnd($this, function(){
+								rotateing = false;
+							});
+
+		                } else { // 没中奖
+							if(res.prizetype == 4){
+			                	tit = '谢谢参与！';
+		                	}
+
+							toogleRotate($this, tit);
+							
+							$this.data('prize-tit', tit);
+		                	
+		                	var $siblingsEle = $this.parent().siblings().find('.flipper');
+
+							oTools.transitionEnd($this, function(){
+								var allOpen = [];				// -- 全部翻开
+
+								$this.parent().parent().find('.flipper').each(function(k, v){
+									allOpen.push($(this).data('prized'));
+								});
+
+								var all = allOpen.every(function(item){return item});
+								console.log(all);
+
+								if(all){
+									rotateing = false;
+								}
+
+								$siblingsEle.each(function(k, v){
+			                		var $_this = $(this);
+			                		var sPrized = $_this.data('prized');
+
+			                		if(!sPrized){
+			                			toogleRotate($_this);
+
+										oTools.transitionEnd($_this, function(){
+					                		var timer = setTimeout(function(){
+												toogleRotate($_this);
+												clearTimeout(timer);
+
+												oTools.transitionEnd($_this, function(){
+													rotateing = false;
+												});
+
+					                		}, blankingTime);
+										});
+			                		}
+			                	});
+							});
+		                }
+		            },
+		            error: function(XMLHttpRequest, textStatus, errorThrown) {
+						load.close();
+						rotateing = false;
+		            }
+		        });
+			}else{
+				// -- 弹层
+							prizeTit = $this.data('prize-tit');
+				awardDialog(prizeTit);
+	        	// 恭喜！您抽中100元话费。
+			}
+
+
+
+		});
+	});
+</script>
+
+
+</body>
+</html>

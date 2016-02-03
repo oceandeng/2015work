@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<title>大卡</title>
+<!-- build:css(.tmp) styles/main.min.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+<script>
+    var gConfig = {
+        imgPath: location.origin,
+        receivedURL : 'http://www.baidu.com'      //添完手机号领取奖品成功跳转链接
+    }
+</script>
+
+</head>
+<body>
+    <section class="good-news-box">
+        <div class="good-news">
+            <h3 class="good-tit">喜报：</h3>
+            <ul id="goodList">
+                <li>【10：11】111喜中100元话费大奖喜中100元话费大奖喜中100元话费大奖</li>
+                <li>【10：11】222喜中100元话费大奖</li>
+                <li>【10：11】333喜中100元话费大奖</li>
+                <li>【10：11】444喜中100元话费大奖</li>
+                <li>【10：11】555喜中100元话费大奖</li>
+            </ul>
+        </div>
+    </section>
+    <section class="lottery-box">
+        <div class="rule-btn" data-href="/rule.html">活动规则</div>
+        <div id="lottery" class="lottery">
+            <div id="outer-cont">
+                <div id="outer"><img src="images/activity-lottery-1.png" width="310px"></div>
+            </div>
+            <div id="inner-cont">
+                <div id="inner"><img src="images/activity-lottery-2.png"></div>
+            </div>
+        </div>
+        <div class="rule-txt">20福分抽奖1次</div>
+        <div class="user-info">
+            <div class="user-name">
+                <div class="user-header">
+                    <img src="images/default-header.jpg" alt="">
+                </div>
+                <span>用户昵</span>
+            </div>
+            <div class="score">我的福分：<span id="totalScore">2000003</span></div>
+        </div>
+
+    </section>
+    <section class="task">
+        <div class="task-tit">
+            <div class="task-img">
+                <img src="images/task-tit.jpg" alt="">
+            </div>
+            <div id="taskBtn" class="task-btn">
+                <img src="images/task-btn.png" alt="">
+            </div>
+        </div>
+        <div class="button-box">
+<!-- 邀请 S -->
+            <!-- <div class="button row invite-btn" data-href="/invitation.html">
+                <h3>邀请好友</h3>
+                <p class="f-14 t-cen invite">每邀请1位好友可获得50福分</p>
+            </div> -->
+<!-- 邀请 E -->
+
+<!-- 邀请成功 S -->
+            <div class="button row invite-btn-d" data-href="http://www.baidu.com">
+                <h3>成功邀请1位好友，领取50福分</h3>
+            </div>
+<!-- 邀请成功 E -->
+
+<!-- 点击去完成 S -->
+            <div class="button row">
+                <div class="span3 task-num">任务一</div>
+                <div class="span6 task-det">
+                    <p>实名认证</p>
+                    <p class="f-12">奖励50福分</p>
+                </div>
+                <div class="span3"><div class="receive"><img src="images/btn-a.png" alt=""></div></div>
+            </div>
+<!-- 点击去完成 E -->
+
+<!-- 已完成 S -->
+            <!-- <div class="button row done">
+                <div class="span3 task-num">任务一</div>
+                <div class="span6 task-det">
+                    <p class="f-12">实名认证，做个有身份的人</p>
+                    <p class="f-12">奖励50福分</p>
+                </div>
+                <div class="span3"><div class="receive"><img src="images/btn-r.png" alt=""></div></div>
+            </div> -->
+<!-- 已完成 E -->
+
+<!-- 完成任务领取福分 S -->
+            <!-- <div class="button row">
+                <div class="span3 task-num">任务一</div>
+                <div class="span6 task-det">
+                    <p>浏览新手引导</p>
+                    <p class="f-12">奖励50福分</p>
+                </div>
+                <div class="span3"><div class="receive-btn">领取福分</div></div>
+            </div> -->
+<!-- 完成任务领取福分 E -->
+
+            <div class="button row">
+                <div class="span3 task-num">任务二</div>
+                <div class="span6 task-det">
+                    <p>发布一篇分享</p>
+                    <p class="f-12">奖励50福分</p>
+                </div>
+                <div class="span3"><div class="receive-btn">领取福分</div></div>
+            </div>
+            <div class="button row" data-href="">
+                <div class="span3 task-num">任务三</div>
+                <div class="span6 task-det">
+                    <p>点一次赞</p>
+                    <p class="f-12">奖励5福分</p>
+                </div>
+                <div class="span3"><div class="go-to"><img src="images/btn-a.png" alt=""></div></div>
+            </div>
+            <div class="button row">
+                <div class="span3 task-num">任务四</div>
+                <div class="span6 task-det">
+                    <p>发布一次评论</p>
+                    <p class="f-12">奖励5福分</p>
+                </div>
+                <div class="span3"><div class="go-to"><img src="images/btn-a.png" alt=""></div></div>
+            </div>
+            <div class="button row">
+                <div class="span3 task-num">任务五</div>
+                <div class="span6 task-det">
+                    <p>上传通讯录</p>
+                    <p class="f-12">奖励20福分</p>
+                </div>
+                <div class="span3"><div class="go-to"><img src="images/btn-a.png" alt=""></div></div>
+            </div>
+            <div class="button row">
+                <div class="span3 task-num">任务六</div>
+                <div class="span6 task-det">
+                    <p>完成实名认证</p>
+                    <p class="f-12">奖励50福分</p>
+                </div>
+                <div class="span3"><div class="go-to"><img src="images/btn-a.png" alt=""></div></div>
+            </div>
+        </div>
+    </section>
+
+<!-- 弹层 S -->
+<section class="popup" style="display: none">
+
+    <!-- 中奖输手机号 -->
+    <section id="winning" class="winning">
+        <img class="red-bg-box" src="images/red-p-bg.jpg" alt="">
+        <div class="accept-box">
+            <h1 id="prizeTit" class="prize-tit"></h1>
+            <img id="prizeType" src="images/test/winning.jpg" alt="">
+            <div class="accept-prize">
+                <input type="tel" id="mobile" class="mobile" name="mobile" placeholder="输入您要充值的手机号码"/>
+                <div id="acceptBtn" class="accept-btn">领取奖品</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载APP -->
+    <section id="downloadApp" class="download-app">
+        <p>亲，您还没有登录大卡APP！请通过大卡APP参与活动吧！大奖随时等你拿哦！</p>
+        <div class="download-btn-box">
+            <div id="closeDownload" class="close-download">残忍拒绝</div>
+            <div id="downloadApp" class="download-btn download"><a href="http://www.baidu.com">下载APP</a></div>
+        </div>
+    </section>
+</section>
+<!-- 弹层 E -->
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/main.min.js -->
+<script src="scripts/otools.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/scrollword.zepto.js"></script>
+<script src="scripts/scroll.zepto.js"></script>
+<script src="scripts/share.zepto.js"></script>
+<!-- endbuild -->
+<script src="scripts/main.js"></script>
+
+<script>
+    // (function(){
+    //     var tipsbg = gConfig.imgPath + '/images/coming-img.png';
+    //     var received = new Dialog({
+    //         'msg': ' ',
+    //         'type': 'tips',
+    //         'tipsbg': tipsbg,
+    //         'lock':true,
+    //         'lockClose': false,
+    //         'lockOpacity': 90,
+    //         'width':'80%',
+    //         'height': 'auto',
+    //         'top': '30%',
+    //         'contentStyle': {
+    //             'background': 'none'
+    //         },
+    //         'onReady': function(){},
+    //         'onClose': function() {
+    //             // 关闭回调
+    //             // alert('close popup');
+    //         }
+    //     });
+    // })();
+</script>
+
+</body>
+</html>

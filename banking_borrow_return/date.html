@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>信用账户</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="full-screen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <!-- build:css(.tmp) styles/mobiscroll.css -->
+    <link href="styles/frame.css" rel="stylesheet" type="text/css" />
+    <link href="styles/scroller.css" rel="stylesheet" type="text/css" />
+    <!-- endbuild -->
+ 
+</head>
+
+<body>
+    <style>
+        .skin{
+            background: #ccc;
+            padding: 20px;
+        }
+    </style>
+
+    <div class="skin">
+        
+        <ul id="treelist">
+<!--             <li>2015年
+                <ul>
+                    <li>8月
+                        <ul>
+                            <li>8日</li>
+                            <li>22日</li>
+                        </ul>
+                    </li>
+                    <li>9月
+                        <ul>
+                            <li>8日</li>
+                            <li>22日</li>
+                        </ul>
+                    </li>
+                    <li>10月
+                        <ul>
+                            <li>8日</li>
+                            <li>22日</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>2016年
+                <ul>
+                    <li>1月
+                        <ul>
+                            <li>8日</li>
+                            <li>22日</li>
+                        </ul>
+                    </li>
+                    <li>2月
+                        <ul>
+                            <li>8日</li>
+                            <li>22日</li>
+                        </ul>
+                    </li>
+                    <li>3月
+                        <ul>
+                            <li>8日</li>
+                            <li>22日</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li> -->
+        </ul>   
+    
+    </div>         
+
+    <!-- build:js scripts/zepto.min.js -->
+    <script src="scripts/libs/zepto.js"></script>
+    <script src="scripts/libs/ajax.js"></script>
+    <script src="scripts/libs/event.js"></script>
+    <script src="scripts/libs/touch.js"></script>
+    <script src="scripts/libs/fx.js"></script>
+    <script src="scripts/libs/fx_methods.js"></script>
+    <!-- endbuild -->
+
+    <script>
+        var $tree = $('#treelist');
+        var html = '';
+        var date = new Date();
+
+        var curYear = parseInt(date.getFullYear());
+        var curMonth = parseInt(date.getMonth() + 1);
+        // var curMonth = 12;
+
+        if(curMonth <= 10){
+            html += '<li>' + curYear + '年<ul><li>' + curMonth + '月<ul><li>8日</li><li>22日</li></ul></li><li>' + (curMonth + 1) + '月<ul><li>8日</li><li>22日</li></ul></li><li>' + (curMonth + 2) + '月<ul><li>8日</li><li>22日</li></ul></li></ul></li>';
+        }else if(curMonth == 11){
+            html += '<li>' + curYear + '年<ul><li>' + curMonth + '月<ul><li>8日</li><li>22日</li></ul></li><li>' + (curMonth + 1) + '月<ul><li>8日</li><li>22日</li></ul></li></ul></li><li>' + (curYear + 1) + '年<ul><li>1月<ul><li>8日</li><li>22日</li></ul></li></ul></li>';
+        }else if(curMonth == 12){
+            html += '<li>' + curYear + '年<ul><li>' + curMonth + '月<ul><li>8日</li><li>22日</li></ul></li></ul></li><li>' + (curYear + 1) + '年<ul><li>1月<ul><li>8日</li><li>22日</li></ul></li><li>2月<ul><li>8日</li><li>22日</li></ul></li></ul></li>';
+        }
+
+        $tree.append(html);
+    </script>
+
+    <!-- build:js scripts/mobiscroll.js -->
+    <script src="scripts/mobiscroll/mobiscroll.zepto.js"></script>
+    <script src="scripts/mobiscroll/mobiscroll.core.js"></script>
+    <script src="scripts/mobiscroll/mobiscroll.frame.js"></script>
+    <script src="scripts/mobiscroll/mobiscroll.scroller.js"></script>
+    <script src="scripts/mobiscroll/mobiscroll.listbase.js"></script>
+    <script src="scripts/mobiscroll/mobiscroll.treelist.js"></script>
+    <!-- endbuild -->
+
+    <script>
+        $(function () {
+
+            $('#treelist').mobiscroll().treelist({
+                theme: 'mobiscroll' || $.mobiscroll.defaults.theme, //皮肤样式
+                mode: 'scroller', //日期选择模式
+                display: 'modal', //显示方式 
+                lang: 'zh',
+                labels: ['year', 'month', 'day'],
+                callback: function(input, data){
+                    console.log(input);
+                    console.log(data);
+                    input.val(data);
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

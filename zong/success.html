@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<meta name="full-screen" content="yes">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="0" http-equiv="expires">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>粽粽有奖</title>
+  <!-- build:css({main,.tmp}) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css" type="text/css">
+  <!-- endbuild -->
+
+</head>
+<body>
+
+<header class="headerline">
+  <img id="c-logo" src="images/c-logo.jpg" alt="">
+  <img id="s-logo" src="images/s-logo.jpg" alt="">
+</header>
+<section class="container">
+  <div class="content-c">
+ 	<div class="z-c-top">
+ 		<img src="images/z-t-s.png" alt="">
+ 	</div>
+	<div class="z-c-con">
+ 		<h2>恭喜您领到大奖了</h2>
+		<div class="juan">
+			<img class="jyj" src="images/jyj.jpg" alt="">
+			<img class="num" src="images/num80.jpg" alt="">
+			<span>元</span>
+		</div>
+		<div class="tips">
+			加油券可抵加油费哦，速速使用吧
+		</div>
+		<div class="download" data-href="">马上使用</div>
+		<div class="share" id="share">分享到朋友圈</div>
+    <div class="note-off" id="note">
+      <span data-href="">点击了解优惠券折扣</span>
+    </div>
+ 	</div>
+ 	<div class="z-c-bom">
+ 		<img src="images/z-b.png" alt="">
+ 	</div>
+  </div>
+  <div class="z-bg">
+    <img src="images/s-bg.jpg" alt="">
+  </div>
+</section>
+<section class="rule">
+  <div class="rulecon">    
+    <h2>优惠券折扣说明</h2>
+    <p>1、速速下载车旺APP，马上使用您抽取的加油券，享受加油折上折；</p>
+    <p>2、充值部分正常享受返利，还有优惠券，加油一次，双重优惠；</p>
+    <p>3、活动期间每人都能抽到不同金额的加油券，面额分别有20元（充值≥99元可用）、50元（充值≥299元可用）、80元（充值≥499元可用）三种。比如，您需充值299元，使用50元加油券后，则实付249元即可。</p>
+  </div>
+  <div class="close">
+    <img src="images/close.png" alt="">
+  </div>
+</section>
+<footer>
+
+</footer>
+
+<!-- build:js({main,.tmp}) scripts/zepto.minc.js -->
+<script type="text/javascript" src="scripts/zepto.min.js"></script>
+<script type="text/javascript" src="scripts/touch.js"></script>
+<!-- endbuild -->
+<!-- build:js({main,.tmp}) scripts/popup.zepto.js -->
+<script type="text/javascript" src="scripts/popup.zepto.js"></script>
+<!-- endbuild -->
+<!-- build:js({main,.tmp}) scripts/customtool.js -->
+<script type="text/javascript" src="scripts/customtool.js"></script>
+<!-- endbuild -->
+<script>
+  $(document).ready(function(){
+    var screenW = $(window).width(),
+        screenH = $(window).height();
+        bodyH = $('body').height(),
+        hLine = $('.headerline').height(),
+        conH = $('.container').height();
+
+    if(bodyH < screenH){
+      $('.z-bg').css({
+        position: 'fixed',
+        bottom: 0
+      });      
+    }
+
+    $('#note').on('click', function(){
+      $('.rule').show();
+    });
+
+    $('.close').on('click', function(){
+      $('.rule').hide();
+    });
+
+    var agent= '{$agent}';
+
+    $('#share').on('singleTap', function(){
+      // if(agent == 'weixin'){
+        $.myPlugin.popup({
+          screenW : screenW,
+          screenH : screenH,
+          path : 'images/share-info.png'
+        });
+      // }else if(agent == 'app'){
+      //   location.href = '';
+      // }else{
+      //   alertmess('打开浏览器菜单，点击分享按钮分享给朋友');
+      // }
+
+    });
+
+    $('#download').on('click', function(){
+      location.href = $(this).attr('data-href');
+    });    
+  });	
+</script>
+
+</body>
+</html>

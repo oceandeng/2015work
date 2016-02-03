@@ -1,0 +1,141 @@
+@import "normalize", "mixin";
+@import "animate/base";
+
+html, body {
+    background: #090812;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+	font-family: 'Microsoft YaHei';
+    overflow: hidden;
+    font-size: 14px;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent
+}
+
+img{
+	max-width: 100%;
+}
+
+.container {
+	position: relative;
+	.form-bg{
+		@include clearfix();
+		img{
+			float: left;
+		}
+	}
+	.content{
+		position: absolute;
+		top: 70%;
+		width: 80%;
+		padding: 0 10%;
+
+		.btn{
+			text-align: center;
+			border-radius: 5px;
+			border: 2px solid #ee4d28 !important;
+		}
+		.phone{
+			border: none;
+			height:50px;
+			line-height: normal;
+			padding: 0 2%;
+			width: 96%;
+			background: #fff;
+			font-family: 'Microsoft YaHei';
+			margin:0 0 20px 0;
+		}
+		.submit{
+			@include line-height();
+			width: 100%;
+			background: #ee4d28;
+			color: #fff;
+		}
+		.info{
+			margin: 20px 0 0 0;
+			text-align: center;
+			color: #ee4d28;
+		}
+		.botton{
+			@include line-height();
+			border-radius: 5px;
+			border:2px solid #ee4d28;
+			margin: 0 0 20px 0;
+			text-align: center;
+		}
+		.open{
+			background: #ee4d28;
+			color: #fff;
+		}
+		.show{
+			background: #fff;
+			color: #ee4d28;
+		}
+	}
+	.sub-page{
+		top: 60% !important;
+
+		.tips{
+			text-align: center;
+			color: #999;
+		}
+	}
+}
+#wrapper {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 90%;
+	overflow: hidden;
+	margin:15px 5%;
+
+	.rule-con{
+		padding: 0 10px 20px 0;
+
+		h2{
+			color: #ea5628;
+			font-size: 18px;
+		}
+		p{
+			padding: 5px 0;
+		}
+		.notes{
+			span{
+				display: block;
+				color: #666;
+			}
+			color: #2390ff;
+		}
+	}
+}
+
+@media screen and (max-width: 320px) and (max-width: 533px){
+.container {
+	position: relative;
+	.form-bg{
+		@include clearfix();
+		img{
+			float: left;
+		}
+	}
+	.content{
+		.phone{
+			height:40px;
+			margin:0 0 10px 0;
+		}
+		.submit{
+			@include line-height(40px);
+		}
+		.botton{
+			@include line-height(40px);
+		}
+	}
+}
+}

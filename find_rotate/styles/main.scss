@@ -1,0 +1,573 @@
+@import 'mixin', 'variable';
+@import 'normalize';
+@import 'response';
+@import 'animate';
+
+/* ==========================================================================
+   Project styles
+   ========================================================================== */
+
+html,body {
+    width: 100%;
+    font-family: $font-family;
+    font-size: $font-nomalsize;
+}
+img{
+    max-width: 100%;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder { color: #999;}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+
+.f-12{
+    font-size: 12px !important;
+}
+
+.f-14{
+    font-size: 14px !important;
+}
+
+.t-cen{
+    text-align: center !important;
+}
+
+header{
+    ul{
+        display: -webkit-flex;
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li{
+            flex: 1;
+            text-align: center;
+            @include line-height(50px);
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+    }
+}
+
+.container{
+    overflow: hidden;
+}
+
+.lottery-box{
+    background: $yellow;
+    position: relative;
+    padding: 30px 0 0 0;
+    overflow: hidden;
+
+    .rule-btn{
+        @include line-height(30px);
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 0 10px;
+        border: 2px solid #fff;
+        color: #fff;
+        border-radius: 5px;
+        z-index: 2;
+    }
+}
+
+.user-info{
+    @include clearfix();
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px 0;
+
+    .user-name{
+        width: 50%;
+        float: left;
+        color: #19273f;
+
+        .user-header{
+            width: 25%;
+            float: left;
+            img{
+                width: 30px;
+                max-width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: block;
+            }
+        }
+
+        span{
+            display: block;
+            width: 70%;
+            float: left;
+            @include line-height(30px);
+            text-align: left;
+            margin: 0 0 0 5%;
+            overflow:hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    .score{
+        width: 50%;
+        float: right;
+        @include line-height(30px);
+        text-align: right;
+        color: #19273f;
+    }
+}
+
+.lottery{
+    position: relative;
+}
+#outer-cont {
+    width: 100%;
+    /* -moz-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg); */
+}
+#inner-cont {
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    /* -moz-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg); */
+}
+#outer {
+    width : 310px;
+    max-width: 310px;
+    height: 310px;
+    margin: 0 auto;
+
+    img{
+        border-radius: 50%;
+        box-shadow: 0px 1px 6px #666;
+    }
+}
+#inner {
+    width : 112px;
+    max-width: 112px;
+    height: 142px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+#outer img, #inner img {
+    display: block;
+    margin: 0 auto;
+}
+.rule-txt{
+    @include line-height(24px);
+    width: 45%;
+    margin: 20px auto 0 auto;
+    color: #19273f;
+    background: #e1a501;
+    border-radius: 12px;
+    font-weight: bold;
+}
+.good-news-box{
+    background: $yellow;
+    @include clearfix();
+}
+.good-news{
+    margin:10px 0 0 0;
+    @include line-height(30px);
+    @include clearfix();
+    overflow: hidden;
+
+    .good-tit{
+        margin: 0;
+        padding: 0;
+        width: 20%;
+        float: left;
+        @include line-height(30px);
+        text-align: right;
+        font-size: 16px;
+        background: url(../images/good-icon.png) no-repeat 10px 8px;
+    }
+
+    ul{
+        width: 80%;
+        float: right;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li{
+            padding: 0 2%;
+            width: 96%;
+            white-space:nowrap; 
+            text-overflow:ellipsis; 
+            -o-text-overflow:ellipsis; 
+            overflow:hidden;
+            @include line-height(30px);
+            text-align: left;
+        }
+    }
+}
+
+.task{
+    background: $blue;
+
+    .task-tit{
+        background: $yellow;
+
+        .task-img{
+            width: 60%;
+            margin: 0 auto;
+        }
+        .task-btn{
+            width: 50%;
+            padding: 10px 0 0 0;
+            margin: 0 auto;
+            @include clearfix();
+
+            img{
+                float: left;
+            }
+        }
+    }
+    .button-box{
+        padding: 20px 20px 10px 20px;
+        @include clearfix();
+        overflow: hidden;
+
+        .invite-btn{
+            background:-webkit-gradient(linear, 0 0, 0 100%, from(#fecd48), to(#daa001)) !important;
+        }
+        .invite-btn:hover, .invite-btn-d:hover{
+            background: #dba001 !important;
+        }
+
+        .invite-btn-d{
+            background:-webkit-gradient(linear, 0 0, 0 100%, from(#fecd48), to(#daa001)) !important;
+            h3{
+                line-height: 50px !important;
+            }
+        }
+
+        .button{
+            @include button($color: $btn-color);
+            margin: 8px 0;
+            display: inline-block;
+            border-radius: 5px;
+            box-shadow: 0px 1px 3px #09234f;
+
+            h3{
+                margin: 0;
+                padding: 0;
+                font-size: 18px;
+                font-weight: bold;
+                color: $blue;
+                @include line-height(30px);
+            }
+            p{
+                margin: 0;
+                padding: 0;
+                @include line-height(25px);
+                text-align: left;
+            }
+            p.invite{
+                @include line-height(14px);
+                color: $blue;
+            }
+            .task-num{
+                color: #febc09;
+                background: url(../images/boder-r-bg.jpg) no-repeat right center;
+            }
+            .task-det{
+                color: #fff;
+                p{
+                    padding: 0 0 0 10px;
+                    font-size: 16px;
+                }
+            }
+            .receive-btn{
+                display: block;
+                color: #febc09;
+                font-size: 16px;
+                width: 40px;
+                margin: 0 auto;
+                line-height: 20px;
+                padding: 5px 0;
+            }
+            .span{
+                @include clearfix();
+            }
+            .receive{
+                width: 50px;
+                height: 36px;
+                margin: 6px 10px 0 0;
+                float: right;
+            }
+            .go-to{
+                width: 50px;
+                height: 36px;
+                margin: 6px 10px 0 0;
+                float: right; 
+            }
+        }
+
+        .done{
+            background: $btnd-color;
+
+            .task-num{
+                background: url(../images/boder-rd-bg.jpg) no-repeat right center;
+            }
+        }
+    }
+}
+
+.winning{
+    @include clearfix();
+
+    .red-bg-box{
+        float: left;
+    }
+    .accept-box{
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 25%;
+        left: 0;
+        
+        .prize-tit{
+            text-align: center;
+            color: $yellow;
+            font-size: 30px;
+            font-weight: normal;
+            margin: 10px 0;
+        }
+        img{
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+    .accept-prize{
+        padding: 20px 10px;
+        .mobile{
+            border-radius: 3px;
+            @include line-height();
+            width: 96%;
+            border: 1px solid #ccc;
+            margin: 0 0 0 -1px;
+            padding: 0 2%;
+            box-shadow: none;
+            font-size: 18px;
+        }
+        .accept-btn{
+            @include button();
+            margin: 20px 0 0 0;
+            border: none;
+        }
+    }   
+}
+
+.download-app{
+    padding: 20px;
+    
+    .download-btn-box{
+        @include clearfix();
+
+        .close-download{
+            @include button(40px);
+            width: 40%;
+            float: left;
+        }
+        .download-btn{
+            @include button(40px);
+            width: 40%;
+            float: right;
+        }
+    }
+}
+
+
+// 领奖页面
+.rule-box{
+    padding: 30px 10px;
+    background: $yellow;
+    overflow: hidden;
+
+    h3{
+        font-size: 20px;
+    }
+    h4{
+        margin: 30px 0 10px 0;
+    }
+    .notice{
+        margin: 30px 0 0 0;
+        text-align: center;
+        font-size: 12px;
+        color: #664c06;
+    }
+}
+
+.award-box{
+    @include clearfix();
+    background: url(../images/red-bg.jpg) repeat;
+}
+
+.award-banner{
+    figure{
+        figcaption{
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px 0 0 0;
+            color: #fff;
+            font-size: 16px;
+            line-height: 26px;
+            text-align: center;
+        }
+    }
+}
+
+.award-btn{
+    padding: 30px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    @include clearfix();
+
+    .button{
+        @include button();
+        margin: 10px 0;
+        display: inline-block;
+        width: 100%;
+        border: none;
+    }
+    .button-w{
+        @include button();
+        margin: 10px 0;
+        background: #fff;
+        display: inline-block;
+        width: 100%;
+        border: none;
+    }
+}
+
+.invitation-body{
+    background: url(../images/invitation-bg.jpg) no-repeat #16253c;
+    background-size: 100% auto;
+    @include clearfix();
+
+    .invi-img-box{
+        width: 70%;
+        margin: 60px auto 40px auto;
+        
+    }
+    .invi-form-box{
+        position: fixed;
+        bottom: 0;
+        width: 80%;
+        padding: 0 10% 30px 10%;
+    }
+
+    .mobile-input{
+        @include line-height(50px);
+        width: 100%;
+        text-align: center;
+        font-size: 18px;        
+    }
+    p.tips{
+        @include line-height(20px);
+        border-radius: 10px;
+        font-size: 12px;
+        background: #101c30;
+        color: #2f5390;
+    }
+    .button{
+        @include button();
+        border: none;
+        margin: 50px 0 0 0;
+    }
+}
+
+// iphone 4s
+@media screen and (max-width: 320px) and (max-height: 480px){
+.invitation-body{
+
+    .invi-img-box{
+        width: 60%;
+        margin: 40px auto 20px auto;
+        
+    }
+    .invi-form-box{
+        position: fixed;
+        bottom: 0;
+        width: 80%;
+        padding: 0 10% 20px 10%;
+    }
+
+    .mobile-input{
+        @include line-height(40px);
+        width: 100%;
+        text-align: center;
+        font-size: 18px;        
+    }
+    p.tips{
+        @include line-height(20px);
+        border-radius: 10px;
+        font-size: 12px;
+        background: #101c30;
+        color: #2f5390;
+    }
+    .button{
+        @include button($height: 40px);
+        border: none;
+        margin: 30px 0 0 0;
+    }
+}
+}
+
+// iphone 4s and 5s
+@media screen and (max-width: 320px){
+    #inner-cont {
+        top: 60px;
+    }
+    #outer {
+        width : 280px;
+        max-width: 280px;
+        height: 280px;
+    }
+    #inner {
+        width : 102px;
+        max-width: 102px;
+        height: 129px;
+    }
+    .good-news{
+        .good-tit{
+            font-size: 14px;
+            background: url(../images/good-icon.png) no-repeat 5px 8px;
+        }
+    }
+    .user-info{
+        // font-size: 12px;
+        width: 80%;        
+    }
+    .winning{
+        .accept-box{
+            .prize-tit{
+                font-size: 20px;
+            }
+            img{
+                width: 40%;
+            }
+        }
+    }
+
+}
+
+// 360
+@media screen and (max-width: 360px){
+    .user-info{
+        // font-size: 12px;
+        width: 80%;        
+    }
+}

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>大卡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+</head>
+<body>
+<header>
+
+</header>
+
+<article>
+	<section class="container">
+		<img src="images/m-bg-one.jpg" alt="">
+	</section>
+</article>
+
+<footer>
+	<div class="download-bar download" data-href="">
+		<div class="d-btn"><img src="images/d.png" alt=""></div>
+		<!-- loading -->
+		<!-- <div class="d-btn"><img src="images/d-l.png" alt=""></div> -->
+		<!-- loading -->
+	</div>
+</footer>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+
+<script>
+
+var sW = 0, sH = 0, dW = 0, dH = 0;
+
+$(window).load(function(){
+	sW = $(window).width();
+	sH = $(window).height();
+	dW = document.body.clientWidth;
+	dH = $('body').height();
+
+	if(dH < sH){
+		$('body').css({
+			height: sH
+		});
+	}
+});
+
+// 页面data-href跳转事件
+$(function(){
+    $(document).on('tap', '*[data-href]', function(){
+        var $_this = $(this);
+
+        location.href = $_this.attr('data-href');
+    });
+});
+
+// download
+function isWeixin(){
+	var ua = navigator.userAgent.toLowerCase();
+	return (ua.match(/MicroMessenger/i)=="micromessenger");
+}
+function isIOS(){
+	var ua = navigator.userAgent.toLowerCase();
+	return /(iPhone|iPad|iPod|iOS)/i.test(ua);
+}
+
+$(document).ready(function(){
+	if (isWeixin()){
+		$(".download").attr("data-href","http://a.app.qq.com/o/simple.jsp?pkgname=com.ctfo.pltpsuper");
+	}else if(isIOS()){
+		$(".download").attr("data-href","https://itunes.apple.com/cn/app/che-wang-si-ji-ban/id917562471?mt=8");
+	} else {
+		$(".download").attr("data-href","http://file.sinoiov.com/file/app_carriers.apk");
+		//$("#app_sj").attr("href","http://a.app.qq.com/o/simple.jsp?pkgname=com.ctfo.pltpsuper");
+	}
+});
+</script>
+</body>
+</html>

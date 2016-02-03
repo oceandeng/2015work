@@ -1,0 +1,82 @@
+@import "normalize";
+@import "mixin", "variable", "response";
+
+body{
+	background: #efeff6;
+	font-family: "Microsoft Yahei";
+	font-size: 16px;
+}
+
+img{
+	max-width: 100%;
+}
+
+.container{
+	@include clearfix();
+}
+
+.common-list{
+	@include border-bottom();
+	position: relative;
+	overflow: hidden;
+
+	.common-row{
+		position: relative;
+		padding: 10px 0;
+		z-index: 1;
+		background: #fff;
+	}
+
+	.del-btn{
+		position: absolute;
+		width: 20%;
+		top: 0px;
+		right: 0;
+		background: $red;
+		z-index: 0;
+		text-align: center;
+		color: #fff;
+		font-size: 16px;
+	}
+
+	.common-sel,.common-edit{
+		@include line-height();
+		text-align: center;
+		img{
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+	}
+
+	.common-detail{
+		@include line-height(50px);
+		p{
+			margin: 5px 0;
+			text-align: left;
+			line-height: 20px;
+		}
+		.tel{
+			color: #b3bac7;
+		}
+	}
+
+}
+
+.tips{
+	font-weight: normal;
+	font-size: 16px;
+	margin: 0;
+	padding: 20px 0 10px 10px;
+	color: #666;
+}
+
+#wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}

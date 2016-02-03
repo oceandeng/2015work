@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<meta name="full-screen" content="yes">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="0" http-equiv="expires">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>粽粽有奖</title>
+  <!-- build:css({main,.tmp}) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css" type="text/css">
+  <!-- endbuild -->
+
+</head>
+<body>
+<div class="wrap">
+<header class="headerline">
+  <img id="c-logo" src="images/c-logo.jpg" alt="">
+</header>
+<section class="container">
+  <div class="z-tit">
+    <img src="images/z-tit.jpg" alt="">
+  </div>
+  <div class="content">
+    <input type="tel" placeholder="请输入您的手机号" class="tel" id="input-phone" />
+    <input type="button" class="btn" id="btn-submit" value="点我领奖品"/> 
+  </div>
+  <div class="note">
+    <span data-href="" id="note">点击了解活动规则</span>
+  </div>
+  <div class="z-bg">
+    <img src="images/z-bg.jpg" alt="">
+  </div>
+</section>
+<section class="rule">
+  <div class="rulecon">    
+    <h2>活动规则</h2>
+    <p>1、在2015年6月18日~25日活动期间，一个手机号仅限领一张加油券；</p>
+    <p>2、加油券为充值抵用券，须在车旺加油卡充值相应限额方可使用，充值减加油券部分正常，享受返利，如无车旺加油卡须先申请办理，办卡免费；</p>
+    <p>3、用户随机抽取加油券，券面额有20元（充值≥99元可用）、50元（充值≥299元可用）、80元（充值≥499元可用）三种。举例说明：若您需充值299元，使用50元加油券后，则实付249元即可；</p>
+    <p>4、新用户须在领到加油券7日内激活，过期无效（老用户无须激活，领到加油券即自动激活）；券激活后须在15日内使用，过期无效；</p>
+    <p>5、加油券不支持提现、返利，使用本活动优惠券订单一经完成，相应充值金额及加油券不予退还，本活动最终解释权归车旺所有。</p>
+  </div>
+  <div class="close">
+      <img src="images/close.png" alt="">
+    </div>
+</section>
+<footer>
+  <section id="loading"></section>
+</footer>
+</div>
+<!-- build:js({main,.tmp}) scripts/zepto.min.js -->
+<script type="text/javascript" src="scripts/zepto.min.js"></script>
+<!-- endbuild -->
+<!-- build:js({main,.tmp}) scripts/customtool.js -->
+<script type="text/javascript" src="scripts/customtool.js"></script>
+<!-- endbuild -->
+
+<script>
+  $(document).ready(function(){
+    var screenW = $(window).width(),
+        screenH = $(window).height();
+        bodyH = $('body').height(),
+        hLine = $('.headerline').height(),
+        conH = $('.container').height();
+
+    if(bodyH < screenH){
+      $('.z-bg').css({
+        position: 'fixed',
+        bottom: 0
+      });      
+    }
+
+    $('#note').on('click', function(){
+      $('.rule').show();
+      $('body').css({
+        position: 'fixed'
+      });
+    });
+
+    $('.close').on('click', function(){
+      $('.rule').hide();
+      $('body').css({
+        position: 'static'
+      });
+    });
+  });
+
+  $(document).ready(function(){
+
+    var $phoneNum = $('#input-phone');
+    var $phoneSub = $('#btn-submit');
+
+    $phoneSub.on('click', ajaxsub);
+
+    function ajaxsub(){
+      var ajaxurl = '{:U("Home/Index/join")}';
+      var phonenum = $phoneNum.val();
+
+      check(phonenum, function(){
+        $.ajax({
+          url: ajaxurl,
+          type: 'POST',
+          data: {mobile: phonenum},
+          dataType: 'json',
+          timeout: 5000,
+          beforeSend: function(){
+            canvasload();
+            $phoneSub.off('click').css({
+              background: '#333'
+            });
+          },
+          success: function(res){
+            if(res.code == 0 && res.redirect == 1){
+              location.href = res.url;
+            }else if(res.redirect == 1){
+              location.href = res.url;
+            }else{
+              alertmess(res.msg);
+            }
+          },
+          error: function(){
+            alertmess('您的网速有点慢~再试一下！');
+            $('#canvas').remove();
+            $phoneSub.on('click', ajaxsub).css({
+              background: '#ff9000'
+            });
+          },
+          complete: function(){
+            $('#canvas').remove();
+            $phoneSub.on('click', ajaxsub).css({
+              background: '#ff9000'
+            });
+          }
+        });
+      });
+    }
+    function canvasload(){
+      var canvas = '<canvas id="canvas" width="80px" height="80px">';
+
+      if(!$('#canvas').size()){
+        $(canvas).appendTo('#loading');
+        $('#canvas').css({
+          position: 'fixed',
+          top: '40%',
+          left: '50%',
+          marginLeft: '-40px',
+          'z-index': 999,
+          'border-radius':'5px',
+          'background':'rgba(0,0,0,0.8)'
+        });
+        new LoadingImg({
+          'id':'canvas',
+          'height':10
+        });
+      };
+    }
+    function check(val, fn){
+      var patten = /^1\d{10}$/;
+
+      if(patten.test(val)){
+        if(fn){fn();}
+      }else if(val == ''){
+        alertmess('手机号为空！');
+        return false;
+      }else{
+        alertmess('手机号输入有误!');
+        return false;
+      }
+    }
+
+    $phoneNum.on('focus', function(){
+      var placeholder = $(this).attr('placeholder');
+
+      if(placeholder == '请输入您的手机号'){
+        $(this).attr('placeholder', '');
+      };
+    });
+
+    $phoneNum.on('blur', function(){
+      var placeholder = $(this).attr('placeholder');
+
+      if(placeholder == ''){
+        $(this).attr('placeholder', '请输入您的手机号');
+      };
+    });
+  });
+
+</script>
+
+</body>
+</html>

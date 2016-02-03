@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="full-screen" content="yes">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>web</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <script>
+    	var agent = '{$agent}'
+    </script>
+  </head>
+  <body>
+	<section id="main-img">
+		<img src="images/index-bg.jpg" alt="">
+	</section>
+	
+	<div id="top-rule">活动规则</div>
+	
+	<section id="btn-box">
+		<div class="go" id="go" data-href="native:http://app?android=com.sinoiov.oil.oil_main.OilMainPageActivity&ios=PLOilCenterViewController">去充值参与活动</div>
+		<div class="share" id="share" data-href="native:http://app?android=com.sinoiov.share&ios=share">分享给好友</div>
+	</section>
+
+	<div id="wrapper">
+		<div id="scroller">
+			<div id="rule-con">
+				<h2>活动规则</h2>
+				<p>1、活动期间内，用户以当天公布幸运数字作为充值金额，成功完成充值后，将会获得与充值数字相同面额的加油券；</p>
+				<p>2、幸运数字将在每天上午11：00公布（数字1-50之间），公布位置在APP轮播图和车旺微信订阅号；</p>
+				<p>3、每周将选一天作为特别幸运日，在幸运日当天，前十名按照幸运数字充值的用户，将会获得10倍幸运数字面额的加油券；</p>
+				<p>4、获得与幸运数字相同面额加油券的用户，将会在充值次日收到加油券（遇节假日顺延）；获得十倍幸运数字面额的用户，将在充值后3个工作日内收到加油券；</p>
+				<p>5、每位用户每天仅有一次获奖机会，当天获得十倍面额加油券的用户将不再获得与充值数字相同面额的加油券；</p>
+				<p>6、本活动所获加油券可抵加油费使用，具体以加油券券面说明为准；</p>
+			</div>
+			<div class="tips">本活动解释权归车旺所有</div>
+			<div id="close"><img src="images/close.png" alt=""></div>
+		</div>
+	</div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/zepto/zepto.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({everyday,.tmp}) scripts/main.app.js -->
+    <script src="scripts/event.js"></script>
+    <script src="scripts/touch.js"></script>
+    <script src="scripts/otools.js"></script>
+    <script src="scripts/iscroll.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
+    <script>
+    	$(function(){
+      	    $('#go').on('tap', function(){
+                location.href = $(this).attr('data-href');
+            });
+    	})
+	</script>
+</body>
+</html>

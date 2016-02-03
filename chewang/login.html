@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>用户登录</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+<script>
+	var gConfig = {
+		imgPath: location.origin + '/'
+	}
+</script>
+
+</head>
+<body>
+
+<article class="set-password">
+	
+	<section class="list-box row marT0">
+		<div class="list-np-row">
+			<div class="l-l span3"><span class="m-icon">用户名</span></div>
+			<div class="l-r span9"><span class="e-c"><input type="tel" value="18613742873" placeholder="请输入用户名"></span></div>
+		</div>
+		<div class="list-np-row">
+			<div class="l-l span3"><span class="l-icon">密码</span></div>
+			<div class="l-r span9"><span class="e-c"><input type="password" value="" placeholder="请输入密码"></span></div>
+		</div>
+		<div class="list-np-row">
+			<div class="l-l span3"><span class="e-icon">验证码</span></div>
+			<div class="l-r span5">
+				<span class="e-c"><input type="num" value="" placeholder="短信验证码"></span>
+			</div>
+			<div class="l-r span4">
+				<div class="identifying">
+					<img src="images/test/identifying.jpg" style="width: 105px; height: 40px;" alt="" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="button-box">
+		<div id="summitBtn" class="button">登录</div>
+	</section>
+
+</article>
+
+
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/custom.min.js -->
+<script src="scripts/customtools.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/dialog.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/main.js -->
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+
+<script>
+	$(function(){
+		load.start();
+		$('#summitBtn').on(oTools.clickEvent, function(){
+			load&&load.close();
+			oTools.alertmess('aaa');
+		})
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+@mixin clearfix(){
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin line-height($height: 50px){
+	height: $height;
+	line-height: $height;
+  text-align: center;
+}
+
+@mixin text-overflow(){
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow : ellipsis;
+}

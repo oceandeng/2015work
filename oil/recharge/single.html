@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>加油卡充值</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/recharge/recharge.css">
+<!-- build:css(.tmp) styles/recharge/recharge.css -->
+<link rel="stylesheet" href="styles/recharge/recharge.css">
+<!-- endbuild -->
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+
+	<section class="list-box row">
+		<div class="list-row">
+			<div class="l-l span4"><span>充值金额</span></div>
+			<div class="l-r span8"><span><input type="text" value="2000.00" placeholder="请输入金额"></span></div>
+		</div>
+		<div class="list-row" data-href="coupon.html">
+			<div class="l-l span4"><span>使用优惠券</span></div>
+			<div class="l-r span8" data-href="http://www.baidu.com"><span class="h-arrow"><b>共有3张</b></span></div>
+		</div>
+	</section>
+	<section class="pay-money">
+		<span>实付款</span>
+		<span class="money">0.00</span>元
+	</section>
+
+	<h2 class="tit-gray mar0 g999">选择支付方式</h2>
+	<section id="choosePay" class="list-box mar0 row">
+		<div class="list-np-row">
+			<div class="l-l span4"><span>账户余额</span></div>
+			<!-- <div class="l-r span8"><span class="selected"><input type="text" value="2000.00"/></span></div> -->
+			<div class="l-r span8"><span class="selected">2000.00</span></div>
+		</div>
+		<div class="list-np-row">
+			<div class="l-l span4"><span>快捷支付</span></div>
+			<div class="l-r span8"><span>&nbsp;</span></div>
+		</div>
+	</section>
+	<section class="button-box">
+		<div id="summitBtn" class="button">确定</div>
+	</section>
+
+</article>
+
+<footer></footer>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="../scripts/zepto/zepto.js"></script>
+<script src="../scripts/zepto/ajax.js"></script>
+<script src="../scripts/zepto/event.js"></script>
+<script src="../scripts/zepto/touch.js"></script>
+<script src="../scripts/zepto/fx.js"></script>
+<script src="../scripts/zepto/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/custom.min.js -->
+<script src="../scripts/customtools.js"></script>
+<script src="../scripts/plugin/eventutil.js"></script>
+<script src="../scripts/loading.js"></script>
+<script src="../scripts/validate.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/plugin/dialog.js"></script>
+<script src="../scripts/plugin/upload.zepto.js"></script>
+<script src="../scripts/plugin/drag_del.js"></script>
+<script src="../scripts/plugin/iscroll-probe.js"></script>
+<script src="../scripts/plugin/city_selector.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/recharge/recharge.min.js -->
+<script src="../scripts/recharge/recharge.js"></script>
+<!-- endbuild -->
+
+<script>
+(function(){
+	
+	$('#summitBtn').on(oTools.clickEvent, function(){
+
+		var dialog = Dialog({
+			'type': 'input',
+			'title': '输入支付密码',
+			'width': '90%',
+			'showButtons': true,
+			'submitButton': '付款',
+			'cancelButton': '取消',
+			'footStyle': {
+				'display': 'flex'
+			},
+			'subStyle': {
+				'flex': 1,
+				'width': '50%',
+				'background': '#fff',
+				'height': '50px',
+				'line-height': '50px',
+				'border': 'none',
+				'border-top': '1px solid #e8e8e8',
+				'border-top-left-radius': '0',
+				'border-top-right-radius': '0',
+				'font-family': 'Microsoft YaHei',
+				'font-size': '16px',
+				'color': '#ff9000'
+			},
+			'canStyle': {
+				'flex': 1,
+				'width': '50%',
+				'background': '#fff',
+				'height': '50px',
+				'line-height': '50px',
+				'border': 'none',
+				'border-top': '1px solid #e8e8e8',
+				'border-right': '1px solid #e8e8e8',
+				'border-top-left-radius': '0',
+				'border-top-right-radius': '0',
+				'font-family': 'Microsoft YaHei',
+				'font-size': '16px'
+			},
+       		'closeButton': false,
+			'lock': true,
+			'lockColor': '#212936',
+			'animation':'animated fadeInDown',
+			'contentStyle': {
+                'background': 'rgba(242, 242, 242, 1)',
+                'color': '#fff',
+                'margin': '0 auto',
+                'min-height': '60px',
+                'border-radius': '5px',
+                'box-shadow': '1px 1px 5px #ccc;',
+                'z-index': 999,
+                'overflow': 'hidden'
+			},
+			'onSubmit': function(){
+				return modifyVal($_this);
+			}
+		});
+			// $.ajax({
+			// 	type: 'POST',
+			// 	url: '',
+			// 	dataType: 'json',
+			// 	beforeSend: function(){
+			// 		load.start();
+			// 	},
+			// 	success: function(){
+
+			// 	},
+			// 	complete: function(){
+			// 		load && load.close();
+			// 	},
+			// 	error: function(){
+			// 		load && load.close();
+			// 	}
+			// });
+	});
+
+	$('#choosePay').on(oTools.clickEvent, '.l-r', function(){
+		var $_this = $(this);
+
+		$_this.find('span').addClass('selected');
+		$_this.parents('.list-np-row').siblings().find('.l-r').find('span').removeClass('selected');
+	});
+
+})(Zepto);
+</script>
+</body>
+</html>

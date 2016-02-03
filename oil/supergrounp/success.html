@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<meta name="full-screen" content="yes">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="0" http-equiv="expires">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>超级VIP团购团</title>
+  	<!-- build:css({demo,.tmp}) styles/main.css -->
+	<link rel="stylesheet" href="styles/main.css" type="text/css">
+	<!-- endbuild -->
+</head>
+<body style="font-size: 13.5211267605634px;">
+
+<div class="container">
+  <section class="pagesuc">
+	<div class="suc">
+		<img src="images/success.png" alt="" />
+		<p>提交成功！</p>
+	</div>
+	<div class="txt">
+		<p>您的资料我们已收到，我们会尽快核实并与您联系。</p>
+		<p class="tel">客服电话：400-096-6666</p>
+	</div>
+	<div class="note">
+		温馨提示：好事怎能独享，更多惊喜请点击下面按钮。分享到朋友圈，赶快告诉小伙伴们吧！
+	</div>
+	<div class="share">
+		<button id="share">分享到朋友圈</button>
+	</div>
+	<div class="btmimg"><img src="images/bottombtn.png" alt=""></div>
+  </section> 
+</div>
+
+<!-- build:js({demo,.tmp}) scripts/zepto.min.js -->
+<script type="text/javascript" src="scripts/zepto.min.js"></script>
+<!-- endbuild -->
+<!-- build:js({demo,.tmp}) scripts/popup.zepto.js -->
+<script type="text/javascript" src="scripts/popup.zepto.js"></script>
+<!-- endbuild -->
+<script>
+
+	$(document).ready(function(){
+		var h = parseInt(document.documentElement.clientHeight);
+		$('.pagesuc').height(h);
+	
+		var screenW = $(window).width(),
+			screenH = $(window).height();
+
+		$('#share').on('click', function(){
+			$.myPlugin.popup({
+				screenW : screenW,
+				screenH : screenH,
+				path : 'images/share-info.png'
+			});
+		});
+	});
+</script>
+</body>
+</html>

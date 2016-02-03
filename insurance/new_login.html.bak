@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>insurance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+
+<link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body>
+
+<article>
+	<section class="top-tips">初次使用车旺，请设置密码</section>
+	<section class="container">
+		<div class="log-b">
+			<div class="log-row row">
+				<div class="span12"><input id="password" type="password" value="" placeholder="设置密码"></div>
+			</div>
+			<div class="log-row row">
+				<div class="span12"><input id="confirmPassword" type="password" value="" placeholder="重复一次密码"></div>
+			</div>
+
+			<div id="subBtn" class="sub-btn">
+				<div class="button">完成</div>
+			</div>
+			<div class="b-tips" data-href="http://www.baidu.com">已是车旺用户？</div>
+			
+		</div>
+
+
+	</section>
+
+</article>
+
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+
+<script src="scripts/customtools.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/validate.js"></script>
+<script src="scripts/dialog.js"></script>
+
+<script src="scripts/main.js"></script>
+
+<script>
+	$(function(){
+		// 确认密码		
+		$('#subBtn').on(oTools.clickEvent, function(){
+			var password = $('#password').val(),
+				confirmPassword = $('#confirmPassword').val();
+
+			// 验证
+			if(isNull(password)){
+				oTools.toptips('请输入密码');
+				return false;
+			}
+			if(password != confirmPassword){
+				oTools.toptips('两次输入的密码不一致');
+				return false;
+			};
+
+			// ajax调用
+			$.ajax({
+				url: '',
+				type: 'POST',
+				dataType: 'json',
+				data: {},
+				beforeSend: function(){
+					load.start();
+				},
+				success: function(res){
+					load && load.close();
+
+					if(res.success){
+						// 成功回调
+
+					}else{
+						// 失败提示
+						oTools.alertmess(res.msg);
+					}
+				},
+				error: function(){
+					load && load.close();
+				}
+			})
+		});
+	});
+</script>
+
+</body>
+</html>

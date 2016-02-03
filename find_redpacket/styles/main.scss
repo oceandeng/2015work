@@ -1,0 +1,700 @@
+@import 'mixin', 'variable';
+@import 'normalize';
+@import 'response';
+@import 'animate';
+
+html,body {
+    width: 100%;
+    font-family: $font-family;
+    font-size: 14px;
+}
+img{
+    max-width: 100%;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder { color: #999;}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+
+.f-12{
+    font-size: 12px !important;
+}
+
+.f-14{
+    font-size: 14px !important;
+}
+
+.t-cen{
+    text-align: center !important;
+}
+
+.mt0{
+    margin-top: 0 !important;
+}
+
+.mt20{
+    margin-top: 20px !important;
+}
+
+.mb0{
+    margin-bottom: 0 !important;
+}
+
+.mb10{
+    margin-bottom: 10px !important;
+}
+
+.mb20{
+    margin-bottom: 20px !important;
+}
+
+.pAbs{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.a8{
+    background: rgba(219, 0, 0, .6) !important;
+}
+
+.pt40{
+    top: 40px !important;
+}
+
+body{
+    background: #ffd901;
+    position: relative;
+}
+
+header{
+    // overflow: hidden;
+    position: relative;
+    z-index: 2;
+    .hf-tit, .invite-tips{
+        color: #8c5616;
+        @include line-height(40px);
+        padding: 0 10px;
+        text-align: center;
+    }
+    .hf-tit{
+        font-size: 20px;
+    }
+    .hf-chance{
+        color: #8c5616;
+        text-align: center;
+    }
+}
+
+.container{
+    @include clearfix();
+    position: relative;
+    z-index: 1;
+}
+
+.index-bg{
+    @include clearfix();
+    img{
+        float: left;
+    }
+}
+
+.i-content{
+    @include clearfix();
+    width: 100%;
+
+    .ac-text{
+        position: relative;
+
+        .index-bg2{
+            @include clearfix();
+            img{
+                float: left;
+            }
+        }
+        .ac-textc{
+            position: absolute;
+            top: 0;
+        }
+    }
+    .ac-time{
+        text-align: left;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .ac-info{
+        margin: 5px 20px 0 20px;
+        color: #c52616;
+        font-weight: bold;
+
+        p{
+            margin: 0;
+        }
+    }
+    .c-btnc{
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .c-btn{
+        position: relative;
+
+        .index-bg3{
+            @include clearfix();
+            img{
+                float: left;
+            }
+        }
+    }
+    .i-btn-box{
+        margin: 0 20px 30px 20px;
+        font-size: 20px;
+        font-weight: bold;
+
+        .receive{
+            @include button($color: #de3120);
+            color: #fff;
+            border:2px solid #b92314;
+            border-radius: 5px;
+            margin: 0 0 10px 0;
+        }
+        .help-friend{
+            @include button();
+            background: none;
+            color: #de3120;
+            border:2px solid #de3120;
+            border-radius: 5px;
+        }
+    }
+
+    .counter{
+        text-align: center;
+        @include clearfix();
+        margin: 20px 0 10px 0;
+        color: #af2315;
+        font-size: 14px;
+        font-weight: bold;
+
+        .num{
+            display: inline-block;
+            @include line-height(30px);
+            min-width: 80px;
+            margin: 0 10px;
+            padding: 0 5px;
+            background: #ccc;
+            background: #ff9833;
+            border: 1px solid #c66508;
+            border-radius: 5px;
+
+            i{
+                display: inline-block;
+                width: 15px;
+                @include line-height(22px);
+                margin: 0 3px;
+                color: #ffd40c;
+                font-size: 14px;
+                font-style: normal;
+                background: url(../images/num-bg.png) no-repeat center center;
+                background-size: 15px 22px;
+            }
+        }
+    }
+}
+
+.rule-txt{
+    @include line-height(24px);
+    width: 45%;
+    margin: 20px auto 0 auto;
+    color: #19273f;
+    background: #e1a501;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.rule-btn{
+	position: absolute;
+	top: 48px;
+	right: 10px;
+    width: 70px;
+    @include line-height(20px);
+    background: rgba(255, 255, 255, .7);
+    color: #f01515;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+.good-news-box{
+    @include clearfix();
+    background: #ebb202;
+}
+.good-news{
+    @include line-height(30px);
+    @include clearfix();
+    overflow: hidden;
+    color: #fff;
+
+    .good-tit{
+        margin: 0;
+        padding: 0;
+        width: 16%;
+        float: left;
+        @include line-height(30px);
+        text-align: center;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    ul{
+        width: 84%;
+        float: right;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li{
+            padding: 0 2%;
+            width: 96%;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            -o-text-overflow:ellipsis;
+            overflow:hidden;
+            @include line-height(30px);
+            text-align: left;
+            font-size: 14px;
+        }
+    }
+}
+
+.f-u-line{
+    margin: 10px 0 0 0;
+    .f-head, .f-tips{
+        @include line-height(30px);
+        @include text-overflow();
+
+    }
+    .f-head{
+        img{
+            width: 30px;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+    }
+    .f-tips{
+        text-align: left;
+        color: #8b5515;
+    }
+    .o-tips{
+        width: 228px;
+        @include line-height(30px);
+        background: url(../images/other-tips-bg.png) no-repeat;
+        background-size: 228px 30px;
+        color: #ff2e12;
+        margin: 0;
+    }
+}
+
+.red-packet{
+    margin: 10px 0 0 0;
+    padding: 0 5px;
+    @include clearfix();
+
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+
+    .award-face{
+        position: relative;
+
+        .userhead{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: -25px;
+            margin-left: -25px;
+        }
+    }
+
+    .open{
+        .front {
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            z-index: 1
+        }
+        .back {
+            transform: rotateY(0deg);
+            -webkit-transform: rotateY(0deg);
+            z-index: 2;
+        }
+    }
+
+    .flipper{
+        width: 100%;
+        position: relative;
+        transition: transform $speed ease-in-out;
+        -webkit-transition: transform $speed ease-in-out;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+    }
+
+    .front, .back{
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        -webkit-transition: $speed ease-out;
+        transition: $speed ease-out;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+
+    .front {
+        position: absolute;
+        z-index: 2;
+        transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+    }
+    .back {
+        position: relative;
+        z-index: 1;
+        transform: rotateY(-180deg);
+        -webkit-transform: rotateY(-180deg);
+
+        p{
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    .packet{
+        width: 33.33333333%;
+        float: left;
+        text-align: center;
+    }
+    .pack-btn{
+        width: 100%;
+    }
+}
+
+.firend-list{
+    @include line-height();
+    background: #ffbd01;
+    border: 1px solid #ffc406;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px #f2ae07;
+    padding: 0 10px;
+    margin: 10px 0;
+
+    .f-head, .f-name{
+        @include line-height();
+        @include text-overflow();
+    }
+    .f-head{
+        text-align: left;
+        img{
+            width: 40px;
+            margin: 5px auto 0 auto;
+            border-radius: 50%;
+        }
+    }
+    .f-name{
+        text-align: left;
+        color: #333;
+        @include text-overflow();
+        font-size: 16px;
+    }
+    .f-btn{
+        @include line-height();
+        text-align: right;
+        img{
+            width: 61px;
+            height: 52px;
+            margin: 0 -10px 0 0;
+        }
+    }
+}
+
+#inviteList, #firendList{
+    margin: 30px 10px;
+    padding: 0 0 40px 0;
+}
+.invite-list{
+    @include line-height();
+    background: #ffbd01;
+    border: 1px solid #ffc406;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px #f2ae07;
+    margin: 10px 0;
+
+    .i-name, .i-num{
+        text-align: left;
+        @include text-overflow();
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0 0 0 10px;
+    }
+    .i-name{
+        border-right: 1px solid #d69e00;
+        color: #333333;
+    }
+    .i-num{
+        border-left: 1px solid #ffdc01;
+        color: #43638a;
+        padding: 0 0 0 10px;
+    }
+    .i-sel{
+        img{
+            width: 30px;
+            margin: 10px 0 0 0;
+        }
+    }
+    .send-btn-box{
+        overflow: hidden;
+    }
+    .send-btn{
+        width: 32px;
+        height: 32px;
+        padding: 10px;
+        line-height: 16px;
+        background: #de3120;
+        border-radius: 5px;
+        float: right;
+        color: #fff;
+    }
+}
+
+.o-tips{
+    margin: 0 20px 30px 20px;
+    p{
+        color: #72450f;
+        margin: 5px 0;
+    }
+}
+
+.bottom-btn{
+    margin: 0px 10px 20px 10px;
+
+    .download{
+        @include button($color: #de3120);
+        color: #fff;
+        border: 2px solid #b92314;
+        border-radius: 5px;
+    }
+}
+
+.invite-btn{
+    margin: 20px 10px;
+
+    .invite{
+        @include button($color: #de3120);
+        color: #fff;
+        border: 2px solid #b92314;
+        border-radius: 5px;
+    }
+}
+.send-invite{
+    @include button($color: #de3120);
+    border-top: 2px solid #b92314;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+
+    p{
+        margin: 0;
+        padding: 0;
+        @include line-height(30px);
+        font-size: 16px;
+    }
+    span{
+        display: block;
+        @include line-height(10px);
+        font-size: 12px;
+    }
+}
+.share-btn{
+    margin: 30px 10px;
+
+    .share{
+        @include button($color: #de3120);
+        border: 2px solid #b92314;
+        color: #fff;
+        border-radius: 5px;
+    }
+}
+.button{
+    @include button();
+}
+.add-mobile, .upload-list{
+    @include button($color: #ffe767);
+    margin: 10px;
+    color: #de3120;
+    border: 2px solid #de3120;
+    border-radius: 5px;
+}
+
+.body-bg{
+    position: absolute;
+    bottom: 0;
+    @include clearfix();
+
+    img{
+        float: left;
+    }
+}
+
+.img-box{
+    .one,.two,.thr{
+        @include clearfix();
+    }
+
+    img{
+        float: left;
+    }
+
+    .two{
+        position: relative;
+        .award-img{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+
+            img{
+                float: none;
+                width: 60%;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.award-tips{
+    padding: 0 30px;
+    color: #902900;
+    font-size: 14px;
+
+    .b{
+        font-weight: bold;
+    }
+}
+
+footer{
+    position: relative;
+    z-index: 1;
+	.footer-btn{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		@include clearfix();
+
+		.receive, .help-friend{
+			@include button();
+			margin: 10px;
+
+			span{
+				display: block;
+				line-height: 20px;
+				font-size: 14px;
+			}
+		}
+		.receive{
+			line-height: 30px;
+
+		}
+	}
+}
+
+.rule-box{
+    overflow: hidden;
+
+    h3, p{
+        padding: 0 20px;
+    }
+    h3{
+        color: #f01515;
+    }
+    p{
+        color: #452113;
+    }
+    ul{
+        list-style-type: none;
+        padding: 0 20px 0 30px;
+        color: #452113;
+    }
+}
+
+.prize-popup{
+    background: url(../images/fire-bg.png) no-repeat top center;
+    background-size: 100% auto;
+    .congra{
+        width: 40%;
+        margin: 0 auto 20px auto;
+    }
+
+    .packet-box{
+        width: 70%;
+        margin: 0 auto;
+        position: relative;
+    }
+    .prize-type{
+        position: absolute;
+        top: 0;
+
+        img{
+            width: 60%;
+            margin: 20px auto 0 auto;
+        }
+    }
+}
+
+.no-prize-popup{
+    .packet-box{
+        .tips{
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+
+            p{
+                margin: 5px 0;
+            }
+        }
+    }
+}
+// iphone 4s
+@media screen and (max-width: 320px) and (max-height: 480px){
+	
+}
+
+// iphone 4s and 5s
+@media screen and (max-width: 320px){
+    .good-news{
+
+        .good-tit{
+            width: 20%;
+        }
+
+        ul{
+            width: 80%;
+        }
+    }
+	
+}
+
+// 360
+@media screen and (max-width: 360px){
+
+	
+}

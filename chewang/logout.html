@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>用户中心</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+<script>
+	var gConfig = {
+		imgPath: location.origin + '/'
+	}
+</script>
+
+</head>
+<body>
+
+<header></header>
+
+<article>
+
+	<section class="list-box mt0">
+		<div class="list-nh-row row">
+			<div class="l-l span4">
+				<span class="e-c l60 g999">王鞍山</span>
+			</div>
+			<div class="l-r span8">
+				<span class="d-header"><img src="images/default-header.png" alt=""></span>
+			</div>
+		</div>
+	</section>
+
+	<section class="list-box row">
+		<div class="list-np-row">
+			<div class="l-l span5"><span class="m-icon g999">用户名</span></div>
+			<div class="l-r span7"><span>yangqiuming</span></div>
+		</div>
+	</section>
+
+	<section class="button-box">
+		<div id="outBtn" class="out-button">退出登录</div>
+	</section>
+
+</article>
+
+
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+
+<script src="scripts/customtools.js"></script>
+<script src="scripts/dialog.js"></script>
+
+<script src="scripts/main.js"></script>
+
+<script>
+	$(function(){
+		$('#outBtn').on(oTools.clickEvent, function(e){
+			tipsDialog({
+				'mess': '确定要退出登录吗？',
+				'subTxt': '确定',
+				'canTxt': '取消',
+				'fn': function(){
+// 弹窗点击确定回调   返回true 弹窗关闭  返回false 弹窗不关
+					var close = false;
+
+					if(close){
+						alert('a');
+						return true;
+					}else{
+						alert('b');
+						return false;
+					}
+
+				}
+			});
+		});
+	});
+</script>
+
+</body>
+</html>

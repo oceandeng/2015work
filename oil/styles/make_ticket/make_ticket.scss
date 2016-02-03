@@ -1,0 +1,238 @@
+@import "../variable";
+@import "../mixin";
+
+p{
+	margin:0;
+	padding: 0;
+}
+.w145{
+	width:145px !important;
+}
+.f16{
+	font-size: 16px;
+}
+.h40{
+	height: 40px;
+}
+.m0{
+	margin:0 !important;
+}
+.mr10{
+  margin-right: 10px;
+}
+.mr20{
+	margin-right: 20px;
+}
+.mr30{
+	margin-right: 30px;
+}
+.mb10{
+	margin-bottom: 15px;
+}
+.pl10{
+	padding-left: 10px;
+}
+.bb{
+	border-bottom: none !important;
+}
+.g333{
+	color: #333;
+}
+.c-red{
+	color: #ff3e24;
+}
+.tick_info {
+  padding: 18px 0 0 0;
+  float: right;
+  display:inline;
+  font-size: 12px;
+}
+.mobile {
+  margin: 10px 0;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fff;
+  padding: 10px;
+}
+.mobile .mobile-row {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 16px;
+}
+.mobile .mobile-row .l-l {
+  text-align: left;
+}
+.mobile .mobile-row .l-r input {
+  text-align: right;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.select-ticket {
+  margin: 10px 0;
+  min-height: 60px;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fff;
+  padding: 10px;
+}
+.select-ticket .sel-normal {
+  background: url(../../images/arrow.png) #fff no-repeat right center;
+  background-size: 10px 17px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  text-align: left;
+  font-size: 16px;
+}
+.choose_tic .button1,.choose_tic .button2{
+	width:47%;
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
+	text-align: center;
+	margin:20px 0 10px 0;
+  border:2px solid #d7d7d7;
+  color: #d7d7d7;
+}
+.choose_tic .ac{
+	border:2px solid #ff8502;
+	color: #ff8502;
+}
+.choose_tic .button1{
+  float: left;
+}
+.choose_tic .button2{
+	float: right;
+}
+.car-edit {
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fff;
+}
+.car-edit .l-l {
+  text-align: left;
+  line-height: 60px;
+}
+.car-edit .l-r {
+  text-align: right;
+}
+.car-edit .car-photo {
+  background: #fff;
+  padding: 0 10px;
+  height: 60px;
+  text-align: center;
+}
+.car-edit .car-photo .add-btn {
+  width: 50px;
+  height: 50px;
+  margin: 5px 0 0 0;
+}
+.car-edit .car-photo .l-r {
+  position: relative;
+  overflow: hidden;
+}
+.car-edit .car-photo .l-r .upload-img {
+  position: absolute;
+  top: -100px;
+  left: -2000px;
+}
+.ticket-list {
+  border-bottom: 1px solid #e8e8e8;
+  position: relative;
+  overflow: hidden;
+}
+.ticket-list .adr-row {
+  position: relative;
+  padding: 10px 0;
+  z-index: 1;
+  left: 0;
+  background: #fff;
+}
+.ticket-list .del-btn {
+  position: absolute;
+  width: 20%;
+  top: 0px;
+  right: 0;
+  background: #ff0000;
+  z-index: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+.ticket-list .adr-sel, .ticket-list .adr-edit {
+  text-align: center;
+}
+.ticket-list .adr-sel img, .ticket-list .adr-edit img {
+  width: 20px;
+}
+.ticket-list .adr-detail p {
+  margin: 5px 0;
+}
+.record{
+	background: url(../../images/arrow.png) #fff no-repeat right center;
+    background-size: 10px 17px;
+    text-align: center;
+    text-align: left;
+    font-size: 16px;
+}
+.record span:nth-child(2n+1){
+	float: left;
+}
+.record span:nth-child(2n){
+	float: right;
+}
+.record span:nth-child(2){
+	font-weight:normal;
+	font-size:14px;
+}
+.record p{
+	clear: both;
+}
+.record p:first-child{
+	color: #333;
+	font-size: 16px;
+	margin-bottom: 35px;
+}
+.c-con h3 {
+  font-size: 16px;
+  margin: 5px 0;
+  padding: 0 0 0 10px;
+}
+.c-con p {
+  color: #999;
+  font-size: 14px;
+  margin: 5px 0;
+  padding: 0 0 0 10px;
+}
+footer .new-ticket {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-top: 1px solid #e8e8e8;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 20px;
+  color: #ff9000;
+}
+footer .new-ticket p {
+  margin: 0 auto;
+  width: 120px;
+  padding: 0 0 0 20px;
+  background: url(../../images/add-o.png) no-repeat left center;
+  background-size: 24px 24px;
+}
+
+#ticketWrapper {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}

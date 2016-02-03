@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>歌咏赛</title>
+<!-- build:css({singcontest,.tmp}) styles/indexweb.css -->
+<link rel="stylesheet" href="styles/indexweb.css" type="text/css">
+<!-- endbuild -->
+<!-- build:css({singcontest,.tmp}) styles/jquery.fancybox.css -->
+<link rel="stylesheet" href="styles/fancybox.css" type="text/css">
+<!-- endbuild -->
+<script>
+  var gConfig = {
+    path: location.origin + '/'
+  }
+</script>
+
+</head>
+<body>
+	<div class="header">
+		<h1 id="rule" class="fancybox" href="#inline1">活动规则</h1>
+		<img id="tImg" src="images/index-web-tbg.jpg" alt="" />
+	</div>
+	<div class="container">
+		<div class="p-one">
+			<h2>歌赛介绍：</h2>
+			<p class="tips">2015年“车旺杯——哥·勇·赛”是一场面向全国货运从业者的大型歌赛，旨在增加卡车司机生活乐趣，展示卡车司机正面形象，提升卡车司机文化建设。</p>
+			<ul>
+				<li>“哥”是对卡车司机的尊称，体现了行业以男司机为主的特性；</li>
+				<li>“勇”是卡车司机通常都是驾驶技术高超，长时间昼夜的奔波在路上，运送着众多货物，勇敢无畏的前行；</li>
+				<li>“赛”不言而喻是指拿出勇气面对众多观众，积极展现与不一样的自己，赛出卡车司机风采。</li>
+			</ul>
+			<h3>寻找中国“卡车人”好声音</h3>
+			<h3>让千万“卡哥、卡嫂”亮嗓唱出心声</h3>
+		</div>
+		<div class="p-two">
+			<h2>歌赛规则：</h2>
+			<p class="tips">初赛：如下2种方式均可参加初赛</p>
+			<ul>
+				<li>①.参赛选手通过“车旺杯哥∙勇∙赛”赛事专用APP录唱并上传参赛作品；</li>
+				<li>②.通过全国36个城市举办的歌赛“路演卡车KTV”活动现场演唱。</li>
+			</ul>
+			<ul>
+				<li>初赛作品接受公众投票</li>
+				<li>每周周冠军、每周周亚军作为“哥·勇·赛”总决赛的12晋级决赛者</li>
+			</ul>
+			<p>总决赛：并评选出全国12强登上总决赛舞台进行最后的PK，由大众评委及专业评委评选出冠、亚、季军。</p>
+		</div>
+		<div class="p-thr">
+			<h2>歌赛奖励：</h2>
+			<ul>
+				<li>冠军（1名）：将获50万元奖金或等值物品；</li>
+				<li>亚军（1名）：将获5万元奖金或等值物品；</li>
+				<li>季军（1名）：将获3万元奖金或等值物品；</li>
+				<li>晋级决赛者（共计9名）：每人将获1万元奖金或等值物品；</li>
+			</ul>
+			<p class="orange">比赛冠军将有机会代表“卡车人”登上2016央视春晚舞台！</p>
+		</div>
+		<div class="register">
+			<h2>现在就报名！</h2>
+			<div class="reg-box">
+				<div class="QR-code shadow">
+					<h3>微信报名<span>（推荐）</span></h3>
+					<img src="images/QR-code.jpg" alt="">
+					<p>扫码关注“车旺”微信报名<br/>立即赢得500元大礼包哦</p>
+				</div>
+				<div class="form-box shadow">
+					<h2>官网报名</h2>
+					<form action="">
+						<dl>
+							<dt>姓名</dt>
+							<dd><input type="text" id="name" class="name"></dd>
+							<dt>手机</dt>
+							<dd><input type="text" id="mobile" class="mobile"></dd>
+							<dt>身份证号</dt>
+							<dd><input type="text" id="idCard" class="id-card"></dd>
+						</dl>
+						<div class="submit">
+							<input type="submit" id="submit" value="提交">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="inline1" style="width:800px; height: 400px; padding:0 10px 0 0; overflow-x:hidden; display: none;">
+		<h3>活动规则</h3>
+		<p>1.	参赛者需通过 “天籁K歌”手机客户端“哥勇赛专题页”进行参赛，参赛曲目无限制。</p>
+		<p>2.	海选赛分为5期，每期将根据大众赠予的<鲜花数>排行选出前5名参加决赛，如果参赛者同时上传多个参赛作品，以最高鲜花排名为准。海选结束后，最终决赛排名榜单将根据<鲜花数>排行在2015年10月13日12:00公布。</p>
+		<p>3.	每期已获得决赛资格的歌友，将不参加后续海选周期评选活动；同期参赛的未入决赛的歌友可重新进入新一轮的海选角逐。</p>
+		<p>4.	海选赛根据<鲜花数>排行，每期前50名将获得车旺100加油券礼包（每期结束后5个工作日内将发送到您的“车旺”账户），其他参与活动者将获得天籁K歌200 K币。</p>
+		<p>说明：中途退赛者将失去获奖资格，所有奖金数额均为税前。“天籁K歌”APP客服会在单期活动结束后与您私信取得联系，“车旺”客服也会在单期活动结束后与您电话取得联系，若72小时内私信未收到回复或者电话未接通，则视您自动弃权。中途退赛者将失去获奖资格，所有奖金数额均为税前。</p>
+				<p>1.	参赛者需通过 “天籁K歌”手机客户端“哥勇赛专题页”进行参赛，参赛曲目无限制。</p>
+		<p>2.	海选赛分为5期，每期将根据大众赠予的<鲜花数>排行选出前5名参加决赛，如果参赛者同时上传多个参赛作品，以最高鲜花排名为准。海选结束后，最终决赛排名榜单将根据<鲜花数>排行在2015年10月13日12:00公布。</p>
+		<p>3.	每期已获得决赛资格的歌友，将不参加后续海选周期评选活动；同期参赛的未入决赛的歌友可重新进入新一轮的海选角逐。</p>
+		<p>4.	海选赛根据<鲜花数>排行，每期前50名将获得车旺100加油券礼包（每期结束后5个工作日内将发送到您的“车旺”账户），其他参与活动者将获得天籁K歌200 K币。</p>
+		<p>说明：中途退赛者将失去获奖资格，所有奖金数额均为税前。“天籁K歌”APP客服会在单期活动结束后与您私信取得联系，“车旺”客服也会在单期活动结束后与您电话取得联系，若72小时内私信未收到回复或者电话未接通，则视您自动弃权。中途退赛者将失去获奖资格，所有奖金数额均为税前。</p>
+				<p>1.	参赛者需通过 “天籁K歌”手机客户端“哥勇赛专题页”进行参赛，参赛曲目无限制。</p>
+		<p>2.	海选赛分为5期，每期将根据大众赠予的<鲜花数>排行选出前5名参加决赛，如果参赛者同时上传多个参赛作品，以最高鲜花排名为准。海选结束后，最终决赛排名榜单将根据<鲜花数>排行在2015年10月13日12:00公布。</p>
+		<p>3.	每期已获得决赛资格的歌友，将不参加后续海选周期评选活动；同期参赛的未入决赛的歌友可重新进入新一轮的海选角逐。</p>
+		<p>4.	海选赛根据<鲜花数>排行，每期前50名将获得车旺100加油券礼包（每期结束后5个工作日内将发送到您的“车旺”账户），其他参与活动者将获得天籁K歌200 K币。</p>
+		<p>说明：中途退赛者将失去获奖资格，所有奖金数额均为税前。“天籁K歌”APP客服会在单期活动结束后与您私信取得联系，“车旺”客服也会在单期活动结束后与您电话取得联系，若72小时内私信未收到回复或者电话未接通，则视您自动弃权。中途退赛者将失去获奖资格，所有奖金数额均为税前。</p>
+	</div>
+<!-- build:js({singcontest,.tmp}) scripts/index_web.min.js -->
+<script src="scripts/lib/jquery-1.10.2.min.js"></script>
+<script src="scripts/lib/jquery.mousewheel.pack.js"></script>
+<script src="scripts/lib/jquery.fancybox.pack.js"></script>
+<script src="scripts/index_web.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+@import "varialbes", "mixin";
+
+@include reset-eric();
+
+body{
+	background: #ffb400;
+	position: relative;
+	font-family: $family;
+}
+img{
+	max-width:100%;
+	float:left;
+}
+input[type="button"], input[type="submit"], input[type="reset"] {
+-webkit-appearance: none;
+}
+textarea {  -webkit-appearance: none;}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+
+.headerline{
+	min-height: 50px;
+	@include overflow();
+
+	#c-logo{
+		width: 70%;
+	}
+	#s-logo{
+		width: 40%;
+		position: absolute;
+		top: 15px;
+		right: 20px;
+	}
+
+}
+.app{
+	min-height: 70px;
+	#s-logo{
+		width: 150px;
+		left: 50%;
+		margin-left:-75px;
+	}
+}
+
+.container{
+	position: relative;
+
+	.z-tit{
+		@include clearfix();
+		position:relative;
+		width: 80%;
+		margin: 0 auto;
+		z-index: 9;
+	}
+	.btn_app{
+		padding: 160px 0 0 0 !important;
+	}
+	.content{
+		padding: 140px 0 0 0;
+		width: 70%;
+		margin: 0 auto;
+		z-index: 9;
+		position:relative;
+
+		.r_a_box{
+			margin:-120px 0 0 0;
+			padding: 0 0 120px 0;
+		}
+		input{
+			border: none;
+		}
+		.tel{
+			@include font20();
+			font-family: $family;
+			width: 90%;
+			padding: 0 5%;
+			border-radius: 5px;
+			height:50px;
+			line-height: 50px;
+			text-align: center;
+		}
+		.btn,.download,.share{
+			@include font20();
+			width: 100%;
+			color: #fff;
+			border-radius: 5px;
+			height:50px;
+			line-height: 50px;
+			margin: 20px 0 0 0;
+			font-family: $family;
+			background: #ff7e00;
+		}
+		.download{
+			text-align: center;
+			border:2px solid #ff7e00;
+		}
+		.share{
+			background: #fff;
+			border:2px solid #ff7e00;
+			color:#ff7e00;
+			text-align: center
+		}
+	}
+	.note{
+		z-index: 9;
+		position:relative;
+		margin: 25px 0 0 0;
+		padding: 0 0 100px 0;
+		span{
+			@include font12();
+			display: block; 
+			width: 150px;
+			height: 30px;
+			line-height: 30px;
+			margin: 0 auto;
+			text-align: center;
+			color: #fff;
+			background: #6b190c;
+			border-radius: 5px;
+		}
+	}
+	.z-bg{
+		@include clearfix();
+		z-index: 1;
+		margin:80px 0 0 0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+	.content-c{
+		z-index: 9;
+		position:relative;
+		.z-c-top{
+			@include clearfix();
+			margin: -40px 0 0 0;
+		}
+		.z-c-t-app{
+			margin-top: -20px !important;
+		}
+		.z-c-con{
+			@include clearfix();
+			width: 100%;
+			background:url('../images/z-con.png') repeat-y;
+			background-size: 100% 3px;
+			padding: 0 0 30px 0;
+		
+			h2{
+				@include font30();
+				color: #ff7e00;
+				text-align: center;
+				padding: 0 0 30px 0;
+			}
+			h3{
+				@include font16();
+				text-align: center;
+				padding: 0 0 10px 0;
+			}
+			.juan{
+				@include clearfix();
+				width: 50%;
+				margin: 0 auto;
+				position: relative;
+
+				.jyj{
+					width: 10%;
+					float:left;
+				}
+				.num{
+					width: 60%;
+					float:left;
+					margin: -10px 0 0 10%;
+				}
+				span{
+					@include font20();
+					position:absolute;
+					right: 0;
+					bottom: 0;
+				}
+			}
+			.tips{
+				@include font14();
+				text-align: center;
+				padding: 30px 0 10px 0;
+			}
+			.note-off{
+				@include font16();
+				text-align: center;
+				margin: 20px 0 0 0;
+			}
+			.download,.share{
+				@include font20();
+				width: 70%;
+				margin: 20px auto;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				border-radius: 5px;
+			}
+			.download{
+				background: #ff7e00;
+				border:2px solid #ff7e00;
+				color:#fff;
+				margin-top:0px;
+			}
+			.share{
+				border:2px solid #ff7e00;
+				color:#ff7e00;
+			}
+		}
+		.z-c-bom{
+			@include clearfix();
+			padding: 0 0 30px 0;
+		}
+	}
+}
+.rule_app{
+	background: #111e27;
+	padding: 0 0 10px 0;
+	margin: -100px 0 0 0;
+
+	.r_a_con{
+		position: relative;
+		z-index: 99;
+		width: 70%;
+		margin: 0 auto;
+		background: #fff;
+		border-radius: 5px;
+		padding: 5%;
+
+		h2{
+			@include font20();
+			margin: 0 0 20px 0;
+			color: #ff7e00;
+			text-align: center;
+		}
+		p{
+			@include font14();
+			line-height: 20px;
+			margin: 10px 0;
+		}
+	}
+}
+
+.rule{
+	display: none;
+	width: 300px;
+	margin: 0 0 0 -170px;
+	// background: #fff;
+	background: rgba(255, 255 ,255, .95);
+	border-radius: 10px;
+	padding: 20px;
+	position: fixed;
+	z-index: 99;
+	top: 10%;
+	left: 50%;
+	height: 80%;
+
+	.rulecon{
+		padding: 5% 10px 3% 10px;
+		height: 92%;
+		overflow: scroll;
+		overflow-x: hidden;
+	}
+
+	h2{
+		@include font20();
+		margin: 0 0 20px 0;
+		color: #ff7e00;
+		text-align: center;
+	}
+	p{
+		@include font14();
+		line-height: 20px;
+		margin: 10px 0;
+	}
+	.close{
+		position: absolute;
+		width: 50px;
+		right: -15px;
+		top: -15px;
+	}
+}
+
+
+@media screen and (max-width:321px) and (min-height:480px){
+.container{
+	.content{
+		padding: 100px 0 0 0;
+	}
+	.note{
+		margin: 30px 0 0 0;
+	}
+}	
+.rule{
+	width: 240px;
+	margin: 0 0 0 -140px;
+}
+.rule_app{
+	margin: -50px 0 0 0;
+}	
+}
+
+@media screen and (max-width:321px){
+.container{
+	.content{
+		.btn,.download,.share{
+			@include font16();
+		}
+	}
+	.btn_app{
+		padding: 110px 0 0 0 !important;
+	}
+}
+}
+
+@media screen and (max-width: 321px) and (max-height:480px){
+
+.container{
+	.z-tit{
+		margin-top: -20px;
+	}
+	.content{
+		padding: 50px 0 0 0;
+		width: 80%;
+		.r_a_box{
+			margin:-60px 0 0 0;
+			padding: 0 0 60px 0;
+		}
+
+	}
+	.note{
+		margin: 30px 0 0 0;
+	}
+}	
+.rule_app{
+	margin: 0 0 0 0;
+}
+.rule{
+	width: 240px;
+	margin: 0 0 0 -140px;
+	top: 10%;
+}
+
+}
+
+@media screen and(max-width: 414px) and (min-width: 376px){
+.container{
+	.content{
+		padding: 200px 0 0 0 !important;
+	}
+}	
+
+}

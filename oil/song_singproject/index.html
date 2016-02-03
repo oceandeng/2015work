@@ -1,0 +1,411 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>歌咏赛</title>
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+<script>
+	var gConfig = {
+		path: 'http://' + location.host + '/',
+		drawDone: false
+	};
+</script>
+<script type="text/javascript" src="scripts/data.json"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qRn44eyeVuP1EGWn5ovWnGgs"></script>
+<!-- <script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script> -->
+</head>
+<body>
+	<!-- header S -->
+	<div class="header">
+		<img id="tImg" src="images/top-img.jpg" alt="" />
+	</div>
+	<!-- header E -->
+	<!-- navigator S -->
+	<div class="navigator">
+		<div class="wrap">
+			<div class="nav">
+				<ul>
+					<li><a href="">活动介绍</a></li>
+					<li><a href="">新闻动态</a></li>
+					<li><a href="">活动视频</a></li>
+					<li><a href="" id="trip">大篷车行程</a></li>
+				</ul>
+			</div>
+		</div>	
+	</div>
+	<!-- navigator E -->
+	<!-- container S -->
+	<div class="winner">
+		<div class="wrap">
+			<div class="part-tit">
+				<img src="images/song-icon.png" alt="">
+				<h2>冠军榜</h2>
+			</div>
+			<div class="winner-con">
+				<div class="win-rank">
+					<div class="winner-photo">
+						<img src="images/first.jpg" alt="第一名">
+					</div>
+					<div class="winner-name">
+						<h3 class="fir">刘子尧</h3>
+					</div>
+					<div class="song-name">
+						<h3>《其实都没有》</h3>
+					</div>
+					<div class="prize">
+						<h3>获得奖励：100,000元加油券和参加央视2016年春节联欢晚会</h3>
+					</div>
+					<div class="winner-info">
+						<p>刘子尧是全职货车司机，曾经是《中国好声音》2013成都赛区前20强，后来家人生病被迫放弃比赛。他的唱法温柔婉转，虽不是震撼人心类型的，可是最能够打动人，越听越有味道。</p>
+					</div>						
+				</div>
+				<div class="win-rank">
+					<div class="winner-photo">
+						<img src="images/second.jpg" alt="第二名">
+					</div>
+					<div class="winner-name">
+						<h3 class="sec">曹寅</h3>
+					</div>
+					<div class="song-name">
+						<h3>《只是太爱你》</h3>
+					</div>
+					<div class="prize">
+						<h3>获得奖励：50,000元加油券</h3>
+					</div>
+					<div class="winner-info">
+						<p>“车旺杯·哥勇赛”第三期的海选中，一位昵称为“曹小毛”的歌友以一曲《忘记拥抱》赢得众多鲜花并雄踞排行榜前列。眼尖的歌友们很快就通过视频及歌声认出了这位帅小伙！他就是2012年第一届“中国好声音”的人气学员——曹寅！
+在之前的采访中，曹寅曾谈到，自己的父亲多年来从事货运行业，自己也耳濡目染了众多卡车司机的境遇。此次助力“车旺杯·哥勇赛”，看重的是活动为“卡车人”提供展示风采、唱出心声的平台，为货运行业唱响变革的序曲。</p>
+					</div>
+				</div>
+				<div class="win-rank">
+					<div class="winner-photo">
+						<img src="images/third.jpg" alt="第三名">
+					</div>
+					<div class="winner-name">
+						<h3 class="thr">盛玉刚</h3>
+					</div>
+					<div class="song-name">
+						<h3>《恒星》</h3>
+					</div>
+					<div class="prize">
+						<h3>获得奖励：30,000元加油券</h3>
+					</div>
+					<div class="winner-info">
+						<p>盛玉刚今年33岁，从事物流运输行业已5年有余，曾经参加过长春交通之声《我也是歌手》第二季第四场，表现不俗。盛玉刚曾说：自己从小喜欢唱歌，年少轻狂时也失去过很多学习的机会，一直以来心中的梦始终没有破灭，每天开着车，唱着歌行驶在路上，总想着前方是胜利的方向，想想家人，再苦再累也都无所谓了，我的路还很长，坚持不懈我要勇敢的走下去！</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="winning">
+		<div class="wrap">
+			<div class="part-tit">
+				<img src="images/song-icon.png" alt="">
+				<h2>排行榜</h2>
+			</div>
+			<div class="win-con">
+				<div class="win-tab-nav">
+					<ul>
+						<li class="active"><span>第1期</span></li>
+						<li><span>第2期</span></li>
+						<li><span>第3期</span></li>
+						<li><span>第4期</span></li>
+						<li><span>第5期</span></li>
+					</ul>
+				</div>
+				<div class="win-tab-box">
+					<div class="win-tab-con">
+						<ul>
+							<li>
+								<div class="songer-header">
+									<img src="images/o-o.jpg" alt=""/>
+								</div>
+								<h3 class="first">鬼  族 寶兒</h3>
+								<p>红雨</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/o-t.jpg" alt=""/>
+								</div>
+								<h3 class="sec">鬼  族 祟祟</h3>
+								<p>龙电天下</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/o-th.jpg" alt=""/>
+								</div>
+								<h3 class="thr">刚刚……</h3>
+								<p>用心良苦</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/o-fo.jpg" alt=""/>
+								</div>
+								<h3 class="fou">站台 疯狂嘶吼</h3>
+								<p>雨雪</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/o-fi.jpg" alt=""/>
+								</div>
+								<h3 class="fiv">美麗的花蝴蝶</h3>
+								<p>欢喜就好</p>
+							</li>
+						</ul>
+					</div>
+					<div class="win-tab-con" style="display: none">
+						<ul>
+							<li>
+								<div class="songer-header">
+									<img src="images/t-o.jpg" alt=""/>
+								</div>
+								<h3 class="first">七爺 ℡</h3>
+								<p>月半小夜曲</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/t-t.jpg" alt=""/>
+								</div>
+								<h3 class="sec">来自火星</h3>
+								<p>贵人‼</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/t-th.jpg" alt=""/>
+								</div>
+								<h3 class="thr">玉米热</h3>
+								<p>伤痕</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/t-fo.jpg" alt=""/>
+								</div>
+								<h3 class="fou">摇不可急</h3>
+								<p>十年</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/t-fi.jpg" alt=""/>
+								</div>
+								<h3 class="fiv">三只金</h3>
+								<p>莫斯科郊外的晚上</p>
+							</li>
+						</ul>
+					</div>
+					<div class="win-tab-con" style="display: none">
+						<ul>
+							<li>
+								<div class="songer-header">
+									<img src="images/th-o.jpg" alt=""/>
+								</div>
+								<h3 class="first">良</h3>
+								<p>直觉</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/th-t.jpg" alt=""/>
+								</div>
+								<h3 class="sec">精美</h3>
+								<p>新鸳鸯蝴蝶梦</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/th-th.jpg" alt=""/>
+								</div>
+								<h3 class="thr">曹小毛</h3>
+								<p>忘记拥抱</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/th-fo.jpg" alt=""/>
+								</div>
+								<h3 class="fou">歌友60314162</h3>
+								<p>疲惫司机</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/th-fi.jpg" alt=""/>
+								</div>
+								<h3 class="fiv">哼╭(╯^╰)╮哼</h3>
+								<p>爱我你就抱抱我</p>
+							</li>
+						</ul>
+					</div>
+					<div class="win-tab-con" style="display: none">
+						<ul>
+							<li>
+								<div class="songer-header">
+									<img src="images/fo-o.jpg" alt=""/>
+								</div>
+								<h3 class="first">跑妹</h3>
+								<p>小冤家</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/fo-t.jpg" alt=""/>
+								</div>
+								<h3 class="sec">小毛线</h3>
+								<p>爱死了昨天</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/fo-th.jpg" alt=""/>
+								</div>
+								<h3 class="thr">小布丁伍毛钱</h3>
+								<p>杜十娘</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/fo-fo.jpg" alt=""/>
+								</div>
+								<h3 class="fou">虔源</h3>
+								<p>无法开口</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/fo-fi.jpg" alt=""/>
+								</div>
+								<h3 class="fiv">天堂之门</h3>
+								<p>你怎么舍得我难过</p>
+							</li>
+						</ul>
+					</div>
+					<div class="win-tab-con" style="display: none">
+						<ul>
+							<li>
+								<div class="songer-header">
+									<img src="images/fi-o.jpg" alt=""/>
+								</div>
+								<h3 class="first">陶醉歌声里</h3>
+								<p>问</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/fi-t.jpg" alt=""/>
+								</div>
+								<h3 class="sec">Lance de abel</h3>
+								<p>遗憾</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/fi-th.jpg" alt=""/>
+								</div>
+								<h3 class="thr">笨小孩</h3>
+								<p>别让我一个人醉</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/fi-fo.jpg" alt=""/>
+								</div>
+								<h3 class="fou">周鼎棋</h3>
+								<p>清唱</p>
+							</li>
+							<li>
+								<div class="songer-header">
+									<img src="images/fi-fi.jpg" alt=""/>
+								</div>
+								<h3 class="fiv">雪莲朵朵</h3>
+								<p>山不转水转</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="part-one">
+		<div class="wrap">
+			<div class="part-tit">
+				<img src="images/song-icon.png" alt="">
+				<h2>新闻动态</h2>
+			</div>
+			<div class="news-box">
+				<div class="news-img">
+					<img src="images/news-img-demo.jpg" alt="">
+				</div>
+				<div class="news-con">
+					<div class="news-tit">
+						<a href="">
+							<h3>2015年“车旺杯——哥·勇·赛”开启好声音新时代</h3>
+							<p>2015年“车旺杯——哥·勇·赛”是一场面向全国货运从业者的大型歌赛，旨在增加卡车司
+		机生活乐趣，展示卡车司机正面形象，提升卡车司机文化建设。</p>
+						</a>
+					</div>
+					<div class="news-detail">
+						<ul>
+							<li><a href="">作为卡车司机，我真的很自豪作为卡车司机，我真的很自豪作为卡车司机，我真的很自豪作为卡车司机，我真的很自豪</a></li>
+							<li><a href="">作为卡车司机，我真的很自豪</a></li>
+							<li><a href="">作为卡车司机，我真的很自豪</a></li>
+							<li><a href="">作为卡车司机，我真的很自豪</a></li>
+							<li><a href="">作为卡车司机，我真的很自豪</a></li>
+							<li><a href="">作为卡车司机，我真的很自豪</a></li>
+						</ul>
+						<div class="list"><a href="">新闻列表 >></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="part-two">
+		<div class="wrap">
+			<div class="part-tit">
+				<img src="images/song-icon.png" alt="">
+				<h2>大篷车行程</h2>
+			</div>
+			<div class="tab-nav">
+				<ul>
+					<li class="active">京沪线</li>
+					<li>京广线</li>
+					<li>京成线</li>
+					<li>京哈线</li>
+				</ul>
+			</div>
+			<div class="baidumap">
+				<div style="width:100%;height:100%;" id="container"></div>
+			</div>
+			<div class="explain">
+				<img src="images/explain.jpg" alt="">
+			</div>
+		</div>
+	</div>
+
+	<div class="part-thr">
+		<div class="wrap">
+			<div class="part-tit">
+				<img src="images/song-icon.png" alt="">
+				<h2>活动报名</h2>
+			</div>
+			<div class="QR-code">
+				<div class="QR-box">
+					<p class="tips-top">扫码关注“车旺”微信报名</p>
+					<img src="images/QR-code-one.jpg" alt="">
+					<p class="tips-btm">了解哥勇赛最新动态</p>
+				</div>
+				<div class="QR-box">
+					<p class="tips-top">扫码下载车旺APP</p>
+					<img src="images/QR-code-two.jpg" alt="">
+					<p class="tips-btm">歌赛期间，下载APP即得<br><span>100元大礼包</span></p>
+				</div>
+				<div class="QR-box">
+					<p class="tips-top">扫码下载天籁K歌报名</p>
+					<img src="images/QR-code-thr.jpg" alt="">
+					<p class="tips-btm">参赛可得车旺<span>200元大礼包</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container E -->
+
+<!-- build:js scripts/main.min.js -->
+	<script src="scripts/lib/jquery-1.10.2.min.js"></script>
+	<script src="scripts/otools.js"></script>
+	<script src="scripts/map.js"></script>
+	<script src="scripts/index.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

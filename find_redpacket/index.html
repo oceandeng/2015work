@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>拆红包 赢话费</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+<style>
+	html,body{
+		background: #ff8100;
+	}
+</style>
+
+<script>
+	var gConfig = {
+		imgPath: location.origin,
+		prizeURL: 'http://192.168.8.72/interface/award.php',
+		packetNum: 8888
+	}
+</script>
+
+</head>
+<body>
+<header>
+	<section class="good-news-box pAbs a8">
+        <div class="good-news">
+            <h3 class="good-tit">今日中奖</h3>
+            <ul id="goodList">
+                <li>【10：11】111喜中100元话费大奖喜中100元话费大奖喜中100元话费大奖</li>
+                <li>【10：11】222喜中100元话费大奖</li>
+                <li>【10：11】333喜中100元话费大奖</li>
+                <li>【10：11】444喜中100元话费大奖</li>
+                <li>【10：11】555喜中100元话费大奖</li>
+            </ul>
+        </div>
+    </section>
+    <div class="rule-btn pt40" data-href="/rule.html">活动规则</div>
+</header>
+
+<article class="container">
+	<section class="index-bg"><img src="images/index-bg1.jpg" alt=""></section>
+
+	<section class="i-content">
+		<section class="ac-text">
+			<section class="index-bg2"><img src="images/index-bg2.jpg" alt=""></section>
+			<section class="ac-textc">
+				<section class="ac-time">活动期间，每晚18：00准时发奖</section>
+				<section class="ac-info">
+					<p>金猴贺岁，新年大吉！大卡为朋友们再送春节红包！30元50元、100元话费尽在其中，更有最高奖励1000元现金大奖！！！参与活动百分百有奖哦！</p>
+					<p>每天红包限量6000个，快来为猴年讨个好彩头吧！</p>
+				</section>
+				<section class="counter">
+					今日剩余 <span id="num" class="num"></span> 个红包
+				</section>
+
+				<section class="i-btn-box mb0">
+					<!-- 我要领话费 S -->
+					<div class="receive">我要拆红包</div>
+					<!-- 我要领话费 E -->
+				</section>
+
+				<section class="i-btn-box">
+					<!-- 帮朋友拆红包 S -->
+					<div class="help-friend">帮朋友拆红包</div>
+					<!-- 帮朋友拆红包 E -->
+					<!-- 我的红包 S -->
+					<!-- <div class="help-friend">我的红包</div> -->
+					<!-- 我的红包 E -->
+				</section>
+			</section>
+		</section>
+	</section>
+</article>
+
+<footer></footer>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/custom.min.js -->
+<script src="scripts/scrollword.zepto.js"></script>
+<script src="scripts/customtool.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/dialog.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/main.js"></script>
+
+<script>
+// -- 添加今日红包数量
+	$(function(){
+		var $num = $('#num'),
+			num = gConfig.packetNum + '',
+			arr = num.split(''),
+			html = '';
+
+		for(var i = 0, len = arr.length; i < len; i ++){
+			html += '<i>' + arr[i] + '</i>';
+		}
+
+		$num.empty();
+		$num.append(html);
+		$num.find('i').addClass('animated flip');
+	});
+</script>
+
+</body>
+</html>

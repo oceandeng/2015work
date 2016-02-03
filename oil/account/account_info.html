@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>账户设置</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/account/account.css">
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+
+	<section class="list-box row">
+		<div class="list-row">
+			<div class="l-l span4"><span>用户名</span></div>
+			<div class="l-r span8"><span class="g999">老张</span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>实名认证</span></div>
+			<div class="l-r span8"><span class="g999">未认证</span></div>
+		</div>
+		<div class="list-row" data-href="">
+			<div class="l-l span4"><span>绑定手机号</span></div>
+			<div class="l-r span8"><span class="h-arrow"><b>13876549876</b></span></div>
+		</div>
+	</section>
+
+	<section class="list-box row">
+		<div class="list-row" data-href="">
+			<div class="l-l span8"><span>重置/设置 支付密码</span></div>
+			<div class="l-r span4"><span class="h-arrow"><b></b></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>账户安全等级</span></div>
+			<div class="l-r span8"><span>弱</span></div>
+		</div>
+		<div class="list-row" data-href="">
+			<div class="l-l span4"><span>安全保护问题</span></div>
+			<div class="l-r span8"><span class="h-arrow"><b class="g999">未设置</b></span></div>
+		</div>
+	</section>
+
+
+</article>
+
+<footer></footer>
+
+<script src="../scripts/zepto/zepto.js"></script>
+<script src="../scripts/zepto/ajax.js"></script>
+<script src="../scripts/zepto/event.js"></script>
+<script src="../scripts/zepto/touch.js"></script>
+<script src="../scripts/zepto/fx.js"></script>
+<script src="../scripts/zepto/fx_methods.js"></script>
+
+<script src="../scripts/customtools.js"></script>
+<script src="../scripts/plugin/eventutil.js"></script>
+<script src="../scripts/loading.js"></script>
+<script src="../scripts/validate.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/plugin/dialog.js"></script>
+<script src="../scripts/plugin/upload.zepto.js"></script>
+<script src="../scripts/plugin/drag_del.js"></script>
+<script src="../scripts/plugin/iscroll-probe.js"></script>
+<script src="../scripts/plugin/city_selector.js"></script>
+
+<script src="../scripts/account/account.js"></script>
+
+<script>
+	(function($){
+
+// -- 完成点击事件
+	$('#doneBtn').on(oTools.clickEvent, function(){
+		
+	});
+
+	})(Zepto);
+</script>
+
+
+<script>
+// -- 图片上传调用
+	(function($){
+		$(function(){
+			$('.add-btn').parent().on(oTools.clickEvent, 'img', function(){
+				$(this).siblings('input[type="file"]').click();
+			});
+
+			uploadImgFn('#payVoucher', 'http://192.168.13.50/demo.php');
+
+		});
+
+		function uploadImgFn(ele, ajaxurl){
+			$(ele).uploadimg({
+				url: ajaxurl,
+				success: function(res, ele){
+					$(ele).siblings('.add-btn').hide();
+					$(ele).siblings('img').remove();
+
+					var img = new Image();
+					img.onload = function(){
+						$(ele).parent().append(this).css({
+							'width': '50px', 
+							'height': '50px',
+							'float': 'right',
+							'marginTop': '5px'
+						});
+					}
+					// img.src = res.url;
+					img.src = 'http://192.168.13.50:9000/images/make_card/zsy.jpg';
+				},
+			});
+		}
+	})(Zepto);
+</script>
+
+
+</body>
+</html>

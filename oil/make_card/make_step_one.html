@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>欢迎办理加油卡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/make_card/make_card.css">
+<!-- build:css(.tmp) styles/make_card/make_card.css -->
+<link rel="stylesheet" href="styles/make_card/make_card.css">
+<!-- endbuild -->
+
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+
+</head>
+<body>
+
+<header>
+	<div class="make_info g999" data-href="">办卡说明</div>
+</header>
+
+<article class="container">
+	<h2 class="tit-gray g999">选择加油卡类型</h2>
+	<section class="card-type">
+		<div class="card-box">
+			<div class="row">
+				<div class="c-icon span2"><img src="../images/make_card/zsy.jpg" alt=""></div>
+				<div class="c-con span9">
+					<h3>中石油加油卡</h3>
+					<p>描述描述描述描述描述描述描描
+					述描述描述描述</p>
+				</div>
+				<div class="c-sel span1"><img src="../images/selected.png" alt=""></div>
+			</div>
+		</div>
+		<div class="card-box">
+			<div class="row">
+				<div class="c-icon span2"><img src="../images/make_card/zsh.jpg" alt=""></div>
+				<div class="c-con span9">
+					<h3>中石化加油卡</h3>
+					<p>描述描述描述描述描述描述描描
+					述描述描述描述</p>
+				</div>
+				<div class="c-sel span1"></div>
+			</div>
+		</div>
+	</section>
+
+	<h2 class="tit-gray g999">填写车辆信息</h2>
+	<section class="car-edit">
+		<div class="car-num">
+			<div class="row">
+				<div class="l-l span4">车牌号</div>
+				<div class="l-r span8">
+					<input type="text" id="carNum" class="car-num-input" placeholder="用于绑定加油卡，可不填">
+				</div>
+			</div>
+		</div>
+		<div class="car-photo">
+			<div class="row">
+				<div class="l-l span4">上传行驶证照片</div>
+				<div class="l-r span8">
+					<input type="file" id="uploadImg" class="upload-img" name="uploadimg" accept="image/*">
+					<img id="addBtn" class="add-btn" src="../images/add-icon.jpg" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="button-box">
+		<div id="newStep" class="button">下一步</div>
+	</section>
+
+</article>
+
+
+
+<footer>
+
+</footer>
+
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="../scripts/zepto/zepto.js"></script>
+<script src="../scripts/zepto/ajax.js"></script>
+<script src="../scripts/zepto/event.js"></script>
+<script src="../scripts/zepto/touch.js"></script>
+<script src="../scripts/zepto/fx.js"></script>
+<script src="../scripts/zepto/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/custom.min.js -->
+<script src="../scripts/customtools.js"></script>
+<script src="../scripts/plugin/eventutil.js"></script>
+<script src="../scripts/loading.js"></script>
+<script src="../scripts/validate.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/plugin/dialog.js"></script>
+<script src="../scripts/plugin/upload.zepto.js"></script>
+<script src="../scripts/plugin/drag_del.js"></script>
+<script src="../scripts/plugin/iscroll-probe.js"></script>
+<script src="../scripts/plugin/city_selector.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/make_card/make_card.min.js -->
+<script src="../scripts/make_card/make_card.js"></script>
+<!-- endbuild -->
+
+<script>
+// -- 图片上传调用
+	(function($){
+		$(function(){
+			$('#addBtn').parent().on(oTools.clickEvent, 'img', function(){
+				$('#uploadImg').click();
+			});
+
+			$('#uploadImg').uploadimg({
+				url: 'http://192.168.13.50/demo.php',
+				success: function(res, ele){
+					$(ele).siblings('#addBtn').hide();
+					$(ele).siblings('img').remove();
+
+					var img = new Image();
+					img.onload = function(){
+						$(ele).parent().append(this).css({
+							'width': '50px', 
+							'height': '50px',
+							'float': 'right',
+							'marginTop': '5px'
+						});
+					}
+					// img.src = res.url;
+					img.src = 'http://192.168.13.50:9000/images/make_card/zsy.jpg';
+				},
+			});
+		});
+	})(Zepto);
+</script>
+
+<script>
+	// 下一步按钮 Ajax
+	$('#newStep').on(oTools.clickEvent, function(){
+
+		$.ajax({
+			type: 'POST',
+			url: '',
+			dataType: 'json',
+			beforeSend: function(){
+				load.start();
+			},
+			success: function(){
+
+			},
+			complete: function(){
+				load && load.close();
+			},
+			error: function(){
+				load && load.close();
+			}
+		});
+	});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+@import "normalize";
+@import "mixin";
+@import "response";
+
+$g333: #333;
+$g666: #666;
+$g999: #999;
+$m-color: #a9b1bf;
+$font-b: #19273f;
+$font-c: #a9b1bf;
+
+body {
+  font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  position: relative;
+}
+
+img{
+	max-width: 100%;
+}
+
+input, textarea{
+	margin: 0;
+	padding: 0;
+}
+
+.container{
+	padding: 10px;
+	background: #ccc;
+	@include clearfix();
+
+	.input-line{
+		margin: 10px 0;
+		padding: 0 10px;
+		background: #fff;
+		@include line-height(40px);
+		text-align: left;
+		position: relative;
+
+		input{
+			border: none;
+			@include line-height(20px);
+			background: #fff;
+			width: 100%;
+			text-align: left;
+		}
+		input[type="radio"]{
+			width: auto;
+			margin: 0 10px;
+		}
+		input[disabled="disabled"]{
+			color: $g999;
+		}
+		img{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			width: 20px;
+		}
+		.vali-btn{
+			margin: 5px 0 5px 10px;
+			background: $m-color;
+			text-align: center;
+			@include line-height(30px);
+		}
+	}
+	.dri-info{
+		margin: 10px 0;
+		padding: 10px;
+		background: #fff;
+		textarea{
+			width: 100%;
+			min-height: 80px;
+			border: none;
+		}
+		.word-num{
+			text-align: right;
+			margin: 10px 0 0 0;
+		}
+	}
+	.radio-box{
+		@include clearfix();
+		.sir,.woman{
+			width: 50px;
+			float:right;
+			@include line-height(40px);
+			border: 1px solid #ccc;
+			position: relative;
+			input{
+				position: absolute;
+				top: -1000px;
+				left: -3000px;
+			}
+			label{
+				display: block;
+			}
+		}
+		.ac{
+			background: $m-color;
+		}
+	}
+	.info-box{
+		padding: 0 0 30px 0;
+		border-bottom: 1px solid #333;
+	}
+
+	.upload-img{
+		padding: 10px;
+		h2{
+			font-size: 14px;
+		}
+	}
+	.upload-box{
+		margin: 30px 0 0 0;
+		display: flex;
+
+		.upload-img-box{
+			position: relative;
+			overflow: hidden;
+			flex: 1;
+			padding: 0 10px;
+
+			input{
+				position: absolute;
+				top: -1000px;
+				left: -3000px;
+			}
+		}
+	}
+	.btn-box{
+		margin: 30px 0 20px 0;
+
+		.button{
+			@include button();
+			color: #fff;
+			border-radius: 3px;
+			font-size: 20px;
+		}
+	}
+	.disable{
+		color: #fff !important;
+		background: #ccc !important;
+	}
+}
+
+
+// 4s
+@media screen and (max-width: 320px){
+
+	
+
+}
+
+@media screen and (max-width: 360px) and (min-width: 320px){
+
+	
+
+}
+
+@media screen and (max-width: 360px){
+
+	
+
+}
