@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 
   // Configurable paths
   var config = {
-    app: 'find_rotate',
+    app: 'find_redpacket',
     dist: 'dist'
   };
 
