@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>大卡亲属关怀日</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="full-screen" content="yes">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<header>
+	<audio id="music"></audio>
+	<div id="playBtn" class="play-btn"><img src="images/music-icon.png" alt=""></div>
+</header>
+<article class="container">
+	<section class="index-bg">
+		<img src="images/index_bg-one.jpg" alt="">
+	</section>
+	<section class="index-bg word-animate">
+		<img src="images/index_bg-two.jpg" alt="">
+		<div class="index-word" style="display: none;">
+			<img src="images/index-word-img.png" alt="">
+		</div>
+	</section>
+	<section class="bottom-btn">
+		<div class="bottom-bg">
+			<img src="images/index-bg-b.jpg" alt="">
+		</div>
+		<div class="btn-box">
+			<div class="btn-tit">
+				<div class="btn-tit"><img src="images/index-tit.png" alt=""></div>
+			</div>
+			<div class="btn-detail">
+				<div class="btn">
+					<p class="p-img"><img src="images/p-img.jpg" alt=""></p>
+					<p class="p-word"><img src="images/p-word.png" alt=""></p>
+				</div>
+				<div class="btn">
+					<p class="p-img"><img src="images/f-img.jpg" alt=""></p>
+					<p class="p-word"><img src="images/f-word.png" alt=""></p>
+				</div>
+				<div class="btn">
+					<p class="p-img"><img src="images/fa-img.jpg" alt=""></p>
+					<p class="p-word"><img src="images/fa-word.png" alt=""></p>
+				</div>
+				<div class="btn">
+					<p class="p-img"><img src="images/pe-img.jpg" alt=""></p>
+					<p class="p-word"><img src="images/pe-word.png" alt=""></p>
+				</div>
+			</div>
+		</div>
+	</section>
+</article>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/tools.min.js -->
+<script src="scripts/customtools.js"></script>
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+<script src="scripts/share.js"></script>
+<script>
+	$(function(){
+		var music = document.querySelector('#music'),
+			$playBtn = $('#playBtn');
+
+		var start = true,
+			stop = null;
+
+		music.src = 'meida/furious7.mp3';
+		music.play();
+
+		$playBtn.on(oTools.clickEvent, function(){
+			if(start){
+				music.pause();
+				cancelAnimationFrame(stop);
+				start = false;
+			}else{
+				music.play();
+				loop();
+				start = true;
+			}
+		});
+
+		var i = 0;
+		function loop(){
+			if(i > 360){
+				i = 1;
+			}else{
+				i++;
+			}
+			$playBtn[0].style.transform = 'rotate(' + i + 'deg)';
+			$playBtn[0].style.webkitTransform = 'rotate(' + i + 'deg)';
+			stop = requestAnimationFrame(loop);
+		}
+		loop();
+	});
+</script>
+<body>
+</html>

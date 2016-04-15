@@ -1,0 +1,367 @@
+@import "normalize", "animate", "mixin";
+
+html, body {
+    height: 100%
+}
+html,body{
+	background: #e5e9ed;
+  font-family: 'Microsoft yahei' Helvetica;
+	overflow: hidden;
+}
+
+img{
+	max-width: 100%;
+}
+
+.container{
+	position: relative;
+	overflow: hidden;
+}
+
+.i-content{
+	position: relative;
+	width: 100%;
+	float: left;
+}
+
+.button{
+	margin: 20px 20px 30px 20px;
+	background: #fcba09;
+	@include line-height(50px);
+	border-radius: 5px;
+	color: #19273f;
+	font-size: 16px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+
+a {
+    -webkit-tap-highlight-color: transparent
+}
+
+img{
+	max-width: 100%;
+}
+
+.yellow{
+	color: #ffba00 !important;
+}
+
+.f12{
+	font-size: 12px !important;
+}
+
+header{
+	position: absolute;
+	z-index: 9;
+}
+.container {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+	.page2{
+    background: url(../images/body-bg.jpg) no-repeat;
+    background-size: 100% 100%;
+	}
+
+	.content{
+		position: absolute;
+		top: 80px;
+		padding: 0 5%;
+		width: 90%;
+		color: #fff;
+		text-shadow: 1px 1px 3px #333;
+	}
+	.sec {
+	    height: 100%;
+	    width: 400%;
+	    -webkit-backface-visibility: hidden;
+
+      .page1,.page2{
+        overflow: hidden;
+      }
+      .page1{
+        background-color: #d7dee4;
+      }
+      .p-t-tit{
+        position: absolute;
+        z-index: 9;
+        top: 20px;
+      }
+
+      .p-t-o,.p-t-t{
+        @include clearfix();
+      }
+
+      .p-t-t{
+        // position: absolute;
+        // bottom: 0;
+        width: 100%;
+      }
+
+      .p-t-o{
+        position: relative;
+        @include clearfix();
+        background: rgba(255, 255, 255, .6);
+        padding: 10px 0 20px 0;
+        box-shadow: 0px 1px 10px #ccc;
+
+        img{
+          margin: 0 0 10px 0;
+        }
+        .p-tel{
+          h3{
+            margin: 0 0 10px 0;
+            color: #000;
+            font-size: 16px;
+          }
+          float: left;
+          margin: 5px 0 0 20px;
+          p{
+            display: block;
+            margin: 5px 0;
+            font-size: 22px;
+            font-weight: bold;
+            a{
+              margin: 0;
+              padding: 0;
+              border-bottom: 1px solid #004ccb;
+              color: #004ccb;
+              text-decoration: none;
+            }
+            span{
+              color: #666;
+            }
+          }
+        }
+      }
+
+	    section {
+        height: 100%;
+        width: 25%;
+        color: #fff;
+        position: relative;
+
+		    img{
+		    	float: left;
+		    }
+		}
+	}
+
+	.sec.horizontal{
+		section {
+		    min-height: 100%;
+		}
+	}
+
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY {
+  animation-duration: .75s;
+}
+
+@keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+}
+
+@keyframes arrow {
+    0% {
+        bottom: 10px;
+        opacity: .6
+    }
+    100% {
+        bottom: 6px;
+        opacity: 1;
+    }
+}
+@-webkit-keyframes arrow {
+    0% {
+        bottom: 10px;
+        opacity: .6
+    }
+    100% {
+        bottom: 6px;
+        opacity: 1;
+    }
+}
+.arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -webkit-animation: arrow 1s infinite;
+    animation: arrow 1s infinite;
+    text-align: center;
+    background: rgba(30, 50, 80, .4);
+    margin: 0 0 0 -20px;
+}
+
+.arrow img {
+    width: 20px;
+    height: 19px;
+    padding-top: 9px
+}
+
+@keyframes zoomInDown {
+  0% {
+    opacity: 0;
+    transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+  }
+}
+
+.zoomInDown {
+  animation-name: zoomInDown;
+}
+@keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+.bounceInLeft {
+  animation-name: bounceInLeft;
+}
+@keyframes bounceInRight {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+.bounceInRight {
+  animation-name: bounceInRight;
+}
+
+.body-bg{
+	@include clearfix();
+  .m-img{
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 360px) and (max-height: 533px){
+  .body-bg{
+
+  }
+  .p-tel{
+    p{
+      font-size: 18px !important;
+    }
+  }
+}
+
+@media screen and (max-width:321px) and (min-height:534px){
+  .p-tel{
+    p{
+      font-size: 18px !important;
+    }
+  }
+}

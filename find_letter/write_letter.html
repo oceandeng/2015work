@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>大卡亲属关怀日</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="full-screen" content="yes">
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+
+<article class="container">
+	<section class="index-bg write-h">
+		<img src="images/write-letter-bg.jpg" alt="">
+		
+		<div class="write-box write-con">
+			<div class="letter-con">
+				<div class="letter-t"><img src="images/w-letter-bg_01.png" alt=""></div>
+				<div id="letterCon" class="letter-word" style="display: none;">
+					<p>来自XXX的问候：</p>
+					<p>亲爱的爸爸妈妈，您们好吗？我想告诉您我每次出车都是安全驾驶，所以请不要担心，天气暖和了，有时间多出去走走，咱们都要身体棒棒的，我会更努力</p>
+				</div>
+				<div class="letter-b"><img src="images/w-letter-bg_05.png" alt=""></div>
+			</div>
+			
+			<div class="form-box">
+				<div class="to-name">
+					<input id="toName" type="text" value="" placeholder="请输入收信人的真实姓名">
+				</div>
+				<div class="mobile">
+					<input id="mobile" type="tel" value="" placeholder="请输入要送达的手机号">
+				</div>
+				
+				<div id="sendBtn" class="normal-btn">发 送</div>
+				
+			</div>
+		</div>
+	</section>
+
+</article>
+
+
+<!-- 弹层 S -->
+<section class="popup" style="display: none">
+
+    <!-- 发送成功 -->
+    <section id="sendSuccess" class="send-success">
+    	<h3>发送成功</h3>
+    	<p>感谢您参与大卡亲属关怀日活动！在忙碌工作之时，与亲人的情感交流无疑是货运人最弥足珍贵的财富。</p>
+    	<p>请与我们一起，分享活动，将爱传递……</p>
+    	<div id="shartBtn" class="normal-btn">分享活动，将爱传递</div>
+    </section>
+
+    <!-- 下载APP -->
+    <section id="downloadApp" class="download-app">
+        <p>欢迎您参加大卡亲属关怀日活动，为了让您的家人能够收到您真实署名的问候，建议您在发送问候前，先完成实名认证。</p>
+        <div class="download-btn-box">
+            <div id="closeDownload" class="close-download">实名认证</div>
+            <div id="downloadApp" >继续发送</div>
+        </div>
+    </section>
+</section>
+<!-- 弹层 E -->
+
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/tools.min.js -->
+<script src="scripts/customtools.js"></script>
+<script src="scripts/pubfloading.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/share.zepto.js"></script>
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+<script src="scripts/share.js"></script>
+
+<script>
+	$(function(){
+		$('#sendBtn').on(oTools.clickEvent, function(){
+
+			var toName = $('#toName').val(),
+				mobile = $('#mobile').val();
+
+
+			// 手机验证
+			if (mobile == '') {
+	            oTools.alertmess("请输入手机号码!");
+	            return false;
+	        }
+	        var regu = /^[1][0-9]{10}$/;
+	        var re = new RegExp(regu);
+	        if (!re.test(mobile)) {
+	            oTools.alertmess("请输入正确手机号码!");
+	            return false;
+	        }
+
+	        // 真实姓名验证
+			oTools.alertmess('请输入真实有效的收信人姓名！');
+
+			$.ajax({
+				url: '',
+				type: 'post',
+				data: {
+					toname: toName,
+					mobile: mobile
+				},
+				beforeSend: function(){
+	                // 加载效果显示
+	                pubfullLoad.start();
+	            },
+	            success: function(res){
+	                // 加载效果关闭
+	                pubfullLoad.close();
+					sendSuccess();
+	                
+
+	            },
+	            error: function(){
+	                // 加载效果关闭
+	                pubfullLoad.close();
+	                oTools.alertmess('请检查你的网络！');
+	            }
+			})
+		});
+	});
+</script>
+
+
+<!-- 第三方在线生成楷体 -->
+<script type="text/javascript" src="http://api.youziku.com/webfont/FastJS/yzk_A146FE2B9F9412E1"></script>
+<script type="text/javascript"> 
+	$youziku.load("#letterCon", "c219be0277bc473e8b64660bdf4bc682", "STKaiti"); 
+	$youziku.draw(); 
+	$("#letterCon").show();
+</script>
+<body>
+</html>
