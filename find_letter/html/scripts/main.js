@@ -13,7 +13,7 @@ $(window).load(function(){
         $iWord.css({'height': 0}).animate({
             height: iWordH
         }, {
-            duration: 10000
+            duration: 5000
         });
     }
 

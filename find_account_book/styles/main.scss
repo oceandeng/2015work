@@ -1,0 +1,332 @@
+@import 'mixin', 'variable';
+@import 'normalize';
+@import 'response';
+@import 'animate';
+
+/* ==========================================================================
+   Project styles
+   ========================================================================== */
+
+html,body {
+    width: 100%;
+    font-family: $font-family;
+    font-size: $font-nomalsize;
+    background: #efeff6;
+}
+img{
+    max-width: 100%;
+}
+input::-moz-placeholder, textarea::-moz-placeholder { color: #999;}
+a{
+    color: #333;
+    text-decoration: none;
+}
+.f-12{
+    font-size: 12px !important;
+}
+.f-14{
+    font-size: 14px !important;
+}
+.t-cen{
+    text-align: center !important;
+}
+.gray{
+    background: #ccc !important;
+}
+.mar0{
+    margin-top: 0 !important;
+}
+.pb60{
+    padding-bottom: 60px !important;
+}
+.g666{
+    color: $g666 !important;
+}
+.red{
+    color: $red !important;
+}
+.green{
+    color: $green !important;
+}
+header{
+    
+}
+.disabled{
+    background: #ccc !important;
+    color: #999 !important;
+}
+.container{
+    overflow: hidden;
+}
+
+.top-bar{
+    display: flex;
+    background: $blue;
+    overflow: hidden;
+    padding: 15px 0;
+
+    h3{
+        margin: 10px 0 0 0;
+        color: $f-color;
+        font-size: 14px;
+    }
+    p{
+        margin: 10px 0 0 0;
+        color: #fff;
+    }
+
+    .month-box{
+        width: 70px;
+        padding: 0 20px;
+        border-right: 1px solid #4a5f83;
+        flex: 1;
+        
+        .month{
+            margin: 5px 0 0 0;
+            padding: 0 15px 0 0;
+            background: url(../images/arrow-d-icon.png) no-repeat 95% 15px;
+            background-size: 15px 7px;
+        }
+        .m-num{
+            font-size: 24px;
+        }
+    }
+    .enter-box{
+        flex: 1;
+        padding: 0 10px 0 20px;
+        border-left: 1px solid #05080d;
+        .num{
+            font-size: 20px;
+            @include text-overflow();
+        }
+    }
+    .out-box{
+        flex: 1;
+        padding: 0 10px 0 0;
+        font-size: 20px;
+        .num{
+            font-size: 20px;
+        }
+    }
+}
+
+.tit-gray{
+    @include line-height(40px);
+    padding: 10px 10px 0 10px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 10px 0 0 0;
+}
+
+.bottom-btn{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: $yellow;
+    @include line-height();
+    color: #19273f;
+    font-size: 20px;
+
+    span{
+        display: inline-block;
+        padding: 0 0 0 40px;
+        background: url(../images/btn-icon.png) no-repeat left center;
+        background-size: 30px 30px;
+        font-weight: bold;
+    }
+}
+.submit-btn{
+    margin: 30px 10px 10px 10px;
+    background: $yellow;
+    @include line-height();
+    font-size: 20px;
+    color: #19273f;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.note-type-box{
+    margin: 30px 0;
+    @include box-center();
+    .note-type{
+        position: relative;
+        width: 200px;
+        background: #fff;
+        @include line-height(40px);
+        border-radius: 20px;
+        
+        ul{
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+        }
+        .ac{
+            color: $yellow;
+        }
+        li{
+            flex: 1;
+            width: 100px;
+            text-align: center;
+        }
+    }
+    .bg-animate{
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+        background: $blue;
+        top: 0;
+        left: 0;
+    }
+}
+.list-box{
+    margin: 20px 0 0 0;
+    border-top: 1px solid $b-color;
+    border-bottom: 1px solid $b-color;
+    background: #fff;
+
+    .list-wrap{
+        position: relative;
+        @include line-height(60px);
+    }
+
+    .del-btn{
+        position: absolute;
+        width: 20%;
+        top: 0px;
+        right: 0;
+        background: #f00;
+        z-index: 0;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .list-np-row{
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        background: #fff;
+        @include line-height(60px);
+        font-size: 16px;
+        @include clearfix();
+
+        .l-l{
+            border-bottom: 1px solid $b-color;
+            @include clearfix();
+
+            .e-icon, .o-icon{
+                width: 40px;
+                height: 40px;
+                float: left;
+                margin: 10px 0 10px 10px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 50px;
+
+                img{
+                    width: 50%;
+                    margin: 0 auto;
+                }
+            }
+            .e-icon{
+                background: $green;
+            }
+            .o-icon{
+                background: $red;
+            }
+            span{
+                display: block;
+                margin: 0 0 0 10px;
+                text-align: left;
+                float: left;
+            }
+        }
+        .l-r{
+            border-bottom: 1px solid $b-color;
+            span{
+                display: block;
+                padding: 0 10px 0 0;
+                text-align: right;
+                color: $g666;
+                @include text-overflow();
+            }
+            span.selected{
+                padding: 0 40px 0 0;
+                background: url(../images/selected.png) no-repeat 95% center;
+                background-size: 20px 20px;
+            }
+            .h-arrow{
+                padding: 0 10px 0 0;
+
+                b{
+                    display: block;
+                    @include line-height();
+                    text-align: right;
+                    font-weight: normal;
+                    padding: 0 20px 0 0;
+                    background: url(../images/arrow.png) no-repeat right center;
+                    background-size: 10px 17px;
+                }
+            }
+            input{
+                width: 100%;
+                @include line-height(22px);
+                margin: 10px 0;
+                padding: 0;
+                border: none;
+                text-align: right;
+                color: $g666;
+                
+            }
+        }
+
+        &:last-child{
+            .l-l{
+                border-bottom: none;
+            }
+            .l-r{
+                border-bottom: none;
+            }   
+        }
+    }
+
+}
+.no-detial{
+    text-align: center;
+    margin: 50px 0;
+    font-size: 20px;
+    color: $g999;
+}
+#addressWrapper {
+    position: absolute;
+    z-index: 1;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+// iphone 4s
+@media screen and (max-width: 320px) and (max-height: 480px){
+    
+    
+
+}
+
+// iphone 4s and 5s
+@media screen and (max-width: 320px){
+    
+
+
+}
+
+// 360
+@media screen and (max-width: 360px){
+    
+    
+
+}

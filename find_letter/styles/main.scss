@@ -65,11 +65,17 @@ header{
 }
 .index-bg{
 	position: relative;	
+
 	.index-word{
+		overflow: hidden;
 		width: 80%;
 		position: absolute;
 		top: 0;
 		left: 30px;
+
+		img{
+			display: block;
+		}
 	}
 }
 .word-animate{

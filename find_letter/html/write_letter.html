@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <meta name="full-screen" content="yes">
 
-<!-- build:css(.tmp) styles/main.css -->
 <link rel="stylesheet" href="styles/main.css">
-<!-- endbuild -->
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
@@ -69,23 +67,8 @@
 </section>
 <!-- 弹层 E -->
 
-
-<!-- build:js scripts/zepto.min.js -->
-<script src="scripts/libs/zepto.js"></script>
-<script src="scripts/libs/ajax.js"></script>
-<script src="scripts/libs/event.js"></script>
-<script src="scripts/libs/touch.js"></script>
-<script src="scripts/libs/fx.js"></script>
-<script src="scripts/libs/fx_methods.js"></script>
-<!-- endbuild -->
-
-<!-- build:js scripts/tools.min.js -->
-<script src="scripts/customtools.js"></script>
-<script src="scripts/pubfloading.js"></script>
-<script src="scripts/dialog.js"></script>
-<script src="scripts/audio.js"></script>
-<script src="scripts/share.zepto.js"></script>
-<!-- endbuild -->
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/tools.min.js"></script>
 
 <script src="scripts/main.js"></script>
 <script src="scripts/share.js"></script>
@@ -93,8 +76,10 @@
 <script>
 	$(function(){
 		$('#sendBtn').on(oTools.clickEvent, function(){
+
 			var toName = $('#toName').val(),
 				mobile = $('#mobile').val();
+
 
 			// 手机验证
 			if (mobile == '') {

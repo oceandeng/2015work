@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="full-screen" content="yes">
+<title>记账本</title>
+<link rel="stylesheet" href="styles/main.min.css">
+<link rel="stylesheet" href="styles/mobiscroll/mobiscroll.min.css">
+<script>
+    var gConfig = {
+        imgPath: location.origin
+    }
+</script>
+</head>
+<body>
+
+<article class="container pb60">
+    <header class="top-bar">
+        <div id="timeSelect" class="month-box">
+            <h3><span id="year">2016</span>年</h3>
+            <p class="month"><span id="month" class="m-num">03</span>月</p>
+        </div>
+        <div class="enter-box">
+            <h3>收入（元）</h3>
+            <p class="num">800000000.00</p>
+        </div>
+        <div class="out-box">
+            <h3>支出（元）</h3>
+            <p class="num">8000.00</p>
+        </div>
+    </header>
+
+    <!-- <section class="no-detial">暂无收支记录</section> -->
+    <section id="addressWrapper">
+        <section id="scroller">
+            <h2 class="tit-gray mar0 g999"><span id="todayDate">15</span>日&nbsp;星期<span id="todayweek">二</span></h2>
+            <section id="detial" class="list-box mar0 row">
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="e-icon"><img src="images/enter-icon.png" alt=""></div>
+                            <span>支出</span>
+                        </div>
+                        <div class="l-r span8"><span class="green">-800.00</span></div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="o-icon"><img src="images/out-icon.png" alt=""></div>
+                            <span>收入</span>
+                        </div>
+                        <div class="l-r span8">
+                            <span class="red">+1000.00</span>
+                        </div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+            </section>
+            <h2 class="tit-gray mar0 g999"><span id="todayDate">15</span>日&nbsp;星期<span id="todayweek">二</span></h2>
+            <section id="detial" class="list-box mar0 row">
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="e-icon"><img src="images/enter-icon.png" alt=""></div>
+                            <span>支出</span>
+                        </div>
+                        <div class="l-r span8"><span class="green">-800.00</span></div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="o-icon"><img src="images/out-icon.png" alt=""></div>
+                            <span>收入</span>
+                        </div>
+                        <div class="l-r span8">
+                            <span class="red">+1000.00</span>
+                        </div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+            </section>
+            <h2 class="tit-gray mar0 g999"><span id="todayDate">15</span>日&nbsp;星期<span id="todayweek">二</span></h2>
+            <section id="detial" class="list-box mar0 row">
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="e-icon"><img src="images/enter-icon.png" alt=""></div>
+                            <span>支出</span>
+                        </div>
+                        <div class="l-r span8"><span class="green">-800.00</span></div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="o-icon"><img src="images/out-icon.png" alt=""></div>
+                            <span>收入</span>
+                        </div>
+                        <div class="l-r span8">
+                            <span class="red">+1000.00</span>
+                        </div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+            </section>
+            <h2 class="tit-gray mar0 g999"><span id="todayDate">15</span>日&nbsp;星期<span id="todayweek">二</span></h2>
+            <section id="detial" class="list-box mar0 row">
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="e-icon"><img src="images/enter-icon.png" alt=""></div>
+                            <span>支出</span>
+                        </div>
+                        <div class="l-r span8"><span class="green">-800.00</span></div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="o-icon"><img src="images/out-icon.png" alt=""></div>
+                            <span>收入</span>
+                        </div>
+                        <div class="l-r span8">
+                            <span class="red">+1000.00</span>
+                        </div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+            </section>
+            <h2 class="tit-gray mar0 g999"><span id="todayDate">15</span>日&nbsp;星期<span id="todayweek">二</span></h2>
+            <section id="detial" class="list-box mar0 row">
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="e-icon"><img src="images/enter-icon.png" alt=""></div>
+                            <span>支出</span>
+                        </div>
+                        <div class="l-r span8"><span class="green">-800.00</span></div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="o-icon"><img src="images/out-icon.png" alt=""></div>
+                            <span>收入</span>
+                        </div>
+                        <div class="l-r span8">
+                            <span class="red">+1000.00</span>
+                        </div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+            </section>
+            <h2 class="tit-gray mar0 g999"><span id="todayDate">15</span>日&nbsp;星期<span id="todayweek">二</span></h2>
+            <section id="detial" class="list-box mar0 row">
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="e-icon"><img src="images/enter-icon.png" alt=""></div>
+                            <span>支出</span>
+                        </div>
+                        <div class="l-r span8"><span class="green">-800.00</span></div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+                <div class="list-wrap">
+                    <div class="list-np-row dragdel">
+                        <div class="l-l span4">
+                            <div class="o-icon"><img src="images/out-icon.png" alt=""></div>
+                            <span>收入</span>
+                        </div>
+                        <div class="l-r span8">
+                            <span class="red">+1000.00</span>
+                        </div>
+                    </div>
+                    <div class="del-btn">删除</div>
+                </div>
+            </section>
+        </section>
+    </section>
+    <footer>
+        <div id="noteBtn" class="bottom-btn" data-href="write_note.html"><span>记一笔</span></div>
+    </footer>
+</article>
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/custom.min.js"></script>
+<script src="scripts/mobiscroll.js"></script>
+<script src="scripts/main.js"></script>
+
+<script>
+    // -- 月份选择插件调用 
+    $(function () {
+        var dateObj = new Date();
+        var nowYear = dateObj.getFullYear(),
+            nowDay = dateObj.getDate(),
+            nowWeek = dateObj.getDay();
+
+        // -- 今天周几 S
+        var nWeekStr = '',
+            wArr = ["一","二", "三", "四", "五", "六", "日"]
+        nWeekStr = wArr[nowWeek-1];
+
+        // 获取点击前的日期
+        var oldYear = '',
+            oldMonth = '';
+        $("#timeSelect").on(oTools.clickEvent, function(){
+            oldYear = $("#year").html();
+            oldMonth = $("#month").html();
+        });
+
+        $("#timeSelect").mobiscroll().date({
+            theme: $.mobiscroll.defaults.theme,
+            lang: "zh",
+            cancelText: '取消',
+            labels: ['年', '月'],
+            dateFormat: 'yy/mm', //返回结果格式化为年月格式
+            startYear: nowYear-4, //开始年份
+            endYear: nowYear, //结束年份
+            // wheels:[], 设置此属性可以只显示年月，此处演示，就用下面的onBeforeShow方法,另外也可以用treelist去实现
+            onBeforeShow: function (inst) {
+                var array = inst._tempValue.split('/');
+                inst.settings.wheels[0].length>2?inst.settings.wheels[0].pop():null; 
+            }, //弹掉“日”滚轮
+            display: 'bottom',
+            formatResult: function (array) { //返回自定义格式结果
+                $('#year').html(array[0]);
+                $('#month').html(array[1]*1 + 1);
+                return array[0] + '/' + (array[1]*1 + 1);
+            },
+            cancelFn: function(){
+                $('#year').html(oldYear);
+                $('#month').html(oldMonth);
+            },
+            callback: function(v){
+                timeAjaxFn(v);
+            }
+        });
+    });
+
+    // 选择结束回调函数定义
+    function timeAjaxFn(time){
+
+        // @params{string} time => '2016/4'
+
+        // $.ajax({
+        //     url: '',
+        //     type: 'POST',
+        //     data: {
+        //         time: time
+        //     },
+        //     beforeSend: function(){
+        //         // 加载效果显示
+        //         pubfullLoad.start();
+        //     },
+        //     success: function(res){
+        //         // 加载效果关闭
+        //         pubfullLoad.close();
+
+                
+
+        //     },
+        //     error: function(){
+        //         // 加载效果关闭
+        //         pubfullLoad.close();
+        //         oTools.alertmess('请检查你的网络！');
+        //     }
+        // });
+    }
+
+    // -- 左滑删除
+    (function($){
+        var dragDel = new DragDel();
+        dragDel.enable();
+
+// -- 页面滚动
+        var myScroll = new IScroll('#addressWrapper', { mouseWheel: true, click: true });
+
+    })(Zepto);
+</script>
+</body>
+</html>

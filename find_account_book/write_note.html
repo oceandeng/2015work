@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<title>记一笔</title>
+<!-- build:css(.tmp) styles/main.min.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+<script>
+    var gConfig = {
+        imgPath: location.origin
+    }
+</script>
+
+</head>
+<body>
+
+<article>
+    <section id="noteType" class="note-type-box">
+        <div class="note-type">
+            <ul>
+                <li class="ac">收入</li>
+                <li>支出</li>
+            </ul>
+            <div id="bgAni" class="bg-animate"></div>
+        </div>
+    </section>
+    <section id="detial" class="list-box mar0 row">
+        <div class="list-wrap">
+            <div class="list-np-row">
+                <div class="l-l span4">
+                    <span>类型</span>
+                </div>
+                <div class="l-r span8"><span><input id="typeInput" type="text" placeholder="最多输入8个字"></span></div>
+            </div>
+        </div>
+        <div class="list-wrap">
+            <div class="list-np-row">
+                <div class="l-l span4">
+                    <span>金额</span>
+                </div>
+                <div class="l-r span8">
+                    <span><input id="money" type="text" placeholder="请输入金额"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="submitBtn" class="submit-btn disabled">确定</div>
+</article>
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/custom.min.js -->
+<script src="scripts/otools.js"></script>
+<script src="scripts/pubfloading.js"></script>
+<script src="scripts/iscroll.js"></script>
+<script src="scripts/eventutil.js"></script>
+<script src="scripts/drag_del.js"></script>
+<!-- endbuild -->
+<script src="scripts/main.js"></script>
+
+<script>
+    $(function(){
+        // 收入、支出切换
+        var $nType = $('#noteType'),
+            $bgAni = $('#bgAni');
+
+        $nType.find('li').on(oTools.clickEvent, function(e){
+            var $_this = $(this);
+
+            if(!$_this.hasClass('ac')){
+                $_this.siblings().removeClass('ac');
+                $_this.addClass('ac');
+                $bgAni.animate({
+                    left: $_this.position().left
+                },{
+                    duration: 'fast'
+                });
+            }
+        })
+    });
+
+    // -- 提交Ajax 
+    $('#submitBtn').on(oTools.clickEvent, function(){
+        // 获取对应值
+        var typeNum = $('.ac').html(),
+            typeVal = ($("#typeInput").val() == '最多输入8个字') ? '' : $("#typeInput").val(),
+            money = $('#money').val();
+
+        $.ajax({
+            url: '',
+            type: 'POST',
+            data: {
+                typeNum: typeNum,
+                typeVal: typeVal,
+                money: money
+            },
+            beforeSend: function(){
+                // 加载效果显示
+                pubfullLoad.start();
+            },
+            success: function(res){
+                // 加载效果关闭
+                pubfullLoad.close();
+
+                
+
+            },
+            error: function(){
+                // 加载效果关闭
+                pubfullLoad.close();
+                oTools.alertmess('请检查你的网络！');
+            }
+        });
+
+    })
+
+
+</script>
+
+</body>
+</html>
