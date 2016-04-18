@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>歌咏赛</title>
+<!-- build:css(.tmp) styles/register.css -->
+<link rel="stylesheet" href="styles/register.css">
+<!-- endbuild -->
+<script>
+	var gConfig = {
+		path: location.origin + '/',
+		ajaxUrl: '{:U("Home/Index/index")}'
+	}
+</script>
+<style>
+	html,body{
+		background: #06060f;
+		margin-bottom:10px;
+	}
+</style>
+</head>
+<body>
+	<article id="container-form">
+		<div class="form-bg">
+			<img src="images/form-bg.jpg" alt="" />
+		</div>
+		<div class="form-box">
+			<div class="form-tit">
+				<h2>马上填写信息报名</h2>
+				<div class="detail" data-href="#">歌赛详情>></div>
+			</div>
+			<div class="form-body">
+				<input type="text" id="name" class="name" placeholder="请填写姓名" />
+				<input type="text" id="mobile" class="mobile" placeholder="请填写手机号" />
+				<input type="text" id="idCard" class="id-card" placeholder="身份证号" />
+				<div id="submitBtn" class="submit">立即提交</div>			
+				<p class="tips">提交成功报名，马上领大礼！</p>
+			</div>
+		</div>
+	</article>
+<!-- build:js scripts/register.min.js -->
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/customtool.js"></script>
+<script src="scripts/validate.js"></script>
+<!-- endbuild -->
+<script>
+$(function(){
+	var dataHrefEle = $("div[data-href]");
+	dataHrefEle.each(function(k, v){
+		var $_this = $(this);
+		$_this.on('tap', function(){
+			location.href = $_this.attr('data-href');
+		});
+	});
+});
+</script>
+</body>
+</html>

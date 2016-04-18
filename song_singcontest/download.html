@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="blank">
+</head>
+<body>
+<style type="text/css">
+html,body,div,ul,ol,li,img,form,h1,h2,h3,h4,table,tr,td,p{margin:0;padding:0}
+a,img{display:block}
+img{max-width:100%}
+</style>
+
+<script>
+function isWeixin(){
+	var ua = navigator.userAgent.toLowerCase();
+	return (ua.match(/MicroMessenger/i)=="micromessenger");
+}
+function isIOS(){
+	var ua = navigator.userAgent.toLowerCase();
+	return /(iPhone|iPad|iPod|iOS)/i.test(ua);
+}
+</script>
+
+<div><img src="images/wap_down_logo.jpg" /></div>
+<div><div id="app_sj" data-href="#"  onclick="_czc.push(['_trackEvent', '95155二维码扫描', '下载数', '司机','...','app_sj']);"><img src="images/wap_down1.jpg" /></div></div>
+<div><div id="app_yc" data-href="#"  onclick="_czc.push(['_trackEvent', '95155二维码扫描', '下载数', '用车','...','app_yc']);"><img src="images/wap_down2.jpg" /></div></div>
+
+
+<script src="scripts/zepto.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	if (isWeixin()) {
+		//location.href ="https://itunes.apple.com/cn/app/che-wang/id917562471?mt=8";
+		$("#app_sj").attr("data-href","http://a.app.qq.com/o/simple.jsp?pkgname=com.ctfo.pltpsuper");
+		$("#app_yc").attr("data-href","http://a.app.qq.com/o/simple.jsp?pkgname=com.sinoiov.pltpsuper.integration");
+	} else if(isIOS()){
+		$("#app_sj").attr("data-href","https://itunes.apple.com/cn/app/che-wang-si-ji-ban/id917562471?mt=8");
+		$("#app_yc").attr("data-href","https://itunes.apple.com/cn/app/che-wang-yong-che-ban/id980188610?mt=8");
+	} else {
+		$("#app_sj").attr("data-href","http://file.sinoiov.com/file/app_carriers.apk");
+		$("#app_yc").attr("data-href","http://file.sinoiov.com/file/app_consignor.apk");
+	}
+
+	var dataHrefEle = $("div[data-href]");
+	dataHrefEle.each(function(k, v){
+		var $_this = $(this);
+		$_this.on('tap', function(){
+			location.href = $_this.attr('data-href');
+		});
+	});
+});
+</script>
+
+<div style="display:none;">
+<script src="http://s4.cnzz.com/z_stat.php?id=1254000558&amp;web_id=1254000558" type="text/javascript"></script><script src="http://c.cnzz.com/core.php?web_id=1254000558&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=1254000558" target="_blank" title="站长统计">站长统计</a>
+</div>
+</body>
+</html>

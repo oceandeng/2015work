@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>歌唱吧</title>
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+<script>
+	gConfig = {
+		// path: location.origin + '/act/racing/'
+		path: location.origin + '/'
+	}
+</script>
+</head>
+<body>
+	<header id="header">
+		<div class="logo">
+			<img src="images/logo.png" alt="">
+		</div>
+		<div class="main-img">
+			<img src="images/main-img.png" alt="">
+		</div>
+		<div class="tips">
+			7月24日-8月16日迎新活动期间，每发布、分享一首歌积分翻三倍（可各得到3个积分）
+		</div>
+
+		<div class="integral-tit">
+			<h2>积分商城换大奖</h2>
+			<p class="more" id="more">查看更多></p>
+		</div>
+	</header>
+	<article id="container">
+		<section id="integralGood" class="integral-good">
+			<ul>
+				<li><div class="img"><img src="images/goodone.jpg" alt=""></div></li>
+				<li><div class="img"><img src="images/goodtwo.jpg" alt=""></div></li>
+				<li><div class="img"><img src="images/goodthr.jpg" alt=""></div></li>
+				<li><div class="img"><img src="images/goodfou.jpg" alt=""></div></li>
+				<li><div class="img"><img src="images/goodfiv.jpg" alt=""></div></li>
+				<li><div class="img"><img src="images/goodsix.jpg" alt=""></div></li>
+			</ul>
+			<p class="tips">小贴士：礼品数量有限，先到先得，兑完为止。积分商城的商品暂时需要您移步至车旺APP内兑换，给您带来不便深表歉意。</p>
+		</section>
+		<section class="banner">
+			<img src="images/bannerone.jpg" alt="">
+		</section>
+		<section class="song-info">
+			<ul>
+				<li><span>1</span><p>注册“哥唱吧”可赚10积分（注册车旺的用户可以使用车旺账密直接登录哥唱吧哦~）</p></li>
+				<li><span>2</span><p>完成资料再赚5积分</p></li>
+				<li><span>3</span><p>“哥唱吧”登陆送1积分（每日一次）</p></li>
+				<li><span>4</span><p>参与活动再送5积分</p></li>
+				<li><span>5</span><p>“哥唱吧”成就积分：每周排行第一名10分，第二名5分，第三份3分，第4-10名均得1分</p></li>
+			</ul>
+		</section>
+		<section id="bannerTwo" class="bannertwo"  data-href="">
+			<img src="images/bannertwo.jpg" alt="">
+		</section>
+		<section class="bannerthr">
+			<img id="bannerThr" src="images/bannerthr.jpg" alt="">
+			<p id="cheRule" class="che-rule">查看车旺积分发放规则></p>
+		</section>
+		<section class="note">
+			本活动最终解释权归中交兴路所有
+		</section>
+	</article>
+
+	<section class="rule-con">
+		<div id="ruleCon" class="rule-dialog">
+			<h2>车旺积分发放规则</h2>
+			<p>1、注册车旺10积分
+				<span>（注册哥唱吧的用户可以使用哥唱吧账密直接登录车旺哦~）</span></p>
+			<p>2、通过个人认证30积分</p>
+			<p>3、通过企业认证30积分</p>
+			<p>4、单笔加油卡充值每满100元1积分，每月最多获得500积分</p>
+		</div>
+	</section>
+
+	<section class="download-con">
+		<div id="download" class="download-dialog">
+			<p>程序猿哥哥还在火热的开发积分商城功能~</p>
+			<p>哥唱吧的小伙伴需要到车旺APP内进行积分商品兑换哦~</p>
+			<div id="downloadBtn" class="download-btn">下载车旺APP</div>
+		</div>
+	</section>
+
+<!-- build:js scripts/main.min.js -->
+<script src="scripts/fastclick.js"></script>
+<script src="scripts/otools.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/download.js"></script>
+<!-- endbuild -->
+
+<script>
+
+oTools.addDomLoaded(function(){
+	var ruleBtn = oTools.$("#cheRule")[0],
+		bannerTwo = oTools.$("#bannerTwo")[0],
+		bannerThr = oTools.$("#bannerThr")[0],
+		integralGood = oTools.$("#integralGood li"),
+		more = oTools.$("#more")[0],
+		path = gConfig.path + "images/close.png";
+
+	bannerTwo.addEventListener('click', function(){
+		download();
+	}, false);
+
+	bannerThr.addEventListener('click', downloadApp, false);
+
+	ruleBtn.addEventListener('click', function(){
+		Dialog({
+			'id': 'ruleCon',
+			'type': 'popup',
+			'lock':true,
+			'width':'100%',
+			'height': '100%',
+			'closeImg': path,
+			'closeTop': '0',
+			'closeRight': '0'
+		});
+	}, false);
+
+	for(var i = 0; i < integralGood.length; i++){
+		integralGood[i].addEventListener('click', function(){
+			download();
+		}, false);
+	};
+
+	more.addEventListener('click', function(){
+		download();
+	}, false);
+
+	// function downloadApp(){
+	// 	if (oTools.isWechat && oTools.isAndroid){
+	// 		location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.ctfo.pltpsuper";
+	// 	}else if(oTools.isIOS){
+	// 		// location.href = "https://itunes.apple.com/cn/app/che-wang-si-ji-ban/id917562471?mt=8";
+	// 		location.href = "iphone_app.html";
+	// 	} else {
+	// 		location.href = "http://file.sinoiov.com/file/app_carriers.apk";
+	// 	}
+	// }
+
+	function downloadApp(){
+		location.href = "http://www.95155.com/pages/common/app.html";
+	}
+
+	function download(){
+		Dialog({
+			'id': 'download',
+			'type': 'popup',
+			'lock':true,
+			'width':'100%',
+			'height': '100%',
+			'closeImg': path,
+			'closeTop': '0',
+			'closeRight': '0',
+			'onReady': function(){
+				var downloadBtn = oTools.$("#downloadBtn")[0];
+
+				downloadBtn.addEventListener('click', downloadApp, false);
+			}
+		});
+	}
+});
+
+</script>
+</body>
+</html>

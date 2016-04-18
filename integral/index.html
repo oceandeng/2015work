@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>积分商城首页</title>
+		<link rel="stylesheet" href="style/base.css">
+		<link rel="stylesheet" href="style/main.css">
+		<style>
+			body{
+				background: #f6ffe3;
+			}
+		</style>
+    </head>
+    <body>
+<!-- header S -->
+	<header class="main_header">
+		<div class="header_wrap">
+			<div class="box login" id="login-btn" style="display:none">
+				登录/注册
+			</div>
+
+			<p class="uname_line" style="text-align:center;">
+				<span class="uname_wrap">ocean_deng1210</span>
+			</p>
+			<div class="checkin_bar">
+				<div id="integral_detail" class="checkin_box" data-href="integral_detail.html">
+					<span class="total_integral_icon"></span>
+					<span id="integral_val">28</span>积分
+				</div>
+			</div>
+
+		</div>
+		<nav class="main_header_nav">
+			<div class="nav_item" data-href="integral_baby.html">
+				<span class="main_header_icon icon_one"></span>
+				<span>我的宝贝</span>
+			</div>
+			<span class="separator"></span>
+			<div class="nav_item" data-href="gift_list.html">
+				<span class="main_header_icon icon_two"></span>
+				<span>更多宝贝</span>
+			</div>
+			<span class="separator"></span>
+			<div class="nav_item" data-href="" style="display:none">
+				<span class="main_header_icon icon_thr"></span>
+				<span>菜单</span>
+			</div>
+			<span class="separator"></span>
+			<div class="nav_item" data-href="integral_task.html" style="display:none">
+				<span class="main_header_icon icon_fou"></span>
+				<span>报错</span>
+			</div>
+		</nav>
+	</header>
+<!-- header E -->
+<!-- section S -->
+	<section class="container">
+		<div class="box main_module integral_nav_entrance" data-href="" style="display:none">
+			<div class="integral_nav_entrance_title">导航积分兑换专区
+				<p class="nav_integral_wrap">导航积分<span>0</span></p>
+			</div>
+		</div>
+		<div id="normal_gift">
+			<div class="box main_module box_gift_bg">
+				<p class="module_title">积分兑换</p>
+				<div class="module_normal">
+					<div class="module_slide_item module_item_left" data-href="gift_detail.html">
+						<p class="module_item_title">100元话费充值卡</p>
+						<p class="module_item_last">剩余30件</p>
+						<p class="module_item_cost">
+						<span class="module_item_cost_i">500</span>积分</p>
+						<img class="module_item_img" src="images/thum-one.jpg" alt="">
+					</div>
+					<div class="module_slide_item module_item_right" data-href="gift_detail.html">
+						<p class="module_item_title">100元话费充值卡</p>
+						<p class="module_item_last">剩余0件</p>
+						<p class="module_item_cost">
+						<span class="module_item_cost_i">3000</span>积分</p>
+						<img class="module_item_img" src="images/thum-two.jpg" alt="">
+					</div>
+					<div style="display: -webkit-box;width: 100%;">
+						<span class="separator1"></span>
+						<span class="separator2"></span>
+					</div>
+					<div class="module_slide_item module_item_left" data-href="gift_detail.html">
+						<p class="module_item_title">100元话费充值卡</p>
+						<p class="module_item_last">剩余0件</p>
+						<p class="module_item_cost">
+						<span class="module_item_cost_i">1500</span>积分</p>
+						<img class="module_item_img" src="images/thum-thr.jpg" alt="">
+					</div>
+					<div class="module_slide_item module_item_right" data-href="gift_detail.html">
+						<p class="module_item_title">100元话费充值卡</p>
+						<p class="module_item_last">剩余1件</p>
+						<p class="module_item_cost">
+						<span class="module_item_cost_i">9400</span>积分</p>
+						<img class="module_item_img" src="images/thum-fou.jpg" alt="">
+					</div>
+				</div>
+				<div id="get_more" data-href="gift_list.html" class="item box get-more">点击查看更多</div>
+			</div>
+		</div>
+	</section>
+<!-- section E -->
+<!-- footer S -->
+	<footer>
+		
+	</footer>
+<!-- footer E -->
+    	<script src="js/zepto.js"></script>
+    	<script src="js/touch.js"></script>
+
+    	<script>
+    		$(document).ready(function(){
+	    		var $msItem = $('.module_slide_item');
+	    		var $navItem = $('.nav_item');
+
+	    		$msItem.each(function(k, v){
+	    			$(this).on('singleTap', function(){
+	    				location.href = $(this).attr('data-href');
+	    			});
+	    		});
+
+	    		$navItem.each(function(k, v){
+	    			$(this).on('singleTap', function(){
+	    				location.href = $(this).attr('data-href');
+	    			});
+	    		});
+
+	    		$('#get_more').on('singleTap', function(){
+	    			location.href = $(this).attr('data-href');
+	    		});
+
+	    		$('#integral_detail').on('singleTap', function(){
+	    			location.href = $(this).attr('data-href');
+	    		});
+    		});
+    	</script>
+    </body>
+</html>

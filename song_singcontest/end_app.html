@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>歌咏赛</title>
+<!-- build:css(.tmp) styles/register.css -->
+<link rel="stylesheet" href="styles/register.css">
+<!-- endbuild -->
+<script>
+	var gConfig = {
+		path: location.origin + '/'
+	}
+</script>
+<style>
+	html,body{
+		background: #fff;
+		margin-bottom:10px;
+	}
+</style>
+</head>
+<body>
+	<article id="container">
+		<div class="form-bg">
+			<img src="images/end-bg.jpg" alt="" />
+		</div>
+		<div class="content end-c">
+			<div class="QR-code">
+				<img src="images/chewang-W-QR.jpg" alt="">
+				<p class="tips">
+					车旺微信<br/>订阅号二维码
+				</p>
+			</div>
+			<div class="btn-box">
+				<div class="btn download" data-href="">微信关注“车旺”，更多好礼等着您！</div>
+			</div>
+			<div class="contact">
+				<p>如有任何疑问，请加如下微信或QQ为好友咨询：</p>
+				<p>微信：geyongsai</p>
+				<p>QQ：3331218407</p>
+			</div>
+		</div>
+	</article>
+
+<!-- build:js scripts/endapp.min.js -->
+<script src="scripts/zepto.min.js"></script>
+<!-- endbuild -->
+
+<script>
+	$(function(){
+		var dataHrefEle = $("div[data-href]");
+		dataHrefEle.each(function(k, v){
+			var $_this = $(this);
+			$_this.on('tap', function(){
+				location.href = $_this.attr('data-href');
+			});
+		})
+	})
+</script>
+</body>
+</html>

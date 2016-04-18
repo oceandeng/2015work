@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<meta name="full-screen" content="yes">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="0" http-equiv="expires">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>超级VIP团购团</title>
+  <!-- build:css({demo,.tmp}) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css" type="text/css">
+  <!-- endbuild -->
+
+</head>
+<body style="font-size: 13.5211267605634px;">
+
+<div class="container">
+<div class="sec">
+  <section class="page1">
+    <img id="titPic" src="images/pageone-tit.png" alt="" />
+    <img id="imagePic" src="images/pageone-image.png" alt="" />
+  </section> 
+
+  <section class="page2">
+    <div class="wrap-con">
+      <h2>活动规则</h2>
+      <p>1、参与用户，按后页提示注册加入中交兴路“超级VIP团购团”。</p>
+      <p>2、填写资料，等待客服电话确认。</p>
+      <p>3、需求确认完毕，根据需求发送产品。</p>
+      <p>4、产品列表
+      <span>部标产品：</span>
+      北斗双模车载终端/北斗双模汽车行驶记录仪，型号HQA-BOS-3102X（S）系列，是一款稳定实用的车载终端主流机型，满足车辆基于北斗监控的交通部部标要求的所有功能。
+      <span>运营平台：</span>
+      是国际领先的100万级车辆平台，运行稳定！
+      </p>
+      <p>5、此次推广活动，从6月18日至7月18日，限时一个月。在此期间注册用户均按此次超级VIP团购价执行，数量不限。</p>
+      <p>6、关于北斗部标机落地目前公司可在26省市直接安装，其它地市可通过协调解决，具体安装事宜请与客服电话确认。</p>
+      <p>7、客服电话：<i>400-096-6666</i></p>
+    </div>
+  </section>
+  <section class="page3">
+    <h2>加入超级VIP团购团</h2>
+    <dl>
+      <dt><label for="company">公司</label></dt>
+      <dd><input type="text" class="text-area" name="company" id="company"></dd>
+      <dt><label for="person">联系人</label></dt>
+      <dd><input type="text" class="text-area" name="person" id="person"></dd>
+      <dt><label for="mobile">手机</label></dt>
+      <dd><input type="tel" class="text-area" name="mobile" id="mobile"></dd>
+      <dt><label for="num">团购数量</label></dt>
+      <dd><input type="number" class="text-area" name="num" id="num"></dd>
+      <dt><label for="email">邮箱</label></dt>
+      <dd><input type="email" class="text-area" name="email" id="email"></dd>
+    </dl>
+    <div class="submit-box">
+      <button id="submitAjax">提交</button>
+      <button id="submitReset">重置</button>
+    </div>
+  </section>
+</div>
+<em class="arrowup">
+  <img src="images/arrow.png">
+</em>
+<!-- 首页蒙层 -->
+</div>
+<section id="loading"></section>
+<!--上下滚动 end-->
+<!-- build:js({demo,.tmp}) scripts/zepto.min.js -->
+<script type="text/javascript" src="scripts/zepto.min.js"></script>
+<!-- endbuild -->
+<!-- build:js({demo,.tmp}) scripts/customtool.js -->
+<script type="text/javascript" src="scripts/customtool.js"></script>
+<!-- endbuild -->
+<!-- build:js({demo,.tmp}) scripts/pagesBox.js -->
+<script type="text/javascript" src="scripts/pagesBox.js"></script>
+<!-- endbuild -->
+<!-- build:js({demo,.tmp}) scripts/index.js -->
+<script type="text/javascript" src="scripts/index.js"></script>
+<!-- endbuild -->
+<script>
+
+$(document).ready(function(){
+
+    var $submitAjax = $('#submitAjax');
+    var $submitReset = $('#submitReset');
+
+    $submitAjax.bind('click', ajaxsub);
+    $submitReset.bind('click', function(){
+      $('#company').val('');
+      $('#person').val('');
+      $('#mobile').val('');
+      $('#num').val('');
+      $('#email').val('');
+    });
+
+    function ajaxsub(){
+      var companyVal = trim($('#company').val()),
+          personVal = trim($('#person').val()),
+          mobileVal = trim($('#mobile').val()),
+          numVal = trim($('#num').val()),
+          emailVal = trim($('#email').val());
+      var ajaxurl = '{:U("Home/Index/index")}';
+      var formObj = {
+          'company': companyVal,
+          'person' : personVal,
+          'mobile' : mobileVal,
+          'num' : numVal,
+          'email' : emailVal
+      }
+
+      check(formObj, function(){
+        $.ajax({
+          url: ajaxurl,
+          type: 'POST',
+          data: formObj,
+          dataType: 'json',
+          timeout: 5000,
+          beforeSend: function(){
+            canvasload();
+            $submitAjax.off('click').css({
+            });
+          },
+          success: function(res){
+            if(res.redirect == 1){
+              location.href = res.url;
+            }else{
+              alertmess(res.msg);
+            }
+          },
+          error: function(){
+            alertmess('您的网速有点慢~再试一下！');
+            $('#canvas').remove();
+            $submitAjax.on('click', ajaxsub).css({
+            });
+          },
+          complete: function(){
+            $('#canvas').remove();
+            $submitAjax.on('click', ajaxsub).css({
+            });
+          }
+        });
+      });
+    }
+    function canvasload(){
+      var canvas = '<canvas id="canvas" width="80px" height="80px">';
+
+      if(!$('#canvas').size()){
+        $(canvas).appendTo('#loading');
+        $('#canvas').css({
+          position: 'fixed',
+          top: '40%',
+          left: '50%',
+          marginLeft: '-40px',
+          'z-index': 999,
+          'border-radius':'5px',
+          'background':'rgba(0,0,0,0.8)'
+        });
+        new LoadingImg({
+          'id':'canvas',
+          'height':10
+        });
+      };
+    }
+    function check(obj, fn){
+      var patten = /^1\d{10}$/;
+      var pattenemail = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/i;
+      var pattennum = /^[1-9]\d*$/;
+
+      if(obj.company != '' && obj.person != '' && obj.mobile != '' && patten.test(obj.mobile) && obj.num != '' && pattennum.test(parseInt(obj.num)) && parseInt(obj.num) > 0 && parseInt(obj.num) > 0 && parseInt(obj.num) <= 99999999 && obj.email != '' && pattenemail.test(obj.email)){
+        if(fn){fn();}
+      };
+
+      // 公司
+      if(obj.company == ''){
+        alertmess('请填写公司名称！');
+      }
+      // 联系人
+      if(obj.person == ''){
+        alertmess('请填写联系人！');
+      }
+      // 手机号
+      if(obj.mobile == ''){
+        alertmess('请填写手机号码！');
+      }else if(!patten.test(obj.mobile)){
+        alertmess('手机号输入有误！');
+      } 
+      // 团购数量
+      if(obj.num == ''){
+        alertmess('团购数量为空！');
+      }else if(!pattennum.test(parseInt(obj.num))){
+        alertmess('团购数量格式不正确！');
+      }else if(parseInt(obj.num) <= 0 || parseInt(obj.num) > 99999999){
+        alertmess('团购数量格式不正确！');
+      } 
+      // 邮箱
+      if(obj.email == ''){
+        alertmess('请填写邮箱！');
+      }else if(!pattenemail.test(obj.email)){
+        alertmess('邮箱格式不正确哦！');
+      }
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>积分明细</title>
+		<link rel="stylesheet" href="style/base.css">
+		<link rel="stylesheet" href="style/main.css">
+    </head>
+    <body>
+<!-- header S -->
+    <header>
+        <div id="myintegral_banner">
+            <span class="integral_total">28</span>
+            <span class="integral_dec">积分</span>
+            <span class="how_to_get_integral" data-href="integral_rule.html">怎样赚积分?</span>
+        </div>
+    </header>
+<!-- header E -->
+<!-- section S -->
+	<section id="container">
+		<div class="integral_box">
+		    <ul id="integraList">
+		        <li class="integraList_item" style="border-top:0;">
+		            <div class="integral_item">每日登录</div>
+		            <div class="getIntegral">+5
+		            </div>
+		            <div class="myintegral_ctime">2015-4-29 周三</div>
+		        </li>
+		        <li class="integraList_item">
+		            <div class="integral_item">每日登录</div>
+		            <div class="getIntegral">+5
+		            </div>
+		            <div class="myintegral_ctime">2015-4-28 周二</div>
+		        </li>
+		        <li class="integraList_item">
+		            <div class="integral_item">新用户打卡奖励</div>
+		            <div class="getIntegral">+18
+		            </div>
+		            <div class="myintegral_ctime">2015-4-28 周二</div>
+		        </li>
+		    </ul>
+		</div>
+	</section>
+<!-- section E -->
+<!-- footer S -->
+    <footer>
+    	
+    </footer>
+<!-- footer E -->
+	<script src="js/zepto.js"></script>
+	<script src="js/touch.js"></script>
+	<script>
+		$('.how_to_get_integral').on('singleTap', function(){
+			location.href = $(this).attr('data-href');
+		});
+
+	</script>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>积分礼物列表</title>
+        <link rel="stylesheet" href="style/base.css">
+		<link rel="stylesheet" href="style/main.css">
+    </head>
+    <body>
+<!-- header S -->
+	<header class="header clearfix">
+		
+	</header>
+<!-- header E -->
+<!-- container S -->
+	<section class="container">
+        <div class="giftListBox" id="giftList">
+			<ul>
+                <li data-href="gift_detail.html">
+                    <div class="liBox">
+                        <div data-href="">
+                            <div class="imgBox-wrap">
+                                <div class="imgBox">
+                                    <img class="imgBox-img" src="images/thum-list1.jpg" title="100元话费充值卡">
+                                </div>
+                            </div>
+                            <div class="info">
+                                <section class="title">100元话费充值卡</section>
+                                <div class="ext">
+                                    <section class="num">剩<span>91</span>件</section>
+                                    <section class="need ">
+                                        <p>
+                                            <span class="gift-list-need">20</span>积分</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-href="gift_detail.html">
+                    <div class="liBox">
+                        <div data-href="">
+                            <div class="imgBox-wrap">
+                                <div class="imgBox">
+                                    <img class="imgBox-img" src="images/thum-list2.jpg" title="100元话费充值卡">
+                                </div>
+                            </div>
+                            <div class="info">
+                                <section class="title">100元话费充值卡</section>
+                                <div class="ext">
+                                    <section class="num">剩<span>30</span>件</section>
+                                    <section class="need ">
+                                        <p>
+                                            <span class="gift-list-need">20</span>积分</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-href="gift_detail.html">
+                    <div class="liBox">
+                        <div data-href="">
+                            <div class="imgBox-wrap">
+                                <div class="imgBox">
+                                    <img class="imgBox-img" src="images/thum-list3.jpg" title="100元话费充值卡">
+                                </div>
+                            </div>
+                            <div class="info">
+                                <section class="title">100元话费充值卡</section>
+                                <div class="ext">
+                                    <section class="num">剩<span>448</span>件</section>
+                                    <section class="need ">
+                                        <p>
+                                            <span class="gift-list-need">30</span>积分</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-href="gift_detail.html">
+                    <div class="liBox">
+                        <div data-href="">
+                            <div class="imgBox-wrap">
+                                <div class="imgBox">
+                                    <img class="imgBox-img" src="images/thum-list4.jpg" title="100元话费充值卡">
+                                </div>
+                            </div>
+                            <div class="info">
+                                <section class="title">100元话费充值卡</section>
+                                <div class="ext">
+                                    <section class="num">剩<span>487</span>件</section>
+                                    <section class="need ">
+                                        <p>
+                                            <span class="gift-list-need">30</span>积分</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+			</ul>
+        </div>
+	</section>
+<!-- container E -->
+<!-- footer S -->
+	<footer>
+		
+	</footer>
+<!-- footer E -->
+        <script src="js/zepto.js"></script>
+        <script src="js/touch.js"></script>
+    	
+    	<script>
+	    	var $giftList = $('#giftList').find('ul').find('li');
+
+	    	$giftList.each(function(k, v){
+	    		$(this).on('singleTap', function(){
+	    			location.href = $(this).attr('data-href');
+	    			// console.log($(this).attr('data-href'));
+	    		});
+	    	})
+    	</script>
+    </body>
+</html>

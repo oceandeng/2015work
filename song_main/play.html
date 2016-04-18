@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>成就分享</title>
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+<style>
+	body{
+		background: url(images/play-bg.jpg) no-repeat;
+		background-size: 100% 100%;
+	}
+	@media screen and (max-width:320px) and (max-height: 480px){
+		body{
+			padding: 0 0 80px 0;
+		}
+	}
+</style>
+<script>
+	var songConfig = {
+		"songName": "大海",
+		"driverPhoto": "images/driver-photo.39fe0142.png",
+		"driverName": "卡车老刘",
+		"praiseNum": "324",
+		"totalNum": "2098",
+	   	"song" : "furious7"
+		
+	}
+</script>
+</head>
+<body>
+	<article id="container">
+		<section class="play-info">
+			<h2 class="song-name">大海</h2>
+			<div class="driver-photo">
+				<img src="images/driver-photo.png" alt="" />
+			</div>
+			<div class="driver-name"><span>卡车老刘</span><i class="driive-icon"></i></div>
+			<div class="count">
+				<span class="praise"><i class="praise-icon"></i><b>324</b></span>
+				<span class="total"><i class="total-icon"></i><b>2098</b></span>
+			</div>
+		</section>
+		<section class="play-box">
+			<audio id="music"></audio>
+			<div class="audio-control">
+				<div class="play-btn" id="playBtn"><img src="images/play-btn.png" alt="" /></div>
+			</div>
+			<div class="audio-info">
+				<span id="currentTime" class="current-time">00:00</span>
+				<span class="progress-wrap">
+					<div id="progressWrap">
+						<div id="progress"></div>
+					</div>
+				</span>
+				<span id="totleTime" class="totle-time">00:00</span>				
+			</div>
+		</section>
+	</article>
+	<footer class="bottom">
+		<div class="app-icon">
+			<img src="images/btm-icon.png" alt="">
+			<p>哥唱吧</p>
+		</div>
+		<div class="download"><a href="">点击下载</a></div>
+	</footer>
+
+<!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/zepto/zepto.js"></script>
+    <!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/audio.js -->
+	<script src="scripts/audio.js"></script>
+<!-- endbuild -->
+
+
+</body>
+</html>

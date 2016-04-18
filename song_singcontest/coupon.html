@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>歌咏赛</title>
+<!-- build:css({singcontest,.tmp}) styles/coupon.css -->
+<link rel="stylesheet" href="styles/coupon.css" type="text/css">
+<!-- endbuild -->
+<script>
+  var gConfig = {
+    // path: location.origin + '/act/demo/'
+    path: location.origin + '/',
+    ajaxUrl: '{:U("Home/Index/index")}',
+    download: ''
+  }
+</script>
+</head>
+<body>
+<article class="container">
+	<div class="form-bg">
+		<img src="images/coupon-bg.jpg" alt="" />
+	</div>
+	<div class="content">
+		<input type="tel" id="phone" class="phone btn" placeholder="输入手机号码"/>
+		<div id="submit" class="submit btn">立即领券</div>
+		<div id="info" class="info">活动说明>></div>
+	</div>
+</article>
+
+<!-- >> 活动说明 S -->
+<div class="wrapper" style="display:none">
+    <div id="wrapper">
+      <div id="scroller">
+          <div class="rule-con">
+            <h2>活动说明</h2>
+            <p>1、为庆祝“车旺杯·哥勇赛”盛大开启，在歌赛期间（比赛时间：2015年08月24日01：00~10月13日12:00）下载车旺APP均可得100元加油券</p>
+            <p>2、活动期间，每个手机号仅限领一张100元加油券</p>
+            <p>3、加油券为充值抵用券，在“车旺加油卡”（没办卡的用户须先办理车旺加油卡）充值满1999元可用，充值减加油券部分还可享受相应返利</p>
+            <p>4、用户须在领到加油券7日内激活，过期无效；券激活后须在15日内使用，过期无效</p>
+            <p>5、加油券不支持提现、返利，使用本活动优惠券订单一经完成，相应充值金额及加油券不予退还</p>
+            <p>6、本活动最终解释权归车旺所有。</p>
+          </div>
+        </div>
+      </div>
+</div>
+<!-- >> 活动说明 E -->
+
+<!-- build:js scripts/coupon.min.js -->
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/iscroll.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/customtool.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/coupon.js"></script>
+<!-- endbuild -->
+</body>
+</html>

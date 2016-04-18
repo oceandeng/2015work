@@ -1,0 +1,395 @@
+@import "normalize", "mixin";
+
+$color: #e63a13;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft yahei' Helvetica;
+    font-size: 1.2rem;
+    background: #f8f8f8;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+}
+
+img{
+	max-width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+
+header{
+	overflow: hidden;
+
+	img{
+		float: left;
+	}
+}
+.nav{
+	position: relative;
+
+	ul{
+		position: absolute;
+		top: 0;
+		overflow: hidden;
+		list-style-type: none;
+		margin: 18px auto;
+		transform: rotate(-2deg);
+
+		li{
+			float: left;
+			font-size: 16px;
+			margin: 0 10px;
+
+			a{
+				color: #333;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.winner,.winning,.news-box,.trip-box{
+	margin: 30px 0 0 0;
+
+	h1{
+		font-size: 18px;
+		font-weight: normal;
+		margin: 10px 0 10px 20px;
+		padding: 0 0 0 15px;
+		border-left: 5px solid $color;
+	}
+}
+
+.winner{
+	.winner-con{
+		border-top: 1px solid #e0e0e0;
+		.win-rank{
+			padding: 10px;
+			border-bottom: 1px solid #e0e0e0;
+			@include clearfix();
+			.winner-photo{
+				float: left;
+				width: 28%;
+			}
+			.winner-data{
+				float: right;
+				width: 70%;
+				.winner-name{
+					padding: 5px;
+					h3{
+						padding: 0 0 0 34px;
+						@include line-height(22px);
+						font-size: 18px;
+						margin: 0;
+					}
+					h3.fir{
+						background: url(../images/gold.jpg) no-repeat left center;
+					}
+					h3.sec{
+						background: url(../images/silver.jpg) no-repeat left center;
+					}
+					h3.thr{
+						background: url(../images/copper.jpg) no-repeat left center;
+					}
+				}
+				.song-name{
+					padding: 5px;
+					h3{
+						padding: 0 0 0 34px;
+						background: url(../images/music.jpg) no-repeat left center;
+						@include line-height(22px);
+						font-size: 16px;
+						margin: 0;
+					}
+				}
+				.prize{
+					padding: 5px;
+					h3{
+						padding: 0 0 0 34px;
+						color: #ff9518;
+						background: url(../images/prize.png) no-repeat left 0;
+						line-height: 22px;
+						font-size: 16px;
+						margin: 0;
+					}
+				}
+				.winner-info{
+					padding: 5px;
+					p{
+						padding: 0 0 0 34px;
+						background: url(../images/info-icon.jpg) no-repeat left top;
+						line-height: 20px;
+						font-size: 14px;
+						margin: 0;
+					}
+				}
+			}
+
+		}
+	}
+}
+
+.winning{
+	.win-con{
+		.win-tab-nav{
+
+			ul{
+				overflow: hidden;
+				list-style-type: none;
+				margin: 0;
+				padding: 5px 0;
+				background: #f3f3f3;
+				border-top: 1px solid #e0e0e0;
+				border-bottom: 1px solid #e0e0e0;
+
+				li{
+					width: 18%;
+					@include line-height(36px);
+					text-align: center;
+					color: #999;
+					font-size: 14px;
+					float: left;
+					margin: 0 1%;
+					cursor: pointer;
+				}
+				li:hover,li.active{
+					background: #e63a13;
+					color: #fff;
+					border-radius: 20px;
+				}
+
+			}
+		}
+
+		.win-tab-box{
+			.win-tab-con{
+				
+				ul{
+					margin: 0;
+					padding: 0;
+					list-style-type: none;
+
+					li{
+						padding: 10px;
+						border-bottom: 1px solid #ccc;
+						overflow: hidden;
+
+						.songer-header{
+							width: 70px;
+							height: 70px;
+							overflow: hidden;
+							float: left;
+						}
+						h3{
+							margin: 10px 0 10px 90px;
+							@include line-height(22px);
+							padding: 0 0 0 30px;
+							font-size: 16px;
+						}
+						.first{
+							background: url(../images/gold.jpg) no-repeat left center;
+						}
+						.sec{
+							background: url(../images/silver.jpg) no-repeat left center;
+						}
+						.thr{
+							background: url(../images/copper.jpg) no-repeat left center;
+						}
+						.fou{
+							background: url(../images/gray.jpg) no-repeat left center;
+						}
+						.fiv{
+							background: url(../images/fiv.jpg) no-repeat left center;
+						}
+						p{
+							padding: 0 0 0 30px;
+							margin: 0 0 0 90px;
+							line-height: 20px;
+							background: url(../images/music.jpg) no-repeat left 0;
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.news-box{
+	.news-list{
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+
+		ul{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			padding: 0 10px;
+
+			li{
+				padding: 10px 0;
+				overflow: hidden;
+				border-bottom: 1px solid #e8e8e8;
+
+				.img{
+					width: 30%;
+					max-height: 80px;
+					float: left;
+					overflow: hidden;
+				}
+				.news-con{
+					width: 65%;
+					float: right;
+					
+					h2{
+						margin: 0;
+						font-size: 16px;
+						font-weight: normal;
+
+						a{
+							color: #333;
+						}
+					}
+					p.date{
+						margin: 10px 0 0 0;
+						font-size: 14px;
+						color: #666;
+					}
+					
+				}
+				&:last-child{
+					border: none;
+				}
+			}
+		}
+		.loadmore{
+			width: 100%;
+			// margin: 10px 5% 20px 5%;
+			margin: 10px 0 0 0;
+			padding: 10px 0;
+			text-align: center;
+			border-top: 1px solid #ccc;
+			font-size: 16px;
+			color: $color;
+		}
+	}
+}
+
+.trip-box{
+	.trip-con{
+		padding: 0 10px;
+
+		h3{
+			position: relative;
+			margin-bottom: 10px;
+
+			.tit{
+				position: absolute;
+				top: 10px;
+				left: 50%;
+				font-size: 16px;
+				color: #fff;
+				width: 120px;
+				text-align: center;
+				margin-left: -60px;
+				.trip-arrow{
+					display: block;
+					width: 12px;
+					height: 8px;
+					position: absolute;
+					background: url(../images/trip-arrow.png) no-repeat;
+					right: 10px;
+					top: 5px;
+				}
+			}
+		}
+		.trip-content{
+			$b-color: #e8e8e8;
+			display: none;
+
+			.trip-tit{
+				background: #f2f2f2;
+				font-size: 16px;
+				border-bottom: 1px solid $b-color;
+			}
+
+			.trip-tit, .trip-list{
+				overflow: hidden;
+				// @include line-height(40px);
+
+				.t-date, .t-city{
+					float: left;
+					width: 30%;
+					text-align: center;
+					padding: 10px 0;
+				}
+				.t-park{
+					float: left;
+					width: 36%;
+					text-align: center;
+					padding: 10px 0;
+				}
+			}
+			.trip-list{
+				font-size: 14px;
+				.t-date, .t-city{
+					width: 29%;
+					border-right: 1px solid $b-color;
+				}
+				.t-park{
+					float: left;
+					width: 36%;
+					text-align: center;
+					padding: 10px 2%;
+				}
+			}
+
+		}
+	}
+}
+
+footer{
+	.scroll-top{
+		position: fixed;
+		bottom: 10px;
+		right: 10px;	
+		width: 40px;
+		height: 40px;
+		background: #333;
+		border-radius: 50%;
+		background-color: rgba(0, 0, 0, .8);
+		background-image: url('../images/back-top.png');
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+	.scroll-top:hover{
+		background-color: rgba(0, 0, 0, .5);
+	}
+}
+
+@media screen and (max-width: 320px){
+.nav{
+	ul{
+		padding-left: 20px;
+		margin: 12px auto;
+	}
+}
+.trip-box{
+	.trip-con{
+		h3{
+			.tit{
+				top: 5px;
+			}
+		}
+	}
+}
+}

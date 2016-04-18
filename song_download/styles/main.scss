@@ -1,0 +1,301 @@
+@import "normalize", "variable", "mixin";
+
+html,body{
+	width:100%;
+	min-height: 100%;
+	position: absolute;
+}
+body{
+	background: #fff;
+	font-family: $font-family;
+	font-size: 14px;
+}
+
+img{
+	max-width: 100%;
+}
+
+header#header{
+	background: url(../images/top-bg.jpg) no-repeat;
+	background-size: 100% auto;
+	overflow: hidden;
+	
+	.logo{
+		width: 40%;
+		margin: 10px 0 0 15px;
+	}
+	.tips{
+		text-align: center;
+		padding: 0 20px;
+		color: #fff;
+		font-size: 12px;
+		margin: 20px 0 10px 0;
+	}
+	.download{
+		padding: 0 20px;
+
+		.download-btn{
+			display: block;
+			@include line-height(50px);
+			border: 2px solid #fff;
+			border-radius: 5px;
+			font-size: 20px;
+			color: #fff;
+		}
+	}
+	.rule{
+		padding: 10px 20px;
+		color: #fff;
+
+		h2{
+			text-align: center;
+			font-size: 16px;
+		}
+		p{
+			font-size: 12px;
+		}
+	}
+	.integral-tit{
+		overflow: hidden;
+		margin: 50px 0 10px 0;
+
+		h2{
+			margin: 5px 0 5px 10px;
+			padding: 0 0 0 10px;
+			border-left: 2px solid #ee4d28;
+			width: 40%;
+			float: left;
+			@include line-height(20px);
+			color: #fff;
+			font-size: 16px;
+			font-weight: normal;
+			text-align: left;
+		}
+		p{
+			margin: 5px 20px 5px 0;
+			width: 30%;
+			float: right;
+			@include line-height(20px);
+			color: #fff;
+			font-size: 12px;
+			text-align:right;
+		}
+	}
+}
+
+article#container{
+	.integral-good{
+		overflow: hidden;
+
+		ul{
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+			background: #fff;
+
+			li{
+				// width: -webkit-calc(33.333333% - 1px);
+				// width: -moz-calc(33.33333% - 1px);
+				// width: calc(33.33333% - 1px);
+				width: 33.333333333%;
+				list-style-type: none;
+				float: left;
+				padding-bottom: 1px;
+
+				.img{
+					border-right: 1px solid #ccc;
+					border-bottom: 1px solid #ccc;
+					overflow: hidden;
+
+					img{
+						float: left;
+					}
+				}
+			}
+		}
+		p.tips{
+			text-align: center;
+			font-size: 12px;
+			margin: 20px 0;
+		}
+	}
+	.che-info,.song-info{
+		padding: 0 20px;
+
+		h2{
+			width: 45%;
+		}
+		ul{
+			padding: 0;
+
+			li{
+				list-style-type: none;
+				overflow: hidden;
+				line-height: 24px;
+				margin: 0 0 5px 0;
+
+				span{
+					font-size: 16px;
+					color: #ee4d28;
+					// font-style: italic;
+					font-weight: bold;
+					width: 10%;
+					float: left;
+					display: block;					
+				}
+				p{
+					font-size: 14px;
+					width: 90%;
+					float: left;
+					margin: 0;
+					color: #333;
+				}
+			}
+		}
+	}
+
+	.che-info{
+		margin: 0 0 40px 0;
+	}
+	.bannertwo{
+		position: fixed;
+		bottom: 0;
+		overflow: hidden;
+
+		img{
+			float: left;
+		}
+	}
+	.note{
+		text-align: center;
+		padding: 20px 0 80px 0;
+		font-size: 12px;
+		color: #666;
+	}
+	.bannerthr{
+		p{
+			color: #e68200;
+			text-align: center;
+		}
+	}
+}
+
+.rule-con,.download-con,.good-con{
+	display: none;
+
+
+}
+.rule-dialog{
+	padding: 20% 20px;
+
+	h2{
+		text-align: center;
+		font-weight: normal;
+	}
+	p{
+		font-size: 16px;
+
+		span{
+			display: block;
+			padding: 0 0 0 20px;
+			font-size: 12px;
+		}
+	}
+}
+
+.download-dialog{
+	padding: 20% 20px;
+	
+	p{
+		font-size: 16px;
+		padding: 0 20px;
+		text-align: center;
+	}
+	.download-btn{
+		border: 2px solid #fff;
+		@include line-height(50px);
+		color: #fff;
+		font-size: 24px;
+		border-radius: 5px;
+		margin: 20px 0 0 0;
+	}
+}
+
+.good-dialog{
+	padding: 20%;
+
+	p{
+		color: #fff;
+		text-align: center;
+	}
+}
+
+// >> animate
+
+@keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(.97, .97, .97);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-name: bounceIn;
+}
+
+// >> animate
+
+
+
+// 4s and 5s
+@media screen and (max-width: 320px){
+	header#header{
+		.integral-tit{
+			margin: 20px 0 10px 0;
+		}
+	}
+	.good-dialog{
+		padding: 5% 20%;
+	}
+}
+
+// 4s
+@media screen and (max-width: 320px) and (max-height: 480px){
+
+}
+
+// 6
+@media screen and (min-width: 375px) and (max-width: 414px){
+
+}
+
+// 6 plus
+@media screen and (min-width:414px){
+
+}

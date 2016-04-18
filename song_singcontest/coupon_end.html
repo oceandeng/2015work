@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>歌咏赛</title>
+<!-- build:css({singcontest,.tmp}) styles/coupon.css -->
+<link rel="stylesheet" href="styles/coupon.css" type="text/css">
+<!-- endbuild -->
+<script>
+  var gConfig = {
+    // path: location.origin + '/act/demo/'
+    path: location.origin + '/',
+    ajaxUrl: '{:U("Home/Index/index")}'
+  }
+</script>
+</head>
+<body>
+<article class="container">
+	<div class="form-bg">
+		<img src="images/coupon-end-bg.jpg" alt="" />
+	</div>
+	<div class="content sub-page">
+		<div id="download" class="open botton" data-href="#">下载车旺App</div>
+		<p class="tips">天天红包，加油优惠尽在车旺APP</p>
+	</div>
+</article>
+
+<!-- build:js scripts/download.min.js -->
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/customtool.js"></script>
+<script src="scripts/download.js"></script>
+<script src="scripts/popup.zepto.js"></script>
+<!-- endbuild -->
+<script>
+$(function(){
+	var dataHrefEle = $("div[data-href]");
+	dataHrefEle.each(function(k, v){
+		var $_this = $(this);
+		$_this.on('tap', function(){
+			location.href = $_this.attr('data-href');
+		});
+	});
+});
+</script>
+</body>
+</html>
