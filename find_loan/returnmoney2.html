@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+<title>大卡好运条</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div class="top mb15">
+        <img src="images/back.png">
+        <p>待还款</p>
+    </div>
+</header>
+<article>
+    <div class="wcont1 bbn"><img src="images/choose1.png" class="fl choose current"><div class="fl">268.26<span>油卡充值2016.4.3</span></div> <img src="images/forward.png" class="fr"><span class="fr red">逾期6天</span></div>
+    <div class="wcont1 bbn"><img src="images/choose2.png" class="fl choose"><div class="fl">268.26<span>油卡充值2016.4.3</span></div> <img src="images/forward.png" class="fr"><span class="fr gray">剩余20天</span></div>
+    <div class="wcont1 bbn"><img src="images/choose2.png" class="fl choose"><div class="fl">268.26<span>油卡充值2016.4.3</span></div> <img src="images/forward.png" class="fr"><span class="fr gray">剩余23天</span></div>
+    <div class="wcont1"><img src="images/choose2.png" class="fl choose"><div class="fl">268.26<span>油卡充值2016.4.3</span></div> <img src="images/forward.png" class="fr"><span class="fr gray">剩余26天</span></div>
+</article>
+<footer class="ret-mon">
+    <div class="wcont1">
+        <img src="images/choose2.png" class="fl choose">
+        <div class="fl">已选<span>268.26</span>元</div>
+        <button class="ret-btn">立即还款</button>
+    </div>
+</footer>
+</body>
+<script src="script/zepto.min.js"></script>
+<script>
+    $(".choose").click(function(){
+        if($(this).hasClass("current")){
+            $(this).attr("src","images/choose2.png").removeClass("current");
+        }else{
+            $(this).attr("src","images/choose1.png").addClass("current");
+        }
+    })
+</script>
+</html>

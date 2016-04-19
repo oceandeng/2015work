@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+<title>大卡好运条</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div class="top mb15">
+        <img src="images/back.png">
+        <p>添加银行卡</p>
+    </div>
+</header>
+<article>
+    <div id="selectCard" class="wcont bbn">选择银行<img src="images/forward.png"><span id="cardNum"></span></div>
+    <div class="wcont bbn">银行卡号<input type="text" placeholder="请输入银行卡号"></div>
+    <div class="wcont mb15">银行预留手机号<input type="text" placeholder="请输入手机号"></div>
+
+    <div class="wcont bbn">持卡人<span>黄绍锋</span></div>
+    <div class="wcont mb15">身份证号<span>******************</span></div>
+    <p class="remind">请绑定本人的银行借记卡</p>
+    <div class="card-btn"><button>确 定</button></div>
+</article>
+
+<!-- 弹层 S -->
+<div class="wrapper" style="display:none">
+    <div id="selectCardBtn" class="select-card">
+        
+        <div style="padding: 20px; background:#fff; width: 80%; margin: 0 auto;">
+            <ul>
+                <li><span>招商银行</span></li>
+                <li><span>工商银行</span></li>
+                <li><span>建设银行</span></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- 弹层 E -->
+
+<script src="script/zepto.min.js"></script>
+<script src="script/vendor.min.js"></script>
+
+<script>
+    $(function(){
+        // 选择银行卡 弹层
+        $('#selectCard').on(oTools.clickEvent, function(){
+            var selectDialog = new Dialog({
+                'id': 'selectCardBtn',
+                'type': 'popup',
+                'lock':true,
+                'width':'100%',
+                'closeButton': false,
+                'contentStyle': {
+                    'background': 'none'
+                },
+                'onReady': function(){
+                    // 弹出回调
+                    $('#selectCardBtn').find('li').on(oTools.clickEvent, function(){
+                        var $_this = $(this),
+                            cardNum = $_this.find('span').text()
+
+                        $('#cardNum').html(cardNum);
+                        selectDialog.close();
+                    });
+
+                },
+                'onClose': function(_this) {
+                    // 关闭回调
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

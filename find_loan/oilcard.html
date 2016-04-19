@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+<title>大卡好运条</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div class="top mb15">
+        <img src="images/back.png">
+        <p>待还款</p>
+    </div>
+</header>
+<article class="oilcard">
+    <p class="darkgray">选择支付方式</p>
+    <div class="wcont1 bbn"><div class="fl">零钱</div></div>
+    <div class="wcont1 mb15"><div class="fl">快捷支付</div></div>
+
+    <div class="wcont1 bbn"><div class="fl">大卡好运条</div> <img src="images/choose1.png" class="fr choose current"><div class="fr edu">可用额度4800.00元<span class="db">30天免息</span></div></div>
+    <div class="wcont1 fs08"><div class="fl">选择好运条支付则代表您同意<span class="blue">好运条支付使用条款</span></div><img src="images/choose1.png" class="fr choose current"></div>
+    <div class="card-btn mt30"><button>确 定</button></div>
+</article>
+</body>
+<script src="script/zepto.min.js"></script>
+<script>
+    $(".choose").click(function(){
+        if($(this).hasClass("current")){
+            $(this).attr("src","images/choose2.png").removeClass("current");
+        }else{
+            $(this).attr("src","images/choose1.png").addClass("current");
+        }
+    })
+</script>
+</html>
