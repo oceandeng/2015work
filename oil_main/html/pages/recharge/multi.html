@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>设置充值金额</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/recharge/recharge.css">
+
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/ucd/oil/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+
+	<section class="common-tab mar20">
+		<div class="tab-tit row">
+			<div class="tab-label span6 ac">设置金额</div>
+			<div class="tab-label span6">批量设置</div>
+		</div>
+		<div class="common-tab-con">
+			<div class="tab-detail">
+				<section class="list-box mar0 row">
+					<div class="list-nh-row">
+						<div class="span7">
+							<div class="r-tit-l">
+								<div>尾号32313 <span class="g999">(京A12345)</span></div>
+								<div><span class="g999">余额 <span style="color: #333">20.38</span> 元</span></div>
+							</div>
+						</div>
+						<div class="span5">
+							<div class="r-tit-r">
+								<input type="number" value="" placeholder="充值金额" />
+							</div>
+						</div>
+					</div>
+					<div class="list-nh-row">
+						<div class="span7">
+							<div class="r-tit-l">
+								<div>尾号32313 <span class="g999">(京A12345)</span></div>
+								<div><span class="g999">余额 <span style="color: #333">20.38</span> 元</span></div>
+							</div>
+						</div>
+						<div class="span5">
+							<div class="r-tit-r">
+								<input type="number" value="" placeholder="充值金额" />
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="tab-detail" style="display: none">
+				<section id="fixAmount" class="fix-amount">
+					<span>1000</span>
+					<span>2000</span>
+					<span>5000</span>
+					<span>10000</span>
+				</section>
+				<section class="list-box mar0 row">
+					<div class="span12"><div class="pad10"><input type="number" id="otherNum" placeholder="输入其他金额"></div></div>
+				</section>
+			</div>
+		</div>
+	</section>
+
+	<section class="list-box row">
+		<div class="list-np-row">
+			<div class="l-l span4"><span>使用优惠券</span></div>
+			<div class="l-r span8" data-href="coupon.html"><span class="h-arrow"><b>共有3张</b></span></div>
+		</div>
+	</section>
+
+	<h2 class="tit-gray mar0 g999">选择支付方式</h2>
+	<section id="choosePay" class="list-box mar0 row">
+		<div class="list-np-row">
+			<div class="l-l span4"><span>加油账户余额</span></div>
+			<div class="l-r span8"><span class="selected">2000.00</span></div>
+		</div>
+		<div class="list-np-row">
+			<div class="l-l span4"><span>快捷支付</span></div>
+			<div class="l-r span8"><span>&nbsp;</span></div>
+		</div>
+	</section>
+
+</article>
+
+<footer>
+	<div class="fix-box">
+		<div class="pay-num">实付款<span>￥<b>4800.00</b></span></div>
+		<div class="pay-btn"><div id="goPay" class="button">去付款</div></div>		
+	</div>
+</footer>
+
+<script src="../scripts/zepto.min.js"></script>
+<script src="../scripts/custom.min.js"></script>
+
+<script>
+	(function($){
+// -- 设置金额JS
+		$(function(){
+			var $fixAmount = $('#fixAmount');
+			var $otherNum = $('#otherNum');
+
+			$fixAmount.find('span').on(oTools.clickEvent, function(){
+				var $_this = $(this);
+
+				$otherNum.val('');
+				$_this.siblings().removeClass('ac');
+				$_this.addClass('ac');
+
+			});
+
+			$otherNum.on('blur', function(){
+				if($(this).val() != ''){
+					$fixAmount.find('span').removeClass('ac');
+				}
+				console.log($(this).val() != '');
+			});
+		});
+
+		$('#choosePay').on(oTools.clickEvent, '.l-r', function(){
+			var $_this = $(this);
+
+			$_this.find('span').addClass('selected');
+			$_this.parents('.list-np-row').siblings().find('.l-r').find('span').removeClass('selected');
+		});
+
+	// -- 去付款AJAX
+		$('#goPay').on(oTools.clickEvent, function(){
+			$.ajax({
+				type: 'POST',
+				url: '',
+				dataType: 'json',
+				data: {},
+				beforeSend: function(){
+					load.start();
+				},
+				success: function(){
+
+				},
+				complete: function(){
+					load && load.close();
+				},
+				error: function(){
+					load && load.close();
+				}
+			});			
+		});
+
+	})(Zepto);
+</script>
+
+</body>
+</html>

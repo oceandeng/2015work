@@ -1,0 +1,22 @@
+@import "../normalize";
+
+body {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  font-size: 16px;
+}
+
+img{
+	max-width: 100%;
+}
+
+.error-img{
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 30%;
+}
+.error-p{
+	padding: 20px 15% 0 15%;
+	text-align: center;
+	color: #999;
+}

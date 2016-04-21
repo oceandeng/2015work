@@ -1,0 +1,36 @@
+// custom mixin
+@mixin clearfix(){
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin font-14(){
+	font-size: 14px;
+}
+
+@mixin full-img(){
+	img{
+		max-width: 100%;
+	}
+}
+
+@mixin line-height($height: 50px){
+	height: $height;
+	line-height: $height;
+    text-align: center;
+}
+
+@mixin button($height: 50px, $color: #febc09){
+	@include line-height($height);
+  border:1px solid #000022;
+	background: $color;
+  font-size: 18px;
+}

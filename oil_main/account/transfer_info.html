@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>填写转账信息</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/account/account.css">
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<header>
+	<section class="top-bar row">
+		<div class="back span2"><i></i></div>
+		<div class="title span8">账户设置账户设置账户设置账户设置账户设置账户设置账户设置</div>
+		<div class="btn-box span2"><div class="btn">确定</div></div>
+	</section>
+</header>
+
+<article>
+	<p class="a-tips">您需要完成向车旺对公银行账户转账后填写下表，填写
+后由工作人员处理并完成充值。</p>
+	<section class="list-box mar0 row">
+		<div class="list-row">
+			<div class="l-l span4"><span>付款人</span></div>
+			<div class="l-r span8"><span><input type="text" value="" placeholder="请输入"></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>付款账号</span></div>
+			<div class="l-r span8"><span><input type="text" value="12345678901234" placeholder="请输入"></span></div>
+		</div>
+		<div class="special-row">
+			<div class="l-l span4"><span>收款人</span></div>
+			<div class="l-r span8"><span class="h-arrow"><b class="g999">超出1800元计入账户余额超出1800元计入账户余额超出1800元计入账户余额超出1800元计入账户余额超出1800元计入账户余额超出1800元计入账户余额超出1800元计入账户余额</b></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>汇款金额</span></div>
+			<div class="l-r span8"><span class="g999">超出1800元计入账户余额</span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>付款日期</span></div>
+			<div class="l-r span8"><span class="h-arrow"><b>今天 (2014年11月18日)</b></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>付款凭证上传</span></div>
+			<div class="l-r span8">
+				<input type="file" id="payVoucher" class="upload-img" name="payvoucher" accept="image/*">
+				<img id="addBtnUnit" class="add-btn" src="../images/add-icon.jpg" alt="">
+			</div>
+		</div>
+
+	</section>
+
+	<section class="button-box">
+		<div id="summitBtn" class="button">提交申请</div>
+	</section>
+
+</article>
+
+<footer></footer>
+
+<script src="../scripts/zepto/zepto.js"></script>
+<script src="../scripts/zepto/ajax.js"></script>
+<script src="../scripts/zepto/event.js"></script>
+<script src="../scripts/zepto/touch.js"></script>
+<script src="../scripts/zepto/fx.js"></script>
+<script src="../scripts/zepto/fx_methods.js"></script>
+
+<script src="../scripts/customtools.js"></script>
+<script src="../scripts/plugin/eventutil.js"></script>
+<script src="../scripts/loading.js"></script>
+<script src="../scripts/validate.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/plugin/dialog.js"></script>
+<script src="../scripts/plugin/upload.zepto.js"></script>
+<script src="../scripts/plugin/drag_del.js"></script>
+<script src="../scripts/plugin/iscroll-probe.js"></script>
+<script src="../scripts/plugin/city_selector.js"></script>
+
+<script src="../scripts/account/account.js"></script>
+
+<script>
+	(function($){
+
+// -- 完成点击事件
+	$('#doneBtn').on(oTools.clickEvent, function(){
+		
+	});
+
+	})(Zepto);
+</script>
+
+
+<script>
+// -- 图片上传调用
+	(function($){
+		$(function(){
+			$('.add-btn').parent().on(oTools.clickEvent, 'img', function(){
+				$(this).siblings('input[type="file"]').click();
+			});
+
+			uploadImgFn('#payVoucher', 'http://192.168.13.50/demo.php');
+
+		});
+
+		function uploadImgFn(ele, ajaxurl){
+			$(ele).uploadimg({
+				url: ajaxurl,
+				success: function(res, ele){
+					$(ele).siblings('.add-btn').hide();
+					$(ele).siblings('img').remove();
+
+					var img = new Image();
+					img.onload = function(){
+						$(ele).parent().append(this).css({
+							'width': '50px', 
+							'height': '50px',
+							'float': 'right',
+							'marginTop': '5px'
+						});
+					}
+					// img.src = res.url;
+					img.src = 'http://192.168.13.50:9000/images/make_card/zsy.jpg';
+				},
+			});
+		}
+	})(Zepto);
+</script>
+
+
+</body>
+</html>

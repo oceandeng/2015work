@@ -1,0 +1,37 @@
+@import "normalize";
+
+html, body{
+	width: 100%;
+	overflow: hidden;
+}
+img{
+	max-width: 100%;
+}
+.body-bg{
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+}
+article{
+	overflow: hidden;
+}
+#hidden-btn{
+	width: 50px;
+	height: 50px;
+	display: block;
+	position: absolute;
+	top: 30%;
+	left: 30px;
+}
+.body-box{
+	width: 60%;
+	margin: 0 auto;
+	padding: 20% 0 0 0;
+	text-align: center;
+	position: relative;
+
+	.wait-img{
+		margin: 0 0 20px 0;
+	}
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>账户设置</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/account/account.css">
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<article>
+	<section class="common-list" data-id="1">
+		<div class="common-row row">
+			<div class="common-detail person-row span8">
+				<p>重庆中交兴路车联网科技有限公司</p>
+				<p>中国工商银行南岸支行营业部</p>
+				<p>1315649879849849889</p>
+			</div>
+		</div>
+	</section>
+	<section class="common-list" data-id="2">
+		<div class="common-row row">
+			<div class="common-detail person-row span8">
+				<p>重庆中交兴路车联网科技有限公司</p>
+				<p>中国工商银行南岸支行营业部</p>
+				<p>1315649879849849889</p>
+			</div>
+		</div>
+	</section>
+	<section class="common-list" data-id="3">
+		<div class="common-row row">
+			<div class="common-detail person-row span8">
+				<p>重庆中交兴路车联网科技有限公司</p>
+				<p>中国工商银行南岸支行营业部</p>
+				<p>1315649879849849889</p>
+			</div>
+		</div>
+	</section>
+
+</article>
+
+
+
+<script src="../scripts/zepto/zepto.js"></script>
+<script src="../scripts/zepto/ajax.js"></script>
+<script src="../scripts/zepto/event.js"></script>
+<script src="../scripts/zepto/touch.js"></script>
+<script src="../scripts/zepto/fx.js"></script>
+<script src="../scripts/zepto/fx_methods.js"></script>
+
+<script src="../scripts/customtools.js"></script>
+<script src="../scripts/plugin/eventutil.js"></script>
+<script src="../scripts/loading.js"></script>
+<script src="../scripts/validate.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/plugin/dialog.js"></script>
+<script src="../scripts/plugin/upload.zepto.js"></script>
+<script src="../scripts/plugin/drag_del.js"></script>
+<script src="../scripts/plugin/iscroll-probe.js"></script>
+<script src="../scripts/plugin/city_selector.js"></script>
+
+<script src="../scripts/make_card/make_card.js"></script>
+
+<script>
+	(function($){
+		$(function(){
+			$('.common-list').on(oTools.clickEvent, function(){
+				var $_this = $(this),
+					$commonRow = $_this.find('.common-row'),
+					addId = $_this.attr('data-id');
+
+				// if($_this.hasClass('ac'))
+
+				$_this.addClass('ac');
+				$_this.siblings().removeClass('ac');
+
+				var oImg = new Image();
+
+				oImg.onload = function(){
+					oImg.style.width = '30px';
+					oImg.style.height = '30px';
+					oImg.style.position = 'absolute';
+					oImg.style.right = '10px';
+					oImg.style.top = ($commonRow.height() - 30) / 2 + 'px';
+					$_this.siblings().find('img').remove();
+					$_this.find('img').remove();
+					$commonRow.append(oImg);
+				};
+
+				oImg.src = gConfig.imgPath + '/images/selected.png';
+
+				// $aImg.attr('src', gConfig.imgPath + '/images/selected.png');
+				// $_this.siblings().find('.common-sel').find('img').attr('src', gConfig.imgPath + '/images/noselect.png');
+
+				// window.location.href = 'make_step_two.html?addId=' + addId;
+
+			});
+		});
+	})(Zepto);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>欢迎办理加油卡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/make_card/make_card.css">
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/ucd/oil/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+	<section class="select-address">
+		<div class="sel-normal row">
+			<div class="span12" data-href="address_list.html">选择卡片邮寄地址</div>
+		</div>		
+	</section>
+
+	<section class="mobile">
+		<div class="mobile-row row">
+			<div class="l-l span4">推荐人手机号</div>
+			<div class="l-r span8"><input type="text" id="mobile" class="mobile-text" placeholder="没有可不填"></div>
+		</div>
+	</section>
+	
+	<section class="agree">
+		<div class="row" id="agreeBtn">
+			<div id="agreeSel" class="l-l span1 ac">
+				<img id="agreeImg" class="sel-icon" src="../images/sel-square.png" alt="">
+				<input type="checkbox" checked="checked" class="pos-hidden"/>
+			</div>
+			<div class="l-r span11">同意《车旺加油卡服务条款》</div>
+		</div>
+	</section>
+
+	<section class="button-box">
+		<div id="summitBtn" class="button">提交申请</div>
+	</section>
+</article>
+
+<footer></footer>
+
+<script src="../scripts/zepto.min.js"></script>
+<script src="../scripts/custom.min.js"></script>
+<script src="../scripts/make_card/make_card.min.js"></script>
+
+<script>
+	// ajax
+	$('#summitBtn').on(oTools.clickEvent, function(){
+		$.ajax({
+			type: 'POST',
+			url: '',
+			dataType: 'json',
+			beforeSend: function(){
+				load.start();
+			},
+			success: function(){
+
+			},
+			complete: function(){
+				load && load.close();
+			},
+			error: function(){
+				load && load.close();
+			}
+		});
+	});
+
+	$('#agreeBtn').on(oTools.clickEvent, function(){
+		var $aSel = $('#agreeSel'),
+			$aImg = $('#agreeImg'),
+			$aCheck = $('#agreeSel').find('input[type="checkbox"]');
+
+		if($aSel.hasClass('ac')){
+			$aSel.removeClass('ac');
+			$aImg.attr('src', gConfig.imgPath + '/images/nosel-square.png');
+			$aCheck.removeAttr('checked');
+		}else{
+			$aSel.addClass('ac');
+			$aImg.attr('src', gConfig.imgPath + '/images/sel-square.png');
+			$aCheck.attr('checked', 'checked');
+		}
+
+		console.log($aCheck.attr('checked'));
+	});
+</script>
+
+</body>
+</html>

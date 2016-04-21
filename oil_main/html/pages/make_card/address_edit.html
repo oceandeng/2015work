@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>新建邮寄地址</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../../styles/main.css">
+<link rel="stylesheet" href="../../styles/make_card/make_card.css">
+<script src="../../scripts/json/ctfo_area_data.json"></script>
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/ucd/oil/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+	<section class="list-box row">
+		<div class="list-row">
+			<div class="l-l span4"><span>收件人</span></div>
+			<div class="l-r span8"><span><input type="text" value="张文" placeholder="请输入"></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>手机号</span></div>
+			<div class="l-r span8"><span><input type="text" value="13822235465" placeholder="请输入"></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>所在地区</span></div>
+			<div class="l-r span8"><span id="adrSel" class="h-arrow"><b class="g999" data-code="140000 140600 140624">请选择</b></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>详细地址</span></div>
+			<div class="l-r span8"><span><input type="text" /></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>邮政编码</span></div>
+			<div class="l-r span8"><span><input type="text" /></span></div>
+		</div>
+	</section>
+
+	<section class="button-box">
+		<div id="saveBtn" class="button">保存</div>
+	</section>
+</article>
+
+<footer></footer>
+
+<!-- 地址选择弹层 S -->
+<div class="wrapper" style="display:none">
+	
+	<div id="wrapBox" class="wrap-box">
+		<div class="scroll-box">
+			<div id="wrapperOne">
+				<div id="scrollerOne">
+					<ul id="firCity" class="fri-city"></ul>
+				</div>
+			</div>
+			<div id="wrapperTwo">
+				<div id="scrollerTwo">
+					<ul id="secCity" class="sec-city"></ul>
+				</div>
+			</div>
+			<div id="wrapperThr">
+				<div id="scrollerThr">
+					<ul id="thrCity" class="thr-city"></ul>
+				</div>
+			</div>
+		</div>
+		<div class="city-btn">
+			<div id="cancel" class="cancel">取消</div>
+			<div id="enter" class="enter" data-dialog-submit="true">确定</div>
+		</div>
+	</div>
+</div>
+<!-- 地址选择弹层 E -->
+
+
+<script src="../../scripts/zepto.min.js"></script>
+<script src="../../scripts/custom.min.js"></script>
+<script src="../../scripts/make_card/make_card.min.js"></script>
+
+<script>
+
+(function($){
+	$(function(){
+		var dCode = $('#adrSel').find('b').data('code');
+		var arr = dCode.split(' ');
+		var provinceCode = arr[0].substring(0, 2),
+			cityCode = arr[1].substring(0, 4),
+			countyCode = arr[2];
+		var txtArr = [];
+
+		for(var i in postCodeJson['00']){
+			if(postCodeJson['00'][i][provinceCode] != undefined){
+				txtArr.push(postCodeJson['00'][i][provinceCode]);
+			}
+		}
+		for(var j in postCodeJson[provinceCode]){
+			if(postCodeJson[provinceCode][j][cityCode] != undefined){
+				txtArr.push(postCodeJson[provinceCode][j][cityCode]);
+			}
+		}
+		for(var j in postCodeJson[cityCode]){
+			if(postCodeJson[cityCode][j][countyCode] != undefined){
+				txtArr.push(postCodeJson[cityCode][j][countyCode]);
+			}
+		}
+		var str = txtArr.join(' ');
+		// $('#adrSel').find('b').text(str);
+	});
+
+	// -- 选择地区 三级联动
+	$('#adrSel').on(oTools.clickEvent, function(){
+		var $adrSel = $('#adrSel');
+
+		var dialog = Dialog({
+			'id': 'wrapBox',
+			'type': 'popup',
+			'top': 0,
+			'width':'100%',
+			'height': '100%',
+			'animation':'animated bounceInRight',
+			'outAnimation': 'bounceOutRight',
+        	'closeButton': false,
+			'contentStyle': {},
+			'onReady': function(){
+				// -- 弹出回调
+				var scrollCon = {
+					scrollbars: true,
+					mouseWheel: true,
+					click: true,
+					interactiveScrollbars: true,
+					shrinkScrollbars: 'scale',
+					fadeScrollbars: true,
+					bounce: false
+				};
+
+				var myScrollOne = new IScroll('#wrapperOne', scrollCon);
+				var myScrollTwo = new IScroll('#wrapperTwo', scrollCon);
+				var myScrollThr = new IScroll('#wrapperThr', scrollCon);
+
+				$('.scroll-box').find('ul').css({
+					minHeight:  sH - 40
+				});
+
+				// document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+				var citySelector = new CitySelector({
+					initVal: $adrSel.find('b').attr('data-val'),
+					initCode: $adrSel.find('b').data('code'),
+					firCity: $('#firCity'),
+					secCity: $('#secCity'),
+					thrCity: $('#thrCity'),
+					myScrollOne: myScrollOne,
+					myScrollTwo: myScrollTwo,
+					myScrollThr: myScrollThr,
+					cityObj: postCodeJson
+				});
+
+				$('#cancel').on(oTools.clickEvent, function(){
+					dialog.close();
+				});
+			},
+			'onSubmit': function(){
+				// -- 确定回调
+				var $ele = $(this.config_elem);
+				var html = '';
+				var val = '';
+				var code = '';
+				var valiArr = [];
+
+				$ele.find('#firCity').find('li').each(function(k, v){
+					var $_this = $(this);
+
+					if($_this.hasClass('ac')){
+
+						html += $_this.html() + ' ';
+						val += $_this.html() + ' ';
+						code += $_this.data('code') + '0000' + ' ';
+					};
+				});
+
+				valiArr = html.split(' ');
+				if(valiArr[0] == ''){
+					oTools.alertmess('请选择省份！')
+					return false;
+				}
+
+				$ele.find('#secCity').find('li').each(function(k, v){
+					var $_this = $(this);
+
+					if($_this.hasClass('ac')){
+						if(html.indexOf($_this.html()) < 0){
+							html += $_this.html() + ' ';
+						}else{
+							html += '<i></i>' + ' ';
+						};
+						val += $_this.html() + ' ';
+						code += $_this.data('code') + '00' + ' ';
+					};
+				});
+
+				valiArr = html.split(' ');
+				if(valiArr[1] == ''){
+					oTools.alertmess('请选择城市！');
+					return false;
+				}
+
+				$ele.find('#thrCity').find('li').each(function(k, v){
+					var $_this = $(this);
+
+					if($_this.hasClass('ac')){
+						html += $_this.html();
+						val += $_this.html();
+						code += $_this.data('code') + ' ';
+					};
+				});
+
+				valiArr = html.split(' ');
+				if(valiArr[2] == ''){
+					oTools.alertmess('请选择县城！')
+					return false;
+				}
+
+				if(html != ''){
+					$adrSel.find('b').html(html);
+					$adrSel.find('b').attr('data-val', val);
+					$adrSel.find('b').attr('data-code', code);
+					$adrSel.find('b').removeClass();
+				}else{
+					$adrSel.find('b').html('请选择');
+					$adrSel.find('b').attr('data-val', '');
+					$adrSel.find('b').attr('data-code', '');
+					$adrSel.find('b').addClass('g999');
+				};
+			},
+			'onClose': function() {
+				// -- 关闭回调
+				// alert('close popup');
+			}
+		});
+
+	});
+
+	// -- 提交AJAX
+	$('#saveBtn').on(oTools.clickEvent, function(){
+		$.ajax({
+			type: 'POST',
+			url: '',
+			dataType: 'json',
+			beforeSend: function(){
+				load.start();
+			},
+			success: function(){
+				
+			},
+			complete: function(){
+				load && load.close();
+			},
+			error: function(){
+				load && load.close();
+			}
+		});
+	});
+})(Zepto);
+
+</script>
+</body>
+</html>

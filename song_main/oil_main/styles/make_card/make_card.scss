@@ -1,0 +1,274 @@
+@import "../mixin";
+@import "../variable";
+
+.card-type{
+	border-top: 1px solid $b-color;
+	border-bottom: 1px solid $b-color;
+	background: #fff;
+
+	.card-box{
+		position: relative;
+		padding: 10px;
+		border-bottom: 1px solid $b-color;
+		&:last-child{
+			border-bottom: none;
+		}
+	}
+
+	.c-icon{
+
+		img{
+			width: 50px;
+			height: 50px;
+			margin: 10px auto;
+		}
+	}
+	.c-con{
+		h3{
+			font-size: 16px;
+			margin: 5px 0;
+			padding: 0 0 10px 10px;
+		}
+		p{
+			color: $g999;
+			font-size: 14px;
+			margin: 5px 0;
+			padding: 0 10px;
+		}
+	}
+	.c-sel{
+ 		text-align: center;
+ 		min-height: 30px;
+		img{
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.car-edit{
+	@include border-top();	
+	@include border-bottom();
+	background: #fff;
+
+	.l-l{
+		text-align: left;
+	}
+	.l-r{
+		text-align: right;
+	}
+	.car-num{
+		@include line-height();
+		background: #fff;
+		padding: 0 10px;
+		@include border-bottom();
+
+		.car-num-input{
+			width: 100%;
+			margin: 9px 0;
+			padding: 0;
+			@include line-height(20px);
+			text-align: right;
+			border: none;
+		}
+
+	}
+	.car-photo{
+		background: #fff;
+		padding: 0 10px;
+		@include line-height(60px);
+
+		.add-btn{
+			width: 50px;
+			height: 50px;
+			margin: 5px 0 0 0;
+		}
+		.l-r{
+			position: relative;
+			overflow: hidden;
+
+			.upload-img{
+				position: absolute;
+				top: -100px;
+				left: -2000px;
+			}
+		}
+
+	}
+}
+
+.select-address{
+	margin: 10px 0;
+	min-height: 60px;
+	@include border-top();
+	@include border-bottom();
+	background: #fff;
+	padding: 10px;
+
+	.sel-normal{
+		background: url(../../images/arrow.png) #fff no-repeat right center;
+		background-size: 10px 17px;
+		@include line-height(60px);
+		text-align: left;
+		font-size: 16px;
+
+		color: $g333;
+	}
+	.sel-detail{
+	    background: url(../../images/arrow.png) #fff no-repeat right center;
+	    background-size: 10px 17px;
+	    padding: 0 20px 0 0;
+	 }
+}
+
+.mobile{
+	margin: 10px 0;
+	@include border-top();
+	@include border-bottom();
+	background: #fff;
+	padding: 10px;
+
+	.mobile-row{
+		@include line-height(30px);
+		font-size: 16px;
+		color: $g333;
+
+		.l-l{
+			text-align: left;
+		}
+		.l-r{
+			input{
+				text-align: right;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+		}
+	}
+}
+
+.agree{
+	margin: 10px 0 0 0;
+	padding: 10px;
+	@include clearfix();
+	color: $g333;
+	
+	.l-l{
+		img{
+			width: 20px;
+			height: 20px;
+			float: left;
+		}
+	}
+	.l-r{
+		@include line-height(20px);
+		text-align: left;
+	}
+}
+
+#addressWrapper {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 50px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+footer{
+	.new-address{
+		@include line-height(50px);
+		@include border-top();
+		background: #fff;
+		position: fixed;
+		bottom: 0;
+		z-index: 9;
+		width: 100%;
+		font-size: 20px;
+		color: $m-color;
+
+		p{
+			margin: 0 auto;
+			width: 120px;
+			padding: 0 0 0 20px;
+			background: url(../../images/add-o.png) no-repeat left center;
+			background-size: 24px 24px;
+		}
+	}
+}
+
+.wrap-box{
+	width: 100%;
+	
+	.city-btn{
+		width: 100%;
+		position: fixed;
+		bottom: 0;
+		z-index: 9999;
+		@include line-height();
+		display: flex;
+		background: #fff;
+		
+		.cancel, .enter{
+			flex: 1;
+		}
+	}
+}
+.scroll-box{
+	background: #fff;
+	position: fixed;
+	width: 100%;
+	display: flex;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	// overflow: hidden;
+	padding-bottom: 50px;
+}
+#wrapperOne, #wrapperTwo, #wrapperThr {
+	position: relative;
+	flex: 1;
+	z-index: 1;
+	overflow: hidden;
+
+	.ac{
+		background: $m-color;
+		color: #fff;
+	}
+	.fri-city{
+		background: #e1e1e1;
+	}
+	.sec-city{
+		background: #eee;
+	}
+	.thr-city{
+		background: #f6f6f6;
+	}
+	ul{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		border-right: 1px solid $b-color;
+
+		li{
+			@include line-height();
+			@include border-bottom($b-color: #f6f6f6);
+			overflow: hidden;
+		}
+	}
+}
+
+// 4s
+@media screen and (max-width: 320px){
+#wrapperOne, #wrapperTwo, #wrapperThr {
+	
+	ul{
+		li{
+			font-size: 12px;
+		}
+	}
+}
+}

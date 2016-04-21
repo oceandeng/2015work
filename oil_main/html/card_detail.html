@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>加油卡信息</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+
+<header></header>
+
+<article>
+
+	<section class="list-box row">
+		<div class="list-row">
+			<div class="l-l span4"><span>余额</span></div>
+			<div class="l-r span8"><span class="orange">2938.00元</span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>累计充值</span></div>
+			<div class="l-r span8" data-href=""><span class="h-arrow"><b>3149.29元</b></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>累计加油</span></div>
+			<div class="l-r span8" data-href=""><span class="h-arrow"><b>3149.29元</b></span></div>
+		</div>
+	</section>
+
+	<section class="list-box row">
+		<div class="list-row">
+			<div class="l-l span4"><span>加油卡类型</span></div>
+			<div class="l-r span8"><span class="g999">加油卡服务（中石化）</span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>卡号</span></div>
+			<div class="l-r span8"><span class="g999">12345678901234</span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>卡状态</span></div>
+			<div class="l-r span8"><span class="g999">正常</span></div>
+		</div>
+	</section>
+
+	<section class="list-box row">
+		<div class="list-row">
+			<div class="l-l span4"><span>绑定车辆</span></div>
+			<div class="l-r span8" data-href=""><span class="h-arrow" class="g666"><b>京A2382</b></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>绑定手机号</span></div>
+			<div class="l-r span8" data-href=""><span class="h-arrow" class="g666"><b>13800293827</b></span></div>
+		</div>
+		<div class="list-row">
+			<div class="l-l span4"><span>交易短信提醒</span></div>
+			<div class="l-r span8">
+				<div class="check-box">
+					<div id="outBox" class="open-one">
+					    <div id="inBox" class="open-two"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</article>
+
+<footer>
+
+</footer>
+
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/custom_index.min.js"></script>
+<script src="scripts/index.min.js"></script>
+
+<script>
+	$(function(){
+		$('#inBox').on(oTools.clickEvent, function(){
+			$.ajax({
+				url: '',
+				type: 'POST',
+				data: {},
+				dataType: 'json',
+				beforeSend: function(){
+
+				},
+				success: function(res){
+
+				},
+				error: function(){
+
+				}
+			})
+		});
+	});
+</script>
+
+</body>
+</html>

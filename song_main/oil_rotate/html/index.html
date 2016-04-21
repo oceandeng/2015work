@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+
+<title>限量办卡火爆预约中</title>
+<link rel="stylesheet" href="styles/main.min.css">
+
+<script>
+    var gConfig = {
+        imgPath: location.origin,
+        receivedURL : 'http://www.baidu.com'      //添完手机号领取奖品成功跳转链接
+    }
+</script>
+
+</head>
+<body>
+
+<article class="index-box">
+    <div class="index-bg"><img src="images/index-bg.jpg" alt=""></div>
+    <header>
+        <div class="logo"><img src="images/logo.png" alt=""></div>
+        <div id="rule" class="rule" data-href="rule.html"><span>活动规则</span></div>
+    </header>
+    <section class="container">
+        <div class="tit-img">
+            <div class="t-img-box">
+                <img src="images/tit-img.png" alt="">
+            </div>
+        </div>
+        <div class="tit-txt">
+            <img src="images/tit-txt.png" alt="">
+        </div>
+        <div class="person-num">已有 <span id="num">3827382</span> 卡友预约</div>
+
+        <div class="mobile-box">
+            <input type="tel" placeholder="输入您的手机号" value="" id="mobileNum" />
+            <div id="submitBtn" class="submit-btn">点我预约</div>
+        </div>
+        <div class="nodes">
+            <p>预约成功后方可参与加油卡限量申请,先抢先得</p>
+            <p>首批4月12日上午11:00开放</p>
+        </div>
+        <div class="info-box">
+            <img src="images/info-t-bg.png" alt="">
+            <div class="info-con">
+                <div class="info-tit"><img src="images/info-txt.png" alt=""></div>
+                <ul>
+                    <li class="f-bg">预约成功的用户可以获得一次抽奖机会</li>
+                    <li class="sec-bg">分享车旺大卡加油卡预约活动，可再获得一次抽奖机会</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="download" class="download">下载车旺大卡APP</footer>
+</article>
+
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/vendor.min.js"></script>
+
+<script src="scripts/main.js"></script>
+
+<!-- 下载按钮加链接 -->
+<script src="scripts/download.js"></script>
+
+<script>
+
+    // -- AJAX 提交
+    $('#submitBtn').on(oTools.clickEvent, function(){
+        var mobileVal = $('#mobileNum').val();
+
+        if(isNull(mobileVal)){
+            oTools.alertmess('请输入手机号！');
+            return;
+        }
+        if(checkMobile(mobileVal)){
+            oTools.alertmess('请输入正确的手机号!');
+            return;
+        }
+
+        $.ajax({
+            url: '',
+            type: 'post',
+            data: {mobile: mobileVal},
+            beforeSend: function(){
+                load.start();
+            },
+            success: function(res){
+                load && load.close();
+
+            },
+            error: function(){
+                load && load.close();
+
+            }
+        })
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+
+<title>限量办卡火爆预约中</title>
+<!-- build:css(.tmp) styles/main.min.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+<script>
+    var gConfig = {
+        imgPath: location.origin,
+        receivedURL : 'http://www.baidu.com'      //添完手机号领取奖品成功跳转链接
+    }
+</script>
+
+</head>
+<body>
+
+<article class="index-box">
+    <div class="index-bg"><img src="images/index-bg.jpg" alt=""></div>
+    <header>
+        <div class="logo"><img src="images/logo.png" alt=""></div>
+        <div id="rule" class="rule"><span>活动规则</span></div>
+    </header>
+    <section class="container">
+        <div class="tit-img">
+            <div class="t-img-box">
+                <img src="images/tit-img.png" alt="">
+            </div>
+        </div>
+        <div class="tit-txt">
+            <img src="images/tit-txt.png" alt="">
+        </div>
+        <div class="person-num">已有 <span id="num">3827382</span> 卡友预约</div>
+
+        <div class="mobile-box">
+            <input type="tel" placeholder="输入您的手机号" value="" id="mobileNum" />
+            <div id="submitBtn" class="submit-btn">点我预约</div>
+        </div>
+        <div class="nodes">
+            <p>预约成功后方可参与加油卡限量申请,先抢先得</p>
+            <p>首批4月12日上午11:00开放</p>
+        </div>
+        <div class="info-box">
+            <img src="images/info-t-bg.png" alt="">
+            <div class="info-con">
+                <div class="info-tit"><img src="images/info-txt.png" alt=""></div>
+                <ul>
+                    <li class="f-bg">预约成功的用户可以获得一次抽奖机会</li>
+                    <li class="sec-bg">分享车旺大卡加油卡预约活动，可再获得一次抽奖机会</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="download" class="download">下载车旺大卡APP</footer>
+</article>
+
+
+
+<div class="wrapper" style="display:none">
+    <div id="wrapper">
+      <div id="scroller">
+          <div class="rule-con">
+            <h2>活动规则</h2>
+            <p>1、活动期间，每个手机号仅限领一张100元加油券；</p>
+            <p>2、加油券为充值抵用券，在车旺加油卡充值满1000元可用，充值减加油券部分还可享受相应返利，举例说明：比如您需充值1000元，使用100元加油券后，则实付900元即可，900元还可享受相应返利；</p>
+            <p>3、用户须在领到加油券7日内激活，过期无效；券激活后须在15日内使用，过期无效；</p>
+            <p>4、加油券不支持提现、返利，使用本活动优惠券订单一经完成，相应充值金额及加油券不予退还；</p>
+            <p>5、活动截止到2015年12月31日，本活动最终解释权归车旺所有。</p>
+            <h2>活动规则</h2>
+            <p>1、活动期间，每个手机号仅限领一张100元加油券；</p>
+            <p>2、加油券为充值抵用券，在车旺加油卡充值满1000元可用，充值减加油券部分还可享受相应返利，举例说明：比如您需充值1000元，使用100元加油券后，则实付900元即可，900元还可享受相应返利；</p>
+            <p>3、用户须在领到加油券7日内激活，过期无效；券激活后须在15日内使用，过期无效；</p>
+            <p>4、加油券不支持提现、返利，使用本活动优惠券订单一经完成，相应充值金额及加油券不予退还；</p>
+            <p>5、活动截止到2015年12月31日，本活动最终解释权归车旺所有。</p>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/libs/zepto.js"></script>
+<script src="scripts/libs/ajax.js"></script>
+<script src="scripts/libs/event.js"></script>
+<script src="scripts/libs/touch.js"></script>
+<script src="scripts/libs/fx.js"></script>
+<script src="scripts/libs/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/vendor.min.js -->
+<script src="scripts/otools.js"></script>
+<script src="scripts/validate.js"></script>
+<script src="scripts/pubfloading.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/iscroll.js"></script>
+<script src="scripts/scrollword.zepto.js"></script>
+<script src="scripts/scroll.zepto.js"></script>
+<script src="scripts/share.zepto.js"></script>
+<!-- endbuild -->
+<script src="scripts/main.js"></script>
+
+<!-- 下载按钮加链接 -->
+<script src="scripts/download.js"></script>
+
+<script>
+    $('#rule').on(oTools.clickEvent, function(){
+        ruleDialog();
+    });
+
+    // -- AJAX 提交
+    $('#submitBtn').on(oTools.clickEvent, function(){
+        var mobileVal = $('#mobileNum').val();
+
+        if(isNull(mobileVal)){
+            oTools.alertmess('请输入手机号！');
+            return;
+        }
+        if(!checkMobile(mobileVal)){
+            oTools.alertmess('请输入正确的手机号!');
+            return;
+        }
+
+        $.ajax({
+            url: '',
+            type: 'post',
+            data: {mobile: mobileVal},
+            beforeSend: function(){
+                load.start();
+            },
+            success: function(res){
+                load && load.close();
+
+            },
+            error: function(){
+                load && load.close();
+
+            }
+        })
+    });
+</script>
+
+</body>
+</html>

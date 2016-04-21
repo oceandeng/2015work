@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+	<div id="demo"></div>
+a
+
+<script src="scripts/plugin/eventutil.js"></script>
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/event.js"></script>
+
+<script>
+	
+	document.addEventListener('touchmove', function(e){
+		var eventPos = e.changedTouches[0];
+		document.querySelector('#demo').innerHTML = eventPos.clientX;
+	}, false);
+
+	window.addEventListener("pagehide", function(){
+	    // updateMenusIndex2();//Ajax请求 
+	    setTimeout(function(){},1000); 
+	}, false);
+	// window.onbeforeunload = function(e){
+	//   if(window.event){
+	//        window.event.returnValue = "关闭窗口";
+	//        return false;
+	//        return confirm("是否关闭窗口");
+	//  }
+	// }
+
+</script>
+
+</body>
+</html>

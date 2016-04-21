@@ -1,0 +1,374 @@
+@import "normalize", "mixin", "variable";
+/*toplink start*/
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,a,em,img,i,dl,dt,dd,ol,ul,li,form,label,table,tbody,thead,tr,th,td{margin:0;padding:0;border:0;outline:0}ul,li{list-style:none}:focus{outline:0}table{border-collapse:collapse;border-spacing:0}em,i{font-style:normal}input[type=submit],input[type=reset],input[type=button],button{cursor:pointer;-webkit-appearance:none}
+.clearfix:after{content:"\0020";display:block;clear:both;height:0;visibility:hidden}* html .clearfix{zoom:1}*+html .clearfix{zoom:1}.fl{float:left}.fr{float:right}body{background:#fff}body,button,input,select,textarea{font:12px/1.5 arial,helvetica,clean,sans-serif}
+a{text-decoration:none;color:#069}
+a:hover{text-decoration:underline;color:#c00}
+html,body{
+  overflow-x: hidden;
+}
+body{color:#555;background:#f5f5f5;font-family:"Microsoft YaHei";line-height:24px;}
+.fb{font-weight:bold;}
+.toplink{background:#efefef;height:34px;line-height:34px;border-bottom:1px solid #e5e5e5;}
+.wrapper{width:1100px;margin:0 auto;}
+.toplink li{float:left;padding:0 12px}
+.toplink .site-nav-pipe{width:1px;background:#ccc;height:14px;overflow:hidden;margin-top:10px;padding:0;}
+.toplink a{color:#555;}.toplink a:hover{color:#e30;}
+.head-l-ul{float:left;height:34px;margin-left:-12px;}
+.head-collect-icon,.head-mobile-icon{float:left;background:url(../../images/dakaweb/global.png) 0 5px;width:18px;height:34px;margin:3px 5px 0 0;}
+.head-mobile-icon{background-position:-23px 0;width:13px;margin:7px 5px 0 0;}
+.head-r-ul{
+  float:right;
+  margin-right:-12px;
+  .fir-tips-box{
+    position: relative;
+    .lamp{
+      position: absolute;
+      top: 25px;
+      left: 18px;
+      z-index: 99;
+    }
+    .fir-tips{
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 35px;
+      z-index: 99;
+    }
+    .f-tips-close{
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      cursor: pointer;
+      z-index: 100;
+    }
+  }
+}
+.head-mr{margin-right:12px;}
+.head-mes-num{color:#fff;font-weight:bold;height:14px;line-height:14px;padding:0 3px;background:#e70050;border-radius:2px;margin: 0 5px 0 2px;}
+.head-message,.head-mobile{position:relative;width:62px;height:34px;}
+.head-message-tit,.head-mobile-tit{float:left;width:62px;cursor:pointer;z-index:2}
+.head-message-tit{width:70px;}
+.head-arrow{background:url(../../images/dakaweb/global.png) 0 -21px;width:9px;height:34px;display:inline-block;vertical-align:middle;}
+.head-message:hover .head-message-tit,.head-mobile:hover .head-mobile-tit{position:absolute;background:#fff;left:-1px;padding-left:12px;border-left:1px solid #ccc;border-right:1px solid #ccc;width:74px;height:35px;}
+.head-message-con,.head-mobile-con{display:none;line-height:24px;padding:6px 0 4px;position:absolute;top:34px;width:100px;border:1px solid #ccc;background:#fff;z-index:1;left:-1px;padding-left:12px;}
+.head-message:hover .head-message-con,.head-mobile:hover .head-mobile-con{display:block}
+.head-message .head-message-con .head-mes-num{margin-left:20px;}
+.head-mobile{width:100px;}
+.head-mobile-tit{width:90px;}
+.head-mobile .head-arrow{margin-left:5px;}
+.head-mobile:hover .head-mobile-tit{width:90px;}
+.head-mobile:hover .head-mobile-con{display:block}
+.head-mobile .head-mobile-con{width:225px;}
+.head-mobile-button{float:left;width:100px;padding-left:5px;}
+.head-mobile-button a{background:url(../../images/dakaweb/global.png) 0 -69px;width:72px;height:24px;display:inline-block;}
+.head-mobile-button p{height:24px;overflow:hidden;}
+.head-mobile-android{margin-top:3px;}.head-mobile-android a{background-position:0 -98px}
+.head-mobile-wx1{margin-bottom:10px;}
+/*toplink end*/
+
+/* right-fixed start */
+.right-fixed{width:83px;position:fixed;right:0;bottom:120px;z-index:9;}
+.right-fixed ul{margin-bottom:10px;}
+.right-fixed li a{width:83px;height:75px;display:block; border-radius:15px 0 0 15px; background:#efeff6;text-align:center;color:#687180;padding-top:15px;margin: 0 0 3px 0;font-size: 16px;}
+.right-fixed li a:hover{background:#dbdbdb;color:#272636;text-decoration:none}
+.right-fixed li a:hover{
+  .ico-jcjl{
+    background-position:-40px 0px;
+  }
+  .ico-jy{
+    background-position:-40px -40px;
+  }
+}
+.right-fixed .ico{width:40px;height:40px;display:inline-block;background: url(../../images/dakaweb/rig-fix.png) no-repeat;}
+.right-fixed .ico-jcd{background-position:-40px -40px}
+.right-fixed .ico-jcjl{background-position:0px 0px}
+.right-fixed .ico-jy{background-position:0px -40px}
+.right-fixed .ico-gotop{background-position:0px -80px; margin: 25px 0 0 0;}
+.right-fixed #gotop{display:none;}
+.right-fixed #gotop a{display:block;width:83px;height:90px;background:#efeff6;border-radius:15px 0 0 15px;cursor:pointer;text-align: center}
+.right-fixed #gotop a:hover{
+  background:#dbdbdb;
+  .ico-gotop{
+    background-position:-40px -80px
+  }
+}
+.right-fixed .pos-r{position:relative;}
+.right-fixed .num{position:absolute;width:18px;height:18px;display:inline-block;border-radius:50%;background:#f82b10;color:#fff;line-height:18px;text-align:center;left:36px;top:5px;*top:17px;overflow:hidden;}
+/* right-fixed end */
+
+/* footer start */
+.footer{background:#323232;height:400px;color:#a1a1a1}
+.footer dl{float:left;margin-top:70px;line-height:28px;}
+.footer dt{font-size:18px;color:#a1a1a1;margin-bottom:10px}
+.footer dd a{color:#a1a1a1;}.footer dd a:hover{color:#a1a1a1;}
+.footer .friend{margin:70px 110px 0 20px;}
+.footer .about{margin-right:195px;}
+.footer .tel{background:url(../../images/dakaweb/footer.png);width:249px;height:144px;float:left;margin-top:80px}
+.footer .wx{float:right;margin-top:75px;}
+.footer .wx p{float:left;text-align:center;font-size:14px;color:#cfcfcf;margin-left:40px;}
+.footer .copyright{color:#cfcfcf;text-align:center;}
+.copyright span,.copyright a{background:url(../../images/dakaweb/footer.png) 0 -149px;width:108px;height:40px;display:inline-block;margin:10px 0 0 10px;}
+.copyright .s2{background-position:-113px -149px;}
+.copyright .s3{background-position:-226px -149px;width:89px;}
+.copyright .s4{background-position:-320px -149px;width:105px;}
+.copyright .s5{background-position:-430px -149px;width:129px;}
+.copyright .s6{background-position:-564px -149px;width:98px;}
+/* footer end */
+
+.top-header{
+  @include clearfix();
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  .main-wrap{
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .logo{
+    position: absolute;
+    *width: 260px;
+    top: 30px;
+    left: 20px;
+  }
+  .top-header-bg{
+    @include clearfix();
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    img{
+      width: 100%;
+    }
+  }
+  .top-header-bg-tips{
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+  }
+  img{
+    float: left;
+  }
+  .top-header-content{
+    @include clearfix();
+    width: 100%;
+    padding: 140px 0 60px 0;
+
+    .t-h-c-l{
+      float: left;
+      *width: 590px;
+      .t-h-c-l-tit{
+        @include clearfix();
+        margin: 20px 0 0 0;
+      }
+      .t-h-c-l-download{
+        background: url(../../images/dakaweb/t-d-bg.png) repeat;
+        padding: 20px;
+        width: 450px;
+        height: 240px;
+        margin: 16px 0 0 0;
+        overflow: hidden;
+        h2{
+          font-size: 30px;
+          color: #fff;
+          margin: 15px 0 10px 20px;
+          font-weight: 400;
+        }
+        .t-d-b{
+          @include clearfix();
+          padding: 15px 5px 15px 15px;
+          .t-d-b-qr{
+            float: left;
+            width: 144px;
+            height: 144px;
+            img{
+              width: 100%;
+              margin: 6px 0 0 0;
+            }
+          }
+          .t-d-b-btn{
+            width: 264px;
+            height: 144px;
+            float: right;
+            img{
+              float: right;
+            }
+          }
+        }
+      }
+    }
+    .t-h-c-r{
+      *width: 320px;
+      float: right;
+      margin: -50px 20px 0 0;
+    }
+
+  }
+}
+.contarner{
+  background: url(../../images/dakaweb/body-bg.jpg) repeat;
+  overflow: hidden;
+  .main-wrap{
+    width: 1100px;
+    margin: 0 auto;
+    .main-part{
+      position: relative;
+      width: 1100px;
+      height: 750px;
+      @include clearfix();
+      img{
+        float: left;
+      }
+      .l-bg{
+        position: absolute;
+        z-index: 9;
+        top: 395px;
+        left: -295px;
+      }
+      .r-bg{
+        position: absolute;
+        z-index: 9;
+        top: 395px;
+        right: -295px;
+      }
+      .m-con{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        @include clearfix();
+        .m-c-img, .m-c-tit{
+          @include clearfix();
+          width: 50%;
+          text-align: center;
+          img{
+            float: none !important;
+          }
+        }
+      }
+    }
+    .async-loading{
+      min-height: 500px;
+      line-height: 500px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 30px;
+      opacity: .8;
+      color: #19273f;
+    }
+    .p-one{z-index: 7}
+    .p-two{z-index: 6}
+    .p-thr{z-index: 5}
+    .p-fou{z-index: 4}
+    .p-fiv{z-index: 3}
+    .p-six{
+      width: 1100px;
+      height: 750px;
+      z-index: 2;
+      .p-s-tit{
+        overflow: hidden;
+        margin: 120px 0;
+        img{
+          float: none !important;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+      .p-s-con{
+        width: 845px;
+        margin: 0 auto;
+        ul{
+          @include clearfix();
+          overflow: hidden;
+          width: 855px;
+
+          li{
+            width: 275px;
+            height: 275px;
+            float:left;
+            margin: 0 10px 0 0;
+            background: #fff;
+            .qr-code{
+              width: 165px;
+              height: 165px;
+              padding: 55px;
+              img{
+                width: 100%;
+              }
+            }
+
+            a{
+              display: block;
+              width: 165px;
+              height: 165px;
+              padding: 55px;
+              background: #fff;
+
+              &:hover{
+                background: #19273f
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY {
+  animation-duration: .75s;
+}
+@keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+.bounceInLeft {
+  animation-name: bounceInLeft;
+}

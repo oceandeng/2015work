@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>支付结果</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/recharge/recharge.css">
+
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/ucd/oil/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+	
+	<section class="pay-result">
+		<div class="pay-status">
+			<div class="pay-suc">支付成功</div>
+		</div>
+		<div class="pay-tips">
+			我们会尽快处理您的充值请求，如有问题请联系服务热线400-096-6666。
+		</div>
+		<div class="pay-detail">
+			<div class="row">
+				<div class="span4"><span>支付金额：</span></div>
+				<div class="span8"><span style="color: #f00">200.00</span></div>
+			</div>
+			<div class="row">
+				<div class="span4"><span>支付状态：</span></div>
+				<div class="span8"><span>支付成功</span></div>
+			</div>
+			<div class="row">
+				<div class="span4"><span>支付时间：</span></div>
+				<div class="span8"><span>2015-01-12 12:12</span></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="pay-btn">
+		<div id="doneBtn" class="done-btn">完成</div>
+		<div class="continue-button" data-href="">继续充值</div>
+	</section>
+
+</article>
+
+<footer></footer>
+
+<script src="../scripts/zepto.min.js"></script>
+<script src="../scripts/custom.min.js"></script>
+
+<script>
+	(function($){
+
+// -- 完成点击事件
+	$('#doneBtn').on(oTools.clickEvent, function(){
+		
+	});
+
+	})(Zepto);
+</script>
+
+</body>
+</html>

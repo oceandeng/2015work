@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>敬请期待</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+
+<!-- build:css(.tmp) styles/wait.css -->
+<link rel="stylesheet" href="styles/wait.css">
+<!-- endbuild -->
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+</head>
+<body>
+
+<header></header>
+
+<article>
+	<section class="body-bg"><img src="images/wait_bg.jpg" alt=""></section>
+	<section class="body-box">
+		<div id="hidden-btn"></div>
+		<img src="images/wait_img.png" alt="" class="wait-img">
+		<img class="wait-info" src="images/wait_info.png" alt="">
+	</section>
+</article>
+
+<footer></footer>
+
+<script src="../scripts/zepto/zepto.js"></script>
+<script src="../scripts/zepto/ajax.js"></script>
+<script src="../scripts/zepto/event.js"></script>
+<script src="../scripts/zepto/touch.js"></script>
+<script src="../scripts/zepto/fx.js"></script>
+<script src="../scripts/zepto/fx_methods.js"></script>
+<script src="../scripts/customtools.js"></script>
+<script src="../scripts/plugin/eventutil.js"></script>
+<script src="../scripts/loading.js"></script>
+<script src="../scripts/validate.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/plugin/dialog.js"></script>
+<script src="../scripts/plugin/upload.zepto.js"></script>
+<script src="../scripts/plugin/drag_del.js"></script>
+<script src="../scripts/plugin/iscroll-probe.js"></script>
+<script src="../scripts/plugin/city_selector.js"></script>
+
+<!-- build:js scripts/plugin/md5.min.js -->
+<script src="scripts/plugin/md5.js"></script>
+<!-- endbuild -->
+
+<script>
+// 验证期 S
+(function($){
+	function fn(invitePhone){
+
+		var secret = 951558;
+		var val = $('#adviceInp').val();
+
+console.log(md5(secret));
+
+		if(secret == val){
+			// window.location.href = 'http://www.baidu.com';
+			window.location.href = 'http://oil.95155.com/ypptMobileApp/index.html';
+		}else{
+			invitePhone.close();
+		}
+	}
+
+	setTimeout(function(){
+		$('#hidden-btn').on(oTools.clickEvent, hiddendialog);
+		// $('#hidden-btn').off(oTools.clickEvent, hiddendialog);
+	}, 5000);
+
+	function hiddendialog(){
+		var invitePhone = new Dialog({
+	        'type': 'input',
+	        'title': '啦啦啦',
+	        'width': '80%',
+	        'showButtons': true,
+	        'submitButton': '确定',
+	        'cancelButton': false,
+	        'bConStyle': {
+	            'padding': '50px 10px 20px 10px',
+	            'font-size': '16px'
+	        },
+	        'footStyle': {
+
+	        },
+	        'bConStyle': {
+	            'padding': '50px 10px 20px 10px'
+	        },
+	        'iStyle': {
+	            'width': '90%',
+	            'height': '50px',
+	            'line-height': '50px',
+	            'padding': '0 2%',
+	            'border-radius': '5px',
+	            'border': '1px solid #ccc',
+	            'text-align': 'center',
+	            'font-size': '16px'
+	        },
+	        'subStyle': {
+	            'border': 'none',
+	            'display': 'block',
+	            'width': '98%',
+	            'margin': '0 auto',
+	            'position': 'relative',
+	            'z-index': 9,
+	            'background': '#de3120',
+	            'height': '50px',
+	            'border': '2px solid #b92314',
+	            'border-radius': '5px',
+	            'color': '#fff',
+	            'font-size': '20px'
+	        },
+	        'lock': true,
+	        'lockColor': '#212936',
+	        'animation':'animated bounceInDown',
+	        'contentStyle': {
+	            'background': 'rgba(242, 242, 242, 1)',
+	            'color': '#fff',
+	            'margin': '0 auto',
+	            'min-height': '60px',
+	            'border-radius': '5px',
+	            'box-shadow': '1px 1px 5px #ccc;',
+	            'z-index': 999,
+	        },
+	        'onSubmit': function(){
+	            return fn && fn(invitePhone);
+	        }
+	    });		
+	}
+// 验证期 E
+})(Zepto);
+</script>
+
+<script>
+(function($){
+	$(window).load(function(){
+		var bgImg = $('.body-bg').find('img');
+
+		resizeImg(bgImg);
+
+		function resizeImg(bgImg) {
+			var imgwidth = bgImg.width();
+			var imgheight = bgImg.height();
+
+			var winwidth = $(window).width();
+			var winheight = $(window).height();
+
+			var widthratio = winwidth/imgwidth;                                                                                     
+			var heightratio = winheight/imgheight;
+
+			var widthdiff = heightratio*imgwidth;
+			var heightdiff = widthratio*imgheight;
+
+			if(heightdiff>winheight) {
+				bgImg.css({
+					width: winwidth+'px',
+					height: heightdiff+'px'
+				});
+			} else {
+				bgImg.css({
+					width: widthdiff+'px',
+					height: winheight+'px'
+				});	
+			}
+		} 	
+	});
+
+})(Zepto);
+</script>
+</body>
+</html>

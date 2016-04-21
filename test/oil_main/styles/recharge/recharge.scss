@@ -1,0 +1,304 @@
+@import "../mixin";
+@import "../variable";
+
+.pay-money{
+	@include line-height();
+	text-align: right;
+	padding: 0 10px;
+	font-size: 16px;
+
+	.money{
+		color: $m-color;
+		font-size: 20px;
+		margin: 0 5px 0 10px;
+		font-weight: bold;
+	}
+}
+
+.fix-box{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	@include line-height();
+	border-top: 2px solid $m-color;
+	display: flex;
+	background: #fff;
+
+	.pay-num{
+		flex: 2;
+		padding: 0 10px;
+		text-align: left;
+		font-size: 16px;
+
+		span{
+			color: $red;
+			margin: 0 0 0 10px;
+			b{
+				font-weight: normal;
+			}
+		}
+	}
+	.pay-btn{
+		flex: 1;
+		padding: 0px;
+
+		.button{
+			margin: 7px 10px;
+			@include button($height: 36px);
+			color: #fff;
+			font-size: 16px;
+			border-radius: 3px;
+		}
+	}
+}
+
+.fix-box{
+	.sel-all{
+		flex: 3;
+
+		.sel-all-btn{
+			padding: 0 10px;
+
+			img{
+				width: 20px;
+				height: 20px;
+				margin: 15px 0 0 10px;
+			}
+		}
+		.sel-all-txt{
+			text-align: left;
+			padding: 0 0 0 10px;
+		}
+	}
+	.sel-btn{
+		flex: 1;
+		@include button($height: 36px);
+		border-radius: 3px;
+		margin: 7px 10px;
+		color: #fff;
+	}
+}
+
+.search-line{
+	padding: 10px;
+
+	.search-box{
+		border: 1px solid $b-color;
+		border-radius: 5px;
+		@include line-height(40px);
+		padding: 0 0 0 40px;
+		background: url(../../images/s-icon.png) #fff no-repeat 10px 10px;
+		background-size: 20px 20px;
+		@include clearfix();
+
+		input{
+			width: 95%;
+			margin: 0;
+			padding: 0 5% 0 0;
+			@include line-height(20px);
+			margin: 10px 0;
+			text-align: left;
+			border: none;
+		}
+	}
+	.r-info{
+		@include line-height(40px);
+		text-align: center;
+		color: $g999;
+		padding: 0 0 0 16px;
+		float: right;
+		
+		background: url(../../images/make_card/question.png) no-repeat left center;
+		background-size: 12px 12px;
+		font-size: 12px;
+	}
+}
+
+.card-sel{
+	padding: 10px;
+	
+	img{
+		width: 20px;
+		height: 20px;
+		margin: 20px 0 0 10px;
+	}
+}
+.card-img{
+	padding: 10px 10px 10px 0;
+}
+
+.card-det{
+	padding: 15px 10px 10px 10px;
+
+	.card-num{
+		@include line-height(30px);
+		text-align: left;
+	}
+	.card-mon{
+		.card-mon-l{
+			text-align: left;
+		}
+		.card-mon-r{
+			text-align: right;
+		}
+	}
+}
+
+.pay-result{
+	background: #fff;
+	padding: 20px;
+	@include border-bottom();
+
+	.pay-status{
+		text-align: center;
+		padding: 20px 0;
+		font-size: 20px;
+
+		.pay-suc{
+			margin: 0 auto;
+			width: 120px;
+			padding: 0 0 0 20px;
+			background: url(../../images/selected-g.png) no-repeat left center;
+			background-size: 24px 24px;
+		}
+		.pay-fail{
+			margin: 0 auto;
+			width: 120px;
+			padding: 0 0 0 20px;
+			background: url(../../images/fail-icon.png) no-repeat left center;
+			background-size: 24px 24px;
+		}
+	}
+	.pay-tips{
+		padding: 20px 0;
+
+		p{
+			margin-bottom: 10px;
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+	}
+	.pay-detail{
+		padding: 20px 0;
+		.row{
+			@include line-height(30px);
+			text-align: left;
+		}
+		span{
+			font-weight: bold;
+		}
+	}
+}
+
+.pay-btn{
+	padding: 10px;
+	@include clearfix();
+	font-size: 20px;
+
+	.done-btn{
+		@include button();
+		border-radius: 3px;
+		margin-bottom: 10px;
+		color: #fff;
+	}
+	.continue-button{
+		background: #fff;
+		border: 2px solid $m-color;
+		border-radius: 3px;
+		@include line-height(44px);
+		color: $m-color;
+	}
+}
+
+.coupon-box{
+	margin: 0 30px 50px 30px;
+
+	.coupon-txt{
+		position: relative;
+		top: 0;
+		margin: 10px 0;
+
+		img{
+			border-left: 3px solid #d7d7d7;
+			border-radius: 3px;
+		}
+
+		.c-num, .usable, .c-info{
+			position: absolute;
+		}
+		.c-num{
+			top: 10px;
+			right: 60%;
+
+			span{
+				font-size: 50px;
+				color: $g999;
+			}
+		}
+		.usable{
+			position: absolute;
+			top: 10px;
+			right: 20px;
+		}
+		.c-info{
+			position: absolute;
+			bottom: 10px;
+			right: 20px;
+
+			p{
+				text-align: right;
+				margin: 0;
+			}
+		}
+	}
+	.ac{
+		img{
+			border-left: 3px solid $m-color;
+		}
+
+		.c-num{
+			span{
+				color: $m-color;
+			}
+		}
+		.usable{
+			color: $m-color;
+		}
+	}
+}
+
+.no-cou-tips{
+	@include line-height();
+}
+
+.no-coupon{
+	padding: 50px 20px 20px 20px;
+	@include border-bottom();
+	text-align: center;
+
+	img{
+		width: 20%;
+	}
+	p{
+		color: $g999;
+	}
+}
+
+// 4s
+@media screen and (max-width: 320px){
+.coupon-box{
+
+	.coupon-txt{
+		.c-num{
+			right: 65%;
+			span{
+				font-size: 30px;
+			}
+		}
+	}
+}
+
+}

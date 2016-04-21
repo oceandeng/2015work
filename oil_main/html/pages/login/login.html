@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>登录</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/login/login.css">
+</head>
+<body>
+	<article>
+		<section class="login-icon">
+			<img src="../images/login/login-icon.jpg" alt="">
+		</section>
+		<section class="login-box">
+			<dl class="input-box row">
+				<dt class="span2"><img src="../images/login/user-icon.jpg" alt=""></dt>
+				<dd class="input-c span8"><input type="tel" name="username" id="username" class="input-text" placeholder="请输入手机号" value="" /></dd>
+				<dd class="btn-b span2">&nbsp;</dd>
+
+				<dt class="span2"><img src="../images/login/pass-icon.jpg" alt=""></dt>
+				<dd class="input-c span8"><input type="password" name="password" id="password" class="input-text" placeholder="密码" /></dd>
+				<dd id="passShow" class="btn-b span2"><img src="../images/login/hide-icon.jpg" alt=""></dd>
+			</dl>
+			<div class="login-tool">
+				<span id="remember" class="remember">记住密码</span>
+				<span class="forget" data-href="http://www.baidu.com">忘记密码?</span>
+			</div>
+			<div id="button" class="button">登 录</div>
+		</section>
+	</article>
+
+<script src="scripts/zepto.min.js"></script>
+<script src="scripts/main.min.js"></script>
+
+<script>
+// function ps(){
+// 	if (this.forms.password.type="password"){
+// 		box.innerhtml="<input type="html" name="password" size="20" value="+this.forms.password.value+">";
+// 		click.innerhtml="<a href="javascript:txt()">隐藏密码</a>"
+// 	}
+// }
+// function txt(){
+// 	if (this.forms.password.type="text"){
+// 		box.innerhtml="<input type="password" name="password" size="20" value="+this.forms.password.value+">";
+// 		click.innerhtml="<a href="javascript:ps()">显示密码</a>"
+// 	}
+// }
+</script>
+
+</body>
+</html>

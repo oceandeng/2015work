@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>银行转账</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/account/account.css">
+
+<script>
+    var gConfig = {
+        imgPath: location.origin + '/'
+    }
+</script>
+
+</head>
+<body>
+
+<header></header>
+
+<article>
+	<h2 class="process">账户充值流程</h2>
+	<p class="a-tips">目前，仅支持向车旺对公银行账户转账的方式进行充值，
+点击查看账户信息。</p>
+	<section class="list-box mar10 row">
+		<div class="list-row">
+			<div class="l-l span8"><span>查看车旺对公账户信息</span></div>
+			<div class="l-r span4"><span id="openBtn" class="d-arrow"><b></b></span></div>
+		</div>
+	</section>
+	<section id="cardBox" class="list-box mar0 row" style="border-top: none; display: none;">
+		<div class="list-nh-row">
+			<div class="l-row">
+				<h4>中国建设银行北太平庄支行</h4>
+				<p>11001016500053002112</p>
+			</div>
+		</div>
+		<div class="list-nh-row">
+			<div class="l-row">
+				<h4>中国建设银行北太平庄支行</h4>
+				<p>11001016500053002112</p>
+			</div>
+		</div>
+	</section>
+
+
+	<p class="a-tips mar40">如您完成对以上对公账户转账后，点击下面填写信息，
+等待工作人员完成充值</p>
+	<section class="list-box mar0 row">
+		<div class="list-nh-row">
+			<div class="l-row r-arrow">
+				<h4>填写转账信息</h4>
+				<p class="red">您需要向车旺对公账户转账后使用</p>
+			</div>
+		</div>
+	</section>
+
+</article>
+
+<footer></footer>
+
+<script src="../scripts/zepto.min.js"></script>
+<script src="../scripts/custom.min.js"></script>
+<script src="../scripts/account/account.min.js"></script>
+
+<script>
+	$(function(){
+		$('#openBtn').on(oTools.clickEvent, function(){
+			var $this = $(this),
+				$cardBox = $('#cardBox');
+
+			if($cardBox.css('display') == 'none'){
+				$this.find('b').css({
+					'background': 'url(' + gConfig.imgPath + 'images/u-arrow.png) no-repeat right center',
+					'background-size': '17px 10px'
+				})
+				$cardBox.show();
+			}else{
+				$this.find('b').css({
+					'background': 'url(' + gConfig.imgPath + 'images/d-arrow.png) no-repeat right center',
+					'background-size': '17px 10px'
+				})
+				$cardBox.hide();
+			}
+
+		});
+	})
+</script>
+
+
+</body>
+</html>

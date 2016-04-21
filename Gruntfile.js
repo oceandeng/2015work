@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 
   // Configurable paths
   var config = {
-    app: 'find_redpacket',
+    app: 'oil_main',
     dist: 'dist'
   };
 
@@ -173,7 +173,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/styles',
-          src: ['*.{scss,sass}'],
+          src: ['{,*/}*.{scss,sass}'],
           dest: '.tmp/styles',
           ext: '.css'
         }]
