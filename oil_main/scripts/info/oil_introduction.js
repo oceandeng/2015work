@@ -27,6 +27,5 @@
 	$(function(){
 		var oilIntroduction = new OilIntroduction();
 		window.oilIntroduction = oilIntroduction;
-		
 	});
 })();
