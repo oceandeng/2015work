@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 
   // Configurable paths
   var config = {
-    app: 'song_main',
+    app: 'find_main',
     dist: 'dist'
   };
 
