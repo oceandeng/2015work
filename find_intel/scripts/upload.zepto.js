@@ -1,12 +1,11 @@
 /* 
 * @Author: ocean
 * @Date:   2015-11-19 15:55:56
-* @Last Modified by:   ocean
-* @Last Modified time: 2016-01-22 17:37:25
+* @Last Modified by:   denghaiyang
+* @Last Modified time: 2016-12-20 16:23:33
 */
 
 'use strict';
-
 
 ;(function($){
 
@@ -18,7 +17,7 @@
 			var _this = this;
 
 			this.filterFile = function(file) {       //选择文件的过滤方法
-		        return _this.funFilterEligibleFile(file); 
+		        return _this.funFilterEligibleFile(file);
 		    };
 			/*********************************
 			 * 功能：过滤上传的文件格式等
@@ -26,8 +25,8 @@
 			 **********************************/
 			this.funFilterEligibleFile = function(file){
 				if (file.size >= 51200000) {
-					oTools.alertmess('您这个"'+ file.name +'"文件大小过大');	
-				} 
+					oTools.alertmess('您这个"'+ file.name +'"文件大小过大');
+				}
 				return file;
 			};
 			// 获取文件
